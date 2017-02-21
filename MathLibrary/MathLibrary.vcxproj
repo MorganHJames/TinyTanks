@@ -84,6 +84,9 @@
     <Link>
       <SubSystem>Windows</SubSystem>
     </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>D:\unishit\CT4019 Programming and Mathematics for Games %28Sem1-2 - 201617%29\semester 2\Tiny Tanks\TinyTanks\deps\UoG\lib\vs2015\x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>

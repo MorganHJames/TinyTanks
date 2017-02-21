@@ -10,23 +10,5 @@
 
 namespace Vector2
 {
-	double Vector2::Add(double a, double b)
-	{
-		return a + b;
-	}
 
-	double Vector2::Subtract(double a, double b)
-	{
-		return a - b;
-	}
-
-	double Vector2::Multiply(double a, double b)
-	{
-		return a * b;
-	}
-
-	double Vector2::Divide(double a, double b)
-	{
-		return a / b;
-	}
 }

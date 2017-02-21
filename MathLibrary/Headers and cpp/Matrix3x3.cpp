@@ -10,23 +10,5 @@
 
 namespace Matrix3x3
 {
-	double Matrix3x3::Add(double a, double b)
-	{
-		return a + b;
-	}
 
-	double Matrix3x3::Subtract(double a, double b)
-	{
-		return a - b;
-	}
-
-	double Matrix3x3::Multiply(double a, double b)
-	{
-		return a * b;
-	}
-
-	double Matrix3x3::Divide(double a, double b)
-	{
-		return a / b;
-	}
 }
