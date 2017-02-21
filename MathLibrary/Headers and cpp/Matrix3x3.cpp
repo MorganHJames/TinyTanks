@@ -1,14 +1,9 @@
-////////////////////////////////////////////////////////////
-// File: Spice  Invader
-// Author: Morgan James
-// Date Created: 26th November 2016
-// Brief: A retro 2D arcade game based on Space Invaders
-////////////////////////////////////////////////////////////
+//\===========================================================================================
+//\ File: Matrix3x3.cpp
+//\ Author: Morgan James
+//\ Date Created: 21/02/2017
+//\ Brief: Contains the function information for the class contained in Matrix3x3.h.
+//\===========================================================================================
 
 #include "Matrix3x3.h"
 
-
-namespace Matrix3x3
-{
-
-}

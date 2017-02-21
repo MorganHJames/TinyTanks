@@ -1,30 +1,27 @@
-////////////////////////////////////////////////////////////
-// File: Spice  Invader
-// Author: Morgan James
-// Date Created: 26th November 2016
-// Brief: A retro 2D arcade game based on Space Invaders
-////////////////////////////////////////////////////////////
+//\===========================================================================================
+//\ File: Vector4.h
+//\ Author: Morgan James
+//\ Date Created: 21/02/2017
+//\ Brief: Contains the Vector4 class declarations.
+//\===========================================================================================
 
 #ifndef _VECTOR4_H_
 #define _VECTOR4_H_
 
+//\===========================================================================================
+//\ Author: Morgan James
+//\ Class: Vector4
+//\ Brief: Overloaded operator functions for add, subtract, and multiply by both a scalar 
+//\ value and by a Vector4.
+//\ Constructor to create vector4 from vector 2 & 3.
+//\ Functions to allow for dot product, Cross product, rotation, magnitude, normalisation.
+//\===========================================================================================
 
-namespace Vector4
+class Vector4
 {
-	class Vector4
-	{
-	public:
-		// Returns a + b
-		static double Add(double a, double b);
+public:
 
-		// Returns a - b
-		static double Subtract(double a, double b);
+private:
+};
 
-		// Returns a * b
-		static double Multiply(double a, double b);
-
-		// Returns a / b
-		static double Divide(double a, double b);
-	};
-}
 #endif

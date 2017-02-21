@@ -1,30 +1,28 @@
-////////////////////////////////////////////////////////////
-// File: Spice  Invader
-// Author: Morgan James
-// Date Created: 26th November 2016
-// Brief: A retro 2D arcade game based on Space Invaders
-////////////////////////////////////////////////////////////
+//\===========================================================================================
+//\ File: Matrix4x4.h
+//\ Author: Morgan James
+//\ Date Created: 21/02/2017
+//\ Brief: Contains the Matrix4x4 class declarations.
+//\===========================================================================================
 
 #ifndef _MATRIX4X4_H_
 #define _MATRIX4X4_H_
 
+//\===========================================================================================
+//\ Author: Morgan James
+//\ Class: Matrix4x4
+//\ Brief: Overloaded operator functions for add, subtract, and multiply by both a scalar 
+//\ value, Vector3 and by a Matrix4x4.
+//\ Convert 3x3 Matrix to 4x4 via constructor.
+//\ Functions to rotate around euler axis, inversion, scale, transpose a point, set to 
+//\ identity, set to zero, override access operators to retrieve matrix value at row / column.
+//\===========================================================================================
 
-namespace Matrix4x4
+class Matrix4x4
 {
-	class Matrix4x4
-	{
-	public:
-		// Returns a + b
-		static double Add(double a, double b);
+public:
 
-		// Returns a - b
-		static double Subtract(double a, double b);
+private:
+};
 
-		// Returns a * b
-		static double Multiply(double a, double b);
-
-		// Returns a / b
-		static double Divide(double a, double b);
-	};
-}
 #endif

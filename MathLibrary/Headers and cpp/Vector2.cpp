@@ -1,14 +1,10 @@
-////////////////////////////////////////////////////////////
-// File: Spice  Invader
-// Author: Morgan James
-// Date Created: 26th November 2016
-// Brief: A retro 2D arcade game based on Space Invaders
-////////////////////////////////////////////////////////////
+//\===========================================================================================
+//\ File: Vector2.cpp
+//\ Author: Morgan James
+//\ Date Created: 21/02/2017
+//\ Brief: Contains the function information for the class contained in Vector2.h.
+//\===========================================================================================
+
 
 #include "Vector2.h"
 
-
-namespace Vector2
-{
-
-}

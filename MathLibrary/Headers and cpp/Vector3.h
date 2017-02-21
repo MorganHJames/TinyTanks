@@ -1,30 +1,27 @@
-////////////////////////////////////////////////////////////
-// File: Spice  Invader
-// Author: Morgan James
-// Date Created: 26th November 2016
-// Brief: A retro 2D arcade game based on Space Invaders
-////////////////////////////////////////////////////////////
+//\===========================================================================================
+//\ File: Vector3.h
+//\ Author: Morgan James
+//\ Date Created: 21/02/2017
+//\ Brief: Contains the Vector3 class declarations.
+//\===========================================================================================
 
 #ifndef _VECTOR3_H_
 #define _VECTOR3_H_
 
+//\===========================================================================================
+//\ Author: Morgan James
+//\ Class: Vector3
+//\ Brief: Overloaded operator functions for add, subtract, and multiply by both a scalar 
+//\ value and by a Vector3.
+//\ Constructor to create vector 3 from vector 2.
+//\ Functions to allow for dot product, cross product, rotation, magnitude, normalisation.
+//\===========================================================================================
 
-namespace Vector3
+class Vector3
 {
-	class Vector3
-	{
-	public:
-		// Returns a + b
-		static double Add(double a, double b);
+public:
 
-		// Returns a - b
-		static double Subtract(double a, double b);
+private:
+};
 
-		// Returns a * b
-		static double Multiply(double a, double b);
-
-		// Returns a / b
-		static double Divide(double a, double b);
-	};
-}
 #endif

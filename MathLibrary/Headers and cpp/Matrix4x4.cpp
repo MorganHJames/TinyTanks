@@ -1,32 +1,10 @@
-////////////////////////////////////////////////////////////
-// File: Spice  Invader
-// Author: Morgan James
-// Date Created: 26th November 2016
-// Brief: A retro 2D arcade game based on Space Invaders
-////////////////////////////////////////////////////////////
+//\===========================================================================================
+//\ File: Matrix4x4.cpp
+//\ Author: Morgan James
+//\ Date Created: 21/02/2017
+//\ Brief: Contains the function information for the class contained in Matrix4x4.h.
+//\===========================================================================================
 
 #include "Matrix4x4.h"
 
 
-namespace Matrix4x4
-{
-	double Matrix4x4::Add(double a, double b)
-	{
-		return a + b;
-	}
-
-	double Matrix4x4::Subtract(double a, double b)
-	{
-		return a - b;
-	}
-
-	double Matrix4x4::Multiply(double a, double b)
-	{
-		return a * b;
-	}
-
-	double Matrix4x4::Divide(double a, double b)
-	{
-		return a / b;
-	}
-}

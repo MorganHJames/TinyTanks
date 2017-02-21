@@ -1,30 +1,26 @@
-////////////////////////////////////////////////////////////
-// File: Spice  Invader
-// Author: Morgan James
-// Date Created: 26th November 2016
-// Brief: A retro 2D arcade game based on Space Invaders
-////////////////////////////////////////////////////////////
+//\===========================================================================================
+//\ File: MathUtil.h
+//\ Author: Morgan James
+//\ Date Created: 21/02/2017
+//\ Brief: Contains the MathUtil class declarations.
+//\===========================================================================================
 
 #ifndef _MATHUTIL_H_
 #define _MATHUTIL_H_
 
+//\===========================================================================================
+//\ Author: Morgan James
+//\ Class: MathUtil
+//\ Brief: Multiple #defines for constants E.G. PI, 2PI, HALF_PI.
+//\ Functions to test for collisions E.G.RayPointIntersection testing, AABB testing,
+//\ Functions for Min / Max value, Clamp, Lerp, Slerp, SmoothStep etc.
+//\===========================================================================================
 
-namespace MathUtil
+class MathUtil
 {
-	class MathUtil
-	{
-	public:
-		// Returns a + b
-		static double Add(double a, double b);
+public:
 
-		// Returns a - b
-		static double Subtract(double a, double b);
+private:
+};
 
-		// Returns a * b
-		static double Multiply(double a, double b);
-
-		// Returns a / b
-		static double Divide(double a, double b);
-	};
-}
 #endif
