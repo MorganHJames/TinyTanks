@@ -54,78 +54,109 @@ void Vector2::setfY(const float &a_fY)//A setter to set the y part of Vector2 to
 
 Vector2 Vector2::operator+(const float &a_fScalar)//Overloaded addition operation for Vector2.
 {
-	return Vector2(fX + a_fScalar, fY + a_fScalar);//Returns x + number, y + number.
+	return Vector2(
+		fX + a_fScalar,
+		fY + a_fScalar);//Returns x + number, y + number.
 }
 
 Vector2 Vector2::operator+(const Vector2 &a_vVector2)//Overloaded addition operation for Vector2.
 {
-	return Vector2(fX + a_vVector2.fX, fY + a_vVector2.fY);//Returns Ax + Bx, Ay + By.
+	return Vector2(
+		fX + a_vVector2.fX,
+		fY + a_vVector2.fY);//Returns Ax + Bx, Ay + By.
 }
 
 Vector2 Vector2::operator-(const float &a_fScalar)//Overloaded subtraction operation for Vector2.
 {
-	return Vector2(fX - a_fScalar, fY - a_fScalar);//Returns x - number, y - number.
+	return Vector2(
+		fX - a_fScalar,
+		fY - a_fScalar);//Returns x - number, y - number.
 }
 
 Vector2 Vector2::operator-(const Vector2 &a_vVector2)//Overloaded subtraction operation for Vector2.
 {
-	return Vector2(fX - a_vVector2.fX, fY - a_vVector2.fY);//Returns Ax - Bx, Ay - By.
+	return Vector2(
+		fX - a_vVector2.fX,
+		fY - a_vVector2.fY);//Returns Ax - Bx, Ay - By.
 }
 
 Vector2 Vector2::operator*(const float &a_fScalar)//Overloaded multiplication operation for Vector2.
 {
-	return Vector2(fX * a_fScalar, fY * a_fScalar);//Returns x * number, y * number.
+	return Vector2(
+		fX * a_fScalar,
+		fY * a_fScalar);//Returns x * number, y * number.
 }
 
-Vector2 Vector2::operator*(const Vector2 &a_vVector2) //Overloaded multiplication operation for Vector2.
+Vector2 Vector2::operator*(const Vector2 &a_vVector2)//Overloaded multiplication operation for Vector2.
 {
-	return Vector2(fX * a_vVector2.fX, fY * a_vVector2.fY);//Returns Ax * Bx, Ay * By.
+	return Vector2(
+		fX * a_vVector2.fX,
+		fY * a_vVector2.fY);//Returns Ax * Bx, Ay * By.
 }
 
 Vector2 Vector2::operator/(const float &a_fScalar)//Overloaded division operation for Vector2.
 {
-	return Vector2(fX / a_fScalar, fY / a_fScalar);//Returns x / number, y / number.
+	float fMulti = 1 / a_fScalar;//Allows for multiplication rather than division.
+	return Vector2(
+		fX * fMulti,
+		fY * fMulti);//Returns x * 1 / number, y * 1 / number.
 }
 
-Vector2 Vector2::operator/(const Vector2 &a_vVector2) //Overloaded division operation for Vector2.
+Vector2 Vector2::operator/(const Vector2 &a_vVector2)//Overloaded division operation for Vector2.
 {
-	return Vector2(fX / a_vVector2.fX, fY / a_vVector2.fY);//Returns Ax / Bx, Ay / By.
+	return Vector2(
+		fX / a_vVector2.fX,
+		fY / a_vVector2.fY);//Returns Ax / Bx, Ay / By.
 }
 
-Vector2 Vector2::operator!=(const float &a_fScalar)//Overloaded not equals operation for Vector2.
+bool Vector2::operator!=(const float &a_fScalar)//Overloaded not equals operation for Vector2.
 {
-	return Vector2(fX != a_fScalar, fY != a_fScalar);//Returns x != number, y != number.
+	return bool(fX != a_fScalar || fY != a_fScalar);//Returns x != number && y != number.
 }
 
-Vector2 Vector2::operator!=(const Vector2 &a_vVector2) //Overloaded not equals operation for Vector2.
+bool Vector2::operator!=(const Vector2 &a_vVector2)//Overloaded not equals operation for Vector2.
 {
-	return Vector2(fX != a_vVector2.fX, fY != a_vVector2.fY);//Returns Ax != Bx, Ay != By.
+	return bool(fX != a_vVector2.fX || fY != a_vVector2.fY);//Returns Ax != Bx && Ay != By.
 }
 
-Vector2 Vector2::operator==(const float &a_fScalar)//Overloaded is equals operation for Vector2.
+bool Vector2::operator==(const float &a_fScalar)//Overloaded is equals operation for Vector2.
 {
-	return Vector2(fX == a_fScalar, fY == a_fScalar);//Returns x == number, y == number.
+	return bool(fX == a_fScalar && fY == a_fScalar);//Returns x == number && y == number.
 }
 
-Vector2 Vector2::operator==(const Vector2 &a_vVector2) //Overloaded is equals operation for Vector2.
+bool Vector2::operator==(const Vector2 &a_vVector2)//Overloaded is equals operation for Vector2.
 {
-	return Vector2(fX == a_vVector2.fX, fY == a_vVector2.fY);//Returns Ax == Bx , Ay == By.
+	return bool(fX == a_vVector2.fX && fY == a_vVector2.fY);//Returns Ax == Bx && Ay == By.
+}
+
+Vector2 Vector2::operator=(const float &a_fScalar)//Overloaded equals operation for Vector2.
+{
+	return Vector2(
+		fX = a_fScalar
+		, fY = a_fScalar);//Returns x = number, y = number.
+}
+
+Vector2 Vector2::operator=(const Vector2 &a_vVector2)//Overloaded equals operation for Vector2.
+{
+	return Vector2(
+		fX = a_vVector2.fX,
+		fY = a_vVector2.fY);//Returns Ax = Bx, Ay = By.
 }
 
 //\===========================================================================================
-//\ Length
+//\ Magnitude
 //\===========================================================================================
 
-float Vector2::length()//A function that returns the length of the vector as a float.
+float Vector2::magnitude()//A magnitude function that returns a float.
 {
-	return sqrt(fX * fX + fY * fY);//Returns the square root of ( x^2 + y^2 ).
+	return sqrtf(fX * fX + fY * fY);//Returns the square root of x^2 + y^2.
 }
 
 //\===========================================================================================
 //\ Squared Length
 //\===========================================================================================
 
-float Vector2::squaredLength()//A function that returns the length squared of the vector as a float.
+float Vector2::squaredMagnitude()//A function that returns the length squared of the vector as a float.
 {
 	return (fX * fX + fY * fY);//Returns ( x^2 + y^2 ).
 }
@@ -136,16 +167,16 @@ float Vector2::squaredLength()//A function that returns the length squared of th
 
 float Vector2::distance(const Vector2 &a_vVector2)//Returns the distance from this Vector2 and the passed in argument.
 {
-	return sqrt(((fX - a_vVector2.fX) * (fX - a_vVector2.fX)) + ((fY - a_vVector2.fY) * (fY - a_vVector2.fY)));//Returns the square root of ( Ax - Bx )^2 + ( Ay - By )^2.
+	return (*this - a_vVector2).magnitude();//Returns the square root of ( Ax - Bx )^2 + ( Ay - By )^2.
 }
 
 //\===========================================================================================
 //\ Squared Distance Between this Vector2 and another Vector2
 //\===========================================================================================
 
-float Vector2::distance(const Vector2 &a_vVector2)//Returns the squared distance from this Vector2 and the passed in argument.
+float Vector2::squaredDistance(const Vector2 &a_vVector2)//Returns the squared distance from this Vector2 and the passed in argument.
 {
-	return ((fX - a_vVector2.fX) * (fX - a_vVector2.fX)) + ((fY - a_vVector2.fY) * (fY - a_vVector2.fY));//Returns ( Ax - Bx )^2 + ( Ay - By )^2.
+	return (*this - a_vVector2).squaredMagnitude();//Returns ( Ax - Bx )^2 + ( Ay - By )^2.
 }
 
 //\===========================================================================================
@@ -172,12 +203,16 @@ float Vector2::crossProduct(const Vector2 &a_vVector2)//A dot product function t
 
 Vector2 Vector2::perpendicularClockwise()//A perpendicularClockwise function for this Vector2.
 {
-	return Vector2(-fY, fX);//Returns -y, x.
+	return Vector2(
+		-fY,
+		fX);//Returns -y, x.
 }
 
 Vector2 Vector2::perpendicularCounterClockwise()//A perpendicularCounterClockwise function for this Vector2.
 {
-	return Vector2(fY, -fX);//Returns y, -x.
+	return Vector2(
+		fY,
+		-fX);//Returns y, -x.
 }
 
 //\===========================================================================================
@@ -186,29 +221,21 @@ Vector2 Vector2::perpendicularCounterClockwise()//A perpendicularCounterClockwis
 
 void Vector2::rotate(const float fAngle)//A Rotate function that takes in an angle in float format.
 {
-	float fXTemp = (fX * cosf(fAngle)) - (fY * sinf(fAngle));//Creates a temporary float equal to the rotated version of that number.
-	float fYTemp = (fX * sinf(fAngle)) + (fY * cosf(fAngle));//Creates a temporary float equal to the rotated version of that number.
-	fX = fXTemp;//Assigns Vector2's X to the temporary X.
-	fY = fYTemp;//Assigns Vector2's Y to the temporary Y.
-}
-
-//\===========================================================================================
-//\ Magnitude
-//\===========================================================================================
-
-float Vector2::magnitude()//A magnitude function that returns a float.
-{
-	return sqrtf(fX * fX + fY * fY)//Returns the square root of x^2 + y^2.
+	float fXTemp = fX;//A temporary value for x as it will change after assignment.
+	fX = (fX * cosf(fAngle)) - (fY * sinf(fAngle));//Assigns the x value to x * cos(number) - y * sin(number).
+	fY = (fXTemp * sinf(fAngle)) + (fY * cosf(fAngle));//Assigns the y value to x * sin(number) + y * cos(number).
 }
 
 //\===========================================================================================
 //\ Normalisation
 //\===========================================================================================
 
-void Vector2::normalise()//A normalisation function that sets the fX and fY of Vector2 to a normalised version.
+Vector2 Vector2::normalise()//A normalisation function that sets the fX and fY of Vector2 to a normalised version.
 {
-	fX = fX / magnitude();//Sets the fX of Vector2 to the fX of Vector2 divided by Vector2's magnitude.
-	fY = fY / magnitude();//Sets the fY of Vector2 to the fY of Vector2 divided by Vector2's magnitude.
+	float fMulti = 1 / magnitude();//Allows for multiplication rather than division.
+	fX *= fMulti;//Sets the fX of Vector2 to the fX of Vector2 divided by Vector2's magnitude.
+	fY *= fMulti;//Sets the fY of Vector2 to the fY of Vector2 divided by Vector2's magnitude.
+	return Vector2(*this);//Returns a normalised version of this vector.
 }
 
 //\===========================================================================================
@@ -217,5 +244,7 @@ void Vector2::normalise()//A normalisation function that sets the fX and fY of V
 
 Vector2 Vector2::unit()//A function that returns a unit vector created from this vector.
 {
-	return (fX / magnitude() , fY / magnitude());//Returns a normalised version of this Vector2.
+	Vector2 vTemp = *this;//Creates a temporary vector equal to the current Vector 2.
+	vTemp.normalise();//Normalises the temporary vector.
+	return (vTemp);//Returns a copy of a normalised version of this Vector2.
 }

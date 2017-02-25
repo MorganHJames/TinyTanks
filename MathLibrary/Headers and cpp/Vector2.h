@@ -70,25 +70,29 @@ public:
 
 	Vector2 operator/(const Vector2 &a_vVector2);//Overloaded division operation for Vector2.
 
-	Vector2 operator!=(const float &a_fScalar);//Overloaded not equals operation for Vector2.
+	bool operator!=(const float &a_fScalar);//Overloaded not equals operation for Vector2.
 
-	Vector2 operator!=(const Vector2 &a_vVector2);//Overloaded not equals operation for Vector2.
+	bool operator!=(const Vector2 &a_vVector2);//Overloaded not equals operation for Vector2.
 
-	Vector2 operator==(const float &a_fScalar);//Overloaded is equals operation for Vector2.
+	bool operator==(const float &a_fScalar);//Overloaded is equals operation for Vector2.
 
-	Vector2 operator==(const Vector2 &a_vVector2);//Overloaded is equals operation for Vector2.
-	
+	bool operator==(const Vector2 &a_vVector2);//Overloaded is equals operation for Vector2.
+
+	Vector2 operator=(const float &a_fScalar);//Overloaded equals operation for Vector2.
+
+	Vector2 operator=(const Vector2 &a_vVector2);//Overloaded equals operation for Vector2.
+
+    //\===========================================================================================
+    //\ Magnitude
+    //\===========================================================================================
+
+	float magnitude();//A magnitude function that returns a float.
+
 	//\===========================================================================================
-	//\ Length
-	//\===========================================================================================
-	
-	float length();//A function that returns the length of the vector as a float.
-
-	//\===========================================================================================
-	//\ Squared Length
+	//\ Squared Magnitude
 	//\===========================================================================================
 
-	float squaredLength();//A function that returns the length squared of the vector as a float.
+	float squaredMagnitude();//A function that returns the Magnitude squared of the vector as a float.
 
 	//\===========================================================================================
 	//\ Distance Between this vector2 and another vector2
@@ -100,7 +104,7 @@ public:
 	//\ Squared Distance Between this vector2 and another vector2
 	//\===========================================================================================
 
-	float distance(const Vector2 &a_vVector2);//Returns the squared distance from this vector2 and the passed in argument.
+	float squaredDistance(const Vector2 &a_vVector2);//Returns the squared distance from this vector2 and the passed in argument.
 
 	//\===========================================================================================
 	//\ Dot Product
@@ -129,16 +133,10 @@ public:
 	void rotate(const float fAngle);//A Rotate function that takes in an angle in float format.
 
 	//\===========================================================================================
-	//\ Magnitude
-	//\===========================================================================================
-
-	float magnitude();//A magnitude function that returns a float.
-
-	//\===========================================================================================
 	//\ Normalisation
 	//\===========================================================================================
 
-	void normalise();//A normalisation function that sets the fX and fY of Vector2 to a normalised version.
+	Vector2 normalise();//A normalisation function that sets the fX and fY of Vector2 to a normalised version.
 		
 	//\===========================================================================================
 	//\ Return A Unit Vector

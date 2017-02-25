@@ -75,17 +75,45 @@ public:
 
 	Vector3 operator*(const Vector3 &a_vVector3);//Overloaded multiplication operation for Vector3.
 
-	Vector2 operator/(const float &a_fScalar);//Overloaded division operation for Vector2.
+	Vector3 operator/(const float &a_fScalar);//Overloaded division operation for Vector3.
 
-	Vector2 operator/(const Vector2 &a_vVector2);//Overloaded division operation for Vector2.
+	Vector3 operator/(const Vector3 &a_vVector3);//Overloaded division operation for Vector3.
 
-	Vector2 operator!=(const float &a_fScalar);//Overloaded not equals operation for Vector2.
+	bool operator!=(const float &a_fScalar);//Overloaded not equals operation for Vector3.
 
-	Vector2 operator!=(const Vector2 &a_vVector2);//Overloaded not equals operation for Vector2.
+	bool operator!=(const Vector3 &a_vVector3);//Overloaded not equals operation for Vector3.
+	
+	bool operator==(const float &a_fScalar);//Overloaded is equals operation for Vector3.
 
-	Vector2 operator==(const float &a_fScalar);//Overloaded is equals operation for Vector2.
+	bool operator==(const Vector3 &a_vVector3);//Overloaded is equals operation for Vector3.
 
-	Vector2 operator==(const Vector2 &a_vVector2);//Overloaded is equals operation for Vector2.
+	Vector3 operator=(const float &a_fScalar);//Overloaded equals operation for Vector3.
+
+	Vector3 operator=(const Vector3 &a_vVector3);//Overloaded equals operation for Vector3.
+
+    //\===========================================================================================
+	//\ Magnitude
+	//\===========================================================================================
+
+	float magnitude();//A magnitude function that returns a float.
+
+    //\===========================================================================================
+	//\ Squared Magnitude
+	//\===========================================================================================
+
+	float squaredMagnitude();//A function that returns the Magnitude squared of the vector as a float.
+
+    //\===========================================================================================
+	//\ Distance Between this Vector3 and another Vector3
+	//\===========================================================================================
+
+	float distance(const Vector3 &a_vVector3);//Returns the distance from this Vector3 and the passed in argument.
+
+	//\===========================================================================================
+	//\ Squared Distance Between this Vector3 and another Vector3
+	//\===========================================================================================
+
+	float squaredDistance(const Vector3 &a_vVector3);//Returns the squared distance from this Vector3 and the passed in argument.
 
 	//\===========================================================================================
     //\ Dot Product
@@ -103,19 +131,17 @@ public:
 	//\ Rotation
 	//\===========================================================================================
 
-	void rotate(const float fAngle);//A Rotate function that takes in an angle in float format.
+	void rotateZ(const float fAngle);//A Rotate function that takes in an angle in float format.
 
-	//\===========================================================================================
-    //\ Magnitude
-    //\===========================================================================================
+	void rotateX(const float fAngle);//A Rotate function that takes in an angle in float format.
 
-	float magnitude();//A magnitude function that returns a float.
+	void rotateY(const float fAngle);//A Rotate function that takes in an angle in float format.
 
 	//\===========================================================================================
 	//\ Normalisation
 	//\===========================================================================================
 
-	void normalise();//A normalisation function that sets the fX and fY of Vector3 to a normalised version.
+	Vector3 normalise();//A normalisation function that sets the fX and fY of Vector3 to a normalised version.
 
     //\===========================================================================================
 	//\ Return A Unit Vector
