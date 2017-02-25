@@ -8,6 +8,8 @@
 #ifndef _VECTOR3_H_
 #define _VECTOR3_H_
 
+#include "Vector2.h"
+
 //\===========================================================================================
 //\ Author: Morgan James
 //\ Class: Vector3
@@ -19,18 +21,43 @@
 
 class Vector3
 {
+private:
+	//\===========================================================================================
+	//\ Variables
+	//\===========================================================================================
+
+	float fX, fY, fZ;//Three float variables created.
+
 public:
 	//\===========================================================================================
 	//\ Constructor
 	//\===========================================================================================
 
-	Vector3(float a_fX = 0, float a_fY = 0);//Constructor.
+	Vector3();//Constructor default that sets all variables to 0.
+
+	Vector3(float a_fX = 0, float a_fY = 0, float a_fZ = 0);//Constructor with three scalar values.
+
+	Vector3(Vector2 &a_vVector2, float a_fZ = 0);//Constructor with a Vector2 and a scalar value.
 
 	//\===========================================================================================
-	//\ Destructor
-    //\===========================================================================================
+	//\ Getters
+	//\===========================================================================================
 
-	~Vector3();
+	float getfX();//A getter to get the x part of vector3.
+
+	float getfY();//A getter to get the y part of vector3.
+
+	float getfZ();//A getter to get the z part of vector3.
+
+	//\===========================================================================================
+	//\ Setters
+	//\===========================================================================================
+
+	void setfX(float a_fX);//A setter to set the x part of vector3 to the passed in argument.
+
+	void setfY(float a_fY);//A setter to set the y part of vector3 to the passed in argument.
+
+	void setfZ(float a_fZ);//A setter to set the z part of vector3 to the passed in argument.
 
 	//\===========================================================================================
 	//\ Operation Overloads
@@ -48,6 +75,18 @@ public:
 
 	Vector3 operator*(const Vector3 &a_vVector3);//Overloaded multiplication operation for Vector3.
 
+	Vector2 operator/(const float &a_fScalar);//Overloaded division operation for Vector2.
+
+	Vector2 operator/(const Vector2 &a_vVector2);//Overloaded division operation for Vector2.
+
+	Vector2 operator!=(const float &a_fScalar);//Overloaded not equals operation for Vector2.
+
+	Vector2 operator!=(const Vector2 &a_vVector2);//Overloaded not equals operation for Vector2.
+
+	Vector2 operator==(const float &a_fScalar);//Overloaded is equals operation for Vector2.
+
+	Vector2 operator==(const Vector2 &a_vVector2);//Overloaded is equals operation for Vector2.
+
 	//\===========================================================================================
     //\ Dot Product
 	//\===========================================================================================
@@ -55,12 +94,10 @@ public:
 	float dotProduct(const Vector3 &a_vVector3);//A dot product function that takes in a Vector3.
 
 	//\===========================================================================================
-	//\ Perpendicular
+	//\ Cross Product
 	//\===========================================================================================
 
-	Vector3 perpendicularClockwise(const Vector3 &a_vVector3);//A perpendicularClockwise function that takes in a Vector3 .
-
-	Vector3 perpendicularCounterClockwise(const Vector3 &a_vVector3);//A perpendicularCounterClockwise function that takes in a Vector3 .
+	Vector3 crossProduct(const Vector3 &a_vVector3);//A cross product function that takes in a Vector3 .
 
 	//\===========================================================================================
 	//\ Rotation
@@ -80,9 +117,11 @@ public:
 
 	void normalise();//A normalisation function that sets the fX and fY of Vector3 to a normalised version.
 
-private:
-	float fX, fY, fZ;//Coordinate storage.
-private:
+    //\===========================================================================================
+	//\ Return A Unit Vector
+	//\===========================================================================================
+
+	Vector3 unit();//A function that returns a unit vector created from this vector.
 };
 
 #endif
