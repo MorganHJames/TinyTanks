@@ -13,6 +13,8 @@
 //\ Constructor
 //\===========================================================================================
 
+Vector3::Vector3() {};//Constructor default that sets all variables to 0.
+
 Vector3::Vector3(float a_fX = 0, float a_fY = 0, float a_fZ = 0)//Constructor with three scalar values.
 {
 	fX = a_fX;//Sets the x value of the vector3 to the first argument passed in on Creation.
