@@ -9,4 +9,9 @@
 #include <iostream>
 #include <Vector2.h>
 
-int main() {}
+int main()
+{
+	double pi = acos(-1);
+	std::cout << pi;
+	system("pause");
+}

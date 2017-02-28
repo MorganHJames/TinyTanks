@@ -5,8 +5,8 @@
 //\ Brief: Contains the Vector3 class declarations.
 //\===========================================================================================
 
-#ifndef _VECTOR3_H_
-#define _VECTOR3_H_
+#ifndef _Vector3_H_
+#define _Vector3_H_
 
 #include "Vector2.h"
 
@@ -23,7 +23,7 @@ class Vector3
 {
 private:
 	//\===========================================================================================
-	//\ Variables
+	//\ Member Variables
 	//\===========================================================================================
 
 	float fX, fY, fZ;//Three float variables created.
@@ -35,119 +35,120 @@ public:
 
 	Vector3();//Constructor default that sets all variables to 0.
 
-	Vector3(float a_fX = 0, float a_fY = 0, float a_fZ = 0);//Constructor with three scalar values.
+	Vector3(const float a_c_fX = 0, float a_c_fY = 0, float a_c_fZ = 0);//Constructor with three scalar values.
 
-	Vector3(Vector2 &a_vVector2, float a_fZ = 0);//Constructor with a Vector2 and a scalar value.
+	Vector3(Vector2 &a_vVector2, const float a_c_fZ = 0);//Constructor with a Vector2 and a scalar value.
 
 	//\===========================================================================================
 	//\ Getters
 	//\===========================================================================================
 
-	float getfX();//A getter to get the x part of vector3.
+	float getfX()const;//A getter to get the x part of Vector3.
 
-	float getfY();//A getter to get the y part of vector3.
+	float getfY()const;//A getter to get the y part of Vector3.
 
-	float getfZ();//A getter to get the z part of vector3.
+	float getfZ()const;//A getter to get the z part of Vector3.
 
 	//\===========================================================================================
 	//\ Setters
 	//\===========================================================================================
 
-	void setfX(float a_fX);//A setter to set the x part of vector3 to the passed in argument.
+	void setfX(const float a_c_fX);//A setter to set the x part of Vector3 to the passed in argument.
 
-	void setfY(float a_fY);//A setter to set the y part of vector3 to the passed in argument.
+	void setfY(const float a_c_fY);//A setter to set the y part of Vector3 to the passed in argument.
 
-	void setfZ(float a_fZ);//A setter to set the z part of vector3 to the passed in argument.
+	void setfZ(const float a_c_fZ);//A setter to set the z part of Vector3 to the passed in argument.
 
 	//\===========================================================================================
 	//\ Operation Overloads
 	//\===========================================================================================
 
-	Vector3 operator+(const float &a_fScalar);//Overloaded addition operation for Vector3.
+	Vector3 operator+(const float &a_c_fScalar)const;//Overloaded addition operation for Vector3.
 
-	Vector3 operator+(const Vector3 &a_vVector3);//Overloaded addition operation for Vector3.
+	Vector3 operator+(const Vector3 &a_c_vVector3)const;//Overloaded addition operation for Vector3.
 
-	Vector3 operator-(const float &a_fScalar);//Overloaded subtraction operation for Vector3.
+	Vector3 operator-(const float &a_c_fScalar)const;//Overloaded subtraction operation for Vector3.
 
-	Vector3 operator-(const Vector3 &a_vVector3);//Overloaded subtraction operation for Vector3.
+	Vector3 operator-(const Vector3 &a_c_vVector3)const;//Overloaded subtraction operation for Vector3.
 
-	Vector3 operator*(const float &a_fScalar);//Overloaded multiplication operation for Vector3.
+	Vector3 operator*(const float &a_c_fScalar)const;//Overloaded multiplication operation for Vector3.
 
-	Vector3 operator*(const Vector3 &a_vVector3);//Overloaded multiplication operation for Vector3.
+	Vector3 operator*(const Vector3 &a_c_vVector3)const;//Overloaded multiplication operation for Vector3.
 
-	Vector3 operator/(const float &a_fScalar);//Overloaded division operation for Vector3.
+	Vector3 operator/(const float &a_c_fScalar)const;//Overloaded division operation for Vector3.
 
-	Vector3 operator/(const Vector3 &a_vVector3);//Overloaded division operation for Vector3.
+	Vector3 operator/(const Vector3 &a_c_vVector3)const;//Overloaded division operation for Vector3.
 
-	bool operator!=(const float &a_fScalar);//Overloaded not equals operation for Vector3.
+	bool operator!=(const float &a_c_fScalar)const;//Overloaded not equals operation for Vector3.
 
-	bool operator!=(const Vector3 &a_vVector3);//Overloaded not equals operation for Vector3.
+	bool operator!=(const Vector3 &a_c_vVector3)const;//Overloaded not equals operation for Vector3.
 	
-	bool operator==(const float &a_fScalar);//Overloaded is equals operation for Vector3.
+	bool operator==(const float &a_c_fScalar)const;//Overloaded is equals operation for Vector3.
 
-	bool operator==(const Vector3 &a_vVector3);//Overloaded is equals operation for Vector3.
+	bool operator==(const Vector3 &a_c_vVector3)const;//Overloaded is equals operation for Vector3.
 
-	Vector3 operator=(const float &a_fScalar);//Overloaded equals operation for Vector3.
+	Vector3 operator=(const float &a_c_fScalar);//Overloaded equals operation for Vector3.
 
-	Vector3 operator=(const Vector3 &a_vVector3);//Overloaded equals operation for Vector3.
+	Vector3 operator=(const Vector3 &a_c_vVector3);//Overloaded equals operation for Vector3.
 
-    //\===========================================================================================
+	//\===========================================================================================
 	//\ Magnitude
 	//\===========================================================================================
 
-	float magnitude();//A magnitude function that returns a float.
+	float magnitude()const;//A magnitude function that returns a float.
 
-    //\===========================================================================================
+	//\===========================================================================================
 	//\ Squared Magnitude
 	//\===========================================================================================
 
-	float squaredMagnitude();//A function that returns the Magnitude squared of the vector as a float.
+	float squaredMagnitude()const;//A function that returns the Magnitude squared of the vector as a float.
 
-    //\===========================================================================================
+	//\===========================================================================================
 	//\ Distance Between this Vector3 and another Vector3
 	//\===========================================================================================
 
-	float distance(const Vector3 &a_vVector3);//Returns the distance from this Vector3 and the passed in argument.
+	float distance(const Vector3 &a_c_vVector3)const;//Returns the distance from this Vector3 and the passed in argument.
 
 	//\===========================================================================================
 	//\ Squared Distance Between this Vector3 and another Vector3
 	//\===========================================================================================
 
-	float squaredDistance(const Vector3 &a_vVector3);//Returns the squared distance from this Vector3 and the passed in argument.
+	float squaredDistance(const Vector3 &a_c_vVector3)const;//Returns the squared distance from this Vector3 and the passed in argument.
 
 	//\===========================================================================================
-    //\ Dot Product
+	//\ Dot Product
 	//\===========================================================================================
 
-	float dotProduct(const Vector3 &a_vVector3);//A dot product function that takes in a Vector3.
+	float dotProduct(const Vector3 &a_c_vVector3)const;//A dot product function that takes in a Vector3.
 
 	//\===========================================================================================
 	//\ Cross Product
 	//\===========================================================================================
 
-	Vector3 crossProduct(const Vector3 &a_vVector3);//A cross product function that takes in a Vector3 .
+	Vector3 crossProduct(const Vector3 &a_c_vVector3)const;//A cross product function that takes in a Vector3 .
 
 	//\===========================================================================================
 	//\ Rotation
 	//\===========================================================================================
 
-	void rotateZ(const float fAngle);//A Rotate function that takes in an angle in float format.
+	void rotateZ(const float a_c_fDegAngle);//A Rotate function that takes in an angle in float format.
 
-	void rotateX(const float fAngle);//A Rotate function that takes in an angle in float format.
+	void rotateX(const float a_c_fDegAngle);//A Rotate function that takes in an angle in float format.
 
-	void rotateY(const float fAngle);//A Rotate function that takes in an angle in float format.
+	void rotateY(const float a_c_fDegAngle);//A Rotate function that takes in an angle in float format.
 
 	//\===========================================================================================
 	//\ Normalisation
 	//\===========================================================================================
 
-	Vector3 normalise();//A normalisation function that sets the fX and fY of Vector3 to a normalised version.
+	Vector3 normalise();//A normalisation function that sets the fX, fY and fZ of Vector3 to a normalised version.
 
-    //\===========================================================================================
+	//\===========================================================================================
 	//\ Return A Unit Vector
 	//\===========================================================================================
 
-	Vector3 unit();//A function that returns a unit vector created from this vector.
+	Vector3 unit()const;//A function that returns a unit vector created from this vector.
+
 };
 
 #endif

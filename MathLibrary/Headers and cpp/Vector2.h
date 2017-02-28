@@ -5,8 +5,12 @@
 //\ Brief: Contains the Vector2 class declarations.
 //\===========================================================================================
 
-#ifndef _VECTOR2_H_
-#define _VECTOR2_H_
+#ifndef _Vector2_H_
+#define _Vector2_H_
+
+#include <cmath>
+#include <cstring>
+#include "MathUtil.h"
 
 //\===========================================================================================
 //\ Author: Morgan James
@@ -20,7 +24,7 @@ class Vector2
 {
 private:
 	//\===========================================================================================
-	//\ Variables
+	//\ Member Variables
 	//\===========================================================================================
 
 	float fX, fY;//Two float variables created.
@@ -32,105 +36,105 @@ public:
 
 	Vector2();//A default constructor that initialises X and Y to 0.
 
-	Vector2(float a_fX = 0, float a_fY = 0);//Constructor.
+	Vector2(const float a_c_fX = 0, float a_c_fY = 0);//Constructor.
 
 	//\===========================================================================================
 	//\ Getters
 	//\===========================================================================================
 
-	float getfX();//A getter to get the x part of vector2.
+	float getfX()const;//A getter to get the x part of Vector2.
 
-	float getfY();//A getter to get the y part of vector2.
+	float getfY()const;//A getter to get the y part of Vector2.
 
 	//\===========================================================================================
 	//\ Setters
 	//\===========================================================================================
 
-	void setfX(const float &a_fX);//A setter to set the x part of vector2 to the passed in argument.
+	void setfX(const float &a_c_fX);//A setter to set the x part of Vector2 to the passed in argument.
 
-	void setfY(const float &a_fY);//A setter to set the y part of vector2 to the passed in argument.
+	void setfY(const float &a_c_fY);//A setter to set the y part of Vector2 to the passed in argument.
 
 	//\===========================================================================================
 	//\ Operation Overloads
 	//\===========================================================================================
 
-	Vector2 operator+(const float &a_fScalar);//Overloaded addition operation for Vector2.
+	Vector2 operator+(const float &a_c_fScalar)const;//Overloaded addition operation for Vector2.
 
-	Vector2 operator+(const Vector2 &a_vVector2);//Overloaded addition operation for Vector2.
+	Vector2 operator+(const Vector2 &a_c_vVector2)const;//Overloaded addition operation for Vector2.
 
-	Vector2 operator-(const float &a_fScalar);//Overloaded subtraction operation for Vector2.
+	Vector2 operator-(const float &a_c_fScalar)const;//Overloaded subtraction operation for Vector2.
 	
-	Vector2 operator-(const Vector2 &a_vVector2);//Overloaded subtraction operation for Vector2.
+	Vector2 operator-(const Vector2 &a_c_vVector2)const;//Overloaded subtraction operation for Vector2.
 
-	Vector2 operator*(const float &a_fScalar);//Overloaded multiplication operation for Vector2.
+	Vector2 operator*(const float &a_c_fScalar)const;//Overloaded multiplication operation for Vector2.
 
-	Vector2 operator*(const Vector2 &a_vVector2);//Overloaded multiplication operation for Vector2.
+	Vector2 operator*(const Vector2 &a_c_vVector2)const;//Overloaded multiplication operation for Vector2.
 	
-	Vector2 operator/(const float &a_fScalar);//Overloaded division operation for Vector2.
+	Vector2 operator/(const float &a_c_fScalar)const;//Overloaded division operation for Vector2.
 
-	Vector2 operator/(const Vector2 &a_vVector2);//Overloaded division operation for Vector2.
+	Vector2 operator/(const Vector2 &a_c_vVector2)const;//Overloaded division operation for Vector2.
 
-	bool operator!=(const float &a_fScalar);//Overloaded not equals operation for Vector2.
+	bool operator!=(const float &a_c_fScalar)const;//Overloaded not equals operation for Vector2.
 
-	bool operator!=(const Vector2 &a_vVector2);//Overloaded not equals operation for Vector2.
+	bool operator!=(const Vector2 &a_c_vVector2)const;//Overloaded not equals operation for Vector2.
 
-	bool operator==(const float &a_fScalar);//Overloaded is equals operation for Vector2.
+	bool operator==(const float &a_c_fScalar)const;//Overloaded is equals operation for Vector2.
 
-	bool operator==(const Vector2 &a_vVector2);//Overloaded is equals operation for Vector2.
+	bool operator==(const Vector2 &a_c_vVector2)const;//Overloaded is equals operation for Vector2.
 
-	Vector2 operator=(const float &a_fScalar);//Overloaded equals operation for Vector2.
+	Vector2 operator=(const float &a_c_fScalar);//Overloaded equals operation for Vector2.
 
-	Vector2 operator=(const Vector2 &a_vVector2);//Overloaded equals operation for Vector2.
+	Vector2 operator=(const Vector2 &a_c_vVector2);//Overloaded equals operation for Vector2.
 
     //\===========================================================================================
     //\ Magnitude
     //\===========================================================================================
 
-	float magnitude();//A magnitude function that returns a float.
+	float magnitude()const;//A magnitude function that returns a float.
 
 	//\===========================================================================================
 	//\ Squared Magnitude
 	//\===========================================================================================
 
-	float squaredMagnitude();//A function that returns the Magnitude squared of the vector as a float.
+	float squaredMagnitude()const;//A function that returns the Magnitude squared of the vector as a float.
 
 	//\===========================================================================================
-	//\ Distance Between this vector2 and another vector2
+	//\ Distance Between this Vector2 and another Vector2
 	//\===========================================================================================
 
-	float distance(const Vector2 &a_vVector2);//Returns the distance from this vector2 and the passed in argument.
+	float distance(const Vector2 &a_c_vVector2)const;//Returns the distance from this Vector2 and the passed in argument.
 
 	//\===========================================================================================
-	//\ Squared Distance Between this vector2 and another vector2
+	//\ Squared Distance Between this Vector2 and another Vector2
 	//\===========================================================================================
 
-	float squaredDistance(const Vector2 &a_vVector2);//Returns the squared distance from this vector2 and the passed in argument.
+	float squaredDistance(const Vector2 &a_c_vVector2)const;//Returns the squared distance from this Vector2 and the passed in argument.
 
 	//\===========================================================================================
 	//\ Dot Product
 	//\===========================================================================================
 	
-	float dotProduct(const Vector2 &a_vVector2);//A dot product function that takes in a Vector2.
+	float dotProduct(const Vector2 &a_c_vVector2)const;//A dot product function that takes in a Vector2.
 												
 	//\===========================================================================================
 	//\ Cross Product
 	//\===========================================================================================
 
-	float crossProduct(const Vector2 &a_vVector2);//A dot product function that takes in a Vector2.
+	float crossProduct(const Vector2 &a_c_vVector2)const;//A dot product function that takes in a Vector2.
 
 	//\===========================================================================================
 	//\ Perpendicular
 	//\===========================================================================================
 	
-	Vector2 perpendicularClockwise();//A perpendicularClockwise function for this Vector2.
+	Vector2 perpendicularClockwise()const;//A perpendicularClockwise function for this Vector2.
 
-	Vector2 perpendicularCounterClockwise();//A perpendicularCounterClockwise function for this Vector2.
+	Vector2 perpendicularCounterClockwise()const;//A perpendicularCounterClockwise function for this Vector2.
 
 	//\===========================================================================================
 	//\ Rotation
 	//\===========================================================================================
 
-	void rotate(const float fAngle);//A Rotate function that takes in an angle in float format.
+	void rotate(const float a_c_fDegAngle);//A Rotate function that takes in an angle in float format.
 
 	//\===========================================================================================
 	//\ Normalisation
@@ -142,7 +146,7 @@ public:
 	//\ Return A Unit Vector
 	//\===========================================================================================
 
-	Vector2 unit();//A function that returns a unit vector created from this vector.
+	Vector2 unit()const;//A function that returns a unit vector created from this vector.
 
 };
 
