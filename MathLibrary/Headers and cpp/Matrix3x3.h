@@ -21,73 +21,6 @@
 
 class Matrix3x3
 {
-public:
-	//\===========================================================================================
-	//\ Constructor
-	//\===========================================================================================
-	
-	Matrix3x3();//The Default constructor for a Matrix3x3 that initialises everything to 0.
-
-	Matrix3x3(const float a_c_fmMatrix[3][3]);//Constructor for a Matrix3x3 that is made from two arrays of three.
-
-	Matrix3x3(const float &a_c_fm_00, float &a_c_fm_01, float &a_c_fm_02, float &a_c_fm_10, float &a_c_fm_11, float &a_c_fm_12, float &a_c_fm_20, float &a_c_fm_21, float &a_c_fm_22);//Constructor that takes nine floats to make a Matrix3x3.
-
-	Matrix3x3(const float a_c_fiMatrix[9]);//Constructor that takes an array of nine floats to make a Matrix3x3.
-
-	Matrix3x3(const Vector3 &a_c_vXAxis, Vector3 &a_c_vYAxis, Vector3 &a_c_vZAxis);//Constructor for a Matrix3x3 made from three Vector3's.
-
-	//\===========================================================================================
-	//\ Getters
-	//\===========================================================================================
-	
-	float getfmMatrix(const int a_c_iRow, int a_c_iCol)const;//A the specified number in the matrix.
-	
-	float getfiMatrix(const int a_c_iPosition)const;//A the specified number in the matrix.
-	
-	Vector3 vXAxis()const;//A the specified number in the matrix.
-
-	Vector3 vYAxis()const;//A the specified number in the matrix.
-
-	Vector3 vZAxis()const;//A the specified number in the matrix.
-
-	Vector3 vTranslation()const;//A the specified number in the matrix.
-
-	//\===========================================================================================
-	//\ Setters
-	//\===========================================================================================
-	
-	//\===========================================================================================
-	//\ Operation Overloads
-	//\===========================================================================================
-
-	//\===========================================================================================
-	//\ Rotate Around Euler Axis
-	//\===========================================================================================
-	
-	//\===========================================================================================
-	//\ Inversion
-	//\===========================================================================================
-
-	//\===========================================================================================
-	//\ Scale
-	//\===========================================================================================
-
-	//\===========================================================================================
-	//\ Transpose A Point
-	//\===========================================================================================
-
-	//\===========================================================================================
-	//\ Set To Identity
-	//\===========================================================================================
-
-	//\===========================================================================================
-	//\ Set To Zero
-	//\===========================================================================================
-
-	//\===========================================================================================
-	//\ Override Access Operators To Retrieve Matrix Value At Row / Column
-	//\===========================================================================================
-
 private:
 	//\===========================================================================================
 	//\ Member Variables held in an unnamed union for accessibility
@@ -120,6 +53,86 @@ private:
 			};
 		};
 	};
+public:
+	//\===========================================================================================
+	//\ Constructor
+	//\===========================================================================================
+	
+	Matrix3x3();//The Default constructor for a Matrix3x3 that initialises everything to 0.
+
+	Matrix3x3(const float a_c_fmMatrix[3][3]);//Constructor for a Matrix3x3 that is made from two arrays of three.
+
+	Matrix3x3(const float &a_c_fm_00, float &a_c_fm_01, float &a_c_fm_02, float &a_c_fm_10, float &a_c_fm_11, float &a_c_fm_12, float &a_c_fm_20, float &a_c_fm_21, float &a_c_fm_22);//Constructor that takes nine floats to make a Matrix3x3.
+
+	Matrix3x3(const float a_c_fiMatrix[9]);//Constructor that takes an array of nine floats to make a Matrix3x3.
+
+	Matrix3x3(const Vector3 &a_c_vXAxis, Vector3 &a_c_vYAxis, Vector3 &a_c_vZAxis);//Constructor for a Matrix3x3 made from three Vector3's.
+
+	//\===========================================================================================
+	//\ Getters
+	//\===========================================================================================
+	
+	float getmMatrix(const int a_c_iRow, int a_c_iCol)const;//A getter to return a float at the point specified with the two arguments.
+	
+	float getiMatrix(const int a_c_iPosition)const;//A getter to Returns a float from the matrix at the position of the argument passed in.
+
+	Vector3 getXAxis()const;//A getter to return the vXAxis of matrix3x3 in the form of a Vector3.
+
+	Vector3 getYAxis()const;//A getter to return the vYAxis of matrix3x3 in the form of a Vector3.
+
+	Vector3 getZAxis()const;//A getter to return the vZAxis of matrix3x3 in the form of a Vector3.
+
+	Vector3 getTranslation()const;//A getter to return the vTranslation of matrix3x3 in the form of a Vector3.
+
+	//\===========================================================================================
+	//\ Setters
+	//\===========================================================================================
+
+	void setmMatrix(const int a_c_iRow, int a_c_iCol, float a_c_fNewNumber);//A setter to change the float in the matrix at the point specified with the two arguments.
+
+	void setiMatrix(const int a_c_iPosition, float a_c_fNewNumber);//A setter to change the float in the matrix at the position of the argument passed in.
+
+	void setXAxis(const Vector3 a_c_vVector3);//A setter to change the vXAxis of matrix3x3 to the Vector3 argument.
+
+	void setYAxis(const Vector3 a_c_vVector3);//A setter to change the vYAxis of matrix3x3 to the Vector3 argument.
+	
+	void setZAxis(const Vector3 a_c_vVector3);//A setter to change the vZAxis of matrix3x3 to the Vector3 argument.
+
+	void setTranslation(const Vector3 a_c_vVector3);//A setter to change the vTranslation of matrix3x3 to the vTranslation argument.
+
+	//\===========================================================================================
+	//\ Operation Overloads
+	//\===========================================================================================
+
+	//\===========================================================================================
+	//\ Rotate Around Euler Axis
+	//\===========================================================================================
+	
+	//\===========================================================================================
+	//\ Inversion
+	//\===========================================================================================
+
+	//\===========================================================================================
+	//\ Scale
+	//\===========================================================================================
+
+	//\===========================================================================================
+	//\ Transpose A Point
+	//\===========================================================================================
+
+	//\===========================================================================================
+	//\ Set To Identity
+	//\===========================================================================================
+
+	//\===========================================================================================
+	//\ Set To Zero
+	//\===========================================================================================
+
+	//\===========================================================================================
+	//\ Override Access Operators To Retrieve Matrix Value At Row / Column
+	//\===========================================================================================
+
+
 };
 
 #endif

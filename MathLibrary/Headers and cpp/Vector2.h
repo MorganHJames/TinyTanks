@@ -55,7 +55,7 @@ public:
 	void setfY(const float &a_c_fY);//A setter to set the y part of Vector2 to the passed in argument.
 
 	//\===========================================================================================
-	//\ Operation Overloads
+	//\ Arithmetic Operation Overloads
 	//\===========================================================================================
 
 	Vector2 operator+(const float &a_c_fScalar)const;//Overloaded addition operation for Vector2.
@@ -74,6 +74,18 @@ public:
 
 	Vector2 operator/(const Vector2 &a_c_vVector2)const;//Overloaded division operation for Vector2.
 
+    //\===========================================================================================
+	//\ Assignment Operation Overloads
+	//\===========================================================================================
+
+	Vector2 operator=(const float &a_c_fScalar);//Overloaded equals operation for Vector2.
+
+	Vector2 operator=(const Vector2 &a_c_vVector2);//Overloaded equals operation for Vector2.
+												
+	//\===========================================================================================
+	//\ Relational Operation Overloads
+	//\===========================================================================================
+
 	bool operator!=(const float &a_c_fScalar)const;//Overloaded not equals operation for Vector2.
 
 	bool operator!=(const Vector2 &a_c_vVector2)const;//Overloaded not equals operation for Vector2.
@@ -81,10 +93,6 @@ public:
 	bool operator==(const float &a_c_fScalar)const;//Overloaded is equals operation for Vector2.
 
 	bool operator==(const Vector2 &a_c_vVector2)const;//Overloaded is equals operation for Vector2.
-
-	Vector2 operator=(const float &a_c_fScalar);//Overloaded equals operation for Vector2.
-
-	Vector2 operator=(const Vector2 &a_c_vVector2);//Overloaded equals operation for Vector2.
 
     //\===========================================================================================
     //\ Magnitude

@@ -37,9 +37,9 @@ public:
 
 	Vector4(const float a_c_fX = 0, float a_c_fY = 0, float a_c_fZ = 0, float a_c_fW = 0);//Constructor with four scalar values.
 
-	Vector4(Vector2 &a_c_vVector2, const float a_c_fZ = 0, float a_c_fW = 0);//Constructor with a Vector2 and two scalar value.
+	Vector4(const Vector2 &a_c_vVector2, float a_c_fZ = 0, float a_c_fW = 0);//Constructor with a Vector2 and two scalar value.
 
-	Vector4(Vector3 &a_c_vVector3, const float a_c_fW = 0);//Constructor with a Vector3 and a scalar value.
+	Vector4(const Vector3 &a_c_vVector3, float a_c_fW = 0);//Constructor with a Vector3 and a scalar value.
 
 	//\===========================================================================================
 	//\ Getters
@@ -66,7 +66,7 @@ public:
 	void setfW(const float a_c_fW);//A setter to set the w part of Vector4 to the passed in argument.
 
 	//\===========================================================================================
-	//\ Operation Overloads
+	//\ Arithmetic Operation Overloads
 	//\===========================================================================================
 
 	Vector4 operator+(const float &a_c_fScalar)const;//Overloaded addition operation for Vector4.
@@ -84,7 +84,19 @@ public:
 	Vector4 operator/(const float &a_c_fScalar)const;//Overloaded division operation for Vector4.
 
 	Vector4 operator/(const Vector4 &a_c_vVector4)const;//Overloaded division operation for Vector4.
+											  
+	//\===========================================================================================
+	//\ Assignment Operation Overloads
+	//\===========================================================================================
 
+	Vector4 operator=(const float &a_c_fScalar);//Overloaded equals operation for Vector4.
+
+	Vector4 operator=(const Vector4 &a_c_vVector4);//Overloaded equals operation for Vector4.
+
+	//\===========================================================================================
+	//\ Relational Operation Overloads
+	//\===========================================================================================
+	
 	bool operator!=(const float &a_c_fScalar)const;//Overloaded not equals operation for Vector4.
 
 	bool operator!=(const Vector4 &a_c_vVector4)const;//Overloaded not equals operation for Vector4.
@@ -92,10 +104,6 @@ public:
 	bool operator==(const float &a_c_fScalar)const;//Overloaded is equals operation for Vector4.
 
 	bool operator==(const Vector4 &a_c_vVector4)const;//Overloaded is equals operation for Vector4.
-
-	Vector4 operator=(const float &a_c_fScalar);//Overloaded equals operation for Vector4.
-
-	Vector4 operator=(const Vector4 &a_c_vVector4);//Overloaded equals operation for Vector4.
 
 	//\===========================================================================================
 	//\ Magnitude

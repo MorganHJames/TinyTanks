@@ -20,17 +20,17 @@ Vector4::Vector4(const float a_c_fX, float a_c_fY, float a_c_fZ, float a_c_fW):/
 	fW(a_c_fW)//Sets the w value of the Vector4 to the fourth argument passed in on Creation.
 {}
 
-Vector4::Vector4(Vector2 &a_vVector2, const float a_c_fZ, float a_c_fW)://Constructor with a Vector2 and two scalar value.
-	fX(a_vVector2.getfX()),//Sets the x value of the Vector4 to the first part of the Vector2 passed in.
-	fY(a_vVector2.getfY()),//Sets the y value of the Vector4 to the second part of the Vector2 passed in.
+Vector4::Vector4(const Vector2 &a_c_vVector2, float a_c_fZ, float a_c_fW)://Constructor with a Vector2 and two scalar value.
+	fX(a_c_vVector2.getfX()),//Sets the x value of the Vector4 to the first part of the Vector2 passed in.
+	fY(a_c_vVector2.getfY()),//Sets the y value of the Vector4 to the second part of the Vector2 passed in.
 	fZ(a_c_fZ),//Sets the z value of the Vector4 to the second argument passed in on Creation.
 	fW(a_c_fW)//Sets the w value of the Vector4 to the third argument passed in on Creation.
 {}
 
-Vector4::Vector4(Vector3 &a_vVector3, const float a_c_fW)://Constructor with a Vector3 and a scalar value.
-	fX(a_vVector3.getfX()),//Sets the x value of the Vector4 to the first part of the Vector3 passed in.
-	fY(a_vVector3.getfY()),//Sets the y value of the Vector4 to the second part of the Vector3 passed in.
-	fZ(a_vVector3.getfZ()),//Sets the z value of the Vector4 to the third part of the Vector3 passed in.
+Vector4::Vector4(const Vector3 &a_c_vVector3, float a_c_fW)://Constructor with a Vector3 and a scalar value.
+	fX(a_c_vVector3.getfX()),//Sets the x value of the Vector4 to the first part of the Vector3 passed in.
+	fY(a_c_vVector3.getfY()),//Sets the y value of the Vector4 to the second part of the Vector3 passed in.
+	fZ(a_c_vVector3.getfZ()),//Sets the z value of the Vector4 to the third part of the Vector3 passed in.
 	fW(a_c_fW)//Sets the w value of the Vector4 to the second argument passed in on Creation.
 {}
 
@@ -83,7 +83,7 @@ void Vector4::setfW(const float a_c_fW)//A setter to set the w part of Vector4 t
 }
 
 //\===========================================================================================
-//\ Operation Overloads
+//\ Arithmetic Operation Overloads
 //\===========================================================================================
 
 Vector4 Vector4::operator+(const float &a_c_fScalar)const//Overloaded addition operation for Vector4.
@@ -159,6 +159,32 @@ Vector4 Vector4::operator/(const Vector4 &a_c_vVector4)const//Overloaded divisio
 		fW / a_c_vVector4.fW);//Returns Ax / Bx, Ay / By, Az / Bz, Aw / Bw.
 }
 
+//\===========================================================================================
+//\ Assignment Operation Overloads
+//\===========================================================================================
+
+Vector4 Vector4::operator=(const float &a_c_fScalar)//Overloaded equals operation for Vector4.
+{
+	return Vector4(
+		fX = a_c_fScalar,
+		fY = a_c_fScalar,
+		fZ = a_c_fScalar,
+		fW = a_c_fScalar);//Returns Ax = number, Ay = number, Az = number, Aw = number.
+}
+
+Vector4 Vector4::operator=(const Vector4 &a_c_vVector4)//Overloaded equals operation for Vector4.
+{
+	return Vector4(
+		fX = a_c_vVector4.fX,
+		fY = a_c_vVector4.fY,
+		fZ = a_c_vVector4.fZ,
+		fW = a_c_vVector4.fW);//Returns Ax = Bx, Ay = By, Az = Bz, Aw = Bw.
+}
+
+//\===========================================================================================
+//\ Relational Operation Overloads
+//\===========================================================================================
+
 bool Vector4::operator!=(const float &a_c_fScalar)const//Overloaded not equals operation for Vector4.
 {
 	return bool(
@@ -193,24 +219,6 @@ bool Vector4::operator==(const Vector4 &a_c_vVector4)const//Overloaded is equals
 		fY == a_c_vVector4.fY &&
 		fZ == a_c_vVector4.fZ && 
 		fW == a_c_vVector4.fW);//Returns Ax == Bx && Ay == By && Az == Bz && Aw == Bw.
-}
-
-Vector4 Vector4::operator=(const float &a_c_fScalar)//Overloaded equals operation for Vector4.
-{
-	return Vector4(
-		fX = a_c_fScalar,
-		fY = a_c_fScalar,
-		fZ = a_c_fScalar,
-		fW = a_c_fScalar);//Returns Ax = number, Ay = number, Az = number, Aw = number.
-}
-
-Vector4 Vector4::operator=(const Vector4 &a_c_vVector4)//Overloaded equals operation for Vector4.
-{
-	return Vector4(
-		fX = a_c_vVector4.fX,
-		fY = a_c_vVector4.fY,
-		fZ = a_c_vVector4.fZ,
-		fW = a_c_vVector4.fW);//Returns Ax = Bx, Ay = By, Az = Bz, Aw = Bw.
 }
 
 //\===========================================================================================

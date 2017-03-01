@@ -19,9 +19,9 @@ Vector3::Vector3(float a_c_fX, float a_c_fY, float a_c_fZ)://Constructor with th
 	fZ(a_c_fZ)//Sets the z value of the Vector3 to the third argument passed in on Creation.
 {}
 
-Vector3::Vector3(Vector2 &a_vVector2, float a_c_fZ)://Constructor with a Vector2 and a scalar value.
-	fX(a_vVector2.getfX()),//Sets the x value of the Vector3 to the first part of the Vector2 passed in.
-	fY(a_vVector2.getfY()),//Sets the y value of the Vector3 to the second part of the Vector2 passed in.
+Vector3::Vector3(const Vector2 &a_c_vVector2, float a_c_fZ)://Constructor with a Vector2 and a scalar value.
+	fX(a_c_vVector2.getfX()),//Sets the x value of the Vector3 to the first part of the Vector2 passed in.
+	fY(a_c_vVector2.getfY()),//Sets the y value of the Vector3 to the second part of the Vector2 passed in.
 	fZ(a_c_fZ)//Sets the z value of the Vector3 to the third argument passed in on Creation.
 {}
 
@@ -63,7 +63,7 @@ void Vector3::setfZ(float a_c_fZ)//A setter to set the z part of Vector3 to the 
 }
 
 //\===========================================================================================
-//\ Operation Overloads
+//\ Arithmetic Operation Overloads
 //\===========================================================================================
 
 Vector3 Vector3::operator+(const float &a_c_fScalar)const//Overloaded addition operation for Vector3.
@@ -131,6 +131,30 @@ Vector3 Vector3::operator/(const Vector3 &a_c_vVector3)const//Overloaded divisio
 		fZ / a_c_vVector3.fZ);//Returns Ax / Bx, Ay / By, Az / Bz.
 }
 
+//\===========================================================================================
+//\ Assignment Operation Overloads
+//\===========================================================================================
+
+Vector3 Vector3::operator=(const float &a_c_fScalar)//Overloaded equals operation for Vector3.
+{
+	return Vector3(
+		fX = a_c_fScalar,
+		fY = a_c_fScalar,
+		fZ = a_c_fScalar);//Returns x = number, y = number, z = number.
+}
+
+Vector3 Vector3::operator=(const Vector3 &a_c_vVector3)//Overloaded equals operation for Vector3.
+{
+	return Vector3(
+		fX = a_c_vVector3.fX,
+		fY = a_c_vVector3.fY,
+		fZ = a_c_vVector3.fZ);//Returns Ax = Bx, Ay = By, Az = Bz.
+}
+
+//\===========================================================================================
+//\ Relational Operation Overloads
+//\===========================================================================================
+
 bool Vector3::operator!=(const float &a_c_fScalar)const//Overloaded not equals operation for Vector3.
 {
 	return bool(
@@ -161,22 +185,6 @@ bool Vector3::operator==(const Vector3 &a_c_vVector3)const//Overloaded is equals
 		fX == a_c_vVector3.fX &&
 		fY == a_c_vVector3.fY &&
 		fZ == a_c_vVector3.fZ);//Returns Ax == Bx && Ay == By && Az == Bz.
-}
-
-Vector3 Vector3::operator=(const float &a_c_fScalar)//Overloaded equals operation for Vector3.
-{
-	return Vector3(
-		fX = a_c_fScalar,
-		fY = a_c_fScalar,
-		fZ = a_c_fScalar);//Returns x = number, y = number, z = number.
-}
-
-Vector3 Vector3::operator=(const Vector3 &a_c_vVector3)//Overloaded equals operation for Vector3.
-{
-	return Vector3(
-		fX = a_c_vVector3.fX,
-		fY = a_c_vVector3.fY,
-		fZ = a_c_vVector3.fZ);//Returns Ax = Bx, Ay = By, Az = Bz.
 }
 
 //\===========================================================================================

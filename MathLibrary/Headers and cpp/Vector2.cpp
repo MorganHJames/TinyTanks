@@ -47,7 +47,7 @@ void Vector2::setfY(const float &a_c_fY)//A setter to set the y part of Vector2 
 }
 
 //\===========================================================================================
-//\ Operation Overloads
+//\ Arithmetic Operation Overloads
 //\===========================================================================================
 
 Vector2 Vector2::operator+(const float &a_c_fScalar)const//Overloaded addition operation for Vector2.
@@ -107,6 +107,28 @@ Vector2 Vector2::operator/(const Vector2 &a_c_vVector2)const//Overloaded divisio
 		fY / a_c_vVector2.fY);//Returns Ax / Bx, Ay / By.
 }
 
+//\===========================================================================================
+//\ Assignment Operation Overloads
+//\===========================================================================================
+
+Vector2 Vector2::operator=(const float &a_c_fScalar)//Overloaded equals operation for Vector2.
+{
+	return Vector2(
+		fX = a_c_fScalar
+		, fY = a_c_fScalar);//Returns x = number, y = number.
+}
+
+Vector2 Vector2::operator=(const Vector2 &a_c_vVector2)//Overloaded equals operation for Vector2.
+{
+	return Vector2(
+		fX = a_c_vVector2.fX,
+		fY = a_c_vVector2.fY);//Returns Ax = Bx, Ay = By.
+}
+
+//\===========================================================================================
+//\ Relational Operation Overloads
+//\===========================================================================================
+
 bool Vector2::operator!=(const float &a_c_fScalar)const//Overloaded not equals operation for Vector2.
 {
 	return bool(
@@ -133,20 +155,6 @@ bool Vector2::operator==(const Vector2 &a_c_vVector2)const//Overloaded is equals
 	return bool(
 		fX == a_c_vVector2.fX &&
 		fY == a_c_vVector2.fY);//Returns Ax == Bx && Ay == By.
-}
-
-Vector2 Vector2::operator=(const float &a_c_fScalar)//Overloaded equals operation for Vector2.
-{
-	return Vector2(
-		fX = a_c_fScalar
-		, fY = a_c_fScalar);//Returns x = number, y = number.
-}
-
-Vector2 Vector2::operator=(const Vector2 &a_c_vVector2)//Overloaded equals operation for Vector2.
-{
-	return Vector2(
-		fX = a_c_vVector2.fX,
-		fY = a_c_vVector2.fY);//Returns Ax = Bx, Ay = By.
 }
 
 //\===========================================================================================
