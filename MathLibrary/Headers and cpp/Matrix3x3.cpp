@@ -39,7 +39,7 @@ Matrix3x3::Matrix3x3(const float &a_c_fm_00, float &a_c_fm_01, float &a_c_fm_02,
 
 Matrix3x3::Matrix3x3(const float a_c_fiMatrix[9])//Constructor that takes an array of nine floats to make a Matrix3x3.
 {
-	for (int i = 0; i < 9; ++i)//Iterates through the nine times.
+	for (int i = 0; i < 9; ++i)//Iterates through nine times.
 	{
 		fiMatrix[i] = a_c_fiMatrix[i];//Makes each element of the matrix equal to each element of the matrix passed in.
 	}
@@ -121,8 +121,176 @@ void Matrix3x3::setTranslation(const Vector3 a_c_vVector3)//A setter to change t
 }
 
 //\===========================================================================================
-//\ Operation Overloads
+//\ Arithmetic Operation Overloads
 //\===========================================================================================
+
+Matrix3x3 Matrix3x3::operator+(const float &a_c_fScalar)const//Overloaded addition operation for Matrix3x3.
+{
+	for (int i = 0; i < 9; ++i)//Iterates through nine times.
+	{
+		fiMatrix[i] + a_c_fScalar;//Makes each element of the matrix increase by the float passed in.
+	}
+	return Matrix3x3(fmMatrix);//Returns the increased matrix.
+}
+
+Matrix3x3 Matrix3x3::operator+(const Vector3 &a_c_vVector3)const//Overloaded addition operation for Matrix3x3.
+{
+	vXAxis + a_c_vVector3;//Increases the vXAxis by the argument Vector3.
+	vYAxis + a_c_vVector3;//Increases the vYAxis by the argument Vector3.
+	vZAxis + a_c_vVector3;//Increases the vZAxis by the argument Vector3.
+	return Matrix3x3(fmMatrix);//Returns the increased matrix.
+}
+
+Matrix3x3 Matrix3x3::operator+(const Matrix3x3 &a_c_mMatrix3x3)const//Overloaded addition operation for Matrix3x3.
+{
+	for (int i = 0; i < 9; ++i)//Iterates through nine times.
+	{
+		fiMatrix[i] + a_c_mMatrix3x3[i];//Makes each element of the matrix increase by the equivalent part of the matrix3x3 passed in.
+	}
+	return Matrix3x3(fmMatrix);//Returns the increased matrix.
+}
+
+Matrix3x3 Matrix3x3::operator-(const float &a_c_fScalar)const//Overloaded subtraction operation for Matrix3x3.
+{
+	for (int i = 0; i < 9; ++i)//Iterates through nine times.
+	{
+		fiMatrix[i] - a_c_fScalar;//Makes each element of the matrix decrease by the float passed in.
+	}
+	return Matrix3x3(fmMatrix);//Returns the decreased matrix.
+}
+
+Matrix3x3 Matrix3x3::operator-(const Vector3 &a_c_vVector3)const//Overloaded subtraction operation for Matrix3x3.
+{
+	vXAxis - a_c_vVector3;//Decreases the vXAxis by the argument Vector3.
+	vYAxis - a_c_vVector3;//Decreases the vYAxis by the argument Vector3.
+	vZAxis - a_c_vVector3;//Decreases the vZAxis by the argument Vector3.
+	return Matrix3x3(fmMatrix);//Returns the decreased matrix.
+}
+
+Matrix3x3 Matrix3x3::operator-(const Matrix3x3 &a_c_mMatrix3x3)const//Overloaded subtraction operation for Matrix3x3.
+{
+	for (int i = 0; i < 9; ++i)//Iterates through nine times.
+	{
+		fiMatrix[i] - a_c_mMatrix3x3[i];//Makes each element of the matrix decrease by the equivalent part of the matrix3x3 passed in.
+	}
+	return Matrix3x3(fmMatrix);//Returns the decreased matrix.
+}
+
+Matrix3x3 Matrix3x3::operator*(const float &a_c_fScalar)const//Overloaded multiplication operation for Matrix3x3.
+{
+	for (int i = 0; i < 9; ++i)//Iterates through nine times.
+	{
+		fiMatrix[i] * a_c_fScalar;//Makes each element of the matrix times by the argument passed in.
+	}
+	return Matrix3x3(fmMatrix);//Returns the multiplied matrix.
+}
+
+Matrix3x3 Matrix3x3::operator*(const Vector3 &a_c_vVector3)const//Overloaded multiplication operation for Matrix3x3.
+{
+	vXAxis * a_c_vVector3;//Multiplies the vXAxis by the argument Vector3.
+	vYAxis * a_c_vVector3;//Multiplies the vYAxis by the argument Vector3.
+	vZAxis * a_c_vVector3;//Multiplies the vZAxis by the argument Vector3.
+	return Matrix3x3(fmMatrix);//Returns the multiplied matrix.
+}
+
+Matrix3x3 Matrix3x3::operator*(const Matrix3x3 &a_c_mMatrix3x3)const//Overloaded multiplication operation for Matrix3x3.
+{
+	float multiplication[3][3];
+	// Initializing elements of matrix mult to 0.
+	for (int i = 0; i < 3; ++i)
+	{
+		for (int j = 0; j < 3; ++j)
+		{
+			multiplication[i][j] = 0;
+		}
+	}
+	int rowFirst = 3, columnSecond = 3, columnFirst = 3;
+	//Multiplying matrix firstMatrix and secondMatrix and storing in array multiplication.
+	for (int i = 0; i < rowFirst; ++i)
+	{
+		for (int j = 0; j < columnSecond; ++j)
+		{
+			for (int k = 0; k< columnFirst; ++k)
+			{
+				multiplication[i][j] += fmMatrix[i][k] * a_c_mMatrix3x3[k][j];
+			}
+		}
+	}
+
+	return Matrix3x3(multiplication);
+}
+
+Matrix3x3 Matrix3x3::operator/(const float &a_c_fScalar)const//Overloaded division operation for Matrix3x3.
+{
+
+}
+
+Matrix3x3 Matrix3x3::operator/(const Vector3 &a_c_vVector3)const//Overloaded division operation for Matrix3x3.
+{
+
+}
+
+Matrix3x3 Matrix3x3::operator/(const Matrix3x3 &a_c_mMatrix3x3)const//Overloaded division operation for Matrix3x3.
+{
+
+}
+
+//\===========================================================================================
+//\ Assignment Operation Overloads
+//\===========================================================================================
+
+Matrix3x3 Matrix3x3::operator=(const float &a_c_fScalar)//Overloaded equals operation for Matrix3x3.
+{
+
+}
+
+Matrix3x3 Matrix3x3::operator=(const Vector3 &a_c_vVector3)//Overloaded equals operation for Matrix3x3.
+{
+
+}
+
+Matrix3x3 Matrix3x3::operator=(const Matrix3x3 &a_c_mMatrix3x3)//Overloaded equals operation for Matrix3x3.
+{
+	for (int i = 0; i < 9; ++i)//Iterates through nine times.
+	{
+		fiMatrix[i] = a_c_mMatrix3x3[i];//Makes each element of the matrix increase by the equivalent part of the matrix3x3 passed in.
+	}
+	return Matrix3x3(fmMatrix);//Returns the increased matrix.
+}
+
+//\===========================================================================================
+//\ Relational Operation Overloads
+//\===========================================================================================
+
+bool Matrix3x3::operator!=(const float &a_c_fScalar)const//Overloaded not equals operation for Matrix3x3.
+{
+
+}
+
+bool Matrix3x3::operator!=(const Vector3 &a_c_vVector3)const//Overloaded not equals operation for Matrix3x3.
+{
+
+}
+
+bool Matrix3x3::operator!=(const Matrix3x3 &a_c_mMatrix3x3)const//Overloaded not equals operation for Matrix3x3.
+{
+
+}
+
+bool Matrix3x3::operator==(const float &a_c_fScalar)const//Overloaded is equals operation for Matrix3x3.
+{
+
+}
+
+bool Matrix3x3::operator==(const Vector3 &a_c_vVector3)const//Overloaded is equals operation for Matrix3x3.
+{
+
+}
+
+bool Matrix3x3::operator==(const Matrix3x3 &a_c_mMatrix3x3)const//Overloaded is equals operation for Matrix3x3.
+{
+
+}
 
 //\===========================================================================================
 //\ Rotate Around Euler Axis

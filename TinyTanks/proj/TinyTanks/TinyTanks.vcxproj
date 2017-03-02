@@ -156,6 +156,9 @@
       <Project>{ad287cb2-ed47-4de7-9412-7bd0f0821a05}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AABBCollision.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
