@@ -94,10 +94,10 @@ Vector2 Vector2::operator*(const Vector2 &a_c_vVector2)const//Overloaded multipl
 
 Vector2 Vector2::operator/(const float &a_c_fScalar)const//Overloaded division operation for Vector2.
 {
-	float fMulti = 1 / a_c_fScalar;//Allows for multiplication rather than division.
+	divisionToMultiplication(a_c_fScalar);//Allows for multiplication rather than division.
 	return Vector2(
-		fX * fMulti,
-		fY * fMulti);//Returns x * 1 / number, y * 1 / number.
+		fX * a_c_fScalar,
+		fY * a_c_fScalar);//Returns x * 1 / number, y * 1 / number.
 }
 
 Vector2 Vector2::operator/(const Vector2 &a_c_vVector2)const//Overloaded division operation for Vector2.
@@ -114,8 +114,8 @@ Vector2 Vector2::operator/(const Vector2 &a_c_vVector2)const//Overloaded divisio
 Vector2 Vector2::operator=(const float &a_c_fScalar)//Overloaded equals operation for Vector2.
 {
 	return Vector2(
-		fX = a_c_fScalar
-		, fY = a_c_fScalar);//Returns x = number, y = number.
+		fX = a_c_fScalar,
+		fY = a_c_fScalar);//Returns x = number, y = number.
 }
 
 Vector2 Vector2::operator=(const Vector2 &a_c_vVector2)//Overloaded equals operation for Vector2.

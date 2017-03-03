@@ -116,11 +116,11 @@ Vector3 Vector3::operator*(const Vector3 &a_c_vVector3)const//Overloaded multipl
 
 Vector3 Vector3::operator/(const float &a_c_fScalar)const//Overloaded division operation for Vector3.
 {
-	float fMulti = 1 / a_c_fScalar;//Allows for multiplication rather than division.
+	divisionToMultiplication(a_c_fScalar);//Allows for multiplication rather than division.
 	return Vector3(
-		fX * fMulti,
-		fY * fMulti,
-		fZ * fMulti);//Returns x / number, y / number, z / number.
+		fX * a_c_fScalar,
+		fY * a_c_fScalar,
+		fZ * a_c_fScalar);//Returns x / number, y / number, z / number.
 }
 
 Vector3 Vector3::operator/(const Vector3 &a_c_vVector3)const//Overloaded division operation for Vector3.
@@ -248,28 +248,28 @@ Vector3 Vector3::crossProduct(const Vector3 &a_c_vVector3)const//A cross product
 //\ Rotation
 //\===========================================================================================
 
-void Vector3::rotateZ(const float a_c_fDegAngle)//A Rotate function that takes in an angle in float format.
+void Vector3::rotateZ(const float a_c_fAngle)//A Rotate function that takes in an angle in float format.
 {
-	float fRadAngle = a_c_fDegAngle * (PI / 180);//Creates a float equal to the conversion of the degree angle to radians.
+	degreesToRadians(a_c_fAngle);//Converts the float to radians.
 	float fXTemp = fX;//A temporary value for x as it will change after assignment.
-	fX = (fX * cosf(fRadAngle)) - (fY * sinf(fRadAngle));//Assigns the x value to x * cos(number) - y * sin(number).
-	fY = (fXTemp * sinf(fRadAngle)) + (fY * cosf(fRadAngle));//Assigns the y value to x * sin(number) + y * cos(number).
+	fX = (fX * cosf(a_c_fAngle)) - (fY * sinf(a_c_fAngle));//Assigns the x value to x * cos(number) - y * sin(number).
+	fY = (fXTemp * sinf(a_c_fAngle)) + (fY * cosf(a_c_fAngle));//Assigns the y value to x * sin(number) + y * cos(number).
 }
 
-void Vector3::rotateX(const float a_c_fDegAngle)//A Rotate function that takes in an angle in float format.
+void Vector3::rotateX(const float a_c_fAngle)//A Rotate function that takes in an angle in float format.
 {
-	float fRadAngle = a_c_fDegAngle * (PI / 180);//Creates a float equal to the conversion of the degree angle to radians.
+	degreesToRadians(a_c_fAngle);//Converts the float to radians.
 	float fYTemp = fY;//A temporary value for y as it will change after assignment.
-	fY = (fY * cosf(fRadAngle)) - (fZ * sinf(fRadAngle));//Assigns the y value to y * cos(number) - z * sin(number).
-	fZ = (fYTemp * sinf(fRadAngle)) + (fZ * cosf(fRadAngle));//Assigns the z value to y * sin(number) + z * cos(number).
+	fY = (fY * cosf(a_c_fAngle)) - (fZ * sinf(a_c_fAngle));//Assigns the y value to y * cos(number) - z * sin(number).
+	fZ = (fYTemp * sinf(a_c_fAngle)) + (fZ * cosf(a_c_fAngle));//Assigns the z value to y * sin(number) + z * cos(number).
 }
 
-void Vector3::rotateY(const float a_c_fDegAngle)//A Rotate function that takes in an angle in float format.
+void Vector3::rotateY(const float a_c_fAngle)//A Rotate function that takes in an angle in float format.
 {
-	float fRadAngle = a_c_fDegAngle * (PI / 180);//Creates a float equal to the conversion of the degree angle to radians.
+	degreesToRadians(a_c_fAngle);//Converts the float to radians.
 	float fZTemp = fZ;//A temporary value for z as it will change after assignment.
-	fZ = (fZ * cosf(fRadAngle)) - (fX * sinf(fRadAngle));//Assigns the z value to z * cos(number) - x * sin(number).
-	fX = (fZTemp * sinf(fRadAngle)) + (fX * cosf(fRadAngle));//Assigns the x value to z * sin(number) + x * cos(number).
+	fZ = (fZ * cosf(a_c_fAngle)) - (fX * sinf(a_c_fAngle));//Assigns the z value to z * cos(number) - x * sin(number).
+	fX = (fZTemp * sinf(a_c_fAngle)) + (fX * cosf(a_c_fAngle));//Assigns the x value to z * sin(number) + x * cos(number).
 }
 
 //\===========================================================================================

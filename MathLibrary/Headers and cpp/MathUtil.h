@@ -53,12 +53,14 @@
 //\===========================================================================================
 //\ Test collision functions
 //\===========================================================================================
-
-class MathUtil
+float degreesToRadians(float a_c_fRadAngle)
 {
-public:
+	a_c_fRadAngle = a_c_fRadAngle * (PI / 180);
+}
 
-private:
-};
+float divisionToMultiplication(float a_c_fScalar)
+{
+	a_c_fScalar = 1 / a_c_fScalar;
+}
 
 #endif
