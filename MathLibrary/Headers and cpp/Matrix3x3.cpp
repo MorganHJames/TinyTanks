@@ -260,7 +260,9 @@ Vector3 Matrix3x3::operator/(const Vector3 &a_c_vVector3)const//Overloaded divis
 
 Matrix3x3 Matrix3x3::operator/(const Matrix3x3 &a_c_mMatrix3x3)const//Overloaded division operation for Matrix3x3.
 {
-	return Matrix3x3(*this * a_c_mMatrix3x3.inverse());//Returns the Matrix3x3 / the argument.
+	Matrix3x3 tempMatrix = a_c_mMatrix3x3;
+	tempMatrix.inverse();
+	return Matrix3x3(*this * tempMatrix);//Returns the Matrix3x3 / the argument.
 }
 
 //\===========================================================================================
@@ -382,11 +384,21 @@ bool Matrix3x3::operator==(const Matrix3x3 &a_c_mMatrix3x3)const//Overloaded is 
 //\===========================================================================================
 //\ Rotate Around Euler Axis
 //\===========================================================================================
-/*
-cos(θ) −sin(θ) 0
-sin(θ)  cos(θ) 0
-0        0     1
-*/
+
+void Matrix3x3::rotate(float a_fAngle)//Rotates the Matrix3x3 by the angle in degrees. 
+{
+	a_fAngle = degreesToRadians(a_fAngle);//Converts the float to radians.
+	fm_00 *= cosf(a_fAngle);   
+	fm_01 *= -sinf(a_fAngle);  	//\===================================
+	fm_02 *= 0;                	//\= Multiplies the Matrix3x3 by the
+	fm_10 *= sinf(a_fAngle);   	//\= rotation matrix which is:
+	fm_11 *= cosf(a_fAngle);   	//\= cos(θ), -sin(θ), 0,
+	fm_12 *= 0;                	//\= sin(θ),  cos(θ), 0,
+	fm_20 *= 0;                	//\=      0,       0, 1, 
+	fm_21 *= 0;               	//\===================================
+	fm_22 *= 1;               
+}
+
 //\===========================================================================================
 //\ Determinant
 //\===========================================================================================
@@ -403,26 +415,25 @@ float Matrix3x3::determinant()const//A function to get the determinant of a Matr
 //\ Inversion
 //\===========================================================================================
 
-Matrix3x3 Matrix3x3::inverse()const//A function that make a Matrix3x3 turn to its inverse.
+bool Matrix3x3::inverse()//A function that make a Matrix3x3 turn to its inverse.
 {
 	float fDeterminant = determinant();//Creates a float equal to the Matrix3x3 determinant.
 	if (fDeterminant != 0.0f)//If the determinant isn't zero inverse it
 	{
 		const float fInverseDeterminant = reciprocal(fDeterminant);//Creates a constant float equal to the inverse of the determinant.
-		Matrix3x3 tempInverseMatrix;//Creates a temporary matrix that will hold the inversed vector.
 		Matrix3x3 temp = *this;//Creates a temporary matrix that is equal to the Matrx3x3 it will inverse.
-		tempInverseMatrix.fm_00 = (temp.fm_11 * temp.fm_22 - temp.fm_12 * temp.fm_21) * fInverseDeterminant;//00 = (11 * 22 - 12 * 21) * inverse determinant
-		tempInverseMatrix.fm_01 = (temp.fm_02 * temp.fm_21 - temp.fm_01 * temp.fm_22) * fInverseDeterminant;//01 = (02 * 21 -	01 * 22) * inverse determinant
-		tempInverseMatrix.fm_02 = (temp.fm_01 * temp.fm_12 - temp.fm_02 * temp.fm_11) * fInverseDeterminant;//02 = (01 * 12 -	02 * 11) * inverse determinant
-		tempInverseMatrix.fm_10 = (temp.fm_12 * temp.fm_20 - temp.fm_10 * temp.fm_22) * fInverseDeterminant;//10 = (12 * 20 -	10 * 22) * inverse determinant
-		tempInverseMatrix.fm_11 = (temp.fm_00 * temp.fm_22 - temp.fm_02 * temp.fm_20) * fInverseDeterminant;//11 = (00 * 22 -	02 * 20) * inverse determinant
-		tempInverseMatrix.fm_12 = (temp.fm_02 * temp.fm_10 - temp.fm_00 * temp.fm_12) * fInverseDeterminant;//12 = (02 * 10 -	00 * 12) * inverse determinant
-		tempInverseMatrix.fm_20 = (temp.fm_10 * temp.fm_21 - temp.fm_11 * temp.fm_20) * fInverseDeterminant;//20 = (10 * 21 -	11 * 20) * inverse determinant
-		tempInverseMatrix.fm_21 = (temp.fm_01 * temp.fm_20 - temp.fm_00 * temp.fm_21) * fInverseDeterminant;//21 = (01 * 20 -	00 * 21) * inverse determinant
-		tempInverseMatrix.fm_22 = (temp.fm_00 * temp.fm_11 - temp.fm_01 * temp.fm_10) * fInverseDeterminant;//22 = (00 * 11 -	01 * 10) * inverse determinant
-		return (tempInverseMatrix);//Returns the inverted matrix.																			  
+		fm_00 = (temp.fm_11 * temp.fm_22 - temp.fm_12 * temp.fm_21) * fInverseDeterminant;//00 = (11 * 22 - 12 * 21) * inverse determinant
+		fm_01 = (temp.fm_02 * temp.fm_21 - temp.fm_01 * temp.fm_22) * fInverseDeterminant;//01 = (02 * 21 -	01 * 22) * inverse determinant
+		fm_02 = (temp.fm_01 * temp.fm_12 - temp.fm_02 * temp.fm_11) * fInverseDeterminant;//02 = (01 * 12 -	02 * 11) * inverse determinant
+		fm_10 = (temp.fm_12 * temp.fm_20 - temp.fm_10 * temp.fm_22) * fInverseDeterminant;//10 = (12 * 20 -	10 * 22) * inverse determinant
+		fm_11 = (temp.fm_00 * temp.fm_22 - temp.fm_02 * temp.fm_20) * fInverseDeterminant;//11 = (00 * 22 -	02 * 20) * inverse determinant
+		fm_12 = (temp.fm_02 * temp.fm_10 - temp.fm_00 * temp.fm_12) * fInverseDeterminant;//12 = (02 * 10 -	00 * 12) * inverse determinant
+		fm_20 = (temp.fm_10 * temp.fm_21 - temp.fm_11 * temp.fm_20) * fInverseDeterminant;//20 = (10 * 21 -	11 * 20) * inverse determinant
+		fm_21 = (temp.fm_01 * temp.fm_20 - temp.fm_00 * temp.fm_21) * fInverseDeterminant;//21 = (01 * 20 -	00 * 21) * inverse determinant
+		fm_22 = (temp.fm_00 * temp.fm_11 - temp.fm_01 * temp.fm_10) * fInverseDeterminant;//22 = (00 * 11 -	01 * 10) * inverse determinant
+		return bool(true);//Returns true if the matrix is inverted.																			  
 	}
-	return Matrix3x3(*this);//If the determinant is zero return the Matrix3x3.
+	return bool(false);//If the determinant is zero return false.
 }
 
 //\===========================================================================================
