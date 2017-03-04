@@ -41,9 +41,9 @@ public:
 
 	Vector4(const Vector3 &a_c_vVector3, float a_c_fW = 0);//Constructor with a Vector3 and a scalar value.
 
-	//\===========================================================================================
-	//\ Getters
-	//\===========================================================================================
+														   //\===========================================================================================
+														   //\ Getters
+														   //\===========================================================================================
 
 	float getfX()const;//A getter to get the x part of Vector4.
 
@@ -53,9 +53,9 @@ public:
 
 	float getfW()const;//A getter to get the w part of Vector4.
 
-	//\===========================================================================================
-	//\ Setters
-	//\===========================================================================================
+					   //\===========================================================================================
+					   //\ Setters
+					   //\===========================================================================================
 
 	void setfX(const float a_c_fX);//A setter to set the x part of Vector4 to the passed in argument.
 
@@ -65,13 +65,13 @@ public:
 
 	void setfW(const float a_c_fW);//A setter to set the w part of Vector4 to the passed in argument.
 
-	//\===========================================================================================
-	//\ Arithmetic Operation Overloads
-	//\===========================================================================================
+								   //\===========================================================================================
+								   //\ Arithmetic Operation Overloads
+								   //\===========================================================================================
 
 	Vector4 operator+(const float &a_c_fScalar)const;//Overloaded addition operation for Vector4.
 
-	Vector4 operator+(const Vector4 &a_c_vVector4)const ;//Overloaded addition operation for Vector4.
+	Vector4 operator+(const Vector4 &a_c_vVector4)const;//Overloaded addition operation for Vector4.
 
 	Vector4 operator-(const float &a_c_fScalar)const;//Overloaded subtraction operation for Vector4.
 
@@ -84,19 +84,19 @@ public:
 	Vector4 operator/(const float &a_c_fScalar)const;//Overloaded division operation for Vector4.
 
 	Vector4 operator/(const Vector4 &a_c_vVector4)const;//Overloaded division operation for Vector4.
-											  
-	//\===========================================================================================
-	//\ Assignment Operation Overloads
-	//\===========================================================================================
+
+														//\===========================================================================================
+														//\ Assignment Operation Overloads
+														//\===========================================================================================
 
 	Vector4 operator=(const float &a_c_fScalar);//Overloaded equals operation for Vector4.
 
 	Vector4 operator=(const Vector4 &a_c_vVector4);//Overloaded equals operation for Vector4.
 
-	//\===========================================================================================
-	//\ Relational Operation Overloads
-	//\===========================================================================================
-	
+												   //\===========================================================================================
+												   //\ Relational Operation Overloads
+												   //\===========================================================================================
+
 	bool operator!=(const float &a_c_fScalar)const;//Overloaded not equals operation for Vector4.
 
 	bool operator!=(const Vector4 &a_c_vVector4)const;//Overloaded not equals operation for Vector4.
@@ -105,61 +105,61 @@ public:
 
 	bool operator==(const Vector4 &a_c_vVector4)const;//Overloaded is equals operation for Vector4.
 
-	//\===========================================================================================
-	//\ Magnitude
-	//\===========================================================================================
+													  //\===========================================================================================
+													  //\ Magnitude
+													  //\===========================================================================================
 
 	float magnitude()const;//A magnitude function that returns a float.
 
-	//\===========================================================================================
-	//\ Squared Magnitude
-	//\===========================================================================================
+						   //\===========================================================================================
+						   //\ Squared Magnitude
+						   //\===========================================================================================
 
 	float squaredMagnitude()const;//A function that returns the Magnitude squared of the vector as a float.
 
-	//\===========================================================================================
-	//\ Distance Between this Vector4 and another Vector4
-	//\===========================================================================================
+								  //\===========================================================================================
+								  //\ Distance Between this Vector4 and another Vector4
+								  //\===========================================================================================
 
 	float distance(const Vector4 &a_c_vVector4)const;//Returns the distance from this Vector4 and the passed in argument.
 
-	//\===========================================================================================
-	//\ Squared Distance Between this Vector4 and another Vector4
-	//\===========================================================================================
+													 //\===========================================================================================
+													 //\ Squared Distance Between this Vector4 and another Vector4
+													 //\===========================================================================================
 
 	float squaredDistance(const Vector4 &a_c_vVector4)const;//Returns the squared distance from this Vector4 and the passed in argument.
 
-	//\===========================================================================================
-	//\ Dot Product
-	//\===========================================================================================
+															//\===========================================================================================
+															//\ Dot Product
+															//\===========================================================================================
 
 	float dotProduct(const Vector4 &a_c_vVector4)const;//A dot product function that takes in a Vector4.
 
-	//\===========================================================================================
-	//\ Cross Product
-	//\===========================================================================================
+													   //\===========================================================================================
+													   //\ Cross Product
+													   //\===========================================================================================
 
 	Vector4 crossProduct(const Vector4 &a_c_vVector4)const;//A cross product function that takes in a Vector4 .
 
-	//\===========================================================================================
-	//\ Rotation
-	//\===========================================================================================
+														   //\===========================================================================================
+														   //\ Rotation
+														   //\===========================================================================================
 
-	void rotateZ(const float a_c_fDegAngle);//A Rotate function that takes in an angle in float format.
+	void rotateZ(float a_fDegAngle);//A Rotate function that takes in an angle in float format.
 
-	void rotateX(const float a_c_fDegAngle);//A Rotate function that takes in an angle in float format.
+	void rotateX(float a_fDegAngle);//A Rotate function that takes in an angle in float format.
 
-	void rotateY(const float a_c_fDegAngle);//A Rotate function that takes in an angle in float format.
+	void rotateY(float a_fDegAngle);//A Rotate function that takes in an angle in float format.
 
-	//\===========================================================================================
-	//\ Normalisation
-	//\===========================================================================================
+									//\===========================================================================================
+									//\ Normalisation
+									//\===========================================================================================
 
 	Vector4 normalise();//A normalisation function that sets the fX, fY, fZ and fW of Vector4 to a normalised version.
 
-	//\===========================================================================================
-	//\ Return A Unit Vector
-	//\===========================================================================================
+						//\===========================================================================================
+						//\ Return A Unit Vector
+						//\===========================================================================================
 
 	Vector4 unit()const;//A function that returns a unit vector created from this vector.
 

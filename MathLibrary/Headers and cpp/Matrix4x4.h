@@ -8,6 +8,8 @@
 #ifndef _MATRIX4X4_H_
 #define _MATRIX4X4_H_
 
+#include "Matrix3x3.h"
+
 //\===========================================================================================
 //\ Author: Morgan James
 //\ Class: Matrix4x4

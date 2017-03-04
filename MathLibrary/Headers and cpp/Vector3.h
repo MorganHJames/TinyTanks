@@ -139,11 +139,11 @@ public:
 	//\ Rotation
 	//\===========================================================================================
 
-	void rotateZ(const float a_c_fDegAngle);//A Rotate function that takes in an angle in float format.
+	void rotateZ(float a_fDegAngle);//A Rotate function that takes in an angle in float format.
 
-	void rotateX(const float a_c_fDegAngle);//A Rotate function that takes in an angle in float format.
+	void rotateX(float a_fDegAngle);//A Rotate function that takes in an angle in float format.
 
-	void rotateY(const float a_c_fDegAngle);//A Rotate function that takes in an angle in float format.
+	void rotateY(float a_fDegAngle);//A Rotate function that takes in an angle in float format.
 
 	//\===========================================================================================
 	//\ Normalisation
@@ -160,3 +160,4 @@ public:
 };
 
 #endif
+

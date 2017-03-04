@@ -6,5 +6,8 @@
 //\===========================================================================================
 
 #include "Matrix4x4.h"
+#include <cstring>
+#include <cmath>
+#include "MathUtil.h"
 
 
