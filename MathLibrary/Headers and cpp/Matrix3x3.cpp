@@ -96,6 +96,16 @@ Vector3 Matrix3x3::getTranslation()const//A getter to return the vTranslation of
 	return Vector3(vTranslation);//Returns the vTranslation of the Matrix3x3 in the form of a Vector3.
 }
 
+Vector3 Matrix3x3::getColumn(const int a_c_iCol)const//A getter to return the column specified by the argument a_c_iCol.
+{
+	return Vector3(fmMatrix[0][a_c_iCol], fmMatrix[1][a_c_iCol], fmMatrix[2][a_c_iCol]);//Returns the column as a Vector3.
+}
+
+Vector3 Matrix3x3::getRow(const int a_c_iRow)const//A getter to return the row specified by the argument a_c_iRow.
+{
+	return Vector3(fmMatrix[a_c_iRow][0], fmMatrix[a_c_iRow][1], fmMatrix[a_c_iRow][2]);//Returns the row as a Vecotor3
+}
+
 //\===========================================================================================
 //\ Setters
 //\===========================================================================================
@@ -128,6 +138,20 @@ void Matrix3x3::setZAxis(const Vector3 a_c_vVector3)//A setter to change the vZA
 void Matrix3x3::setTranslation(const Vector3 a_c_vVector3)//A setter to change the vTranslation of matrix3x3 to the vTranslation argument.
 {
 	vTranslation = a_c_vVector3;//Sets the vTranslation Vector3 of the Matrix3x3 equal to the Vector3 passed in.
+}
+
+void Matrix3x3::setColumn(const int a_c_iCol, Vector3 a_c_vVector3)//A setter for the column specified by the argument a_c_iCol.
+{
+	fmMatrix[0][a_c_iCol] = a_c_vVector3.getfX();
+	fmMatrix[1][a_c_iCol] = a_c_vVector3.getfY();
+    fmMatrix[2][a_c_iCol] = a_c_vVector3.getfZ();//Sets the column specified by the a_c_iCol equal to the argument vector3.
+}
+
+void Matrix3x3::setRow(const int a_c_iRow, Vector3 a_c_vVector3)//A setter for the row specified by the argument a_c_iRow.
+{
+	fmMatrix[a_c_iRow][0] = a_c_vVector3.getfX();
+	fmMatrix[a_c_iRow][1] = a_c_vVector3.getfY();
+	fmMatrix[a_c_iRow][2] = a_c_vVector3.getfZ();//Sets the row specified by the a_c_iRow equal to the argument vector3.
 }
 
 //\===========================================================================================
@@ -389,13 +413,13 @@ void Matrix3x3::rotate(float a_fAngle)//Rotates the Matrix3x3 by the angle in de
 {
 	a_fAngle = degreesToRadians(a_fAngle);//Converts the float to radians.
 	fm_00 *= cosf(a_fAngle);   
-	fm_01 *= -sinf(a_fAngle);  	//\===================================
-	fm_02 *= 0;                	//\= Multiplies the Matrix3x3 by the
-	fm_10 *= sinf(a_fAngle);   	//\= rotation matrix which is:
-	fm_11 *= cosf(a_fAngle);   	//\= cos(θ), -sin(θ), 0,
-	fm_12 *= 0;                	//\= sin(θ),  cos(θ), 0,
-	fm_20 *= 0;                	//\=      0,       0, 1, 
-	fm_21 *= 0;               	//\===================================
+	fm_01 *= -sinf(a_fAngle);//\===================================
+	fm_02 *= 0;              //\= Multiplies the Matrix3x3 by the
+	fm_10 *= sinf(a_fAngle); //\= rotation matrix which is:
+	fm_11 *= cosf(a_fAngle); //\= cos(θ), -sin(θ), 0,
+	fm_12 *= 0;              //\= sin(θ),  cos(θ), 0,
+	fm_20 *= 0;              //\=      0,       0, 1, 
+	fm_21 *= 0;              //\===================================
 	fm_22 *= 1;               
 }
 
@@ -440,18 +464,65 @@ bool Matrix3x3::inverse()//A function that make a Matrix3x3 turn to its inverse.
 //\ Scale
 //\===========================================================================================
 
+void Matrix3x3::scale(const float a_c_fXScale, float a_c_fYscale, float a_c_fZscale)//Rotates the Matrix3x3 by the angle in degrees. 
+{
+	fm_00 *= a_c_fXScale;
+	fm_01 *= 0;  	     //\===================================
+	fm_02 *= 0;          //\= Multiplies the Matrix3x3 by the
+	fm_10 *= 0;   	     //\= scale matrix which is:
+	fm_11 *= a_c_fYscale;//\= xScale,       0,      0,
+	fm_12 *= 0;          //\=      0,  yScale,      0,
+	fm_20 *= 0;          //\=      0,       0, zScale
+	fm_21 *= 0;          //\===================================
+	fm_22 *= a_c_fZscale;
+}
+
 //\===========================================================================================
 //\ Transpose A Point
 //\===========================================================================================
+
+void Matrix3x3::transpose()//Transposes the Matrix3x3. 
+{
+	Matrix3x3 temp = *this;//Creates a temporary matrix that is equal to the Matrx3x3 it will transpose.
+	fm_01 = temp.fm_10;//\===================================
+	fm_02 = temp.fm_20;//\= Makes the Matrix3x3 equal to the transpose matrix which is:
+	fm_10 = temp.fm_01;//\= 00, 10, 20,
+	fm_12 = temp.fm_21;//\= 01, 11, 21,
+	fm_20 = temp.fm_02;//\= 02, 12, 22
+	fm_21 = temp.fm_12;//\===================================
+}
 
 //\===========================================================================================
 //\ Set To Identity
 //\===========================================================================================
 
+void Matrix3x3::identity()//Makes the Matrix3x3 an identity matrix. 
+{
+	fm_00 = 1;//\===================================
+	fm_01 = 0;//\= Makes the Matrix3x3 equal to the identity matrix which is:
+	fm_02 = 0;//\= 1, 0, 0,
+	fm_10 = 0;//\= 0, 1, 0,
+	fm_11 = 1;//\= 0, 0, 1
+	fm_12 = 0;//\===================================
+	fm_20 =	0;
+	fm_21 =	0;
+	fm_22 =	1;
+}
+
 //\===========================================================================================
 //\ Set To Zero
 //\===========================================================================================
 
-//\===========================================================================================
-//\ Override Access Operators To Retrieve Matrix Value At Row / Column
-//\===========================================================================================
+void Matrix3x3::zero()//Makes each Matrix3x3 element equal to 0. 
+{
+	fm_00 = 0;//Set each element in the matrix3x3 to zero.
+	fm_01 = 0;
+	fm_02 = 0;
+	fm_10 = 0;
+	fm_11 = 0;
+	fm_12 = 0;
+	fm_20 = 0;
+	fm_21 = 0;
+	fm_22 = 0;
+}
+

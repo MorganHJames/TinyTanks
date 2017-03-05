@@ -84,6 +84,10 @@ public:
 
 	Vector3 getTranslation()const;//A getter to return the vTranslation of matrix3x3 in the form of a Vector3.
 
+	Vector3 getColumn(const int a_c_iCol)const;//A getter to return the column specified by the argument a_c_iCol.
+
+	Vector3 getRow(const int a_c_iRow)const;//A getter to return the row specified by the argument a_c_iRow.
+
 	//\===========================================================================================
 	//\ Setters
 	//\===========================================================================================
@@ -99,6 +103,10 @@ public:
 	void setZAxis(const Vector3 a_c_vVector3);//A setter to change the vZAxis of matrix3x3 to the Vector3 argument.
 
 	void setTranslation(const Vector3 a_c_vVector3);//A setter to change the vTranslation of matrix3x3 to the vTranslation argument.
+
+	void setColumn(const int a_c_iCol, Vector3 a_c_vVector3);//A setter for the column specified by the argument a_c_iCol.
+
+	void setRow(const int a_c_iRow, Vector3 a_c_vVector3);//A setter for the row specified by the argument a_c_iRow.
 
 	//\===========================================================================================
 	//\ Arithmetic Operation Overloads
@@ -158,7 +166,7 @@ public:
 	//\ Rotate Around Euler Axis
 	//\===========================================================================================
 
-	void Matrix3x3::rotate(float a_fAngle);//Rotates the Matrix3x3 by the angle in degrees. 
+	void rotate(float a_fAngle);//Rotates the Matrix3x3 by the angle in degrees. 
 
 	//\===========================================================================================
 	//\ Determinant
@@ -175,23 +183,26 @@ public:
 	//\===========================================================================================
 	//\ Scale
 	//\===========================================================================================
+	
+	void scale(const float a_c_fXScale = 1, float a_c_fYscale = 1, float a_c_fZscale = 1);//Rotates the Matrix3x3 by the angle in degrees. 
 
 	//\===========================================================================================
 	//\ Transpose A Point
 	//\===========================================================================================
 
+	void transpose();//Transposes the Matrix3x3. 
+
 	//\===========================================================================================
 	//\ Set To Identity
 	//\===========================================================================================
+
+	void identity();//Makes the Matrix3x3 an identity matrix. 
 
 	//\===========================================================================================
 	//\ Set To Zero
 	//\===========================================================================================
 
-	//\===========================================================================================
-	//\ Override Access Operators To Retrieve Matrix Value At Row / Column
-	//\===========================================================================================
-
+	void zero();//Makes each Matrix3x3 element equal to 0. 
 
 };
 
