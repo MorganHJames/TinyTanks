@@ -1,2 +1,39 @@
-﻿  Matrix3x3.cpp
-  MathLibrary.vcxproj -> D:\unishit\CT4019 Programming and Mathematics for Games (Sem1-2 - 201617)\semester 2\Tiny Tanks\MathLibrary\.\Debug\MathLibrary.lib
+﻿  Vector4.cpp
+  Vector3.cpp
+  Vector2.cpp
+  Matrix4x4.cpp
+  Matrix3x3.cpp
+  MathUtil.cpp
+  Generating Code...
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(82): error C4716: 'Matrix4x4::getXAxis': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(87): error C4716: 'Matrix4x4::getYAxis': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(72): error C4716: 'Matrix4x4::getmMatrix': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(77): error C4716: 'Matrix4x4::getiMatrix': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(102): error C4716: 'Matrix4x4::getTranslation': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(97): error C4716: 'Matrix4x4::getWAxis': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(92): error C4716: 'Matrix4x4::getZAxis': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(107): error C4716: 'Matrix4x4::getColumn': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(112): error C4716: 'Matrix4x4::getRow': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(170): error C4716: 'Matrix4x4::operator+': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(175): error C4716: 'Matrix4x4::operator+': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(180): error C4716: 'Matrix4x4::operator+': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(185): error C4716: 'Matrix4x4::operator-': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(190): error C4716: 'Matrix4x4::operator-': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(195): error C4716: 'Matrix4x4::operator-': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(200): error C4716: 'Matrix4x4::operator*': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(205): error C4716: 'Matrix4x4::operator*': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(210): error C4716: 'Matrix4x4::operator*': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(215): error C4716: 'Matrix4x4::operator/': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(220): error C4716: 'Matrix4x4::operator/': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(225): error C4716: 'Matrix4x4::operator/': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(234): error C4716: 'Matrix4x4::operator=': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(239): error C4716: 'Matrix4x4::operator=': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(244): error C4716: 'Matrix4x4::operator=': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(253): error C4716: 'Matrix4x4::operator!=': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(258): error C4716: 'Matrix4x4::operator!=': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(268): error C4716: 'Matrix4x4::operator==': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(263): error C4716: 'Matrix4x4::operator!=': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(273): error C4716: 'Matrix4x4::operator==': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(278): error C4716: 'Matrix4x4::operator==': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(306): error C4716: 'Matrix4x4::determinant': must return a value
+d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(315): error C4716: 'Matrix4x4::inverse': must return a value

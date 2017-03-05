@@ -72,9 +72,9 @@ public:
 	//\ Getters
 	//\===========================================================================================
 
-	float getmMatrix(const int a_c_iRow, int a_c_iCol)const;//A getter to return a float at the point specified with the two arguments.
+	float getmMatrix(const int &a_c_iRow, int &a_c_iCol)const;//A getter to return a float at the point specified with the two arguments.
 
-	float getiMatrix(const int a_c_iPosition)const;//A getter to Returns a float from the matrix at the position of the argument passed in.
+	float getiMatrix(const int &a_c_iPosition)const;//A getter to Returns a float from the matrix at the position of the argument passed in.
 
 	Vector3 getXAxis()const;//A getter to return the vXAxis of matrix3x3 in the form of a Vector3.
 
@@ -84,29 +84,29 @@ public:
 
 	Vector3 getTranslation()const;//A getter to return the vTranslation of matrix3x3 in the form of a Vector3.
 
-	Vector3 getColumn(const int a_c_iCol)const;//A getter to return the column specified by the argument a_c_iCol.
+	Vector3 getColumn(const int &a_c_iCol)const;//A getter to return the column specified by the argument a_c_iCol.
 
-	Vector3 getRow(const int a_c_iRow)const;//A getter to return the row specified by the argument a_c_iRow.
+	Vector3 getRow(const int &a_c_iRow)const;//A getter to return the row specified by the argument a_c_iRow.
 
 	//\===========================================================================================
 	//\ Setters
 	//\===========================================================================================
 
-	void setmMatrix(const int a_c_iRow, int a_c_iCol, float a_c_fNewNumber);//A setter to change the float in the matrix at the point specified with the two arguments.
+	void setmMatrix(const int &a_c_iRow, int &a_c_iCol, float &a_c_fNewNumber);//A setter to change the float in the matrix at the point specified with the two arguments.
 
-	void setiMatrix(const int a_c_iPosition, float a_c_fNewNumber);//A setter to change the float in the matrix at the position of the argument passed in.
+	void setiMatrix(const int &a_c_iPosition, float &a_c_fNewNumber);//A setter to change the float in the matrix at the position of the argument passed in.
 
-	void setXAxis(const Vector3 a_c_vVector3);//A setter to change the vXAxis of matrix3x3 to the Vector3 argument.
+	void setXAxis(const Vector3 &a_c_vVector3);//A setter to change the vXAxis of matrix3x3 to the Vector3 argument.
 
-	void setYAxis(const Vector3 a_c_vVector3);//A setter to change the vYAxis of matrix3x3 to the Vector3 argument.
+	void setYAxis(const Vector3 &a_c_vVector3);//A setter to change the vYAxis of matrix3x3 to the Vector3 argument.
 
-	void setZAxis(const Vector3 a_c_vVector3);//A setter to change the vZAxis of matrix3x3 to the Vector3 argument.
+	void setZAxis(const Vector3 &a_c_vVector3);//A setter to change the vZAxis of matrix3x3 to the Vector3 argument.
 
-	void setTranslation(const Vector3 a_c_vVector3);//A setter to change the vTranslation of matrix3x3 to the vTranslation argument.
+	void setTranslation(const Vector3 &a_c_vVector3);//A setter to change the vTranslation of matrix3x3 to the vTranslation argument.
 
-	void setColumn(const int a_c_iCol, Vector3 a_c_vVector3);//A setter for the column specified by the argument a_c_iCol.
+	void setColumn(const int &a_c_iCol, Vector3 &a_c_vVector3);//A setter for the column specified by the argument a_c_iCol.
 
-	void setRow(const int a_c_iRow, Vector3 a_c_vVector3);//A setter for the row specified by the argument a_c_iRow.
+	void setRow(const int &a_c_iRow, Vector3 &a_c_vVector3);//A setter for the row specified by the argument a_c_iRow.
 
 	//\===========================================================================================
 	//\ Arithmetic Operation Overloads
@@ -166,7 +166,7 @@ public:
 	//\ Rotate Around Euler Axis
 	//\===========================================================================================
 
-	void rotate(float a_fAngle);//Rotates the Matrix3x3 by the angle in degrees. 
+	void rotate(float &a_fAngle);//Rotates the Matrix3x3 by the angle in degrees. 
 
 	//\===========================================================================================
 	//\ Determinant
@@ -184,7 +184,7 @@ public:
 	//\ Scale
 	//\===========================================================================================
 	
-	void scale(const float a_c_fXScale = 1, float a_c_fYscale = 1, float a_c_fZscale = 1);//Rotates the Matrix3x3 by the angle in degrees. 
+	void scale(const float &a_c_fXScale, float &a_c_fYScale, float &a_c_fZScale);//Rotates the Matrix3x3 by the angle in degrees. 
 
 	//\===========================================================================================
 	//\ Transpose A Point

@@ -66,12 +66,12 @@ Matrix3x3::Matrix3x3(const Vector3 &a_c_vXAxis, Vector3 &a_c_vYAxis, Vector3 &a_
 //\ Getters
 //\===========================================================================================
 
-float Matrix3x3::getmMatrix(const int a_c_iRow, int a_c_iCol)const//A getter to return a float at the point specified with the two arguments.
+float Matrix3x3::getmMatrix(const int &a_c_iRow, int &a_c_iCol)const//A getter to return a float at the point specified with the two arguments.
 {
 	return float(fmMatrix[a_c_iRow][a_c_iCol]);//Returns a float at the row of the first argument passed in and the column of the second argument passed in.
 }
 
-float Matrix3x3::getiMatrix(const int a_c_iPosition)const//A getter to Returns a float from the matrix at the position of the argument passed in.
+float Matrix3x3::getiMatrix(const int &a_c_iPosition)const//A getter to Returns a float from the matrix at the position of the argument passed in.
 {
 	return float(fiMatrix[a_c_iPosition]);//Returns a float from the matrix at the position of the argument passed in.
 }
@@ -96,12 +96,12 @@ Vector3 Matrix3x3::getTranslation()const//A getter to return the vTranslation of
 	return Vector3(vTranslation);//Returns the vTranslation of the Matrix3x3 in the form of a Vector3.
 }
 
-Vector3 Matrix3x3::getColumn(const int a_c_iCol)const//A getter to return the column specified by the argument a_c_iCol.
+Vector3 Matrix3x3::getColumn(const int &a_c_iCol)const//A getter to return the column specified by the argument a_c_iCol.
 {
 	return Vector3(fmMatrix[0][a_c_iCol], fmMatrix[1][a_c_iCol], fmMatrix[2][a_c_iCol]);//Returns the column as a Vector3.
 }
 
-Vector3 Matrix3x3::getRow(const int a_c_iRow)const//A getter to return the row specified by the argument a_c_iRow.
+Vector3 Matrix3x3::getRow(const int &a_c_iRow)const//A getter to return the row specified by the argument a_c_iRow.
 {
 	return Vector3(fmMatrix[a_c_iRow][0], fmMatrix[a_c_iRow][1], fmMatrix[a_c_iRow][2]);//Returns the row as a Vecotor3
 }
@@ -110,44 +110,44 @@ Vector3 Matrix3x3::getRow(const int a_c_iRow)const//A getter to return the row s
 //\ Setters
 //\===========================================================================================
 
-void Matrix3x3::setmMatrix(const int a_c_iRow, int a_c_iCol, float a_c_fNewNumber)//A setter to change the float in the matrix at the point specified with the two arguments.
+void Matrix3x3::setmMatrix(const int &a_c_iRow, int &a_c_iCol, float &a_c_fNewNumber)//A setter to change the float in the matrix at the point specified with the two arguments.
 {
 	fmMatrix[a_c_iRow][a_c_iCol] = a_c_fNewNumber;//Sets the float specified by the first and second argument to the third argument.
 }
 
-void Matrix3x3::setiMatrix(const int a_c_iPosition, float a_c_fNewNumber)//A setter to change the float in the matrix at the position of the argument passed in.
+void Matrix3x3::setiMatrix(const int &a_c_iPosition, float &a_c_fNewNumber)//A setter to change the float in the matrix at the position of the argument passed in.
 {
 	fiMatrix[a_c_iPosition] = a_c_fNewNumber;//Sets the float at the position of the first argument to the float of the second argument.
 }
 
-void Matrix3x3::setXAxis(const Vector3 a_c_vVector3)//A setter to change the vXAxis of matrix3x3 to the Vector3 argument.
+void Matrix3x3::setXAxis(const Vector3 &a_c_vVector3)//A setter to change the vXAxis of matrix3x3 to the Vector3 argument.
 {
 	vXAxis = a_c_vVector3;//Sets the vXAxis Vector3 of the Matrix3x3 equal to the Vector3 passed in.
 }
 
-void Matrix3x3::setYAxis(const Vector3 a_c_vVector3)//A setter to change the vYAxis of matrix3x3 to the Vector3 argument.
+void Matrix3x3::setYAxis(const Vector3 &a_c_vVector3)//A setter to change the vYAxis of matrix3x3 to the Vector3 argument.
 {
 	vYAxis = a_c_vVector3;//Sets the vYAxis Vector3 of the Matrix3x3 equal to the Vector3 passed in.
 }
 
-void Matrix3x3::setZAxis(const Vector3 a_c_vVector3)//A setter to change the vZAxis of matrix3x3 to the Vector3 argument.
+void Matrix3x3::setZAxis(const Vector3 &a_c_vVector3)//A setter to change the vZAxis of matrix3x3 to the Vector3 argument.
 {
 	vZAxis = a_c_vVector3;//Sets the vZAxis Vector3 of the Matrix3x3 equal to the Vector3 passed in.
 }
 
-void Matrix3x3::setTranslation(const Vector3 a_c_vVector3)//A setter to change the vTranslation of matrix3x3 to the vTranslation argument.
+void Matrix3x3::setTranslation(const Vector3 &a_c_vVector3)//A setter to change the vTranslation of matrix3x3 to the vTranslation argument.
 {
 	vTranslation = a_c_vVector3;//Sets the vTranslation Vector3 of the Matrix3x3 equal to the Vector3 passed in.
 }
 
-void Matrix3x3::setColumn(const int a_c_iCol, Vector3 a_c_vVector3)//A setter for the column specified by the argument a_c_iCol.
+void Matrix3x3::setColumn(const int &a_c_iCol, Vector3 &a_c_vVector3)//A setter for the column specified by the argument a_c_iCol.
 {
 	fmMatrix[0][a_c_iCol] = a_c_vVector3.getfX();
 	fmMatrix[1][a_c_iCol] = a_c_vVector3.getfY();
     fmMatrix[2][a_c_iCol] = a_c_vVector3.getfZ();//Sets the column specified by the a_c_iCol equal to the argument vector3.
 }
 
-void Matrix3x3::setRow(const int a_c_iRow, Vector3 a_c_vVector3)//A setter for the row specified by the argument a_c_iRow.
+void Matrix3x3::setRow(const int &a_c_iRow, Vector3 &a_c_vVector3)//A setter for the row specified by the argument a_c_iRow.
 {
 	fmMatrix[a_c_iRow][0] = a_c_vVector3.getfX();
 	fmMatrix[a_c_iRow][1] = a_c_vVector3.getfY();
@@ -409,7 +409,7 @@ bool Matrix3x3::operator==(const Matrix3x3 &a_c_mMatrix3x3)const//Overloaded is 
 //\ Rotate Around Euler Axis
 //\===========================================================================================
 
-void Matrix3x3::rotate(float a_fAngle)//Rotates the Matrix3x3 by the angle in degrees. 
+void Matrix3x3::rotate(float &a_fAngle)//Rotates the Matrix3x3 by the angle in degrees. 
 {
 	a_fAngle = degreesToRadians(a_fAngle);//Converts the float to radians.
 	fm_00 *= cosf(a_fAngle);   
@@ -464,17 +464,17 @@ bool Matrix3x3::inverse()//A function that make a Matrix3x3 turn to its inverse.
 //\ Scale
 //\===========================================================================================
 
-void Matrix3x3::scale(const float a_c_fXScale, float a_c_fYscale, float a_c_fZscale)//Rotates the Matrix3x3 by the angle in degrees. 
+void Matrix3x3::scale(const float &a_c_fXScale, float &a_c_fYScale, float &a_c_fZScale)//Rotates the Matrix3x3 by the angle in degrees. 
 {
 	fm_00 *= a_c_fXScale;
 	fm_01 *= 0;  	     //\===================================
 	fm_02 *= 0;          //\= Multiplies the Matrix3x3 by the
 	fm_10 *= 0;   	     //\= scale matrix which is:
-	fm_11 *= a_c_fYscale;//\= xScale,       0,      0,
+	fm_11 *= a_c_fYScale;//\= xScale,       0,      0,
 	fm_12 *= 0;          //\=      0,  yScale,      0,
 	fm_20 *= 0;          //\=      0,       0, zScale
 	fm_21 *= 0;          //\===================================
-	fm_22 *= a_c_fZscale;
+	fm_22 *= a_c_fZScale;
 }
 
 //\===========================================================================================
