@@ -166,7 +166,9 @@ public:
 	//\ Rotate Around Euler Axis
 	//\===========================================================================================
 
-	void rotate(float &a_fAngle);//Rotates the Matrix3x3 by the angle in degrees. 
+	void rotate(float &a_fAngle);//Rotates the Matrix3x3 by the angle in degrees around the z axis. 
+
+	Matrix3x3 getRotationMatrix(float &a_fAngle)const;//Returns the Rotation Matrix3x3 by the angle in degrees. 
 
 	//\===========================================================================================
 	//\ Determinant
@@ -184,7 +186,9 @@ public:
 	//\ Scale
 	//\===========================================================================================
 	
-	void scale(const float &a_c_fXScale, float &a_c_fYScale, float &a_c_fZScale);//Rotates the Matrix3x3 by the angle in degrees. 
+	void scale(const float &a_c_fXScale, float &a_c_fYScale);//Rotates the Matrix3x3 by the angle in degrees. 
+	
+	Matrix3x3 getScaleMatrix(const float &a_c_fXScale, float &a_c_fYScale)const;//Returns the scale Matrix3x3.    
 
 	//\===========================================================================================
 	//\ Transpose A Point

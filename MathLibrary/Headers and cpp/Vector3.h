@@ -53,11 +53,11 @@ public:
 	//\ Setters
 	//\===========================================================================================
 
-	void setfX(const float a_c_fX);//A setter to set the x part of Vector3 to the passed in argument.
+	void setfX(const float &a_c_fX);//A setter to set the x part of Vector3 to the passed in argument.
 
-	void setfY(const float a_c_fY);//A setter to set the y part of Vector3 to the passed in argument.
+	void setfY(const float &a_c_fY);//A setter to set the y part of Vector3 to the passed in argument.
 
-	void setfZ(const float a_c_fZ);//A setter to set the z part of Vector3 to the passed in argument.
+	void setfZ(const float &a_c_fZ);//A setter to set the z part of Vector3 to the passed in argument.
 
 	//\===========================================================================================
 	//\ Arithmetic Operation Overloads

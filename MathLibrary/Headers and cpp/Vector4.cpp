@@ -68,22 +68,22 @@ float Vector4::getfW()const//A getter to get the w part of Vector4.
 //\ Setters
 //\===========================================================================================
 
-void Vector4::setfX(const float a_c_fX)//A setter to set the x part of Vector4 to the passed in argument.
+void Vector4::setfX(const float &a_c_fX)//A setter to set the x part of Vector4 to the passed in argument.
 {
 	fX = a_c_fX;//Makes this Vector4's fX value equal to the passed in argument.
 }
 
-void Vector4::setfY(const float a_c_fY)//A setter to set the y part of Vector4 to the passed in argument.
+void Vector4::setfY(const float &a_c_fY)//A setter to set the y part of Vector4 to the passed in argument.
 {
 	fY = a_c_fY;//Makes this Vector4's fY value equal to the passed in argument.
 }
 
-void Vector4::setfZ(const float a_c_fZ)//A setter to set the z part of Vector4 to the passed in argument.
+void Vector4::setfZ(const float &a_c_fZ)//A setter to set the z part of Vector4 to the passed in argument.
 {
 	fY = a_c_fZ;//Makes this Vector4's fZ value equal to the passed in argument.
 }
 
-void Vector4::setfW(const float a_c_fW)//A setter to set the w part of Vector4 to the passed in argument.
+void Vector4::setfW(const float &a_c_fW)//A setter to set the w part of Vector4 to the passed in argument.
 {
 	fW = a_c_fW;//Makes this Vector4's fW value equal to the passed in argument.
 }

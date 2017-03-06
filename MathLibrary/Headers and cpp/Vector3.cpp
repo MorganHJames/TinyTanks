@@ -53,16 +53,16 @@ float Vector3::getfZ()const//A getter to get the z part of Vector3.
 //\ Setters
 //\===========================================================================================
 
-void Vector3::setfX(float a_c_fX)//A setter to set the x part of Vector3 to the passed in argument.
+void Vector3::setfX(const float &a_c_fX)//A setter to set the x part of Vector3 to the passed in argument.
 {
 	fX = a_c_fX;//Makes this Vector3's fX value equal to the passed in argument.
 }
 
-void Vector3::setfY(float a_c_fY)//A setter to set the y part of Vector3 to the passed in argument.
+void Vector3::setfY(const float &a_c_fY)//A setter to set the y part of Vector3 to the passed in argument.
 {
 	fY = a_c_fY;//Makes this Vector3's fY value equal to the passed in argument.
 }
-void Vector3::setfZ(float a_c_fZ)//A setter to set the z part of Vector3 to the passed in argument.
+void Vector3::setfZ(const float &a_c_fZ)//A setter to set the z part of Vector3 to the passed in argument.
 {
 	fY = a_c_fZ;//Makes this Vector3's fZ value equal to the passed in argument.
 }

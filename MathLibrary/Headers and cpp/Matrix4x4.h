@@ -91,7 +91,7 @@ public:
 		Vector4 &a_c_vZAxis,
 		Vector4 &a_c_vWAxis);
 
-	Matrix4x4(const Matrix3x3 a_c_mMatrix3x3);//Constructor to make a Matrix4x4 from a Matrix3x3.
+	Matrix4x4(const Matrix3x3 &a_c_mMatrix3x3);//Constructor to make a Matrix4x4 from a Matrix3x3.
 
 	//\===========================================================================================
 	//\ Getters
@@ -111,9 +111,9 @@ public:
 
 	Vector4 getTranslation()const;//A getter to return the vTranslation of Matrix4x4 in the form of a Vector4.
 
-	Vector4 getColumn(const int a_c_iCol)const;//A getter to return the column specified by the argument a_c_iCol.
+	Vector4 getColumn(const int &a_c_iCol)const;//A getter to return the column specified by the argument a_c_iCol.
 
-	Vector4 getRow(const int a_c_iRow)const;//A getter to return the row specified by the argument a_c_iRow.
+	Vector4 getRow(const int &a_c_iRow)const;//A getter to return the row specified by the argument a_c_iRow.
 
 	//\===========================================================================================
 	//\ Setters
@@ -201,6 +201,12 @@ public:
 
 	void rotateZ(float &a_fAngle);//Rotates the Matrix4x4 by the angle in degrees. 
 
+	Matrix4x4 getXRotationMatrix(float &a_fAngle)const;//Returns the X Rotation Matrix4x4 by the angle in degrees. 
+
+	Matrix4x4 getYRotationMatrix(float &a_fAngle)const;//Returns the Y Rotation Matrix4x4 by the angle in degrees.
+
+	Matrix4x4 getZRotationMatrix(float &a_fAngle)const;//Returns the Z Rotation Matrix4x4 by the angle in degrees.
+
 	//\===========================================================================================
 	//\ Determinant
 	//\===========================================================================================
@@ -217,7 +223,9 @@ public:
 	//\ Scale
 	//\===========================================================================================
 
-	void scale(const float a_c_fXScale = 1, float a_c_fYScale = 1, float a_c_fZScale = 1, float a_c_fWScale = 1);//Rotates the Matrix4x4 by the angle in degrees. 
+	void scale(const float &a_c_fXScale, float &a_c_fYScale, float &a_c_fZScale);//Rotates the Matrix4x4 by the angle in degrees. 
+
+	Matrix4x4 getScaleMatrix(const float &a_c_fXScale, float &a_c_fYScale, float &a_c_fZScale)const;//Returns the scale Matrix4x4.
 
 	//\===========================================================================================
 	//\ Transpose A Point
