@@ -105,17 +105,17 @@ Matrix4x4::Matrix4x4(const//Constructor for a Matrix4x4 made from four Vector4's
 
 Matrix4x4::Matrix4x4(const Matrix3x3 &a_c_mMatrix3x3)//Constructor to make a Matrix4x4 from a Matrix3x3.
 {
-	fm_00 = a_c_mMatrix3x3.getmMatrix(0, 0);//Sets the matrix's first element of the matrix to the same as the matrix passed in.
-	fm_01 = a_c_mMatrix3x3.getmMatrix(0, 1);//Sets the matrix's second element of the matrix to the same as the matrix passed in.
-	fm_02 = a_c_mMatrix3x3.getmMatrix(0, 2);//Sets the matrix's third element of the matrix to the same as the matrix passed in.
+	fm_00 = a_c_mMatrix3x3.getiMatrix(0);//Sets the matrix's first element of the matrix to the same as the matrix passed in.
+	fm_01 = a_c_mMatrix3x3.getiMatrix(1);//Sets the matrix's second element of the matrix to the same as the matrix passed in.
+	fm_02 = a_c_mMatrix3x3.getiMatrix(2);//Sets the matrix's third element of the matrix to the same as the matrix passed in.
 	fm_03 = 0;//Sets the element to what is would be in the identity matrix.
-	fm_10 = a_c_mMatrix3x3.getmMatrix(1, 0);//Sets the matrix's fifth element of the matrix to the same as the matrix passed in.
-	fm_11 = a_c_mMatrix3x3.getmMatrix(1, 1);//Sets the matrix's sixth element of the matrix to the same as the matrix passed in.
-	fm_12 = a_c_mMatrix3x3.getmMatrix(1, 2);//Sets the matrix's seventh element of the matrix to the same as the matrix passed in.
+	fm_10 = a_c_mMatrix3x3.getiMatrix(5);//Sets the matrix's fifth element of the matrix to the same as the matrix passed in.
+	fm_11 = a_c_mMatrix3x3.getiMatrix(6);//Sets the matrix's sixth element of the matrix to the same as the matrix passed in.
+	fm_12 = a_c_mMatrix3x3.getiMatrix(7);//Sets the matrix's seventh element of the matrix to the same as the matrix passed in.
 	fm_13 = 0;//Sets the element to what is would be in the identity matrix.
-	fm_20 = a_c_mMatrix3x3.getmMatrix(2, 0);//Sets the matrix's ninth element of the matrix to the same as the matrix passed in.
-	fm_21 = a_c_mMatrix3x3.getmMatrix(2, 1);//Sets the matrix's tenth element of the matrix to the same as the matrix passed in.
-	fm_22 = a_c_mMatrix3x3.getmMatrix(2, 2);//Sets the matrix's eleventh element of the matrix to the same as the matrix passed in.
+	fm_20 = a_c_mMatrix3x3.getiMatrix(9);//Sets the matrix's ninth element of the matrix to the same as the matrix passed in.
+	fm_21 = a_c_mMatrix3x3.getiMatrix(10);//Sets the matrix's tenth element of the matrix to the same as the matrix passed in.
+	fm_22 = a_c_mMatrix3x3.getiMatrix(11);//Sets the matrix's eleventh element of the matrix to the same as the matrix passed in.
 	fm_23 = 0;//Sets the element to what is would be in the identity matrix.
 	fm_30 = 0;//Sets the element to what is would be in the identity matrix.
 	fm_31 = 0;//Sets the element to what is would be in the identity matrix.
@@ -361,14 +361,36 @@ Matrix4x4 Matrix4x4::operator*(const float &a_c_fScalar)const//Overloaded multip
 	return Matrix4x4(tempMultiplicationMatrix);//Returns the multiplied matrix.
 }
 
-Vector3 Matrix4x4::operator*(const Vector3 &a_c_vVector3)const//Overloaded multiplication operation for Matrix4x4.
+Vector4 Matrix4x4::operator*(const Vector3 &a_c_vVector3)const//Overloaded multiplication operation for Matrix4x4.
 {
-	
+	Vector4 temp(a_c_vVector3);
+	return Vector4(//Returns the multiplied matrix.
+		fm_00 * temp.getfX() + fm_01 * temp.getfY() + fm_02 * temp.getfZ() + fm_03 * temp.getfW(),//Dot product for the first row of the first matrix and the only column of the Vector3.
+		fm_10 * temp.getfX() + fm_11 * temp.getfY() + fm_12 * temp.getfZ() + fm_13 * temp.getfW(),//Dot product for the second row of the first matrix and the only column of the Vector3.
+		fm_20 * temp.getfX() + fm_21 * temp.getfY() + fm_22 * temp.getfZ() + fm_23 * temp.getfW(),//Dot product for the third row of the first matrix and the only column of the Vector3.
+		fm_30 * temp.getfX() + fm_31 * temp.getfY() + fm_32 * temp.getfZ() + fm_33 * temp.getfW());//Dot product for the fourth row of the first matrix and the only column of the Vector3.
 }
 
 Matrix4x4 Matrix4x4::operator*(const Matrix4x4 &a_c_mMatrix4x4)const//Overloaded multiplication operation for Matrix4x4.
 {
-
+	Matrix4x4 tempMultiplicationMatrix;//Creates a temporary matrix that will hold the multiplied vector.
+	tempMultiplicationMatrix.fm_00 = fm_00 * a_c_mMatrix4x4.fm_00 + fm_01 * a_c_mMatrix4x4.fm_10 + fm_02 * a_c_mMatrix4x4.fm_20 + fm_03 * a_c_mMatrix4x4.fm_30;//Dot product for the first row of the first matrix and the first column of the second matrix.
+	tempMultiplicationMatrix.fm_01 = fm_00 * a_c_mMatrix4x4.fm_01 + fm_01 * a_c_mMatrix4x4.fm_11 + fm_02 * a_c_mMatrix4x4.fm_21 + fm_03 * a_c_mMatrix4x4.fm_31;//Dot product for the first row of the first matrix and the second column of the second matrix.
+	tempMultiplicationMatrix.fm_02 = fm_00 * a_c_mMatrix4x4.fm_02 + fm_01 * a_c_mMatrix4x4.fm_12 + fm_02 * a_c_mMatrix4x4.fm_22 + fm_03 * a_c_mMatrix4x4.fm_32;//Dot product for the first row of the first matrix and the third column of the second matrix.																																		  
+	tempMultiplicationMatrix.fm_03 = fm_00 * a_c_mMatrix4x4.fm_03 + fm_01 * a_c_mMatrix4x4.fm_13 + fm_02 * a_c_mMatrix4x4.fm_23 + fm_03 * a_c_mMatrix4x4.fm_33;//Dot product for the first row of the first matrix and the fourth column of the second matrix.	
+	tempMultiplicationMatrix.fm_10 = fm_10 * a_c_mMatrix4x4.fm_00 + fm_11 * a_c_mMatrix4x4.fm_10 + fm_12 * a_c_mMatrix4x4.fm_20 + fm_13 * a_c_mMatrix4x4.fm_30;//Dot product for the second row of the first matrix and the first column of the second matrix.
+	tempMultiplicationMatrix.fm_11 = fm_10 * a_c_mMatrix4x4.fm_01 + fm_11 * a_c_mMatrix4x4.fm_11 + fm_12 * a_c_mMatrix4x4.fm_21 + fm_13 * a_c_mMatrix4x4.fm_31;//Dot product for the second row of the first matrix and the second column of the second matrix.
+	tempMultiplicationMatrix.fm_12 = fm_10 * a_c_mMatrix4x4.fm_02 + fm_11 * a_c_mMatrix4x4.fm_12 + fm_12 * a_c_mMatrix4x4.fm_22 + fm_13 * a_c_mMatrix4x4.fm_32;//Dot product for the second row of the first matrix and the third column of the second matrix.	
+	tempMultiplicationMatrix.fm_13 = fm_10 * a_c_mMatrix4x4.fm_03 + fm_11 * a_c_mMatrix4x4.fm_13 + fm_12 * a_c_mMatrix4x4.fm_23 + fm_13 * a_c_mMatrix4x4.fm_33;//Dot product for the second row of the first matrix and the fourth column of the second matrix.	
+	tempMultiplicationMatrix.fm_20 = fm_20 * a_c_mMatrix4x4.fm_00 + fm_21 * a_c_mMatrix4x4.fm_10 + fm_22 * a_c_mMatrix4x4.fm_20 + fm_23 * a_c_mMatrix4x4.fm_30;//Dot product for the third row of the first matrix and the first column of the second matrix.
+	tempMultiplicationMatrix.fm_21 = fm_20 * a_c_mMatrix4x4.fm_01 + fm_21 * a_c_mMatrix4x4.fm_11 + fm_22 * a_c_mMatrix4x4.fm_21 + fm_23 * a_c_mMatrix4x4.fm_31;//Dot product for the third row of the first matrix and the second column of the second matrix.
+	tempMultiplicationMatrix.fm_22 = fm_20 * a_c_mMatrix4x4.fm_02 + fm_21 * a_c_mMatrix4x4.fm_12 + fm_22 * a_c_mMatrix4x4.fm_22 + fm_23 * a_c_mMatrix4x4.fm_32;//Dot product for the third row of the first matrix and the third column of the second matrix.
+	tempMultiplicationMatrix.fm_23 = fm_20 * a_c_mMatrix4x4.fm_03 + fm_21 * a_c_mMatrix4x4.fm_13 + fm_22 * a_c_mMatrix4x4.fm_23 + fm_23 * a_c_mMatrix4x4.fm_33;	//Dot product for the third row of the first matrix and the fourth column of the second matrix.			  
+	tempMultiplicationMatrix.fm_30 = fm_30 * a_c_mMatrix4x4.fm_00 + fm_31 * a_c_mMatrix4x4.fm_10 + fm_32 * a_c_mMatrix4x4.fm_20 + fm_33 * a_c_mMatrix4x4.fm_30;//Dot product for the third row of the first matrix and the first column of the second matrix.		
+	tempMultiplicationMatrix.fm_31 = fm_30 * a_c_mMatrix4x4.fm_01 + fm_31 * a_c_mMatrix4x4.fm_11 + fm_32 * a_c_mMatrix4x4.fm_21 + fm_33 * a_c_mMatrix4x4.fm_31;//Dot product for the third row of the first matrix and the second column of the second matrix.		
+	tempMultiplicationMatrix.fm_32 = fm_30 * a_c_mMatrix4x4.fm_02 + fm_31 * a_c_mMatrix4x4.fm_12 + fm_32 * a_c_mMatrix4x4.fm_22 + fm_33 * a_c_mMatrix4x4.fm_32;//Dot product for the third row of the first matrix and the third column of the second matrix.	
+	tempMultiplicationMatrix.fm_33 = fm_30 * a_c_mMatrix4x4.fm_03 + fm_31 * a_c_mMatrix4x4.fm_13 + fm_32 * a_c_mMatrix4x4.fm_23 + fm_33 * a_c_mMatrix4x4.fm_33;//Dot product for the third row of the first matrix and the fourth column of the second matrix.
+	return Matrix4x4(tempMultiplicationMatrix);//Returns the multiplied matrix.
 }
 
 Matrix4x4 Matrix4x4::operator/(const float &a_c_fScalar)const//Overloaded division operation for Matrix4x4.
@@ -376,9 +398,9 @@ Matrix4x4 Matrix4x4::operator/(const float &a_c_fScalar)const//Overloaded divisi
 	return Matrix4x4(*this * reciprocal(a_c_fScalar));//Returns the Matrix4x4 / the argument.
 }
 
-Vector3 Matrix4x4::operator/(const Vector3 &a_c_vVector3)const//Overloaded division operation for Matrix4x4.
+Vector4 Matrix4x4::operator/(const Vector3 &a_c_vVector3)const//Overloaded division operation for Matrix4x4.
 {
-	return Vector3(*this * vector3Inverse(a_c_vVector3));//Returns the Matrix4x4 / the argument.
+	return Vector4(*this * vector3Inverse(a_c_vVector3));//Returns the Matrix4x4 / the argument.
 }
 
 Matrix4x4 Matrix4x4::operator/(const Matrix4x4 &a_c_mMatrix4x4)const//Overloaded division operation for Matrix4x4.
