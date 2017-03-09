@@ -98,6 +98,12 @@ public:
 	bool operator==(const float &a_c_fScalar)const;//Overloaded is equals operation for Vector3.
 
 	bool operator==(const Vector3 &a_c_vVector3)const;//Overloaded is equals operation for Vector3.
+	
+	//\===========================================================================================
+	//\ Inverse
+	//\===========================================================================================
+
+	Vector3 inverse()const;//Returns the inverse of this vector3.
 
 	//\===========================================================================================
 	//\ Magnitude

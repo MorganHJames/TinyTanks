@@ -400,7 +400,7 @@ Matrix4x4 Matrix4x4::operator/(const float &a_c_fScalar)const//Overloaded divisi
 
 Vector4 Matrix4x4::operator/(const Vector3 &a_c_vVector3)const//Overloaded division operation for Matrix4x4.
 {
-	return Vector4(*this * vector3Inverse(a_c_vVector3));//Returns the Matrix4x4 / the argument.
+	return Vector4(*this * a_c_vVector3.inverse());//Returns the Matrix4x4 / the argument.
 }
 
 Matrix4x4 Matrix4x4::operator/(const Matrix4x4 &a_c_mMatrix4x4)const//Overloaded division operation for Matrix4x4.

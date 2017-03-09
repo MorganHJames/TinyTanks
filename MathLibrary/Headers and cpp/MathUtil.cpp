@@ -13,45 +13,115 @@
 //\===========================================================================================
 
 /* Definitions of useful mathematical constants
-* M_E        - e
-* M_LOG2E    - log2(e)
-* M_LOG10E   - log10(e)
-* M_LN2      - ln(2)
-* M_LN10     - ln(10)
-* M_PI       - pi
-* M_PI_2     - pi/2
-* M_PI_4     - pi/4
-* M_1_PI     - 1/pi
-* M_2_PI     - 2/pi
-* M_2_SQRTPI - 2/sqrt(pi)
-* M_SQRT2    - sqrt(2)
-* M_SQRT1_2  - 1/sqrt(2)
+* E        - e
+* LOG2E    - log2(e)
+* LOG10E   - log10(e)
+* LN2      - ln(2)
+* LN10     - ln(10)
+* PI       - pi
+* PI_2     - pi/2
+* PI_4     - pi/4
+* 1_PI     - 1/pi
+* 2_PI     - 2/pi
+* 2_SQRTPI - 2/sqrt(pi)
+* SQRT2    - sqrt(2)
+* SQRT1_2  - 1/sqrt(2)
 */
-#define M_E      2.71828182845904523536
-#define M_LOG2E  1.44269504088896340736
-#define M_LOG10E 0.434294481903251827651
-#define M_LN2  0.693147180559945309417
-#define M_LN10  2.30258509299404568402
-#define PI         3.1415927f//A float equal to pi.
-#define PI_2  1.57079632679489661923
-#define PI_4  0.785398163397448309616
-#define _1_PI  0.318309886183790671538
-#define _2_PI  0.636619772367581343076
-#define M_2_SQRTPI  1.12837916709551257390
-#define M_SQRT2  1.41421356237309504880
-#define M_SQRT1_2  0.707106781186547524401
+#define E         2.7182818f//A float equal to e.
+#define LOG2E     1.4426950f//A float equal to log2(e).
+#define LOG10E    0.4342944f//A float equal to log10(e).
+#define LN2       0.6931471f//A float equal to ln(2).
+#define LN10      2.3025851f//A float equal to ln(10).
+#define PI        3.1415927f//A float equal to pi.
+#define PI_2      1.5707963f//A float equal to pi/2.
+#define PI_4      0.7853982f//A float equal to pi/4
+#define _1_PI     0.3183099f//A float equal to 1/pi.
+#define _2_PI     0.6366198f//A float equal to 2/pi.
+#define _2_SQRTPI 1.1283792f//A float equal to 2/sqrt(pi).
+#define SQRT2     1.4142136f//A float equal to sqrt(2).
+#define SQRT1_2   0.7071068f//A float equal to 1/sqrt(2).
+
+//\===========================================================================================
+//\ Degrees To Radians
+//\===========================================================================================
 
 float degreesToRadians(const float a_c_fRadAngle)
 {
 	return (a_c_fRadAngle * (PI / 180));
 }
 
+//\===========================================================================================
+//\ Reciprocal
+//\===========================================================================================
+
 float reciprocal(const float a_c_fScalar)
 {
 	return (1 / a_c_fScalar);
 }
 
-Vector3 vector3Inverse(const Vector3 a_c_vVector3)
+
+//\===========================================================================================
+//\ Test Collision Functions
+//\===========================================================================================
+
+/*
+CheckCollision(BallObject &one, GameObject &two) // AABB - Circle collision
 {
-	return(a_c_vVector3 * -1);
+	// Get center point circle first 
+	glm::vec2 center(one.Position + one.Radius);
+	// Calculate AABB info (center, half-extents)
+	glm::vec2 aabb_half_extents(two.Size.x / 2, two.Size.y / 2);
+	glm::vec2 aabb_center(
+		two.Position.x + aabb_half_extents.x,
+		two.Position.y + aabb_half_extents.y
+	);
+	// Get difference vector between both centers
+	glm::vec2 difference = center - aabb_center;
+	glm::vec2 clamped = glm::clamp(difference, -aabb_half_extents, aabb_half_extents);
+	// Add clamped value to AABB_center and we get the value of box closest to circle
+	glm::vec2 closest = aabb_center + clamped;
+	// Retrieve vector between center circle and closest point AABB and check if length <= radius
+	difference = closest - center;
+	return glm::length(difference) < one.Radius;
 }
+
+checkCollision(GameObject &one, GameObject &two) // AABB - AABB collision
+{
+	// Collision x-axis?
+	bool collisionX = one.Position.x + one.Size.x >= two.Position.x &&
+		two.Position.x + two.Size.x >= one.Position.x;
+	// Collision y-axis?
+	bool collisionY = one.Position.y + one.Size.y >= two.Position.y &&
+		two.Position.y + two.Size.y >= one.Position.y;
+	// Collision only if on both axes
+	return collisionX && collisionY;
+}
+*/
+
+//\===========================================================================================
+//\ Min Value
+//\===========================================================================================
+
+//\===========================================================================================
+//\ Max Value
+//\===========================================================================================
+
+//\===========================================================================================
+//\ Clamp 
+//\===========================================================================================
+
+//\===========================================================================================
+//\ Lerp 
+//\===========================================================================================
+
+//\===========================================================================================
+//\ Slerp 
+//\===========================================================================================
+
+//\===========================================================================================
+//\ Smoothstep
+//\===========================================================================================
+
+//\===========================================================================================
+//\ Smootherstep
+//\===========================================================================================

@@ -278,7 +278,7 @@ Matrix3x3 Matrix3x3::operator/(const float &a_c_fScalar)const//Overloaded divisi
 
 Vector3 Matrix3x3::operator/(const Vector3 &a_c_vVector3)const//Overloaded division operation for Matrix3x3.
 {
-	return Vector3(*this * vector3Inverse(a_c_vVector3));//Returns the Matrix3x3 / the argument.
+	return Vector3(*this * a_c_vVector3.inverse());//Returns the Matrix3x3 / the argument.
 }
 
 Matrix3x3 Matrix3x3::operator/(const Matrix3x3 &a_c_mMatrix3x3)const//Overloaded division operation for Matrix3x3.
