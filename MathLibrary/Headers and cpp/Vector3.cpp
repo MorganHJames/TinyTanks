@@ -306,3 +306,25 @@ Vector3 Vector3::unit()const//A function that returns a unit vector created from
 	vTemp.normalise();//Normalises the temporary vector.
 	return (vTemp);//Returns a copy of a normalised version of this Vector3.
 }
+
+//\===========================================================================================
+//\ Set To Zero
+//\===========================================================================================
+
+void Vector3::setZero()//Makes each Vector3 element equal to 0. 
+{//Set each element in the Vector3 to zero.
+	fX = 0;
+	fY = 0;
+	fZ = 0;
+}
+
+//\===========================================================================================
+//\ Zero
+//\===========================================================================================
+
+Vector3 Vector3::zero()const//Returns a Vector3 zero matrix.
+{
+	Vector3 temp;
+	temp.setZero();
+	return Vector3(temp);
+}

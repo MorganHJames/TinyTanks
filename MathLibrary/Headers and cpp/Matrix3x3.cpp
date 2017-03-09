@@ -383,6 +383,7 @@ bool Matrix3x3::operator==(const Matrix3x3 &a_c_mMatrix3x3)const//Overloaded is 
 //\===========================================================================================
 //\ Rotate Around Euler Axis
 //\===========================================================================================
+
 void Matrix3x3::rotate(float &a_fAngle)//Rotates the Matrix3x3 by the angle in degrees around the z axis. 
 {
 	*this = *this * getRotationMatrix(a_fAngle);//Multiplies the matrix by the rotations matrix.
@@ -474,21 +475,42 @@ void Matrix3x3::transpose()//Transposes the Matrix3x3.
 //\ Set To Identity
 //\===========================================================================================
 
-void Matrix3x3::identity()//Makes the Matrix3x3 an identity matrix.//\===================================
-{									  							   //\= Makes the Matrix3x3 equal to the identity matrix which is:
-	fm_00 = 1; fm_01 = 0; fm_02 = 0;  							   //\= 1, 0, 0,
-	fm_10 = 0; fm_11 = 1; fm_12 = 0;  							   //\= 0, 1, 0,
-	fm_20 = 0; fm_21 = 0; fm_22 = 1;  							   //\= 0, 0, 1
-}									  							   //\===================================
-									  
+void Matrix3x3::setIdentity()//Makes the Matrix3x3 an identity matrix.//\===================================
+{									  							      //\= Makes the Matrix3x3 equal to the identity matrix which is:
+	fm_00 = 1; fm_01 = 0; fm_02 = 0;  							      //\= 1, 0, 0,
+	fm_10 = 0; fm_11 = 1; fm_12 = 0;  							      //\= 0, 1, 0,
+	fm_20 = 0; fm_21 = 0; fm_22 = 1;  							      //\= 0, 0, 1
+}									  							      //\===================================
+	
+//\===========================================================================================
+//\ Identity
+//\===========================================================================================
+
+Matrix3x3 Matrix3x3::identity()const//Returns a Matrix3x3 identity matrix.
+{
+	Matrix3x3 temp;
+	temp.setIdentity();
+	return Matrix3x3(temp);
+}
+
 //\===========================================================================================
 //\ Set To Zero
 //\===========================================================================================
 
-void Matrix3x3::zero()//Makes each Matrix3x3 element equal to 0. 
+void Matrix3x3::setZero()//Makes each Matrix3x3 element equal to 0. 
 {//Set each element in the matrix3x3 to zero.
 	fm_00 = 0; fm_01 = 0; fm_02 = 0;
 	fm_10 = 0; fm_11 = 0; fm_12 = 0;
 	fm_20 = 0; fm_21 = 0; fm_22 = 0;
 }
 
+//\===========================================================================================
+//\ Zero
+//\===========================================================================================
+
+Matrix3x3 Matrix3x3::zero()const//Returns a Matrix3x3 zero matrix.
+{
+	Matrix3x3 temp;
+	temp.setZero();
+	return Matrix3x3(temp);
+}

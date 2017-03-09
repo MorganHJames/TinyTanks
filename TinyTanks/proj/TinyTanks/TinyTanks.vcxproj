@@ -156,6 +156,12 @@
       <Project>{ad287cb2-ed47-4de7-9412-7bd0f0821a05}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\Game.h" />
+    <ClInclude Include="..\..\include\Object.h" />
+    <ClInclude Include="..\..\include\Player.h" />
+    <ClInclude Include="..\..\include\Tank.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

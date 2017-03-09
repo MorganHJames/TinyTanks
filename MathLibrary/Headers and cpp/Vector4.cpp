@@ -333,3 +333,26 @@ Vector4 Vector4::unit()const//A function that returns a unit vector created from
 	vTemp.normalise();//Normalises the temporary vector.
 	return Vector4(vTemp);//Returns a copy of a normalised version of this Vector4.
 }
+
+//\===========================================================================================
+//\ Set To Zero
+//\===========================================================================================
+
+void Vector4::setZero()//Makes each Vector4 element equal to 0. 
+{//Set each element in the Vector4 to zero.
+	fX = 0;
+	fY = 0;
+	fZ = 0;
+	fW = 0;
+}
+
+//\===========================================================================================
+//\ Zero
+//\===========================================================================================
+
+Vector4 Vector4::zero()const//Returns a Vector4 zero matrix.
+{
+	Vector4 temp;
+	temp.setZero();
+	return Vector4(temp);
+}

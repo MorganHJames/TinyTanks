@@ -265,3 +265,24 @@ Vector2 Vector2::unit()const//A function that returns a unit vector created from
 	vTemp.normalise();//Normalises the temporary vector.
 	return Vector2(vTemp);//Returns a copy of a normalised version of this Vector2.
 }
+
+//\===========================================================================================
+//\ Set To Zero
+//\===========================================================================================
+
+void Vector2::setZero()//Makes each Vector2 element equal to 0. 
+{//Set each element in the Vector2 to zero.
+	fX = 0;
+	fY = 0;
+}
+
+//\===========================================================================================
+//\ Zero
+//\===========================================================================================
+
+Vector2 Vector2::zero()const//Returns a Vector2 zero matrix.
+{
+	Vector2 temp;
+	temp.setZero();
+	return Vector2(temp);
+}

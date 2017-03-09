@@ -670,22 +670,44 @@ void Matrix4x4::transpose()//Transposes the Matrix4x4.
 //\ Set To Identity
 //\===========================================================================================
 
-void Matrix4x4::identity()//Makes the Matrix4x4 an identity matrix. //\===================================
-{																	//\= Makes the Matrix4x4 equal to the identity matrix which is:
-	fm_00 = 1; fm_01 = 0; fm_02 = 0; fm_03 = 0; 					//\= 1, 0, 0, 0,
-	fm_10 = 0; fm_11 = 1; fm_12 = 0; fm_13 = 0;						//\= 0, 1, 0, 0,
-	fm_20 = 0; fm_21 = 0; fm_22 = 1; fm_23 = 0;						//\= 0, 0, 1, 0,
-	fm_30 = 0; fm_31 = 0; fm_32 = 0; fm_33 = 1;						//\= 0, 0, 0, 1
-}																	//\===================================
+void Matrix4x4::setIdentity()//Makes the Matrix4x4 an identity matrix. //\===================================
+{																       //\= Makes the Matrix4x4 equal to the identity matrix which is:
+	fm_00 = 1; fm_01 = 0; fm_02 = 0; fm_03 = 0; 				       //\= 1, 0, 0, 0,
+	fm_10 = 0; fm_11 = 1; fm_12 = 0; fm_13 = 0;					       //\= 0, 1, 0, 0,
+	fm_20 = 0; fm_21 = 0; fm_22 = 1; fm_23 = 0;					       //\= 0, 0, 1, 0,
+	fm_30 = 0; fm_31 = 0; fm_32 = 0; fm_33 = 1;					       //\= 0, 0, 0, 1
+}																       //\===================================
+																
+//\===========================================================================================
+//\ Identity
+//\===========================================================================================
+
+Matrix4x4 Matrix4x4::identity()const//Returns a Matrix4x4 identity matrix.
+{
+	Matrix4x4 temp;
+	temp.setIdentity;
+	return Matrix4x4(temp);
+}
 
 //\===========================================================================================
 //\ Set To Zero
 //\===========================================================================================
 
-void Matrix4x4::zero()//Makes each Matrix4x4 element equal to 0. 
+void Matrix4x4::setZero()//Makes each Matrix4x4 element equal to 0. 
 {//Set each element in the Matrix4x4 to zero.
 	fm_00 = 0; fm_01 = 0; fm_02 = 0; fm_03 = 0;
 	fm_10 = 0; fm_11 = 0; fm_12 = 0; fm_13 = 0;
 	fm_20 = 0; fm_21 = 0; fm_22 = 0; fm_23 = 0;
 	fm_30 = 0; fm_31 = 0; fm_32 = 0; fm_33 = 0;
+}
+
+//\===========================================================================================
+//\ Zero
+//\===========================================================================================
+
+Matrix4x4 Matrix4x4::zero()const//Returns a Matrix4x4 zero matrix.
+{
+	Matrix4x4 temp;
+	temp.setZero();
+	return Matrix4x4(temp);
 }
