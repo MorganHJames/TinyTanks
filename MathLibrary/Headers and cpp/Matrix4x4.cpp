@@ -37,22 +37,22 @@ Matrix4x4::Matrix4x4(const float a_c_fmMatrix[4][4])//Constructor for a Matrix4x
 }
 
 Matrix4x4::Matrix4x4(const//Constructor that takes sixteen floats to make a Matrix4x4.
-	float &a_c_fm_00,
-	float &a_c_fm_01,
-	float &a_c_fm_02,
-	float &a_c_fm_03,
-	float &a_c_fm_10,
-	float &a_c_fm_11,
-	float &a_c_fm_12,
-	float &a_c_fm_13,
-	float &a_c_fm_20,
-	float &a_c_fm_21,
-	float &a_c_fm_22,
-	float &a_c_fm_23,
-	float &a_c_fm_30,
-	float &a_c_fm_31,
-	float &a_c_fm_32,
-	float &a_c_fm_33)
+	float a_c_fm_00,
+	float a_c_fm_01,
+	float a_c_fm_02,
+	float a_c_fm_03,
+	float a_c_fm_10,
+	float a_c_fm_11,
+	float a_c_fm_12,
+	float a_c_fm_13,
+	float a_c_fm_20,
+	float a_c_fm_21,
+	float a_c_fm_22,
+	float a_c_fm_23,
+	float a_c_fm_30,
+	float a_c_fm_31,
+	float a_c_fm_32,
+	float a_c_fm_33)
 {
 	fm_00 = a_c_fm_00; //Sets the matrix's first element of the matrix to the same as the equivalent argument  passed in.
 	fm_01 = a_c_fm_01; //Sets the matrix's second element of the matrix to the same as the equivalent argument  passed in.
@@ -93,17 +93,17 @@ Matrix4x4::Matrix4x4(const float a_c_fiMatrix[16])//Constructor that takes an ar
 }
 
 Matrix4x4::Matrix4x4(const//Constructor for a Matrix4x4 made from four Vector4's.
-	Vector4 &a_c_vXAxis,
-	Vector4 &a_c_vYAxis,
-	Vector4 &a_c_vZAxis,
-	Vector4 &a_c_vWAxis):
+	Vector4 a_c_vXAxis,
+	Vector4 a_c_vYAxis,
+	Vector4 a_c_vZAxis,
+	Vector4 a_c_vWAxis):
 	vXAxis(a_c_vXAxis),//Sets the vXAxis of the Matrix3x3 equal to the first Vector passed in.
 	vYAxis(a_c_vYAxis),//Sets the vYAxis of the Matrix3x3 equal to the second Vector passed in.
 	vZAxis(a_c_vZAxis),//Sets the vZAxis of the Matrix3x3 equal to the third Vector passed in.
 	vWAxis(a_c_vWAxis)//Sets the vWAxis of the Matrix3x3 equal to the fourth Vector passed in.
 {}
 
-Matrix4x4::Matrix4x4(const Matrix3x3 &a_c_mMatrix3x3)//Constructor to make a Matrix4x4 from a Matrix3x3.
+Matrix4x4::Matrix4x4(const Matrix3x3 a_c_mMatrix3x3)//Constructor to make a Matrix4x4 from a Matrix3x3.
 {
 	fm_00 = a_c_mMatrix3x3.getiMatrix(0);//Sets the matrix's first element of the matrix to the same as the matrix passed in.
 	fm_01 = a_c_mMatrix3x3.getiMatrix(1);//Sets the matrix's second element of the matrix to the same as the matrix passed in.
@@ -445,6 +445,15 @@ Matrix4x4 Matrix4x4::operator=(const Vector3 &a_c_vVector3)//Overloaded equals o
 	return Matrix4x4(*this);//Returns the equated matrix.
 }
 
+Matrix4x4 Matrix4x4::operator=(const Vector4 &a_c_vVector4)//Overloaded equals operation for Matrix4x4.
+{
+	vXAxis = a_c_vVector4;//Equates the vXAxis to the argument Vector4.
+	vYAxis = a_c_vVector4;//Equates the vYAxis to the argument Vector4.
+	vZAxis = a_c_vVector4;//Equates the vZAxis to the argument Vector4.
+	vWAxis = a_c_vVector4;//Equates the vWAxis to the argument Vector4.
+	return Matrix4x4(*this);//Returns the equated matrix.
+}
+
 Matrix4x4 Matrix4x4::operator=(const Matrix4x4 &a_c_mMatrix4x4)//Overloaded equals operation for Matrix4x4.
 {
 	fm_00 = a_c_mMatrix4x4.fm_00;//Makes the first element of the matrix equal to the equivalent position of the matrix passed in.
@@ -464,6 +473,21 @@ Matrix4x4 Matrix4x4::operator=(const Matrix4x4 &a_c_mMatrix4x4)//Overloaded equa
 	fm_32 = a_c_mMatrix4x4.fm_32;//Makes the fifteenth element of the matrix equal to the equivalent position of the matrix passed in.
 	fm_33 = a_c_mMatrix4x4.fm_33;//Makes the sixteenth element of the matrix equal to the equivalent position of the matrix passed in.
 	return Matrix4x4(*this);//Returns the equated matrix.
+}
+
+Matrix4x4 Matrix4x4::operator*=(const float &a_c_fScalar)//Overloaded times equals operation for Matrix4x4.
+{  
+	return Matrix4x4(*this = *this * a_c_fScalar);//Returns the multiplied equated matrix.
+}
+
+Matrix4x4 Matrix4x4::operator*=(const Vector3 &a_c_vVector3)//Overloaded times equals operation for Matrix4x4.
+{
+	return Matrix4x4(*this = *this * a_c_vVector3);//Returns the multiplied equated matrix.
+}
+
+Matrix4x4 Matrix4x4::operator*=(const Matrix4x4 &a_c_mMatrix4x4)//Overloaded times equals operation for Matrix4x4.
+{
+	return Matrix4x4(*this = *this * a_c_mMatrix4x4);//Returns the multiplied equated matrix.
 }
 
 //\===========================================================================================
@@ -685,7 +709,7 @@ void Matrix4x4::setIdentity()//Makes the Matrix4x4 an identity matrix. //\======
 Matrix4x4 Matrix4x4::identity()const//Returns a Matrix4x4 identity matrix.
 {
 	Matrix4x4 temp;
-	temp.setIdentity;
+	temp.setIdentity();
 	return Matrix4x4(temp);
 }
 

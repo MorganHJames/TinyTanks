@@ -8,7 +8,7 @@
 #include "UGFW.h"
 #include "Enumerations.h"
 #include "Matrix4x4.h"
-
+#include "MathUtil.h"
 #include <iostream>
 #include <set>
 
@@ -112,7 +112,7 @@ struct Node
 		translation = m3PosRot.getRow(2);
 
 		Matrix3x3 scale = scale.identity();
-		scale.scale(a_fScale);
+		scale.scale(a_fScale, a_fScale);
 		m3PosRot = scale * m3PosRot;
 
 		m3PosRot.setRow(2, translation);
@@ -129,7 +129,7 @@ private:
 //A very simple sprite class that extends from node allowing us to have a sprite hierarchy tree in our game
 struct Sprite : public Node {
 	//Constructor -- makes a UG Sprite object for us to use
-	Sprite(const char* a_fileName, int a_width, int a_height, Vector2 a_origin, Vector4 a_UVCoords)
+	Sprite(const char* a_fileName, float a_width, float a_height, Vector2 a_origin, Vector4 a_UVCoords)
 	{
 		m_iSpriteID = UG::CreateSprite(a_fileName, Vector2(a_width, a_height), a_origin, a_UVCoords);
 		float mat4x4[16];
@@ -158,10 +158,11 @@ struct Sprite : public Node {
 
 		Matrix3x3 worldTx = worldTx.identity();
 		GetWorldTransform(worldTx);
-		Matrix4x4 m4x4 = Matrix4x4(worldTx.fm_11, worldTx.m_12, worldTx.m_13, 0.f,
-			worldTx.m_21, worldTx.m_22, worldTx.m_23, 0.f,
+		Matrix4x4 m4x4(
+	        worldTx.getiMatrix(0), worldTx.getiMatrix(1), worldTx.getiMatrix(2), 0.f,
+			worldTx.getiMatrix(4), worldTx.getiMatrix(5), worldTx.getiMatrix(6), 0.f,
 			0.f, 0.f, 1.f, 0.f,
-			worldTx.m_31, worldTx.m_32, 0.f, 1.f);
+			worldTx.getiMatrix(12), worldTx.getiMatrix(13), 0.f, 1.f);
 		UG::SetSpriteMatrix(m_iSpriteID, m4x4);
 
 	}
@@ -261,11 +262,11 @@ int main(int argv, char* argc[])
 
 			fCurrentVelocity += fAccelleration * dt;
 			fCurrentVelocity -= fCurrentVelocity * fDrag;
-			if (Fabsf(fCurrentVelocity) > fMaxVelocity)
+			if (fabsf(fCurrentVelocity) > fMaxVelocity)
 			{
 				fCurrentVelocity = fMaxVelocity * Signf(fCurrentVelocity);
 			}
-			if (Fabsf(fCurrentVelocity) > EPSILON)
+			if (fabsf(fCurrentVelocity) > E)
 			{
 				movementVector *= fCurrentVelocity;
 				pTank->MoveSprite(movementVector);

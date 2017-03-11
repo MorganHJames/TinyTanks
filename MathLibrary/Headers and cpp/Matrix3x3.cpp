@@ -29,7 +29,16 @@ Matrix3x3::Matrix3x3(const float a_c_fmMatrix[3][3])//Constructor for a Matrix3x
 	fmMatrix[2][2] = a_c_fmMatrix[2][2];//Sets the matrix's ninth element of the matrix to the same as the matrix passed in.
 }
 
-Matrix3x3::Matrix3x3(const float &a_c_fm_00, float &a_c_fm_01, float &a_c_fm_02, float &a_c_fm_10, float &a_c_fm_11, float &a_c_fm_12, float &a_c_fm_20, float &a_c_fm_21, float &a_c_fm_22)//Constructor that takes nine floats to make a Matrix3x3.
+Matrix3x3::Matrix3x3(const 
+	float a_c_fm_00, 
+	float a_c_fm_01, 
+	float a_c_fm_02,
+	float a_c_fm_10,
+	float a_c_fm_11,
+	float a_c_fm_12,
+	float a_c_fm_20,
+	float a_c_fm_21,
+	float a_c_fm_22)//Constructor that takes nine floats to make a Matrix3x3.
 {
 	fm_00 = a_c_fm_00;//Sets the matrix's first element equal to the first argument passed in.
 	fm_01 = a_c_fm_01;//Sets the matrix's second element equal to the second argument passed in.
@@ -55,7 +64,10 @@ Matrix3x3::Matrix3x3(const float a_c_fiMatrix[9])//Constructor that takes an arr
 	fiMatrix[8] = a_c_fiMatrix[8];//Sets the matrix's ninth element of the matrix to the same as the matrix passed in.
 }
 
-Matrix3x3::Matrix3x3(const Vector3 &a_c_vXAxis, Vector3 &a_c_vYAxis, Vector3 &a_c_vZAxis) ://Constructor for a Matrix3x3 made from three Vector3's.
+Matrix3x3::Matrix3x3(const 
+	Vector3 a_c_vXAxis,
+	Vector3 a_c_vYAxis, 
+	Vector3 a_c_vZAxis) ://Constructor for a Matrix3x3 made from three Vector3's.
 	vXAxis(a_c_vXAxis),//Sets the vXAxis of the Matrix3x3 equal to the first Vector passed in.
 	vYAxis(a_c_vYAxis),//Sets the vYAxis of the Matrix3x3 equal to the second Vector passed in.
 	vZAxis(a_c_vZAxis)//Sets the vZAxis of the Matrix3x3 equal to the third Vector passed in.
@@ -326,6 +338,21 @@ Matrix3x3 Matrix3x3::operator=(const Matrix3x3 &a_c_mMatrix3x3)//Overloaded equa
 	fm_21 = a_c_mMatrix3x3.fm_21;//Makes the eighth element of the matrix equal to the equivalent part of the matrix3x3 passed in.
 	fm_22 = a_c_mMatrix3x3.fm_22;//Makes the ninth element of the matrix equal to the equivalent part of the matrix3x3 passed in.
 	return Matrix3x3(*this);//Returns the equated matrix.
+}
+
+Matrix3x3 Matrix3x3::operator*=(const float &a_c_fScalar)//Overloaded times equals operation for Matrix3x3.
+{
+    return Matrix3x3(*this = *this * a_c_fScalar);//Returns the multiplied equated matrix.
+}
+
+Matrix3x3 Matrix3x3::operator*=(const Vector3 &a_c_vVector3)//Overloaded times equals operation for Matrix3x3.
+{
+	return Matrix3x3(*this = *this * a_c_vVector3);//Returns the multiplied equated matrix.
+}
+
+Matrix3x3 Matrix3x3::operator*=(const Matrix3x3 &a_c_mMatrix3x3)//Overloaded times equals operation for Matrix3x3.
+{
+    return Matrix3x3(*this = *this * a_c_mMatrix3x3);//Returns the multiplied equated matrix.
 }
 
 //\===========================================================================================

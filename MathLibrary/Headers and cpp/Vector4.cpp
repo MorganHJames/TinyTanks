@@ -183,6 +183,18 @@ Vector4 Vector4::operator=(const Vector4 &a_c_vVector4)//Overloaded equals opera
 		fW = a_c_vVector4.fW);
 }
 
+Vector4 Vector4::operator*=(const float &a_c_fScalar)//Overloaded times equals operation for Vector4.
+{
+	return Vector4(//Returns Ax *= number, Ay *= number, Az *= number, Aw *= number.
+		*this = *this * a_c_fScalar);
+}
+
+Vector4 Vector4::operator*=(const Vector4 &a_c_vVector4)//Overloaded times equals operation for Vector4.
+{
+	return Vector4(//Returns Ax *= Bx, Ay *= By, Az *= Bz, Aw *= Bw.
+		*this = *this * a_c_vVector4);
+}
+
 //\===========================================================================================
 //\ Relational Operation Overloads
 //\===========================================================================================

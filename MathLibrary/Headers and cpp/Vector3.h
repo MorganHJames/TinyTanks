@@ -35,7 +35,7 @@ public:
 
 	Vector3();//Constructor default that sets all variables to 0.
 
-	Vector3(const float a_c_fX = 0, float a_c_fY = 0, float a_c_fZ = 0);//Constructor with three scalar values.
+	Vector3(const float a_c_fX, float a_c_fY, float a_c_fZ);//Constructor with three scalar values.
 
 	Vector3(const Vector2 &a_c_vVector2, float a_c_fZ = 0);//Constructor with a Vector2 and a scalar value.
 
@@ -86,7 +86,11 @@ public:
 	Vector3 operator=(const float &a_c_fScalar);//Overloaded equals operation for Vector3.
 
 	Vector3 operator=(const Vector3 &a_c_vVector3);//Overloaded equals operation for Vector3.
-
+	
+	Vector3 operator*=(const float &a_c_fScalar);//Overloaded times equals operation for Vector3.
+	
+	Vector3 operator*=(const Vector3 &a_c_vVector3);//Overloaded times equals operation for Vector3.
+	
 	//\===========================================================================================
 	//\ Relational Operation Overloads
 	//\===========================================================================================

@@ -32,7 +32,7 @@ public:
 
 	Vector2();//A default constructor that initialises X and Y to 0.
 
-	Vector2(const float a_c_fX = 0, float a_c_fY = 0);//Constructor.
+	Vector2(const float a_c_fX, float a_c_fY);//Constructor.
 
 	//\===========================================================================================
 	//\ Getters
@@ -77,7 +77,11 @@ public:
 	Vector2 operator=(const float &a_c_fScalar);//Overloaded equals operation for Vector2.
 
 	Vector2 operator=(const Vector2 &a_c_vVector2);//Overloaded equals operation for Vector2.
-
+	
+	Vector2 operator*=(const float &a_c_fScalar);//Overloaded times equals operation for Vector2.
+	
+	Vector2 operator*=(const Vector2 &a_c_vVector2);//Overloaded times equals operation for Vector2.
+	
 	//\===========================================================================================
 	//\ Relational Operation Overloads
 	//\===========================================================================================

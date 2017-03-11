@@ -1,21 +1,2 @@
-﻿  Vector4.cpp
-d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\vector4.cpp(355): error C2668: 'Vector4::Vector4': ambiguous call to overloaded function
-  d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\vector4.cpp(19): note: could be 'Vector4::Vector4(const float,float,float,float)'
-  d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\vector4.cpp(17): note: or       'Vector4::Vector4(void)'
-  d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\vector4.cpp(355): note: while trying to match the argument list '()'
-  Vector3.cpp
-d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\vector3.cpp(327): error C2668: 'Vector3::Vector3': ambiguous call to overloaded function
-  d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\vector3.cpp(19): note: could be 'Vector3::Vector3(const float,float,float)'
-  d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\vector3.cpp(17): note: or       'Vector3::Vector3(void)'
-  d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\vector3.cpp(327): note: while trying to match the argument list '()'
-  Vector2.cpp
-d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\vector2.cpp(285): error C2668: 'Vector2::Vector2': ambiguous call to overloaded function
-  d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\vector2.cpp(19): note: could be 'Vector2::Vector2(const float,float)'
-  d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\vector2.cpp(17): note: or       'Vector2::Vector2(void)'
-  d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\vector2.cpp(285): note: while trying to match the argument list '()'
-  Matrix4x4.cpp
-d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\matrix4x4.cpp(688): error C3867: 'Matrix4x4::setIdentity': non-standard syntax; use '&' to create a pointer to member
-  Matrix3x3.cpp
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  MathUtil.cpp
+﻿  Matrix4x4.cpp
+  MathLibrary.vcxproj -> D:\unishit\CT4019 Programming and Mathematics for Games (Sem1-2 - 201617)\semester 2\Tiny Tanks\MathLibrary\.\Debug\MathLibrary.lib

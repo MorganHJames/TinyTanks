@@ -127,6 +127,18 @@ Vector2 Vector2::operator=(const Vector2 &a_c_vVector2)//Overloaded equals opera
 		fY = a_c_vVector2.fY);
 }
 
+Vector2 Vector2::operator*=(const float &a_c_fScalar)//Overloaded times equals operation for Vector2.
+{
+	return Vector2(//Returns x *= number, y *= number.
+		*this = *this * a_c_fScalar);
+}
+
+Vector2 Vector2::operator*=(const Vector2 &a_c_vVector2)//Overloaded times equals operation for Vector2.
+{
+	return Vector2(//Returns Ax *= Bx, Ay *= By.
+		*this = *this * a_c_vVector2);
+}
+
 //\===========================================================================================
 //\ Relational Operation Overloads
 //\===========================================================================================

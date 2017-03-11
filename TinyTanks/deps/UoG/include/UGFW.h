@@ -69,7 +69,7 @@ namespace UG
 	/// @param a_bFullscreen should this application run in a fullscreen mode.
 	/// @param a_pWIndowTitle the title that we want to be displayed in the windows title bar
 	//////////////////////////////////////////////////////////////////////////
-	UGFWAPI int			Create(int a_iWidth, int a_iHeight, bool a_bFullscreen = false, const char* a_pWindowTitle = nullptr, int a_xPosition = 0, int a_yPosition = 0);
+	UGFWAPI int			    Create(int a_iWidth, int a_iHeight, bool a_bFullscreen = false, const char* a_pWindowTitle = nullptr, int a_xPosition = 0, int a_yPosition = 0);
 	//////////////////////////////////////////////////////////////////////////
 	/// @brief This function should be called just prior to exiting your program
 	///	it will unload all the components of the Framework that have been loaded

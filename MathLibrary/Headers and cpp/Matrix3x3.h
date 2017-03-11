@@ -62,11 +62,23 @@ public:
 
 	Matrix3x3(const float a_c_fmMatrix[3][3]);//Constructor for a Matrix3x3 that is made from two arrays of three.
 
-	Matrix3x3(const float &a_c_fm_00, float &a_c_fm_01, float &a_c_fm_02, float &a_c_fm_10, float &a_c_fm_11, float &a_c_fm_12, float &a_c_fm_20, float &a_c_fm_21, float &a_c_fm_22);//Constructor that takes nine floats to make a Matrix3x3.
+	Matrix3x3(const 
+		float a_c_fm_00,
+		float a_c_fm_01, 
+		float a_c_fm_02, 
+		float a_c_fm_10, 
+		float a_c_fm_11, 
+		float a_c_fm_12, 
+		float a_c_fm_20, 
+		float a_c_fm_21, 
+		float a_c_fm_22);//Constructor that takes nine floats to make a Matrix3x3.
 
 	Matrix3x3(const float a_c_fiMatrix[9]);//Constructor that takes an array of nine floats to make a Matrix3x3.
 
-	Matrix3x3(const Vector3 &a_c_vXAxis, Vector3 &a_c_vYAxis, Vector3 &a_c_vZAxis);//Constructor for a Matrix3x3 made from three Vector3's.
+	Matrix3x3(const
+		Vector3 a_c_vXAxis, 
+		Vector3 a_c_vYAxis, 
+		Vector3 a_c_vZAxis);//Constructor for a Matrix3x3 made from three Vector3's.
 
 	//\===========================================================================================
 	//\ Getters
@@ -145,6 +157,12 @@ public:
 	Matrix3x3 operator=(const Vector3 &a_c_vVector3);//Overloaded equals operation for Matrix3x3.
 
 	Matrix3x3 operator=(const Matrix3x3 &a_c_mMatrix3x3);//Overloaded equals operation for Matrix3x3.
+
+	Matrix3x3 operator*=(const float &a_c_fScalar);//Overloaded times equals operation for Matrix3x3.
+
+	Matrix3x3 operator*=(const Vector3 &a_c_vVector3);//Overloaded times equals operation for Matrix3x3.
+	
+	Matrix3x3 operator*=(const Matrix3x3 &a_c_mMatrix3x3);//Overloaded times equals operation for Matrix3x3.
 
 	//\===========================================================================================
 	//\ Relational Operation Overloads

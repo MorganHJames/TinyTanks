@@ -66,32 +66,32 @@ public:
 	Matrix4x4(const float a_c_fmMatrix[4][4]);//Constructor for a Matrix4x4 that is made from two arrays of four.
 
 	Matrix4x4(const//Constructor that takes sixteen floats to make a Matrix4x4.
-		float &a_c_fm_00,
-		float &a_c_fm_01,
-		float &a_c_fm_02,
-		float &a_c_fm_03,
-		float &a_c_fm_10,
-		float &a_c_fm_11, 
-		float &a_c_fm_12,
-		float &a_c_fm_13, 
-		float &a_c_fm_20,
-		float &a_c_fm_21, 
-		float &a_c_fm_22, 
-		float &a_c_fm_23,
-		float &a_c_fm_30,
-		float &a_c_fm_31,
-		float &a_c_fm_32,
-		float &a_c_fm_33);
+		float a_c_fm_00,
+		float a_c_fm_01,
+		float a_c_fm_02,
+		float a_c_fm_03,
+		float a_c_fm_10,
+		float a_c_fm_11, 
+		float a_c_fm_12,
+		float a_c_fm_13, 
+		float a_c_fm_20,
+		float a_c_fm_21, 
+		float a_c_fm_22, 
+		float a_c_fm_23,
+		float a_c_fm_30,
+		float a_c_fm_31,
+		float a_c_fm_32,
+		float a_c_fm_33);
 
 	Matrix4x4(const float a_c_fiMatrix[16]);//Constructor that takes an array of sixteen floats to make a Matrix4x4.
 
 	Matrix4x4(const//Constructor for a Matrix4x4 made from four Vector4's.
-		Vector4 &a_c_vXAxis,
-		Vector4 &a_c_vYAxis,
-		Vector4 &a_c_vZAxis,
-		Vector4 &a_c_vWAxis);
+		Vector4  a_c_vXAxis,
+		Vector4  a_c_vYAxis,
+		Vector4  a_c_vZAxis,
+		Vector4  a_c_vWAxis);
 
-	Matrix4x4(const Matrix3x3 &a_c_mMatrix3x3);//Constructor to make a Matrix4x4 from a Matrix3x3.
+	Matrix4x4(const Matrix3x3 a_c_mMatrix3x3);//Constructor to make a Matrix4x4 from a Matrix3x3.
 
 	//\===========================================================================================
 	//\ Getters
@@ -172,9 +172,17 @@ public:
 	Matrix4x4 operator=(const float &a_c_fScalar);//Overloaded equals operation for Matrix4x4.
 
 	Matrix4x4 operator=(const Vector3 &a_c_vVector3);//Overloaded equals operation for Matrix4x4.
+	
+	Matrix4x4 operator=(const Vector4 &a_c_vVector4);//Overloaded equals operation for Matrix4x4.
 
 	Matrix4x4 operator=(const Matrix4x4 &a_c_mMatrix4x4);//Overloaded equals operation for Matrix4x4.
+	
+	Matrix4x4 operator*=(const float &a_c_fScalar);//Overloaded times equals operation for Matrix4x4.
+	
+	Matrix4x4 operator*=(const Vector3 &a_c_vVector3);//Overloaded times equals operation for Matrix4x4.
 
+	Matrix4x4 operator*=(const Matrix4x4 &a_c_mMatrix4x4);//Overloaded times equals operation for Matrix4x4.
+	
 	//\===========================================================================================
 	//\ Relational Operation Overloads
 	//\===========================================================================================
