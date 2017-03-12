@@ -414,6 +414,36 @@ Matrix4x4 Matrix4x4::operator/(const Matrix4x4 &a_c_mMatrix4x4)const//Overloaded
 //\ Assignment Operation Overloads
 //\===========================================================================================
 
+Matrix4x4 Matrix4x4::operator+=(const float &a_c_fScalar)//Overloaded added equals operation for Matrix4x4.
+{
+	return Matrix4x4(*this = *this + a_c_fScalar);//Returns the added equated matrix.
+}
+
+Matrix4x4 Matrix4x4::operator+=(const Vector3 &a_c_vVector3)//Overloaded added equals operation for Matrix4x4.
+{
+	return Matrix4x4(*this = *this + a_c_vVector3);//Returns the added equated matrix.
+}
+
+Matrix4x4 Matrix4x4::operator+=(const Matrix4x4 &a_c_mMatrix4x4)//Overloaded added equals operation for Matrix4x4.
+{
+	return Matrix4x4(*this = *this + a_c_mMatrix4x4);//Returns the added equated matrix.
+}
+
+Matrix4x4 Matrix4x4::operator-=(const float &a_c_fScalar)//Overloaded subtracted equals operation for Matrix4x4.
+{
+	return Matrix4x4(*this = *this - a_c_fScalar);//Returns the subtracted equated matrix.
+}
+
+Matrix4x4 Matrix4x4::operator-=(const Vector3 &a_c_vVector3)//Overloaded subtracted equals operation for Matrix4x4.
+{
+	return Matrix4x4(*this = *this - a_c_vVector3);//Returns the subtracted equated matrix.
+}
+
+Matrix4x4 Matrix4x4::operator-=(const Matrix4x4 &a_c_mMatrix4x4)//Overloaded subtracted equals operation for Matrix4x4.
+{
+	return Matrix4x4(*this = *this - a_c_mMatrix4x4);//Returns the subtracted equated matrix.
+}
+
 Matrix4x4 Matrix4x4::operator=(const float &a_c_fScalar)//Overloaded equals operation for Matrix4x4.
 {
 	fm_00 = a_c_fScalar;//Makes the first element of the matrix equal to the scalar passed in.
@@ -488,6 +518,21 @@ Matrix4x4 Matrix4x4::operator*=(const Vector3 &a_c_vVector3)//Overloaded times e
 Matrix4x4 Matrix4x4::operator*=(const Matrix4x4 &a_c_mMatrix4x4)//Overloaded times equals operation for Matrix4x4.
 {
 	return Matrix4x4(*this = *this * a_c_mMatrix4x4);//Returns the multiplied equated matrix.
+}
+
+Matrix4x4 Matrix4x4::operator/=(const float &a_c_fScalar)//Overloaded divided equals operation for Matrix4x4.
+{
+	return Matrix4x4(*this = *this / a_c_fScalar);//Returns the divided equated matrix.
+}
+
+Matrix4x4 Matrix4x4::operator/=(const Vector3 &a_c_vVector3)//Overloaded divided equals operation for Matrix4x4.
+{
+	return Matrix4x4(*this = *this / a_c_vVector3);//Returns the divided equated matrix.
+}
+
+Matrix4x4 Matrix4x4::operator/=(const Matrix4x4 &a_c_mMatrix4x4)//Overloaded divided equals operation for Matrix4x4.
+{
+	return Matrix4x4(*this = *this / a_c_mMatrix4x4);//Returns the divided equated matrix.
 }
 
 //\===========================================================================================

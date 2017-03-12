@@ -81,7 +81,15 @@ public:
 
 	//\===========================================================================================
 	//\ Assignment Operation Overloads
-	//\===========================================================================================
+	//\==========================================================================================
+	
+	Vector3 operator+=(const float &a_c_fScalar);//Overloaded plus equals operation for Vector3.
+
+	Vector3 operator+=(const Vector3 &a_c_vVector3);//Overloaded plus equals operation for Vector3.
+
+	Vector3 operator-=(const float &a_c_fScalar);//Overloaded decrease equals operation for Vector3.
+
+	Vector3 operator-=(const Vector3 &a_c_vVector3);//Overloaded decrease equals operation for Vector3.
 
 	Vector3 operator=(const float &a_c_fScalar);//Overloaded equals operation for Vector3.
 
@@ -90,6 +98,10 @@ public:
 	Vector3 operator*=(const float &a_c_fScalar);//Overloaded times equals operation for Vector3.
 	
 	Vector3 operator*=(const Vector3 &a_c_vVector3);//Overloaded times equals operation for Vector3.
+
+	Vector3 operator/=(const float &a_c_fScalar);//Overloaded divide equals operation for Vector3.
+
+	Vector3 operator/=(const Vector3 &a_c_vVector3);//Overloaded divide equals operation for Vector3.
 	
 	//\===========================================================================================
 	//\ Relational Operation Overloads

@@ -8,7 +8,7 @@
 #ifndef _MATRIX3X3_H_
 #define _MATRIX3X3_H_
 
-#include "Vector4.h"
+#include "Vector3.h"
 
 //\===========================================================================================
 //\ Author: Morgan James
@@ -152,6 +152,18 @@ public:
 	//\ Assignment Operation Overloads
 	//\===========================================================================================
 
+	Matrix3x3 operator+=(const float &a_c_fScalar);//Overloaded times equals operation for Matrix3x3.
+
+	Matrix3x3 operator+=(const Vector3 &a_c_vVector3);//Overloaded times equals operation for Matrix3x3.
+
+	Matrix3x3 operator+=(const Matrix3x3 &a_c_mMatrix3x3);//Overloaded times equals operation for Matrix3x3.
+
+	Matrix3x3 operator-=(const float &a_c_fScalar);//Overloaded times equals operation for Matrix3x3.
+
+	Matrix3x3 operator-=(const Vector3 &a_c_vVector3);//Overloaded times equals operation for Matrix3x3.
+
+	Matrix3x3 operator-=(const Matrix3x3 &a_c_mMatrix3x3);//Overloaded times equals operation for Matrix3x3.
+
 	Matrix3x3 operator=(const float &a_c_fScalar);//Overloaded equals operation for Matrix3x3.
 
 	Matrix3x3 operator=(const Vector3 &a_c_vVector3);//Overloaded equals operation for Matrix3x3.
@@ -163,6 +175,12 @@ public:
 	Matrix3x3 operator*=(const Vector3 &a_c_vVector3);//Overloaded times equals operation for Matrix3x3.
 	
 	Matrix3x3 operator*=(const Matrix3x3 &a_c_mMatrix3x3);//Overloaded times equals operation for Matrix3x3.
+
+	Matrix3x3 operator/=(const float &a_c_fScalar);//Overloaded times equals operation for Matrix3x3.
+
+	Matrix3x3 operator/=(const Vector3 &a_c_vVector3);//Overloaded times equals operation for Matrix3x3.
+
+	Matrix3x3 operator/=(const Matrix3x3 &a_c_mMatrix3x3);//Overloaded times equals operation for Matrix3x3.
 
 	//\===========================================================================================
 	//\ Relational Operation Overloads

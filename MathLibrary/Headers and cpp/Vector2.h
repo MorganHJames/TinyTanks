@@ -74,6 +74,14 @@ public:
 	//\ Assignment Operation Overloads
 	//\===========================================================================================
 
+	Vector2 operator+=(const float &a_c_fScalar);//Overloaded plus equals operation for Vector2.
+
+	Vector2 operator+=(const Vector2 &a_c_vVector2);//Overloaded plus equals operation for Vector2.
+
+	Vector2 operator-=(const float &a_c_fScalar);//Overloaded decrease equals operation for Vector2.
+
+	Vector2 operator-=(const Vector2 &a_c_vVector2);//Overloaded decrease equals operation for Vector2.
+
 	Vector2 operator=(const float &a_c_fScalar);//Overloaded equals operation for Vector2.
 
 	Vector2 operator=(const Vector2 &a_c_vVector2);//Overloaded equals operation for Vector2.
@@ -81,6 +89,10 @@ public:
 	Vector2 operator*=(const float &a_c_fScalar);//Overloaded times equals operation for Vector2.
 	
 	Vector2 operator*=(const Vector2 &a_c_vVector2);//Overloaded times equals operation for Vector2.
+
+	Vector2 operator/=(const float &a_c_fScalar);//Overloaded divide equals operation for Vector2.
+
+	Vector2 operator/=(const Vector2 &a_c_vVector2);//Overloaded divide equals operation for Vector2.
 	
 	//\===========================================================================================
 	//\ Relational Operation Overloads

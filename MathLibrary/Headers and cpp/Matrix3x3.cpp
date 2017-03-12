@@ -304,6 +304,36 @@ Matrix3x3 Matrix3x3::operator/(const Matrix3x3 &a_c_mMatrix3x3)const//Overloaded
 //\ Assignment Operation Overloads
 //\===========================================================================================
 
+Matrix3x3 Matrix3x3::operator+=(const float &a_c_fScalar)//Overloaded times equals operation for Matrix3x3.
+{
+	return Matrix3x3(*this = *this + a_c_fScalar);//Returns the added equated matrix.
+}
+
+Matrix3x3 Matrix3x3::operator+=(const Vector3 &a_c_vVector3)//Overloaded times equals operation for Matrix3x3.
+{
+	return Matrix3x3(*this = *this + a_c_vVector3);//Returns the added equated matrix.
+}
+
+Matrix3x3 Matrix3x3::operator+=(const Matrix3x3 &a_c_mMatrix3x3)//Overloaded times equals operation for Matrix3x3.
+{
+	return Matrix3x3(*this = *this + a_c_mMatrix3x3);//Returns the added equated matrix.
+}
+
+Matrix3x3 Matrix3x3::operator-=(const float &a_c_fScalar)//Overloaded times equals operation for Matrix3x3.
+{
+	return Matrix3x3(*this = *this - a_c_fScalar);//Returns the subtracted equated matrix.
+}
+
+Matrix3x3 Matrix3x3::operator-=(const Vector3 &a_c_vVector3)//Overloaded times equals operation for Matrix3x3.
+{
+	return Matrix3x3(*this = *this - a_c_vVector3);//Returns the subtracted equated matrix.
+}
+
+Matrix3x3 Matrix3x3::operator-=(const Matrix3x3 &a_c_mMatrix3x3)//Overloaded times equals operation for Matrix3x3.
+{
+	return Matrix3x3(*this = *this - a_c_mMatrix3x3);//Returns the subtracted equated matrix.
+}
+
 Matrix3x3 Matrix3x3::operator=(const float &a_c_fScalar)//Overloaded equals operation for Matrix3x3.
 {
 	fm_00 = a_c_fScalar;//Makes the first element of the matrix equal to the scalar passed in.
@@ -353,6 +383,21 @@ Matrix3x3 Matrix3x3::operator*=(const Vector3 &a_c_vVector3)//Overloaded times e
 Matrix3x3 Matrix3x3::operator*=(const Matrix3x3 &a_c_mMatrix3x3)//Overloaded times equals operation for Matrix3x3.
 {
     return Matrix3x3(*this = *this * a_c_mMatrix3x3);//Returns the multiplied equated matrix.
+}
+
+Matrix3x3 Matrix3x3::operator/=(const float &a_c_fScalar)//Overloaded times equals operation for Matrix3x3.
+{
+	return Matrix3x3(*this = *this / a_c_fScalar);//Returns the divided equated matrix.
+}
+
+Matrix3x3 Matrix3x3::operator/=(const Vector3 &a_c_vVector3)//Overloaded times equals operation for Matrix3x3.
+{
+	return Matrix3x3(*this = *this / a_c_vVector3);//Returns the divided equated matrix.
+}
+
+Matrix3x3 Matrix3x3::operator/=(const Matrix3x3 &a_c_mMatrix3x3)//Overloaded times equals operation for Matrix3x3.
+{
+	return Matrix3x3(*this = *this / a_c_mMatrix3x3);//Returns the divided equated matrix.
 }
 
 //\===========================================================================================

@@ -8,7 +8,8 @@
 #ifndef _MATHUTIL_H_
 #define _MATHUTIL_H_
 
-#include "Matrix4x4.h"
+#include "Vector3.h"
+#include "Matrix3x3.h"
 
 //\===========================================================================================
 //\ Author: Morgan James
@@ -94,5 +95,8 @@ float reciprocal(const float a_c_fScalar);
 //\===========================================================================================
 //\ Smootherstep
 //\===========================================================================================
+
+
+Vector3 vectorTimesMatrix3x3(const Vector3 &a_c_vVector3, const Matrix3x3 &a_c_mMatrix3x3);//Multiplication for a vector times a matrix as introducing this as an overload would cause circular dependency.
 
 #endif

@@ -165,6 +165,30 @@ Vector4 Vector4::operator/(const Vector4 &a_c_vVector4)const//Overloaded divisio
 //\ Assignment Operation Overloads
 //\===========================================================================================
 
+Vector4 Vector4::operator+=(const float &a_c_fScalar)//Overloaded plus equals operation for Vector4.
+{
+	return Vector4(//Returns Ax += number, Ay += number, Az += number, Aw += number.
+		*this = *this + a_c_fScalar);
+}
+
+Vector4 Vector4::operator+=(const Vector4 &a_c_vVector4)//Overloaded plus equals operation for Vector4.
+{
+	return Vector4(//Returns Ax += Bx, Ay += By, Az += Bz, Aw += Bw.
+		*this = *this + a_c_vVector4);
+}
+
+Vector4 Vector4::operator-=(const float &a_c_fScalar)//Overloaded decrease equals operation for Vector4.
+{
+	return Vector4(//Returns Ax -= number, Ay -= number, Az -= number, Aw -= number.
+		*this = *this - a_c_fScalar);
+}
+
+Vector4 Vector4::operator-=(const Vector4 &a_c_vVector4)//Overloaded decrease equals operation for Vector4.
+{
+	return Vector4(//Returns Ax -= Bx, Ay -= By, Az -= Bz, Aw -= Bw.
+		*this = *this - a_c_vVector4);
+}
+
 Vector4 Vector4::operator=(const float &a_c_fScalar)//Overloaded equals operation for Vector4.
 {
 	return Vector4(//Returns Ax = number, Ay = number, Az = number, Aw = number.
@@ -193,6 +217,18 @@ Vector4 Vector4::operator*=(const Vector4 &a_c_vVector4)//Overloaded times equal
 {
 	return Vector4(//Returns Ax *= Bx, Ay *= By, Az *= Bz, Aw *= Bw.
 		*this = *this * a_c_vVector4);
+}
+
+Vector4 Vector4::operator/=(const float &a_c_fScalar)//Overloaded divide equals operation for Vector4.
+{
+	return Vector4(//Returns Ax /= number, Ay /= number, Az /= number, Aw /= number.
+		*this = *this / a_c_fScalar);
+}
+
+Vector4 Vector4::operator/=(const Vector4 &a_c_vVector4)//Overloaded divide equals operation for Vector4.
+{
+	return Vector4(//Returns Ax /= Bx, Ay /= By, Az /= Bz, Aw /= Bw.
+		*this = *this / a_c_vVector4);
 }
 
 //\===========================================================================================

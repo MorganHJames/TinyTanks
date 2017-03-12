@@ -175,7 +175,7 @@ struct Sprite : public Node {
 		//Multiplying the movement vector by our local transform will put that vector in the local space of this object
 		//if we were after moving this object along a world vector then we would need to multiply that vector by the inverse
 		//of our worldspace matrix
-		pos += a_movementVec * m3PosRot;
+		pos += vectorTimesMatrix3x3(a_movementVec, m3PosRot);
 
 		m3PosRot.setRow(2, pos);
 	}

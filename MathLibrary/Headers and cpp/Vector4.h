@@ -8,6 +8,7 @@
 #ifndef _VECTOR4_H_
 #define _VECTOR4_H_
 
+#include "Vector2.h"
 #include "Vector3.h"
 
 //\===========================================================================================
@@ -89,13 +90,25 @@ public:
 	//\ Assignment Operation Overloads
 	//\===========================================================================================
 
+	Vector4 operator+=(const float &a_c_fScalar);//Overloaded plus equals operation for Vector4.
+
+	Vector4 operator+=(const Vector4 &a_c_vVector4);//Overloaded plus equals operation for Vector4.
+
+	Vector4 operator-=(const float &a_c_fScalar);//Overloaded decrease equals operation for Vector4.
+
+	Vector4 operator-=(const Vector4 &a_c_vVector4);//Overloaded decrease equals operation for Vector4.
+
 	Vector4 operator=(const float &a_c_fScalar);//Overloaded equals operation for Vector4.
 
 	Vector4 operator=(const Vector4 &a_c_vVector4);//Overloaded equals operation for Vector4.
-	
+
 	Vector4 operator*=(const float &a_c_fScalar);//Overloaded times equals operation for Vector4.
 
 	Vector4 operator*=(const Vector4 &a_c_vVector4);//Overloaded times equals operation for Vector4.
+
+	Vector4 operator/=(const float &a_c_fScalar);//Overloaded divide equals operation for Vector4.
+
+	Vector4 operator/=(const Vector4 &a_c_vVector4);//Overloaded divide equals operation for Vector4.
 	
 	//\===========================================================================================
 	//\ Relational Operation Overloads

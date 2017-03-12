@@ -111,7 +111,31 @@ Vector2 Vector2::operator/(const Vector2 &a_c_vVector2)const//Overloaded divisio
 
 //\===========================================================================================
 //\ Assignment Operation Overloads
-//\===========================================================================================
+//\===========================================================================================	
+
+Vector2 Vector2::operator+=(const float &a_c_fScalar)//Overloaded plus equals operation for Vector2.
+{
+	return Vector2(//Returns x += number, y += number.
+		*this = *this + a_c_fScalar);
+}
+
+Vector2 Vector2::operator+=(const Vector2 &a_c_vVector2)//Overloaded plus equals operation for Vector2.
+{
+	return Vector2(//Returns Ax += Bx, Ay += By.
+		*this = *this + a_c_vVector2);
+}
+
+Vector2 Vector2::operator-=(const float &a_c_fScalar)//Overloaded decrease equals operation for Vector2.
+{
+	return Vector2(//Returns x -= number, y -= number.
+		*this = *this - a_c_fScalar);
+}
+
+Vector2 Vector2::operator-=(const Vector2 &a_c_vVector2)//Overloaded decrease equals operation for Vector2.
+{
+	return Vector2(//Returns Ax -= Bx, Ay -= By.
+		*this = *this - a_c_vVector2);
+}
 
 Vector2 Vector2::operator=(const float &a_c_fScalar)//Overloaded equals operation for Vector2.
 {
@@ -137,6 +161,18 @@ Vector2 Vector2::operator*=(const Vector2 &a_c_vVector2)//Overloaded times equal
 {
 	return Vector2(//Returns Ax *= Bx, Ay *= By.
 		*this = *this * a_c_vVector2);
+}
+
+Vector2 Vector2::operator/=(const float &a_c_fScalar)//Overloaded divide equals operation for Vector2.
+{
+	return Vector2(//Returns Ax /= Bx, Ay /= By.
+		*this = *this / a_c_fScalar);
+}
+
+Vector2 Vector2::operator/=(const Vector2 &a_c_vVector2)//Overloaded divide equals operation for Vector2.
+{
+	return Vector2(//Returns Ax /= Bx, Ay /= By.
+		*this = *this / a_c_vVector2);
 }
 
 //\===========================================================================================

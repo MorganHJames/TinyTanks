@@ -137,6 +137,30 @@ Vector3 Vector3::operator/(const Vector3 &a_c_vVector3)const//Overloaded divisio
 //\ Assignment Operation Overloads
 //\===========================================================================================
 
+Vector3 Vector3::operator+=(const float &a_c_fScalar)//Overloaded plus equals operation for Vector3.
+{
+	return Vector3(//Returns x += number, y += number, z += number.
+		*this = *this + a_c_fScalar);
+}
+
+Vector3 Vector3::operator+=(const Vector3 &a_c_vVector3)//Overloaded plus equals operation for Vector3.
+{
+	return Vector3(//Returns Ax += Bx, Ay += By, Az += Bz.
+		*this = *this + a_c_vVector3);
+}
+
+Vector3 Vector3::operator-=(const float &a_c_fScalar)//Overloaded decrease equals operation for Vector3.
+{
+	return Vector3(//Returns x -= number, y -= number, z -= number.
+		*this = *this - a_c_fScalar);
+}
+
+Vector3 Vector3::operator-=(const Vector3 &a_c_vVector3)//Overloaded decrease equals operation for Vector3.
+{
+	return Vector3(//Returns Ax -= Bx, Ay -= By, Az -= Bz.
+		*this = *this - a_c_vVector3);
+}
+
 Vector3 Vector3::operator=(const float &a_c_fScalar)//Overloaded equals operation for Vector3.
 {
 	return Vector3(//Returns x = number, y = number, z = number.
@@ -163,6 +187,18 @@ Vector3 Vector3::operator*=(const Vector3 &a_c_vVector3)//Overloaded times equal
 {
 	return Vector3(//Returns Ax *= Bx, Ay *= By, Az *= Bz.
 		*this = *this * a_c_vVector3);
+}
+
+Vector3 Vector3::operator/=(const float &a_c_fScalar)//Overloaded divide equals operation for Vector3.
+{
+	return Vector3(//Returns x /= number, y /= number, z /= number.
+		*this = *this / a_c_fScalar);
+}
+
+Vector3 Vector3::operator/=(const Vector3 &a_c_vVector3)//Overloaded divide equals operation for Vector3.
+{
+	return Vector3(//Returns Ax /= Bx, Ay /= By, Az /= Bz.
+		*this = *this / a_c_vVector3);
 }
 
 //\===========================================================================================
