@@ -547,12 +547,10 @@ void Matrix3x3::transpose()//Transposes the Matrix3x3.
 //\ Set To Identity
 //\===========================================================================================
 
-void Matrix3x3::setIdentity()//Makes the Matrix3x3 an identity matrix.//\===================================
-{									  							      //\= Makes the Matrix3x3 equal to the identity matrix which is:
-	fm_00 = 1; fm_01 = 0; fm_02 = 0;  							      //\= 1, 0, 0,
-	fm_10 = 0; fm_11 = 1; fm_12 = 0;  							      //\= 0, 1, 0,
-	fm_20 = 0; fm_21 = 0; fm_22 = 1;  							      //\= 0, 0, 1
-}									  							      //\===================================
+void Matrix3x3::setIdentity()//Makes the Matrix3x3 an identity matrix.
+{									  							      
+	*this = IDENTITY;
+}									  							      
 	
 //\===========================================================================================
 //\ Identity
@@ -560,9 +558,7 @@ void Matrix3x3::setIdentity()//Makes the Matrix3x3 an identity matrix.//\=======
 
 Matrix3x3 Matrix3x3::identity()const//Returns a Matrix3x3 identity matrix.
 {
-	Matrix3x3 temp;
-	temp.setIdentity();
-	return Matrix3x3(temp);
+	return Matrix3x3(IDENTITY);
 }
 
 //\===========================================================================================
@@ -571,9 +567,7 @@ Matrix3x3 Matrix3x3::identity()const//Returns a Matrix3x3 identity matrix.
 
 void Matrix3x3::setZero()//Makes each Matrix3x3 element equal to 0. 
 {//Set each element in the matrix3x3 to zero.
-	fm_00 = 0; fm_01 = 0; fm_02 = 0;
-	fm_10 = 0; fm_11 = 0; fm_12 = 0;
-	fm_20 = 0; fm_21 = 0; fm_22 = 0;
+	*this = ZERO;
 }
 
 //\===========================================================================================
@@ -586,3 +580,10 @@ Matrix3x3 Matrix3x3::zero()const//Returns a Matrix3x3 zero matrix.
 	temp.setZero();
 	return Matrix3x3(temp);
 }
+
+//\===========================================================================================
+//\ Special Points
+//\===========================================================================================
+
+static const Matrix3x3 ZERO{ 0,0,0,0,0,0,0,0,0 };
+static const Matrix3x3 IDENTITY{ 1,0,0,0,1,0,0,0,1 };

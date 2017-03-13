@@ -361,9 +361,7 @@ Vector3 Vector3::unit()const//A function that returns a unit vector created from
 
 void Vector3::setZero()//Makes each Vector3 element equal to 0. 
 {//Set each element in the Vector3 to zero.
-	fX = 0;
-	fY = 0;
-	fZ = 0;
+	*this = ZERO;
 }
 
 //\===========================================================================================
@@ -372,7 +370,18 @@ void Vector3::setZero()//Makes each Vector3 element equal to 0.
 
 Vector3 Vector3::zero()const//Returns a Vector3 zero matrix.
 {
-	Vector3 temp;
-	temp.setZero();
-	return Vector3(temp);
+	return Vector3(ZERO);
 }
+
+//\===========================================================================================
+//\ Special Points
+//\===========================================================================================
+
+static const Vector3 ZERO{ 0,0,0 };
+static const Vector3 UNIT_X{ 1,0,0 };
+static const Vector3 UNIT_Y{ 0,1,0 };
+static const Vector3 UNIT_Z{ 0,0,1 };
+static const Vector3 NEGATIVE_UNIT_X{ -1,0,0 };
+static const Vector3 NEGATIVE_UNIT_Y{ 0,-1,0 };
+static const Vector3 NEGATIVE_UNIT_Z{ 0,0,-1 };
+static const Vector3 UNIT_SCALE{ 1,1,1 };

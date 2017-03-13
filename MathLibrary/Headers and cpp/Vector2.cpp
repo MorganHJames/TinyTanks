@@ -334,3 +334,14 @@ Vector2 Vector2::zero()const//Returns a Vector2 zero matrix.
 	temp.setZero();
 	return Vector2(temp);
 }
+
+//\===========================================================================================
+//\ Special Points
+//\===========================================================================================
+
+static const Vector2 ZERO{ 0,0 };
+static const Vector2 UNIT_X{ 1,0 };
+static const Vector2 UNIT_Y{ 0,1 };
+static const Vector2 NEGATIVE_UNIT_X{ -1,0 };
+static const Vector2 NEGATIVE_UNIT_Y{ 0,-1 };
+static const Vector2 UNIT_SCALE{ 1,1 };

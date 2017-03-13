@@ -285,6 +285,13 @@ public:
 
 	Matrix4x4 zero()const;//Returns a Matrix4x4 zero matrix.
 
+	//\===========================================================================================
+	//\ Special Points
+	//\===========================================================================================
+
+	static const Matrix4x4 ZERO;
+	static const Matrix4x4 IDENTITY;
+
 };
 
 #endif

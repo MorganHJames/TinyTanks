@@ -5,7 +5,4 @@ d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semest
   d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\tinytanks\source\main.cpp(134): note: while trying to match the argument list '(const char *, Vector2, Vector2, Vector4)'
 d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\tinytanks\source\main.cpp(166): error C2664: 'void UG::SetSpriteMatrix(int,const float *)': cannot convert argument 2 from 'Matrix4x4' to 'const float *'
   d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\tinytanks\source\main.cpp(166): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\tinytanks\source\main.cpp(243): error C2039: 'AXIS_Y': is not a member of 'Vector3'
-  d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\vector3.h(23): note: see declaration of 'Vector3'
-d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\tinytanks\source\main.cpp(243): error C2065: 'AXIS_Y': undeclared identifier
 d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\tinytanks\source\main.cpp(267): error C3861: 'Signf': identifier not found

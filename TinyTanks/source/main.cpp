@@ -25,7 +25,7 @@ struct Node
 	Node()
 	{
 		m_pParent = nullptr;
-		Matrix3x3 m3PosRot = m3PosRot.identity();
+		Matrix3x3 m3PosRot = Matrix3x3::IDENTITY;
 
 	}
 	//destructor (virtual as we will use node as a base class)
@@ -101,17 +101,17 @@ struct Node
 	//Rotate this node around it's z axis
 	void RotateZ(float a_fRotation)
 	{
-		Matrix3x3 m3Rotation = m3Rotation.identity();
+		Matrix3x3 m3Rotation = Matrix3x3::IDENTITY;
 		m3Rotation.rotate(a_fRotation);
 		m3PosRot = m3Rotation * m3PosRot;
 	}
 	//scale this node
 	void Scale(float a_fScale)
 	{
-		Vector3 translation = translation.zero();
+		Vector3 translation = Vector3::ZERO;
 		translation = m3PosRot.getRow(2);
 
-		Matrix3x3 scale = scale.identity();
+		Matrix3x3 scale = Matrix3x3::IDENTITY;
 		scale.scale(a_fScale, a_fScale);
 		m3PosRot = scale * m3PosRot;
 
@@ -156,7 +156,7 @@ struct Sprite : public Node {
 		//from the 3x3 matrix that we are using internally
 		//set the sprites matrix
 
-		Matrix3x3 worldTx = worldTx.identity();
+		Matrix3x3 worldTx = Matrix3x3::IDENTITY;
 		GetWorldTransform(worldTx);
 		Matrix4x4 m4x4(
 	        worldTx.getiMatrix(0), worldTx.getiMatrix(1), worldTx.getiMatrix(2), 0.f,
@@ -240,7 +240,7 @@ int main(int argv, char* argc[])
 			float xPos = 0; float yPos = 0;
 
 			//Create a vector to store our movement
-			Vector3 movementVector = Vector3::AXIS_Y;
+			Vector3 movementVector = Vector3::UNIT_Y;
 			//We're going to be treating moving forward and backward as traversing along the sprite's Y axis
 			//If our sprite was rotated 90 degrees on the sprite sheet then we would treat that direction as forward.
 			float fAccelleration = 0.f;

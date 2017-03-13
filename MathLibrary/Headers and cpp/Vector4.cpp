@@ -404,3 +404,9 @@ Vector4 Vector4::zero()const//Returns a Vector4 zero matrix.
 	temp.setZero();
 	return Vector4(temp);
 }
+
+//\===========================================================================================
+//\ Special Points
+//\===========================================================================================
+
+static const Vector4 ZERO{ 0,0,0,0 };

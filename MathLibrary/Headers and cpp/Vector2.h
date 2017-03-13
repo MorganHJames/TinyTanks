@@ -179,6 +179,17 @@ public:
 	//\===========================================================================================
 
 	Vector2 zero()const;//Returns a Vector2 zero matrix.
+
+	//\===========================================================================================
+	//\ Special Points
+	//\===========================================================================================
+
+	static const Vector2 ZERO;
+	static const Vector2 UNIT_X;
+	static const Vector2 UNIT_Y;
+	static const Vector2 NEGATIVE_UNIT_X;
+	static const Vector2 NEGATIVE_UNIT_Y;
+	static const Vector2 UNIT_SCALE;
 };
 
 #endif
