@@ -16,6 +16,26 @@
 
 Matrix4x4::Matrix4x4() {}//The Default constructor for a Matrix4x4 that initialises everything to 0.
 
+Matrix4x4::Matrix4x4(const Matrix4x4 &a_c_mMatrix4x4)//Copy constructor.
+{
+	fm_00 = a_c_mMatrix4x4.getiMatrix(0);
+	fm_01 = a_c_mMatrix4x4.getiMatrix(1);
+	fm_02 = a_c_mMatrix4x4.getiMatrix(2);
+	fm_03 = a_c_mMatrix4x4.getiMatrix(3);
+	fm_10 = a_c_mMatrix4x4.getiMatrix(4);
+	fm_11 = a_c_mMatrix4x4.getiMatrix(5);
+	fm_12 = a_c_mMatrix4x4.getiMatrix(6);
+	fm_13 = a_c_mMatrix4x4.getiMatrix(7);
+	fm_20 = a_c_mMatrix4x4.getiMatrix(8);
+	fm_21 = a_c_mMatrix4x4.getiMatrix(9);
+	fm_22 = a_c_mMatrix4x4.getiMatrix(10);
+	fm_23 = a_c_mMatrix4x4.getiMatrix(11);
+	fm_30 = a_c_mMatrix4x4.getiMatrix(12);
+	fm_31 = a_c_mMatrix4x4.getiMatrix(13);
+	fm_32 = a_c_mMatrix4x4.getiMatrix(14);
+	fm_33 = a_c_mMatrix4x4.getiMatrix(15);
+}
+
 Matrix4x4::Matrix4x4(const float a_c_fmMatrix[4][4])//Constructor for a Matrix4x4 that is made from two arrays of four.
 {
 	fmMatrix[0][0] = a_c_fmMatrix[0][0];//Sets the matrix's first element of the matrix to the same as the matrix passed in.
@@ -54,22 +74,22 @@ Matrix4x4::Matrix4x4(const//Constructor that takes sixteen floats to make a Matr
 	float a_c_fm_32,
 	float a_c_fm_33)
 {
-	fm_00 = a_c_fm_00; //Sets the matrix's first element of the matrix to the same as the equivalent argument  passed in.
-	fm_01 = a_c_fm_01; //Sets the matrix's second element of the matrix to the same as the equivalent argument  passed in.
-	fm_02 = a_c_fm_02; //Sets the matrix's third element of the matrix to the same as the equivalent argument  passed in.
-	fm_03 = a_c_fm_03; //Sets the matrix's fourth element of the matrix to the same as the equivalent argument  passed in.
-	fm_10 = a_c_fm_10; //Sets the matrix's fifth element of the matrix to the same as the equivalent argument  passed in.
-	fm_11 = a_c_fm_11; //Sets the matrix's sixth element of the matrix to the same as the equivalent argument  passed in.
-	fm_12 = a_c_fm_12; //Sets the matrix's seventh element of the matrix to the same as the equivalent argument  passed in.
-	fm_13 = a_c_fm_13; //Sets the matrix's eighth element of the matrix to the same as the equivalent argument  passed in.
-	fm_20 = a_c_fm_20; //Sets the matrix's ninth element of the matrix to the same as the equivalent argument  passed in.
-	fm_21 = a_c_fm_21; //Sets the matrix's tenth element of the matrix to the same as the equivalent argument  passed in.
-	fm_22 = a_c_fm_22; //Sets the matrix's eleventh element of the matrix to the same as the equivalent argument  passed in.
-	fm_23 = a_c_fm_23; //Sets the matrix's twelve element of the matrix to the same as the equivalent argument  passed in.
-	fm_30 = a_c_fm_30; //Sets the matrix's thirteenth element of the matrix to the same as the equivalent argument  passed in.
-	fm_31 = a_c_fm_31; //Sets the matrix's fourteenth element of the matrix to the same as the equivalent argument  passed in.
-	fm_32 = a_c_fm_32; //Sets the matrix's fifteenth element of the matrix to the same as the equivalent argument  passed in.
-	fm_33 = a_c_fm_33; //Sets the matrix's sixteenth element of the matrix to the same as the equivalent argument  passed in.
+	fm_00 = a_c_fm_00;//Sets the matrix's first element of the matrix to the same as the equivalent argument  passed in.
+	fm_01 = a_c_fm_01;//Sets the matrix's second element of the matrix to the same as the equivalent argument  passed in.
+	fm_02 = a_c_fm_02;//Sets the matrix's third element of the matrix to the same as the equivalent argument  passed in.
+	fm_03 = a_c_fm_03;//Sets the matrix's fourth element of the matrix to the same as the equivalent argument  passed in.
+	fm_10 = a_c_fm_10;//Sets the matrix's fifth element of the matrix to the same as the equivalent argument  passed in.
+	fm_11 = a_c_fm_11;//Sets the matrix's sixth element of the matrix to the same as the equivalent argument  passed in.
+	fm_12 = a_c_fm_12;//Sets the matrix's seventh element of the matrix to the same as the equivalent argument  passed in.
+	fm_13 = a_c_fm_13;//Sets the matrix's eighth element of the matrix to the same as the equivalent argument  passed in.
+	fm_20 = a_c_fm_20;//Sets the matrix's ninth element of the matrix to the same as the equivalent argument  passed in.
+	fm_21 = a_c_fm_21;//Sets the matrix's tenth element of the matrix to the same as the equivalent argument  passed in.
+	fm_22 = a_c_fm_22;//Sets the matrix's eleventh element of the matrix to the same as the equivalent argument  passed in.
+	fm_23 = a_c_fm_23;//Sets the matrix's twelve element of the matrix to the same as the equivalent argument  passed in.
+	fm_30 = a_c_fm_30;//Sets the matrix's thirteenth element of the matrix to the same as the equivalent argument  passed in.
+	fm_31 = a_c_fm_31;//Sets the matrix's fourteenth element of the matrix to the same as the equivalent argument  passed in.
+	fm_32 = a_c_fm_32;//Sets the matrix's fifteenth element of the matrix to the same as the equivalent argument  passed in.
+	fm_33 = a_c_fm_33;//Sets the matrix's sixteenth element of the matrix to the same as the equivalent argument  passed in.
 }
 
 Matrix4x4::Matrix4x4(const float a_c_fiMatrix[16])//Constructor that takes an array of sixteen floats to make a Matrix4x4.
@@ -126,6 +146,11 @@ Matrix4x4::Matrix4x4(const Matrix3x3 a_c_mMatrix3x3)//Constructor to make a Matr
 //\===========================================================================================
 //\ Getters
 //\===========================================================================================
+
+const float* Matrix4x4::getMatrix()const//Returns a pointer to the first element in the array.
+{
+	return fiMatrix;
+}
 
 float Matrix4x4::getmMatrix(const int &a_c_iRow, int &a_c_iCol)const//A getter to return a float at the point specified with the two arguments.
 {

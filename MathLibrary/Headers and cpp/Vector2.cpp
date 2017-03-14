@@ -16,6 +16,12 @@
 
 Vector2::Vector2() {}//A default constructor that initialises X and Y to 0.
 
+Vector2::Vector2(const Vector2 &a_c_vVector2)//Copy constructor.
+{
+	fX = a_c_vVector2.getfX();
+	fY = a_c_vVector2.getfY();
+}
+
 Vector2::Vector2(const float a_c_fX, float a_c_fY) ://Constructor.
 	fX(a_c_fX),//Sets the x value of the Vector2 to the first argument passed in on Creation.
 	fY(a_c_fY)//Sets the y value of the Vector2 to the second argument passed in on Creation.
@@ -25,6 +31,11 @@ Vector2::Vector2(const float a_c_fX, float a_c_fY) ://Constructor.
 //\===========================================================================================
 //\ Getters
 //\===========================================================================================
+
+const float* Vector2::getVector()const//Returns a pointer to the first element in the array.
+{
+	return (aVector2);
+}
 
 float Vector2::getfX()const//A getter to get the x part of Vector2.
 {

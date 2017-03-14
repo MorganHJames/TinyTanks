@@ -58,12 +58,15 @@ private:
 			};
 		};
 	};
+	
 public:
 	//\===========================================================================================
 	//\ Constructor
 	//\===========================================================================================
 
 	Matrix4x4();//The Default constructor for a Matrix4x4 that initialises everything to 0.
+
+	Matrix4x4(const Matrix4x4 &a_c_mMatrix4x4);//Copy constructor.
 
 	Matrix4x4(const float a_c_fmMatrix[4][4]);//Constructor for a Matrix4x4 that is made from two arrays of four.
 
@@ -98,6 +101,8 @@ public:
 	//\===========================================================================================
 	//\ Getters
 	//\===========================================================================================
+
+	const float* getMatrix()const;//Returns a pointer to the first element in the array.
 
 	float getmMatrix(const int &a_c_iRow, int &a_c_iCol)const;//A getter to return a float at the point specified with the two arguments.
 

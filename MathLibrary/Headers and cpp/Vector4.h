@@ -26,8 +26,18 @@ private:
 	//\===========================================================================================
 	//\ Member Variables
 	//\===========================================================================================
+	union 
+	{
+		struct//A structure four floats to make a vector4.
+		{
+			float fX, fY, fZ, fW;//Four float variables created.
+		};
 
-	float fX, fY, fZ, fW;//Four float variables created.
+		struct//A structure containing 4 floats representing a Vector4.
+		{
+			float aVector4[4];//An array of 4 floats.
+		};
+	};
 
 public:
 	//\===========================================================================================
@@ -35,6 +45,8 @@ public:
 	//\===========================================================================================
 
 	Vector4();//Constructor default that sets all variables to 0.
+
+	Vector4(const Vector4 &a_c_vVector4);//Copy constructor.
 
 	Vector4(const float a_c_fX, float a_c_fY , float a_c_fZ, float a_c_fW);//Constructor with four scalar values.
 
@@ -45,6 +57,8 @@ public:
 	//\===========================================================================================
 	//\ Getters
 	//\===========================================================================================
+	
+	const float* getVector()const;//Returns a pointer to the first element in the array.
 
 	float getfX()const;//A getter to get the x part of Vector4.
 

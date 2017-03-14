@@ -16,6 +16,18 @@
 
 Matrix3x3::Matrix3x3() {}//The Default constructor for a Matrix3x3 that initialises everything to 0.
 
+Matrix3x3::Matrix3x3(const Matrix3x3 &a_c_mMatrix3x3)//Copy constructor.
+{
+	fm_00 = a_c_mMatrix3x3.getiMatrix(0);
+	fm_01 = a_c_mMatrix3x3.getiMatrix(1);
+	fm_02 = a_c_mMatrix3x3.getiMatrix(2);
+	fm_10 = a_c_mMatrix3x3.getiMatrix(3);
+	fm_11 = a_c_mMatrix3x3.getiMatrix(4);
+	fm_12 = a_c_mMatrix3x3.getiMatrix(5);
+	fm_20 = a_c_mMatrix3x3.getiMatrix(6);
+	fm_21 = a_c_mMatrix3x3.getiMatrix(7);
+	fm_22 = a_c_mMatrix3x3.getiMatrix(8);
+}
 Matrix3x3::Matrix3x3(const float a_c_fmMatrix[3][3])//Constructor for a Matrix3x3 that is made from two arrays of three.
 {
 	fmMatrix[0][0] = a_c_fmMatrix[0][0];//Sets the matrix's first element of the matrix to the same as the matrix passed in.
@@ -76,6 +88,11 @@ Matrix3x3::Matrix3x3(const
 //\===========================================================================================
 //\ Getters
 //\===========================================================================================
+
+const float* Matrix3x3::getMatrix()const//Returns a pointer to the first element in the array.
+{
+	return fiMatrix;
+}
 
 float Matrix3x3::getmMatrix(const int &a_c_iRow, int &a_c_iCol)const//A getter to return a float at the point specified with the two arguments.
 {

@@ -131,7 +131,7 @@ struct Sprite : public Node {
 	//Constructor -- makes a UG Sprite object for us to use
 	Sprite(const char* a_fileName, float a_width, float a_height, Vector2 a_origin, Vector4 a_UVCoords)
 	{
-		m_iSpriteID = UG::CreateSprite(a_fileName, Vector2(a_width, a_height), a_origin, a_UVCoords);
+		m_iSpriteID = UG::CreateSprite(a_fileName, Vector2(a_width, a_height).getVector(), a_origin.getVector(), a_UVCoords.getVector());
 		float mat4x4[16];
 		memset(mat4x4, 0, sizeof(float) * 16);
 		UG::GetSpriteMatrix(m_iSpriteID, mat4x4);
@@ -163,7 +163,7 @@ struct Sprite : public Node {
 			worldTx.getiMatrix(4), worldTx.getiMatrix(5), worldTx.getiMatrix(6), 0.f,
 			0.f, 0.f, 1.f, 0.f,
 			worldTx.getiMatrix(12), worldTx.getiMatrix(13), 0.f, 1.f);
-		UG::SetSpriteMatrix(m_iSpriteID, m4x4);
+		UG::SetSpriteMatrix(m_iSpriteID, m4x4.getMatrix());
 
 	}
 	//Function to move our sprite

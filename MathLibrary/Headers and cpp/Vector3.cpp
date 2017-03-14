@@ -16,6 +16,13 @@
 
 Vector3::Vector3() {}//Constructor default that sets all variables to 0.
 
+Vector3::Vector3(const Vector3 &a_c_vVector3)//Copy constructor.
+{
+	fX = a_c_vVector3.getfX();
+	fY = a_c_vVector3.getfY();
+	fZ = a_c_vVector3.getfZ();
+}
+
 Vector3::Vector3(float a_c_fX, float a_c_fY, float a_c_fZ) ://Constructor with three scalar values.
 	fX(a_c_fX),//Sets the x value of the Vector3 to the first argument passed in on Creation.
 	fY(a_c_fY),//Sets the y value of the Vector3 to the second argument passed in on Creation.

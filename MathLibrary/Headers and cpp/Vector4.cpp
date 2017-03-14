@@ -16,6 +16,14 @@
 
 Vector4::Vector4() {}//Constructor default that sets all variables to 0.
 
+Vector4::Vector4(const Vector4 &a_c_vVector4)//Copy constructor.
+{
+	fX = a_c_vVector4.getfX();
+	fY = a_c_vVector4.getfY();
+	fZ = a_c_vVector4.getfZ();
+	fW = a_c_vVector4.getfW();
+}
+
 Vector4::Vector4(const float a_c_fX, float a_c_fY, float a_c_fZ, float a_c_fW) ://Constructor with four scalar values.
 	fX(a_c_fX),//Sets the x value of the Vector4 to the first argument passed in on Creation.
 	fY(a_c_fY),//Sets the y value of the Vector4 to the second argument passed in on Creation.
@@ -43,6 +51,11 @@ Vector4::Vector4(const Vector3 &a_c_vVector3, float a_c_fW) ://Constructor with 
 //\===========================================================================================
 //\ Getters
 //\===========================================================================================
+
+const float* Vector4::getVector()const//Returns a pointer to the first element in the array.
+{
+	return (aVector4);
+}
 
 float Vector4::getfX()const//A getter to get the x part of Vector4.
 {

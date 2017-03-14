@@ -24,6 +24,19 @@ private:
 	//\===========================================================================================
 
 	float fX, fY;//Two float variables created.
+	union
+	{
+		struct//A structure two floats to make a Vector2.
+		{
+			float fX, fY;//Two float variables created.
+		};
+
+		struct//A structure containing two floats representing a Vector2.
+		{
+			float aVector2[2];//An array of two floats.
+		};
+	};
+
 
 public:
 	//\===========================================================================================
@@ -32,12 +45,16 @@ public:
 
 	Vector2();//A default constructor that initialises X and Y to 0.
 
+	Vector2(const Vector2 &a_c_vVector2);//Copy constructor.
+
 	Vector2(const float a_c_fX, float a_c_fY);//Constructor.
 
 	//\===========================================================================================
 	//\ Getters
 	//\===========================================================================================
 
+	const float* getVector()const;//Returns a pointer to the first element in the array.
+	
 	float getfX()const;//A getter to get the x part of Vector2.
 
 	float getfY()const;//A getter to get the y part of Vector2.

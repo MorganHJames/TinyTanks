@@ -60,6 +60,8 @@ public:
 
 	Matrix3x3();//The Default constructor for a Matrix3x3 that initialises everything to 0.
 
+	Matrix3x3(const Matrix3x3 &a_c_mMatrix3x3);//Copy constructor.
+
 	Matrix3x3(const float a_c_fmMatrix[3][3]);//Constructor for a Matrix3x3 that is made from two arrays of three.
 
 	Matrix3x3(const 
@@ -83,6 +85,8 @@ public:
 	//\===========================================================================================
 	//\ Getters
 	//\===========================================================================================
+
+	const float* getMatrix()const;//Returns a pointer to the first element in the array.
 
 	float getmMatrix(const int &a_c_iRow, int &a_c_iCol)const;//A getter to return a float at the point specified with the two arguments.
 
