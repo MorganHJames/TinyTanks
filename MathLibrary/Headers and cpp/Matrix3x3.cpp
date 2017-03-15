@@ -602,5 +602,5 @@ Matrix3x3 Matrix3x3::zero()const//Returns a Matrix3x3 zero matrix.
 //\ Special Points
 //\===========================================================================================
 
-static const Matrix3x3 ZERO{ 0,0,0,0,0,0,0,0,0 };
-static const Matrix3x3 IDENTITY{ 1,0,0,0,1,0,0,0,1 };
+const Matrix3x3 Matrix3x3::ZERO{ 0,0,0,0,0,0,0,0,0 };
+const Matrix3x3 Matrix3x3::IDENTITY{ 1,0,0,0,1,0,0,0,1 };

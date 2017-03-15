@@ -1,2 +1,18 @@
 ﻿  main.cpp
-d:\unishit\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\tinytanks\source\main.cpp(267): error C3861: 'Signf': identifier not found
+main.obj : error LNK2019: unresolved external symbol "int __cdecl UG::Create(int,int,bool,char const *,int,int)" (?Create@UG@@YAHHH_NPBDHH@Z) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "void __cdecl UG::Dispose(void)" (?Dispose@UG@@YAXXZ) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "bool __cdecl UG::Process(void)" (?Process@UG@@YA_NXZ) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "void __cdecl UG::Close(void)" (?Close@UG@@YAXXZ) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "bool __cdecl UG::IsKeyDown(unsigned int)" (?IsKeyDown@UG@@YA_NI@Z) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "int __cdecl UG::CreateSprite(char const *,float const *,float const *,float const *,struct UG::SColour)" (?CreateSprite@UG@@YAHPBDPBM11USColour@1@@Z) referenced in function "public: __thiscall Sprite::Sprite(char const *,float,float,class Vector2,class Vector4)" (??0Sprite@@QAE@PBDMMVVector2@@VVector4@@@Z)
+main.obj : error LNK2019: unresolved external symbol "void __cdecl UG::DestroySprite(int)" (?DestroySprite@UG@@YAXH@Z) referenced in function "public: virtual __thiscall Sprite::~Sprite(void)" (??1Sprite@@UAE@XZ)
+main.obj : error LNK2019: unresolved external symbol "void __cdecl UG::SetSpriteLayer(int,unsigned int const &)" (?SetSpriteLayer@UG@@YAXHABI@Z) referenced in function "public: void __thiscall Sprite::SetLayer(unsigned int)" (?SetLayer@Sprite@@QAEXI@Z)
+main.obj : error LNK2019: unresolved external symbol "void __cdecl UG::SetSpriteMatrix(int,float const *)" (?SetSpriteMatrix@UG@@YAXHPBM@Z) referenced in function "public: void __thiscall Sprite::Update(float)" (?Update@Sprite@@QAEXM@Z)
+main.obj : error LNK2019: unresolved external symbol "void __cdecl UG::GetSpriteMatrix(int,float *)" (?GetSpriteMatrix@UG@@YAXHPAM@Z) referenced in function "public: __thiscall Sprite::Sprite(char const *,float,float,class Vector2,class Vector4)" (??0Sprite@@QAE@PBDMMVVector2@@VVector4@@@Z)
+main.obj : error LNK2019: unresolved external symbol "void __cdecl UG::DrawSprite(int)" (?DrawSprite@UG@@YAXH@Z) referenced in function "public: void __thiscall Sprite::MarkForDraw(void)" (?MarkForDraw@Sprite@@QAEXXZ)
+main.obj : error LNK2019: unresolved external symbol "void __cdecl UG::AddFont(char const *)" (?AddFont@UG@@YAXPBD@Z) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "void __cdecl UG::ClearScreen(void)" (?ClearScreen@UG@@YAXXZ) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "void __cdecl UG::SetBackgroundColor(struct UG::SColour)" (?SetBackgroundColor@UG@@YAXUSColour@1@@Z) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "float __cdecl UG::GetDeltaTime(void)" (?GetDeltaTime@UG@@YAMXZ) referenced in function _main
+main.obj : error LNK2019: unresolved external symbol "void __cdecl UG::GetScreenSize(int &,int &)" (?GetScreenSize@UG@@YAXAAH0@Z) referenced in function _main
+D:\unishit\CT4019 Programming and Mathematics for Games (Sem1-2 - 201617)\semester 2\Tiny Tanks\TinyTanks\proj\Debug\TinyTanks.exe : fatal error LNK1120: 16 unresolved externals

@@ -800,5 +800,5 @@ Matrix4x4 Matrix4x4::zero()const//Returns a Matrix4x4 zero matrix.
 //\ Special Points
 //\===========================================================================================
 
-static const Matrix4x4 ZERO{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
-static const Matrix4x4 IDENTITY{ 1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1 };
+const Matrix4x4 Matrix4x4::ZERO{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
+const Matrix4x4 Matrix4x4::IDENTITY{ 1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1 };

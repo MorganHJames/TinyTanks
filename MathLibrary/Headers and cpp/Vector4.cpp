@@ -422,4 +422,4 @@ Vector4 Vector4::zero()const//Returns a Vector4 zero matrix.
 //\ Special Points
 //\===========================================================================================
 
-static const Vector4 ZERO{ 0,0,0,0 };
+const Vector4 Vector4::ZERO{ 0,0,0,0 };
