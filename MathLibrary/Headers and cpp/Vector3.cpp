@@ -16,11 +16,11 @@
 
 Vector3::Vector3() {}//Constructor default that sets all variables to 0.
 
-Vector3::Vector3(const Vector3 &a_c_vVector3)//Copy constructor.
+Vector3::Vector3(const Vector3 &a_c_v3Vector3)//Copy constructor.
 {
-	fX = a_c_vVector3.getfX();
-	fY = a_c_vVector3.getfY();
-	fZ = a_c_vVector3.getfZ();
+	fX = a_c_v3Vector3.getfX();
+	fY = a_c_v3Vector3.getfY();
+	fZ = a_c_v3Vector3.getfZ();
 }
 
 Vector3::Vector3(float a_c_fX, float a_c_fY, float a_c_fZ) ://Constructor with three scalar values.
@@ -30,9 +30,9 @@ Vector3::Vector3(float a_c_fX, float a_c_fY, float a_c_fZ) ://Constructor with t
 {
 }
 
-Vector3::Vector3(const Vector2 &a_c_vVector2, float a_c_fZ) ://Constructor with a Vector2 and a scalar value.
-	fX(a_c_vVector2.getfX()),//Sets the x value of the Vector3 to the first part of the Vector2 passed in.
-	fY(a_c_vVector2.getfY()),//Sets the y value of the Vector3 to the second part of the Vector2 passed in.
+Vector3::Vector3(const Vector2 &a_c_v2Vector2, float a_c_fZ) ://Constructor with a Vector2 and a scalar value.
+	fX(a_c_v2Vector2.getfX()),//Sets the x value of the Vector3 to the first part of the Vector2 passed in.
+	fY(a_c_v2Vector2.getfY()),//Sets the y value of the Vector3 to the second part of the Vector2 passed in.
 	fZ(a_c_fZ)//Sets the z value of the Vector3 to the third argument passed in on Creation.
 {
 }
@@ -86,12 +86,12 @@ Vector3 Vector3::operator+(const float &a_c_fScalar)const//Overloaded addition o
 		fZ + a_c_fScalar);
 }
 
-Vector3 Vector3::operator+(const Vector3 &a_c_vVector3)const//Overloaded addition operation for Vector3.
+Vector3 Vector3::operator+(const Vector3 &a_c_v3Vector3)const//Overloaded addition operation for Vector3.
 {
 	return Vector3(//Returns Ax + Bx, Ay + By, Az + Bz.
-		fX + a_c_vVector3.fX,
-		fY + a_c_vVector3.fY,
-		fZ + a_c_vVector3.fZ);
+		fX + a_c_v3Vector3.fX,
+		fY + a_c_v3Vector3.fY,
+		fZ + a_c_v3Vector3.fZ);
 }
 
 Vector3 Vector3::operator-(const float &a_c_fScalar)const//Overloaded subtraction operation for Vector3.
@@ -102,12 +102,12 @@ Vector3 Vector3::operator-(const float &a_c_fScalar)const//Overloaded subtractio
 		fZ - a_c_fScalar);
 }
 
-Vector3 Vector3::operator-(const Vector3 &a_c_vVector3)const//Overloaded subtraction operation for Vector3.
+Vector3 Vector3::operator-(const Vector3 &a_c_v3Vector3)const//Overloaded subtraction operation for Vector3.
 {
 	return Vector3(//Returns Ax - Bx, Ay - By, Az - Bz.
-		fX - a_c_vVector3.fX,
-		fY - a_c_vVector3.fY,
-		fZ - a_c_vVector3.fZ);
+		fX - a_c_v3Vector3.fX,
+		fY - a_c_v3Vector3.fY,
+		fZ - a_c_v3Vector3.fZ);
 }
 
 Vector3 Vector3::operator*(const float &a_c_fScalar)const//Overloaded multiplication operation for Vector3.
@@ -118,12 +118,12 @@ Vector3 Vector3::operator*(const float &a_c_fScalar)const//Overloaded multiplica
 		fZ * a_c_fScalar);
 }
 
-Vector3 Vector3::operator*(const Vector3 &a_c_vVector3)const//Overloaded multiplication operation for Vector3.
+Vector3 Vector3::operator*(const Vector3 &a_c_v3Vector3)const//Overloaded multiplication operation for Vector3.
 {
 	return Vector3(//Returns Ax * Bx, Ay * By, Az * Bz.
-		fX * a_c_vVector3.fX,
-		fY * a_c_vVector3.fY,
-		fZ * a_c_vVector3.fZ);
+		fX * a_c_v3Vector3.fX,
+		fY * a_c_v3Vector3.fY,
+		fZ * a_c_v3Vector3.fZ);
 }
 
 Vector3 Vector3::operator/(const float &a_c_fScalar)const//Overloaded division operation for Vector3.
@@ -132,12 +132,12 @@ Vector3 Vector3::operator/(const float &a_c_fScalar)const//Overloaded division o
 		*this * reciprocal(a_c_fScalar));
 }
 
-Vector3 Vector3::operator/(const Vector3 &a_c_vVector3)const//Overloaded division operation for Vector3.
+Vector3 Vector3::operator/(const Vector3 &a_c_v3Vector3)const//Overloaded division operation for Vector3.
 {
 	return Vector3(//Returns Ax / Bx, Ay / By, Az / Bz.
-		fX / a_c_vVector3.fX,
-		fY / a_c_vVector3.fY,
-		fZ / a_c_vVector3.fZ);
+		fX / a_c_v3Vector3.fX,
+		fY / a_c_v3Vector3.fY,
+		fZ / a_c_v3Vector3.fZ);
 }
 
 //\===========================================================================================
@@ -150,10 +150,10 @@ Vector3 Vector3::operator+=(const float &a_c_fScalar)//Overloaded plus equals op
 		*this = *this + a_c_fScalar);
 }
 
-Vector3 Vector3::operator+=(const Vector3 &a_c_vVector3)//Overloaded plus equals operation for Vector3.
+Vector3 Vector3::operator+=(const Vector3 &a_c_v3Vector3)//Overloaded plus equals operation for Vector3.
 {
 	return Vector3(//Returns Ax += Bx, Ay += By, Az += Bz.
-		*this = *this + a_c_vVector3);
+		*this = *this + a_c_v3Vector3);
 }
 
 Vector3 Vector3::operator-=(const float &a_c_fScalar)//Overloaded decrease equals operation for Vector3.
@@ -162,10 +162,10 @@ Vector3 Vector3::operator-=(const float &a_c_fScalar)//Overloaded decrease equal
 		*this = *this - a_c_fScalar);
 }
 
-Vector3 Vector3::operator-=(const Vector3 &a_c_vVector3)//Overloaded decrease equals operation for Vector3.
+Vector3 Vector3::operator-=(const Vector3 &a_c_v3Vector3)//Overloaded decrease equals operation for Vector3.
 {
 	return Vector3(//Returns Ax -= Bx, Ay -= By, Az -= Bz.
-		*this = *this - a_c_vVector3);
+		*this = *this - a_c_v3Vector3);
 }
 
 Vector3 Vector3::operator=(const float &a_c_fScalar)//Overloaded equals operation for Vector3.
@@ -176,12 +176,12 @@ Vector3 Vector3::operator=(const float &a_c_fScalar)//Overloaded equals operatio
 		fZ = a_c_fScalar);
 }
 
-Vector3 Vector3::operator=(const Vector3 &a_c_vVector3)//Overloaded equals operation for Vector3.
+Vector3 Vector3::operator=(const Vector3 &a_c_v3Vector3)//Overloaded equals operation for Vector3.
 {
 	return Vector3(//Returns Ax = Bx, Ay = By, Az = Bz.
-		fX = a_c_vVector3.fX,
-		fY = a_c_vVector3.fY,
-		fZ = a_c_vVector3.fZ);
+		fX = a_c_v3Vector3.fX,
+		fY = a_c_v3Vector3.fY,
+		fZ = a_c_v3Vector3.fZ);
 }
 
 Vector3 Vector3::operator*=(const float &a_c_fScalar)//Overloaded times equals operation for Vector3.
@@ -190,10 +190,10 @@ Vector3 Vector3::operator*=(const float &a_c_fScalar)//Overloaded times equals o
 		*this = *this * a_c_fScalar);
 }
 
-Vector3 Vector3::operator*=(const Vector3 &a_c_vVector3)//Overloaded times equals operation for Vector3.
+Vector3 Vector3::operator*=(const Vector3 &a_c_v3Vector3)//Overloaded times equals operation for Vector3.
 {
 	return Vector3(//Returns Ax *= Bx, Ay *= By, Az *= Bz.
-		*this = *this * a_c_vVector3);
+		*this = *this * a_c_v3Vector3);
 }
 
 Vector3 Vector3::operator/=(const float &a_c_fScalar)//Overloaded divide equals operation for Vector3.
@@ -202,10 +202,10 @@ Vector3 Vector3::operator/=(const float &a_c_fScalar)//Overloaded divide equals 
 		*this = *this / a_c_fScalar);
 }
 
-Vector3 Vector3::operator/=(const Vector3 &a_c_vVector3)//Overloaded divide equals operation for Vector3.
+Vector3 Vector3::operator/=(const Vector3 &a_c_v3Vector3)//Overloaded divide equals operation for Vector3.
 {
 	return Vector3(//Returns Ax /= Bx, Ay /= By, Az /= Bz.
-		*this = *this / a_c_vVector3);
+		*this = *this / a_c_v3Vector3);
 }
 
 //\===========================================================================================
@@ -220,12 +220,12 @@ bool Vector3::operator!=(const float &a_c_fScalar)const//Overloaded not equals o
 		fZ != a_c_fScalar);
 }
 
-bool Vector3::operator!=(const Vector3 &a_c_vVector3)const//Overloaded not equals operation for Vector3.
+bool Vector3::operator!=(const Vector3 &a_c_v3Vector3)const//Overloaded not equals operation for Vector3.
 {
 	return bool(//Returns Ax != Bx || Ay != By || Az != Bz.
-		fX != a_c_vVector3.fX ||
-		fY != a_c_vVector3.fY ||
-		fZ != a_c_vVector3.fZ);
+		fX != a_c_v3Vector3.fX ||
+		fY != a_c_v3Vector3.fY ||
+		fZ != a_c_v3Vector3.fZ);
 }
 
 bool Vector3::operator==(const float &a_c_fScalar)const//Overloaded is equals operation for Vector3.
@@ -236,12 +236,12 @@ bool Vector3::operator==(const float &a_c_fScalar)const//Overloaded is equals op
 		fZ == a_c_fScalar);
 }
 
-bool Vector3::operator==(const Vector3 &a_c_vVector3)const//Overloaded is equals operation for Vector3.
+bool Vector3::operator==(const Vector3 &a_c_v3Vector3)const//Overloaded is equals operation for Vector3.
 {
 	return bool(//Returns Ax == Bx && Ay == By && Az == Bz.
-		fX == a_c_vVector3.fX &&
-		fY == a_c_vVector3.fY &&
-		fZ == a_c_vVector3.fZ);
+		fX == a_c_v3Vector3.fX &&
+		fY == a_c_v3Vector3.fY &&
+		fZ == a_c_v3Vector3.fZ);
 }
 
 //\===========================================================================================
@@ -275,39 +275,39 @@ float Vector3::squaredMagnitude()const//A function that returns the Magnitude sq
 //\ Distance Between this Vector3 and another Vector3
 //\===========================================================================================
 
-float Vector3::distance(const Vector3 &a_c_vVector3)const//Returns the distance from this Vector3 and the passed in argument.
+float Vector3::distance(const Vector3 &a_c_v3Vector3)const//Returns the distance from this Vector3 and the passed in argument.
 {
-	return float((*this - a_c_vVector3).magnitude());//Returns the square root of ( Ax - Bx )^2 + ( Ay - By )^2 + ( Az - Bz )^2.
+	return float((*this - a_c_v3Vector3).magnitude());//Returns the square root of ( Ax - Bx )^2 + ( Ay - By )^2 + ( Az - Bz )^2.
 }
 
 //\===========================================================================================
 //\ Squared Distance Between this Vector3 and another Vector3
 //\===========================================================================================
 
-float Vector3::squaredDistance(const Vector3 &a_c_vVector3)const//Returns the squared distance from this Vector3 and the passed in argument.
+float Vector3::squaredDistance(const Vector3 &a_c_v3Vector3)const//Returns the squared distance from this Vector3 and the passed in argument.
 {
-	return float((*this - a_c_vVector3).squaredMagnitude());//Returns ( Ax - Bx )^2 + ( Ay - By )^2 + ( Az - Bz )^2.
+	return float((*this - a_c_v3Vector3).squaredMagnitude());//Returns ( Ax - Bx )^2 + ( Ay - By )^2 + ( Az - Bz )^2.
 }
 
 //\===========================================================================================
 //\ Dot Product
 //\===========================================================================================
 
-float Vector3::dotProduct(const Vector3 &a_c_vVector3)const//A dot product function that takes in a Vector3.
+float Vector3::dotProduct(const Vector3 &a_c_v3Vector3)const//A dot product function that takes in a Vector3.
 {
-	return float((fX * a_c_vVector3.fX) + (fY * a_c_vVector3.fY) + (fZ * a_c_vVector3.fZ));//Returns ( Ax * Bx ) + ( Ay * By ) + ( Az * Bz ).
+	return float((fX * a_c_v3Vector3.fX) + (fY * a_c_v3Vector3.fY) + (fZ * a_c_v3Vector3.fZ));//Returns ( Ax * Bx ) + ( Ay * By ) + ( Az * Bz ).
 }
 
 //\===========================================================================================
 //\ Cross Product
 //\===========================================================================================
 
-Vector3 Vector3::crossProduct(const Vector3 &a_c_vVector3)const//A cross product function that takes in a Vector3 .
+Vector3 Vector3::crossProduct(const Vector3 &a_c_v3Vector3)const//A cross product function that takes in a Vector3 .
 {
 	return Vector3(//Returns cross product using formula = ( a2 * b3 - a3 * b2, a3 * b1 - a1 * b3, a1 * b2 - a2 * b1 ).
-		fY * a_c_vVector3.fZ - fZ * a_c_vVector3.fY,
-		fZ * a_c_vVector3.fX - fX * a_c_vVector3.fZ,
-		fX * a_c_vVector3.fY - fY * a_c_vVector3.fX);
+		fY * a_c_v3Vector3.fZ - fZ * a_c_v3Vector3.fY,
+		fZ * a_c_v3Vector3.fX - fX * a_c_v3Vector3.fZ,
+		fX * a_c_v3Vector3.fY - fY * a_c_v3Vector3.fX);
 }
 
 //\===========================================================================================

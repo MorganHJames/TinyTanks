@@ -5,8 +5,8 @@
 //\ Brief: Contains the Vector3 class declarations.
 //\===========================================================================================
 
-#ifndef _Vector3_H_
-#define _Vector3_H_
+#ifndef _VECTOR3_H_
+#define _VECTOR3_H_
 
 #include "Vector2.h"
 
@@ -35,11 +35,11 @@ public:
 
 	Vector3();//Constructor default that sets all variables to 0.
 
-	Vector3(const Vector3 &a_c_vVector3);//Copy constructor.
+	Vector3(const Vector3 &a_c_v3Vector3);//Copy constructor.
 
 	Vector3(const float a_c_fX, float a_c_fY, float a_c_fZ);//Constructor with three scalar values.
 
-	Vector3(const Vector2 &a_c_vVector2, float a_c_fZ = 0);//Constructor with a Vector2 and a scalar value.
+	Vector3(const Vector2 &a_c_v2Vector2, float a_c_fZ = 0);//Constructor with a Vector2 and a scalar value.
 
 	//\===========================================================================================
 	//\ Getters
@@ -67,19 +67,19 @@ public:
 
 	Vector3 operator+(const float &a_c_fScalar)const;//Overloaded addition operation for Vector3.
 
-	Vector3 operator+(const Vector3 &a_c_vVector3)const;//Overloaded addition operation for Vector3.
+	Vector3 operator+(const Vector3 &a_c_v3Vector3)const;//Overloaded addition operation for Vector3.
 
 	Vector3 operator-(const float &a_c_fScalar)const;//Overloaded subtraction operation for Vector3.
 
-	Vector3 operator-(const Vector3 &a_c_vVector3)const;//Overloaded subtraction operation for Vector3.
+	Vector3 operator-(const Vector3 &a_c_v3Vector3)const;//Overloaded subtraction operation for Vector3.
 
 	Vector3 operator*(const float &a_c_fScalar)const;//Overloaded multiplication operation for Vector3.
 
-	Vector3 operator*(const Vector3 &a_c_vVector3)const;//Overloaded multiplication operation for Vector3.
+	Vector3 operator*(const Vector3 &a_c_v3Vector3)const;//Overloaded multiplication operation for Vector3.
 
 	Vector3 operator/(const float &a_c_fScalar)const;//Overloaded division operation for Vector3.
 
-	Vector3 operator/(const Vector3 &a_c_vVector3)const;//Overloaded division operation for Vector3.
+	Vector3 operator/(const Vector3 &a_c_v3Vector3)const;//Overloaded division operation for Vector3.
 
 	//\===========================================================================================
 	//\ Assignment Operation Overloads
@@ -87,23 +87,23 @@ public:
 	
 	Vector3 operator+=(const float &a_c_fScalar);//Overloaded plus equals operation for Vector3.
 
-	Vector3 operator+=(const Vector3 &a_c_vVector3);//Overloaded plus equals operation for Vector3.
+	Vector3 operator+=(const Vector3 &a_c_v3Vector3);//Overloaded plus equals operation for Vector3.
 
 	Vector3 operator-=(const float &a_c_fScalar);//Overloaded decrease equals operation for Vector3.
 
-	Vector3 operator-=(const Vector3 &a_c_vVector3);//Overloaded decrease equals operation for Vector3.
+	Vector3 operator-=(const Vector3 &a_c_v3Vector3);//Overloaded decrease equals operation for Vector3.
 
 	Vector3 operator=(const float &a_c_fScalar);//Overloaded equals operation for Vector3.
 
-	Vector3 operator=(const Vector3 &a_c_vVector3);//Overloaded equals operation for Vector3.
+	Vector3 operator=(const Vector3 &a_c_v3Vector3);//Overloaded equals operation for Vector3.
 	
 	Vector3 operator*=(const float &a_c_fScalar);//Overloaded times equals operation for Vector3.
 	
-	Vector3 operator*=(const Vector3 &a_c_vVector3);//Overloaded times equals operation for Vector3.
+	Vector3 operator*=(const Vector3 &a_c_v3Vector3);//Overloaded times equals operation for Vector3.
 
 	Vector3 operator/=(const float &a_c_fScalar);//Overloaded divide equals operation for Vector3.
 
-	Vector3 operator/=(const Vector3 &a_c_vVector3);//Overloaded divide equals operation for Vector3.
+	Vector3 operator/=(const Vector3 &a_c_v3Vector3);//Overloaded divide equals operation for Vector3.
 	
 	//\===========================================================================================
 	//\ Relational Operation Overloads
@@ -111,11 +111,11 @@ public:
 
 	bool operator!=(const float &a_c_fScalar)const;//Overloaded not equals operation for Vector3.
 
-	bool operator!=(const Vector3 &a_c_vVector3)const;//Overloaded not equals operation for Vector3.
+	bool operator!=(const Vector3 &a_c_v3Vector3)const;//Overloaded not equals operation for Vector3.
 
 	bool operator==(const float &a_c_fScalar)const;//Overloaded is equals operation for Vector3.
 
-	bool operator==(const Vector3 &a_c_vVector3)const;//Overloaded is equals operation for Vector3.
+	bool operator==(const Vector3 &a_c_v3Vector3)const;//Overloaded is equals operation for Vector3.
 	
 	//\===========================================================================================
 	//\ Inverse
@@ -139,25 +139,25 @@ public:
 	//\ Distance Between this Vector3 and another Vector3
 	//\===========================================================================================
 
-	float distance(const Vector3 &a_c_vVector3)const;//Returns the distance from this Vector3 and the passed in argument.
+	float distance(const Vector3 &a_c_v3Vector3)const;//Returns the distance from this Vector3 and the passed in argument.
 
 	//\===========================================================================================
 	//\ Squared Distance Between this Vector3 and another Vector3
 	//\===========================================================================================
 
-	float squaredDistance(const Vector3 &a_c_vVector3)const;//Returns the squared distance from this Vector3 and the passed in argument.
+	float squaredDistance(const Vector3 &a_c_v3Vector3)const;//Returns the squared distance from this Vector3 and the passed in argument.
 
 	//\===========================================================================================
 	//\ Dot Product
 	//\===========================================================================================
 
-	float dotProduct(const Vector3 &a_c_vVector3)const;//A dot product function that takes in a Vector3.
+	float dotProduct(const Vector3 &a_c_v3Vector3)const;//A dot product function that takes in a Vector3.
 
 	//\===========================================================================================
 	//\ Cross Product
 	//\===========================================================================================
 
-	Vector3 crossProduct(const Vector3 &a_c_vVector3)const;//A cross product function that takes in a Vector3 .
+	Vector3 crossProduct(const Vector3 &a_c_v3Vector3)const;//A cross product function that takes in a Vector3 .
 
 	//\===========================================================================================
 	//\ Rotation

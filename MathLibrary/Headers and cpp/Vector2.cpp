@@ -16,10 +16,10 @@
 
 Vector2::Vector2() {}//A default constructor that initialises X and Y to 0.
 
-Vector2::Vector2(const Vector2 &a_c_vVector2)//Copy constructor.
+Vector2::Vector2(const Vector2 &a_c_v2Vector2)//Copy constructor.
 {
-	fX = a_c_vVector2.getfX();
-	fY = a_c_vVector2.getfY();
+	fX = a_c_v2Vector2.getfX();
+	fY = a_c_v2Vector2.getfY();
 }
 
 Vector2::Vector2(const float a_c_fX, float a_c_fY) ://Constructor.
@@ -72,11 +72,11 @@ Vector2 Vector2::operator+(const float &a_c_fScalar)const//Overloaded addition o
 		fY + a_c_fScalar);
 }
 
-Vector2 Vector2::operator+(const Vector2 &a_c_vVector2)const//Overloaded addition operation for Vector2.
+Vector2 Vector2::operator+(const Vector2 &a_c_v2Vector2)const//Overloaded addition operation for Vector2.
 {
 	return Vector2(//Returns Ax + Bx, Ay + By.
-		fX + a_c_vVector2.fX,
-		fY + a_c_vVector2.fY);
+		fX + a_c_v2Vector2.fX,
+		fY + a_c_v2Vector2.fY);
 }
 
 Vector2 Vector2::operator-(const float &a_c_fScalar)const//Overloaded subtraction operation for Vector2.
@@ -86,11 +86,11 @@ Vector2 Vector2::operator-(const float &a_c_fScalar)const//Overloaded subtractio
 		fY - a_c_fScalar);
 }
 
-Vector2 Vector2::operator-(const Vector2 &a_c_vVector2)const//Overloaded subtraction operation for Vector2.
+Vector2 Vector2::operator-(const Vector2 &a_c_v2Vector2)const//Overloaded subtraction operation for Vector2.
 {
 	return Vector2(//Returns Ax - Bx, Ay - By.
-		fX - a_c_vVector2.fX,
-		fY - a_c_vVector2.fY);
+		fX - a_c_v2Vector2.fX,
+		fY - a_c_v2Vector2.fY);
 }
 
 Vector2 Vector2::operator*(const float &a_c_fScalar)const//Overloaded multiplication operation for Vector2.
@@ -100,11 +100,11 @@ Vector2 Vector2::operator*(const float &a_c_fScalar)const//Overloaded multiplica
 		fY * a_c_fScalar);
 }
 
-Vector2 Vector2::operator*(const Vector2 &a_c_vVector2)const//Overloaded multiplication operation for Vector2.
+Vector2 Vector2::operator*(const Vector2 &a_c_v2Vector2)const//Overloaded multiplication operation for Vector2.
 {
 	return Vector2(//Returns Ax * Bx, Ay * By.
-		fX * a_c_vVector2.fX,
-		fY * a_c_vVector2.fY);
+		fX * a_c_v2Vector2.fX,
+		fY * a_c_v2Vector2.fY);
 }
 
 Vector2 Vector2::operator/(const float &a_c_fScalar)const//Overloaded division operation for Vector2.
@@ -113,11 +113,11 @@ Vector2 Vector2::operator/(const float &a_c_fScalar)const//Overloaded division o
 		*this * reciprocal(a_c_fScalar));
 }
 
-Vector2 Vector2::operator/(const Vector2 &a_c_vVector2)const//Overloaded division operation for Vector2.
+Vector2 Vector2::operator/(const Vector2 &a_c_v2Vector2)const//Overloaded division operation for Vector2.
 {
 	return Vector2(//Returns Ax / Bx, Ay / By.
-		fX / a_c_vVector2.fX,
-		fY / a_c_vVector2.fY);
+		fX / a_c_v2Vector2.fX,
+		fY / a_c_v2Vector2.fY);
 }
 
 //\===========================================================================================
@@ -130,10 +130,10 @@ Vector2 Vector2::operator+=(const float &a_c_fScalar)//Overloaded plus equals op
 		*this = *this + a_c_fScalar);
 }
 
-Vector2 Vector2::operator+=(const Vector2 &a_c_vVector2)//Overloaded plus equals operation for Vector2.
+Vector2 Vector2::operator+=(const Vector2 &a_c_v2Vector2)//Overloaded plus equals operation for Vector2.
 {
 	return Vector2(//Returns Ax += Bx, Ay += By.
-		*this = *this + a_c_vVector2);
+		*this = *this + a_c_v2Vector2);
 }
 
 Vector2 Vector2::operator-=(const float &a_c_fScalar)//Overloaded decrease equals operation for Vector2.
@@ -142,10 +142,10 @@ Vector2 Vector2::operator-=(const float &a_c_fScalar)//Overloaded decrease equal
 		*this = *this - a_c_fScalar);
 }
 
-Vector2 Vector2::operator-=(const Vector2 &a_c_vVector2)//Overloaded decrease equals operation for Vector2.
+Vector2 Vector2::operator-=(const Vector2 &a_c_v2Vector2)//Overloaded decrease equals operation for Vector2.
 {
 	return Vector2(//Returns Ax -= Bx, Ay -= By.
-		*this = *this - a_c_vVector2);
+		*this = *this - a_c_v2Vector2);
 }
 
 Vector2 Vector2::operator=(const float &a_c_fScalar)//Overloaded equals operation for Vector2.
@@ -155,11 +155,11 @@ Vector2 Vector2::operator=(const float &a_c_fScalar)//Overloaded equals operatio
 		fY = a_c_fScalar);
 }
 
-Vector2 Vector2::operator=(const Vector2 &a_c_vVector2)//Overloaded equals operation for Vector2.
+Vector2 Vector2::operator=(const Vector2 &a_c_v2Vector2)//Overloaded equals operation for Vector2.
 {
 	return Vector2(//Returns Ax = Bx, Ay = By.
-		fX = a_c_vVector2.fX,
-		fY = a_c_vVector2.fY);
+		fX = a_c_v2Vector2.fX,
+		fY = a_c_v2Vector2.fY);
 }
 
 Vector2 Vector2::operator*=(const float &a_c_fScalar)//Overloaded times equals operation for Vector2.
@@ -168,10 +168,10 @@ Vector2 Vector2::operator*=(const float &a_c_fScalar)//Overloaded times equals o
 		*this = *this * a_c_fScalar);
 }
 
-Vector2 Vector2::operator*=(const Vector2 &a_c_vVector2)//Overloaded times equals operation for Vector2.
+Vector2 Vector2::operator*=(const Vector2 &a_c_v2Vector2)//Overloaded times equals operation for Vector2.
 {
 	return Vector2(//Returns Ax *= Bx, Ay *= By.
-		*this = *this * a_c_vVector2);
+		*this = *this * a_c_v2Vector2);
 }
 
 Vector2 Vector2::operator/=(const float &a_c_fScalar)//Overloaded divide equals operation for Vector2.
@@ -180,10 +180,10 @@ Vector2 Vector2::operator/=(const float &a_c_fScalar)//Overloaded divide equals 
 		*this = *this / a_c_fScalar);
 }
 
-Vector2 Vector2::operator/=(const Vector2 &a_c_vVector2)//Overloaded divide equals operation for Vector2.
+Vector2 Vector2::operator/=(const Vector2 &a_c_v2Vector2)//Overloaded divide equals operation for Vector2.
 {
 	return Vector2(//Returns Ax /= Bx, Ay /= By.
-		*this = *this / a_c_vVector2);
+		*this = *this / a_c_v2Vector2);
 }
 
 //\===========================================================================================
@@ -197,11 +197,11 @@ bool Vector2::operator!=(const float &a_c_fScalar)const//Overloaded not equals o
 		fY != a_c_fScalar);
 }
 
-bool Vector2::operator!=(const Vector2 &a_c_vVector2)const//Overloaded not equals operation for Vector2.
+bool Vector2::operator!=(const Vector2 &a_c_v2Vector2)const//Overloaded not equals operation for Vector2.
 {
 	return bool(//Returns Ax != Bx && Ay != By.
-		fX != a_c_vVector2.fX ||
-		fY != a_c_vVector2.fY);
+		fX != a_c_v2Vector2.fX ||
+		fY != a_c_v2Vector2.fY);
 }
 
 bool Vector2::operator==(const float &a_c_fScalar)const//Overloaded is equals operation for Vector2.
@@ -211,11 +211,11 @@ bool Vector2::operator==(const float &a_c_fScalar)const//Overloaded is equals op
 		fY == a_c_fScalar);
 }
 
-bool Vector2::operator==(const Vector2 &a_c_vVector2)const//Overloaded is equals operation for Vector2.
+bool Vector2::operator==(const Vector2 &a_c_v2Vector2)const//Overloaded is equals operation for Vector2.
 {
 	return bool(//Returns Ax == Bx && Ay == By.
-		fX == a_c_vVector2.fX &&
-		fY == a_c_vVector2.fY);
+		fX == a_c_v2Vector2.fX &&
+		fY == a_c_v2Vector2.fY);
 }
 
 //\===========================================================================================
@@ -240,36 +240,36 @@ float Vector2::squaredMagnitude()const//A function that returns the length squar
 //\ Distance Between this Vector2 and another Vector2
 //\===========================================================================================
 
-float Vector2::distance(const Vector2 &a_c_vVector2)const//Returns the distance from this Vector2 and the passed in argument.
+float Vector2::distance(const Vector2 &a_c_v2Vector2)const//Returns the distance from this Vector2 and the passed in argument.
 {
-	return float((*this - a_c_vVector2).magnitude());//Returns the square root of ( Ax - Bx )^2 + ( Ay - By )^2.
+	return float((*this - a_c_v2Vector2).magnitude());//Returns the square root of ( Ax - Bx )^2 + ( Ay - By )^2.
 }
 
 //\===========================================================================================
 //\ Squared Distance Between this Vector2 and another Vector2
 //\===========================================================================================
 
-float Vector2::squaredDistance(const Vector2 &a_c_vVector2)const//Returns the squared distance from this Vector2 and the passed in argument.
+float Vector2::squaredDistance(const Vector2 &a_c_v2Vector2)const//Returns the squared distance from this Vector2 and the passed in argument.
 {
-	return float((*this - a_c_vVector2).squaredMagnitude());//Returns ( Ax - Bx )^2 + ( Ay - By )^2.
+	return float((*this - a_c_v2Vector2).squaredMagnitude());//Returns ( Ax - Bx )^2 + ( Ay - By )^2.
 }
 
 //\===========================================================================================
 //\ Dot Product
 //\===========================================================================================
 
-float Vector2::dotProduct(const Vector2 &a_c_vVector2)const//A dot product function that takes in a Vector2.
+float Vector2::dotProduct(const Vector2 &a_c_v2Vector2)const//A dot product function that takes in a Vector2.
 {
-	return float((fX * a_c_vVector2.fX) + (fY * a_c_vVector2.fY));//Returns ( Ax * Bx ) + ( Ay * By ).
+	return float((fX * a_c_v2Vector2.fX) + (fY * a_c_v2Vector2.fY));//Returns ( Ax * Bx ) + ( Ay * By ).
 }
 
 //\===========================================================================================
 //\ Cross Product
 //\===========================================================================================
 
-float Vector2::crossProduct(const Vector2 &a_c_vVector2)const//A dot product function that takes in a Vector.
+float Vector2::crossProduct(const Vector2 &a_c_v2Vector2)const//A dot product function that takes in a Vector.
 {
-	return float((fX * a_c_vVector2.fY) - (a_c_vVector2.fX * fY));//Returns ( Ax * By ) - ( BX * Ay ).
+	return float((fX * a_c_v2Vector2.fY) - (a_c_v2Vector2.fX * fY));//Returns ( Ax * By ) - ( BX * Ay ).
 }
 
 //\===========================================================================================

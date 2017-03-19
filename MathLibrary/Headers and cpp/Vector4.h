@@ -46,13 +46,13 @@ public:
 
 	Vector4();//Constructor default that sets all variables to 0.
 
-	Vector4(const Vector4 &a_c_vVector4);//Copy constructor.
+	Vector4(const Vector4 &a_c_v4Vector4);//Copy constructor.
 
 	Vector4(const float a_c_fX, float a_c_fY , float a_c_fZ, float a_c_fW);//Constructor with four scalar values.
 
-	Vector4(const Vector2 &a_c_vVector2, float a_c_fZ = 0, float a_c_fW = 0);//Constructor with a Vector2 and two scalar value.
+	Vector4(const Vector2 &a_c_v2Vector2, float a_c_fZ = 0, float a_c_fW = 0);//Constructor with a Vector2 and two scalar value.
 
-	Vector4(const Vector3 &a_c_vVector3, float a_c_fW = 0);//Constructor with a Vector3 and a scalar value.
+	Vector4(const Vector3 &a_c_v3Vector3, float a_c_fW = 0);//Constructor with a Vector3 and a scalar value.
 
 	//\===========================================================================================
 	//\ Getters
@@ -86,19 +86,19 @@ public:
 
 	Vector4 operator+(const float &a_c_fScalar)const;//Overloaded addition operation for Vector4.
 
-	Vector4 operator+(const Vector4 &a_c_vVector4)const;//Overloaded addition operation for Vector4.
+	Vector4 operator+(const Vector4 &a_c_v4Vector4)const;//Overloaded addition operation for Vector4.
 
 	Vector4 operator-(const float &a_c_fScalar)const;//Overloaded subtraction operation for Vector4.
 
-	Vector4 operator-(const Vector4 &a_c_vVector4)const;//Overloaded subtraction operation for Vector4.
+	Vector4 operator-(const Vector4 &a_c_v4Vector4)const;//Overloaded subtraction operation for Vector4.
 
 	Vector4 operator*(const float &a_c_fScalar)const;//Overloaded multiplication operation for Vector4.
 
-	Vector4 operator*(const Vector4 &a_c_vVector4)const;//Overloaded multiplication operation for Vector4.
+	Vector4 operator*(const Vector4 &a_c_v4Vector4)const;//Overloaded multiplication operation for Vector4.
 
 	Vector4 operator/(const float &a_c_fScalar)const;//Overloaded division operation for Vector4.
 
-	Vector4 operator/(const Vector4 &a_c_vVector4)const;//Overloaded division operation for Vector4.
+	Vector4 operator/(const Vector4 &a_c_v4Vector4)const;//Overloaded division operation for Vector4.
 
 	//\===========================================================================================
 	//\ Assignment Operation Overloads
@@ -106,23 +106,23 @@ public:
 
 	Vector4 operator+=(const float &a_c_fScalar);//Overloaded plus equals operation for Vector4.
 
-	Vector4 operator+=(const Vector4 &a_c_vVector4);//Overloaded plus equals operation for Vector4.
+	Vector4 operator+=(const Vector4 &a_c_v4Vector4);//Overloaded plus equals operation for Vector4.
 
 	Vector4 operator-=(const float &a_c_fScalar);//Overloaded decrease equals operation for Vector4.
 
-	Vector4 operator-=(const Vector4 &a_c_vVector4);//Overloaded decrease equals operation for Vector4.
+	Vector4 operator-=(const Vector4 &a_c_v4Vector4);//Overloaded decrease equals operation for Vector4.
 
 	Vector4 operator=(const float &a_c_fScalar);//Overloaded equals operation for Vector4.
 
-	Vector4 operator=(const Vector4 &a_c_vVector4);//Overloaded equals operation for Vector4.
+	Vector4 operator=(const Vector4 &a_c_v4Vector4);//Overloaded equals operation for Vector4.
 
 	Vector4 operator*=(const float &a_c_fScalar);//Overloaded times equals operation for Vector4.
 
-	Vector4 operator*=(const Vector4 &a_c_vVector4);//Overloaded times equals operation for Vector4.
+	Vector4 operator*=(const Vector4 &a_c_v4Vector4);//Overloaded times equals operation for Vector4.
 
 	Vector4 operator/=(const float &a_c_fScalar);//Overloaded divide equals operation for Vector4.
 
-	Vector4 operator/=(const Vector4 &a_c_vVector4);//Overloaded divide equals operation for Vector4.
+	Vector4 operator/=(const Vector4 &a_c_v4Vector4);//Overloaded divide equals operation for Vector4.
 	
 	//\===========================================================================================
 	//\ Relational Operation Overloads
@@ -130,11 +130,11 @@ public:
 
 	bool operator!=(const float &a_c_fScalar)const;//Overloaded not equals operation for Vector4.
 
-	bool operator!=(const Vector4 &a_c_vVector4)const;//Overloaded not equals operation for Vector4.
+	bool operator!=(const Vector4 &a_c_v4Vector4)const;//Overloaded not equals operation for Vector4.
 
 	bool operator==(const float &a_c_fScalar)const;//Overloaded is equals operation for Vector4.
 
-	bool operator==(const Vector4 &a_c_vVector4)const;//Overloaded is equals operation for Vector4.
+	bool operator==(const Vector4 &a_c_v4Vector4)const;//Overloaded is equals operation for Vector4.
 
 	//\===========================================================================================
 	//\ Magnitude
@@ -152,25 +152,25 @@ public:
 	//\ Distance Between this Vector4 and another Vector4
 	//\===========================================================================================
 
-	float distance(const Vector4 &a_c_vVector4)const;//Returns the distance from this Vector4 and the passed in argument.
+	float distance(const Vector4 &a_c_v4Vector4)const;//Returns the distance from this Vector4 and the passed in argument.
 
 	//\===========================================================================================
 	//\ Squared Distance Between this Vector4 and another Vector4
 	//\===========================================================================================
 
-	float squaredDistance(const Vector4 &a_c_vVector4)const;//Returns the squared distance from this Vector4 and the passed in argument.
+	float squaredDistance(const Vector4 &a_c_v4Vector4)const;//Returns the squared distance from this Vector4 and the passed in argument.
 
 	//\===========================================================================================
 	//\ Dot Product
 	//\===========================================================================================
 
-	float dotProduct(const Vector4 &a_c_vVector4)const;//A dot product function that takes in a Vector4.
+	float dotProduct(const Vector4 &a_c_v4Vector4)const;//A dot product function that takes in a Vector4.
 
 	//\===========================================================================================
 	//\ Cross Product
 	//\===========================================================================================
 
-	Vector4 crossProduct(const Vector4 &a_c_vVector4)const;//A cross product function that takes in a Vector4 .
+	Vector4 crossProduct(const Vector4 &a_c_v4Vector4)const;//A cross product function that takes in a Vector4 .
 
 	//\===========================================================================================
 	//\ Rotation

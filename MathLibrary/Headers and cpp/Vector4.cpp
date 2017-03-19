@@ -16,12 +16,12 @@
 
 Vector4::Vector4() {}//Constructor default that sets all variables to 0.
 
-Vector4::Vector4(const Vector4 &a_c_vVector4)//Copy constructor.
+Vector4::Vector4(const Vector4 &a_c_v4Vector4)//Copy constructor.
 {
-	fX = a_c_vVector4.getfX();
-	fY = a_c_vVector4.getfY();
-	fZ = a_c_vVector4.getfZ();
-	fW = a_c_vVector4.getfW();
+	fX = a_c_v4Vector4.getfX();
+	fY = a_c_v4Vector4.getfY();
+	fZ = a_c_v4Vector4.getfZ();
+	fW = a_c_v4Vector4.getfW();
 }
 
 Vector4::Vector4(const float a_c_fX, float a_c_fY, float a_c_fZ, float a_c_fW) ://Constructor with four scalar values.
@@ -32,18 +32,18 @@ Vector4::Vector4(const float a_c_fX, float a_c_fY, float a_c_fZ, float a_c_fW) :
 {
 }
 
-Vector4::Vector4(const Vector2 &a_c_vVector2, float a_c_fZ, float a_c_fW) ://Constructor with a Vector2 and two scalar value.
-	fX(a_c_vVector2.getfX()),//Sets the x value of the Vector4 to the first part of the Vector2 passed in.
-	fY(a_c_vVector2.getfY()),//Sets the y value of the Vector4 to the second part of the Vector2 passed in.
+Vector4::Vector4(const Vector2 &a_c_v2Vector2, float a_c_fZ, float a_c_fW) ://Constructor with a Vector2 and two scalar value.
+	fX(a_c_v2Vector2.getfX()),//Sets the x value of the Vector4 to the first part of the Vector2 passed in.
+	fY(a_c_v2Vector2.getfY()),//Sets the y value of the Vector4 to the second part of the Vector2 passed in.
 	fZ(a_c_fZ),//Sets the z value of the Vector4 to the second argument passed in on Creation.
 	fW(a_c_fW)//Sets the w value of the Vector4 to the third argument passed in on Creation.
 {
 }
 
-Vector4::Vector4(const Vector3 &a_c_vVector3, float a_c_fW) ://Constructor with a Vector3 and a scalar value.
-	fX(a_c_vVector3.getfX()),//Sets the x value of the Vector4 to the first part of the Vector3 passed in.
-	fY(a_c_vVector3.getfY()),//Sets the y value of the Vector4 to the second part of the Vector3 passed in.
-	fZ(a_c_vVector3.getfZ()),//Sets the z value of the Vector4 to the third part of the Vector3 passed in.
+Vector4::Vector4(const Vector3 &a_c_v3Vector3, float a_c_fW) ://Constructor with a Vector3 and a scalar value.
+	fX(a_c_v3Vector3.getfX()),//Sets the x value of the Vector4 to the first part of the Vector3 passed in.
+	fY(a_c_v3Vector3.getfY()),//Sets the y value of the Vector4 to the second part of the Vector3 passed in.
+	fZ(a_c_v3Vector3.getfZ()),//Sets the z value of the Vector4 to the third part of the Vector3 passed in.
 	fW(a_c_fW)//Sets the w value of the Vector4 to the second argument passed in on Creation.
 {
 }
@@ -114,13 +114,13 @@ Vector4 Vector4::operator+(const float &a_c_fScalar)const//Overloaded addition o
 		fW + a_c_fScalar);
 }
 
-Vector4 Vector4::operator+(const Vector4 &a_c_vVector4)const//Overloaded addition operation for Vector4.
+Vector4 Vector4::operator+(const Vector4 &a_c_v4Vector4)const//Overloaded addition operation for Vector4.
 {
 	return Vector4(//Returns Ax + Bx, Ay + By, Az + Bz, Aw + Bw.
-		fX + a_c_vVector4.fX,
-		fY + a_c_vVector4.fY,
-		fZ + a_c_vVector4.fZ,
-		fW + a_c_vVector4.fW);
+		fX + a_c_v4Vector4.fX,
+		fY + a_c_v4Vector4.fY,
+		fZ + a_c_v4Vector4.fZ,
+		fW + a_c_v4Vector4.fW);
 }
 
 Vector4 Vector4::operator-(const float &a_c_fScalar)const//Overloaded subtraction operation for Vector4.
@@ -132,13 +132,13 @@ Vector4 Vector4::operator-(const float &a_c_fScalar)const//Overloaded subtractio
 		fW - a_c_fScalar);
 }
 
-Vector4 Vector4::operator-(const Vector4 &a_c_vVector4)const//Overloaded subtraction operation for Vector4.
+Vector4 Vector4::operator-(const Vector4 &a_c_v4Vector4)const//Overloaded subtraction operation for Vector4.
 {
 	return Vector4(//Returns Ax - Bx, Ay - By, Az - Bz, Aw - Bw.
-		fX - a_c_vVector4.fX,
-		fY - a_c_vVector4.fY,
-		fZ - a_c_vVector4.fZ,
-		fW - a_c_vVector4.fW);
+		fX - a_c_v4Vector4.fX,
+		fY - a_c_v4Vector4.fY,
+		fZ - a_c_v4Vector4.fZ,
+		fW - a_c_v4Vector4.fW);
 }
 
 Vector4 Vector4::operator*(const float &a_c_fScalar)const//Overloaded multiplication operation for Vector4.
@@ -150,13 +150,13 @@ Vector4 Vector4::operator*(const float &a_c_fScalar)const//Overloaded multiplica
 		fW * a_c_fScalar);
 }
 
-Vector4 Vector4::operator*(const Vector4 &a_c_vVector4)const//Overloaded multiplication operation for Vector4.
+Vector4 Vector4::operator*(const Vector4 &a_c_v4Vector4)const//Overloaded multiplication operation for Vector4.
 {
 	return Vector4(//Returns Ax * Bx, Ay * By, Az * Bz, Aw * Bw.
-		fX * a_c_vVector4.fX,
-		fY * a_c_vVector4.fY,
-		fZ * a_c_vVector4.fZ,
-		fW * a_c_vVector4.fW);
+		fX * a_c_v4Vector4.fX,
+		fY * a_c_v4Vector4.fY,
+		fZ * a_c_v4Vector4.fZ,
+		fW * a_c_v4Vector4.fW);
 }
 
 Vector4 Vector4::operator/(const float &a_c_fScalar)const//Overloaded division operation for Vector4.
@@ -165,13 +165,13 @@ Vector4 Vector4::operator/(const float &a_c_fScalar)const//Overloaded division o
 		*this * reciprocal(a_c_fScalar));
 }
 
-Vector4 Vector4::operator/(const Vector4 &a_c_vVector4)const//Overloaded division operation for Vector4.
+Vector4 Vector4::operator/(const Vector4 &a_c_v4Vector4)const//Overloaded division operation for Vector4.
 {
 	return Vector4(//Returns Ax / Bx, Ay / By, Az / Bz, Aw / Bw.
-		fX / a_c_vVector4.fX,
-		fY / a_c_vVector4.fY,
-		fZ / a_c_vVector4.fZ,
-		fW / a_c_vVector4.fW);
+		fX / a_c_v4Vector4.fX,
+		fY / a_c_v4Vector4.fY,
+		fZ / a_c_v4Vector4.fZ,
+		fW / a_c_v4Vector4.fW);
 }
 
 //\===========================================================================================
@@ -184,10 +184,10 @@ Vector4 Vector4::operator+=(const float &a_c_fScalar)//Overloaded plus equals op
 		*this = *this + a_c_fScalar);
 }
 
-Vector4 Vector4::operator+=(const Vector4 &a_c_vVector4)//Overloaded plus equals operation for Vector4.
+Vector4 Vector4::operator+=(const Vector4 &a_c_v4Vector4)//Overloaded plus equals operation for Vector4.
 {
 	return Vector4(//Returns Ax += Bx, Ay += By, Az += Bz, Aw += Bw.
-		*this = *this + a_c_vVector4);
+		*this = *this + a_c_v4Vector4);
 }
 
 Vector4 Vector4::operator-=(const float &a_c_fScalar)//Overloaded decrease equals operation for Vector4.
@@ -196,10 +196,10 @@ Vector4 Vector4::operator-=(const float &a_c_fScalar)//Overloaded decrease equal
 		*this = *this - a_c_fScalar);
 }
 
-Vector4 Vector4::operator-=(const Vector4 &a_c_vVector4)//Overloaded decrease equals operation for Vector4.
+Vector4 Vector4::operator-=(const Vector4 &a_c_v4Vector4)//Overloaded decrease equals operation for Vector4.
 {
 	return Vector4(//Returns Ax -= Bx, Ay -= By, Az -= Bz, Aw -= Bw.
-		*this = *this - a_c_vVector4);
+		*this = *this - a_c_v4Vector4);
 }
 
 Vector4 Vector4::operator=(const float &a_c_fScalar)//Overloaded equals operation for Vector4.
@@ -211,13 +211,13 @@ Vector4 Vector4::operator=(const float &a_c_fScalar)//Overloaded equals operatio
 		fW = a_c_fScalar);
 }
 
-Vector4 Vector4::operator=(const Vector4 &a_c_vVector4)//Overloaded equals operation for Vector4.
+Vector4 Vector4::operator=(const Vector4 &a_c_v4Vector4)//Overloaded equals operation for Vector4.
 {
 	return Vector4(//Returns Ax = Bx, Ay = By, Az = Bz, Aw = Bw.
-		fX = a_c_vVector4.fX,
-		fY = a_c_vVector4.fY,
-		fZ = a_c_vVector4.fZ,
-		fW = a_c_vVector4.fW);
+		fX = a_c_v4Vector4.fX,
+		fY = a_c_v4Vector4.fY,
+		fZ = a_c_v4Vector4.fZ,
+		fW = a_c_v4Vector4.fW);
 }
 
 Vector4 Vector4::operator*=(const float &a_c_fScalar)//Overloaded times equals operation for Vector4.
@@ -226,10 +226,10 @@ Vector4 Vector4::operator*=(const float &a_c_fScalar)//Overloaded times equals o
 		*this = *this * a_c_fScalar);
 }
 
-Vector4 Vector4::operator*=(const Vector4 &a_c_vVector4)//Overloaded times equals operation for Vector4.
+Vector4 Vector4::operator*=(const Vector4 &a_c_v4Vector4)//Overloaded times equals operation for Vector4.
 {
 	return Vector4(//Returns Ax *= Bx, Ay *= By, Az *= Bz, Aw *= Bw.
-		*this = *this * a_c_vVector4);
+		*this = *this * a_c_v4Vector4);
 }
 
 Vector4 Vector4::operator/=(const float &a_c_fScalar)//Overloaded divide equals operation for Vector4.
@@ -238,10 +238,10 @@ Vector4 Vector4::operator/=(const float &a_c_fScalar)//Overloaded divide equals 
 		*this = *this / a_c_fScalar);
 }
 
-Vector4 Vector4::operator/=(const Vector4 &a_c_vVector4)//Overloaded divide equals operation for Vector4.
+Vector4 Vector4::operator/=(const Vector4 &a_c_v4Vector4)//Overloaded divide equals operation for Vector4.
 {
 	return Vector4(//Returns Ax /= Bx, Ay /= By, Az /= Bz, Aw /= Bw.
-		*this = *this / a_c_vVector4);
+		*this = *this / a_c_v4Vector4);
 }
 
 //\===========================================================================================
@@ -257,13 +257,13 @@ bool Vector4::operator!=(const float &a_c_fScalar)const//Overloaded not equals o
 		fW != a_c_fScalar);
 }
 
-bool Vector4::operator!=(const Vector4 &a_c_vVector4)const//Overloaded not equals operation for Vector4.
+bool Vector4::operator!=(const Vector4 &a_c_v4Vector4)const//Overloaded not equals operation for Vector4.
 {
 	return bool(//Returns Ax != Bx || Ay != By || Az != Bz || Aw != Bw.
-		fX != a_c_vVector4.fX ||
-		fY != a_c_vVector4.fY ||
-		fZ != a_c_vVector4.fZ ||
-		fW != a_c_vVector4.fW);
+		fX != a_c_v4Vector4.fX ||
+		fY != a_c_v4Vector4.fY ||
+		fZ != a_c_v4Vector4.fZ ||
+		fW != a_c_v4Vector4.fW);
 }
 
 bool Vector4::operator==(const float &a_c_fScalar)const//Overloaded is equals operation for Vector4.
@@ -275,13 +275,13 @@ bool Vector4::operator==(const float &a_c_fScalar)const//Overloaded is equals op
 		fW == a_c_fScalar);
 }
 
-bool Vector4::operator==(const Vector4 &a_c_vVector4)const//Overloaded is equals operation for Vector4.
+bool Vector4::operator==(const Vector4 &a_c_v4Vector4)const//Overloaded is equals operation for Vector4.
 {
 	return bool(//Returns Ax == Bx && Ay == By && Az == Bz && Aw == Bw.
-		fX == a_c_vVector4.fX &&
-		fY == a_c_vVector4.fY &&
-		fZ == a_c_vVector4.fZ &&
-		fW == a_c_vVector4.fW);
+		fX == a_c_v4Vector4.fX &&
+		fY == a_c_v4Vector4.fY &&
+		fZ == a_c_v4Vector4.fZ &&
+		fW == a_c_v4Vector4.fW);
 }
 
 //\===========================================================================================
@@ -306,39 +306,39 @@ float Vector4::squaredMagnitude()const//A function that returns the Magnitude sq
 //\ Distance Between this Vector4 and another Vector4
 //\===========================================================================================
 
-float Vector4::distance(const Vector4 &a_c_vVector4)const//Returns the distance from this Vector4 and the passed in argument.
+float Vector4::distance(const Vector4 &a_c_v4Vector4)const//Returns the distance from this Vector4 and the passed in argument.
 {
-	return float((*this - a_c_vVector4).magnitude());//Returns the square root of ( Ax - Bx )^2 + ( Ay - By )^2 + ( Az - Bz )^2 + ( Aw - Bw )^2.
+	return float((*this - a_c_v4Vector4).magnitude());//Returns the square root of ( Ax - Bx )^2 + ( Ay - By )^2 + ( Az - Bz )^2 + ( Aw - Bw )^2.
 }
 
 //\===========================================================================================
 //\ Squared Distance Between this Vector4 and another Vector4
 //\===========================================================================================
 
-float Vector4::squaredDistance(const Vector4 &a_c_vVector4)const//Returns the squared distance from this Vector4 and the passed in argument.
+float Vector4::squaredDistance(const Vector4 &a_c_v4Vector4)const//Returns the squared distance from this Vector4 and the passed in argument.
 {
-	return float((*this - a_c_vVector4).squaredMagnitude());//Returns ( Ax - Bx )^2 + ( Ay - By )^2 + ( Az - Bz )^2 + ( Aw - Bw )^2.
+	return float((*this - a_c_v4Vector4).squaredMagnitude());//Returns ( Ax - Bx )^2 + ( Ay - By )^2 + ( Az - Bz )^2 + ( Aw - Bw )^2.
 }
 
 //\===========================================================================================
 //\ Dot Product
 //\===========================================================================================
 
-float Vector4::dotProduct(const Vector4 &a_c_vVector4)const//A dot product function that takes in a Vector4.
+float Vector4::dotProduct(const Vector4 &a_c_v4Vector4)const//A dot product function that takes in a Vector4.
 {
-	return float((fX * a_c_vVector4.fX) + (fY * a_c_vVector4.fY) + (fZ * a_c_vVector4.fZ) + (fW * a_c_vVector4.fW));//Returns ( Ax * Bx ) + ( Ay * By ) + ( Az * Bz ) + ( Aw * Bw).
+	return float((fX * a_c_v4Vector4.fX) + (fY * a_c_v4Vector4.fY) + (fZ * a_c_v4Vector4.fZ) + (fW * a_c_v4Vector4.fW));//Returns ( Ax * Bx ) + ( Ay * By ) + ( Az * Bz ) + ( Aw * Bw).
 }
 
 //\===========================================================================================
 //\ Cross Product
 //\===========================================================================================
 
-Vector4 Vector4::crossProduct(const Vector4 &a_c_vVector4)const//A cross product function that takes in a Vector4.
+Vector4 Vector4::crossProduct(const Vector4 &a_c_v4Vector4)const//A cross product function that takes in a Vector4.
 {
 	return Vector4(//Returns cross product using formula = ( a2 * b3 - a3 * b2, a3 * b1 - a1 * b3, a1 * b2 - a2 * b1, a4 )
-		fY * a_c_vVector4.fZ - fZ * a_c_vVector4.fY,
-		fZ * a_c_vVector4.fX - fX * a_c_vVector4.fZ,
-		fX * a_c_vVector4.fY - fY * a_c_vVector4.fX,
+		fY * a_c_v4Vector4.fZ - fZ * a_c_v4Vector4.fY,
+		fZ * a_c_v4Vector4.fX - fX * a_c_v4Vector4.fZ,
+		fX * a_c_v4Vector4.fY - fY * a_c_v4Vector4.fX,
 		fW);
 }
 

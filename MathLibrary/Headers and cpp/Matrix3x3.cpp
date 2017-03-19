@@ -16,17 +16,17 @@
 
 Matrix3x3::Matrix3x3() {}//The Default constructor for a Matrix3x3 that initialises everything to 0.
 
-Matrix3x3::Matrix3x3(const Matrix3x3 &a_c_mMatrix3x3)//Copy constructor.
+Matrix3x3::Matrix3x3(const Matrix3x3 &a_c_fm3Matrix3x3)//Copy constructor.
 {
-	fm_00 = a_c_mMatrix3x3.getiMatrix(0);
-	fm_01 = a_c_mMatrix3x3.getiMatrix(1);
-	fm_02 = a_c_mMatrix3x3.getiMatrix(2);
-	fm_10 = a_c_mMatrix3x3.getiMatrix(3);
-	fm_11 = a_c_mMatrix3x3.getiMatrix(4);
-	fm_12 = a_c_mMatrix3x3.getiMatrix(5);
-	fm_20 = a_c_mMatrix3x3.getiMatrix(6);
-	fm_21 = a_c_mMatrix3x3.getiMatrix(7);
-	fm_22 = a_c_mMatrix3x3.getiMatrix(8);
+	fm_00 = a_c_fm3Matrix3x3.getiMatrix(0);
+	fm_01 = a_c_fm3Matrix3x3.getiMatrix(1);
+	fm_02 = a_c_fm3Matrix3x3.getiMatrix(2);
+	fm_10 = a_c_fm3Matrix3x3.getiMatrix(3);
+	fm_11 = a_c_fm3Matrix3x3.getiMatrix(4);
+	fm_12 = a_c_fm3Matrix3x3.getiMatrix(5);
+	fm_20 = a_c_fm3Matrix3x3.getiMatrix(6);
+	fm_21 = a_c_fm3Matrix3x3.getiMatrix(7);
+	fm_22 = a_c_fm3Matrix3x3.getiMatrix(8);
 }
 Matrix3x3::Matrix3x3(const float a_c_fmMatrix[3][3])//Constructor for a Matrix3x3 that is made from two arrays of three.
 {
@@ -148,38 +148,38 @@ void Matrix3x3::setiMatrix(const int &a_c_iPosition, float &a_c_fNewNumber)//A s
 	fiMatrix[a_c_iPosition] = a_c_fNewNumber;//Sets the float at the position of the first argument to the float of the second argument.
 }
 
-void Matrix3x3::setXAxis(const Vector3 &a_c_vVector3)//A setter to change the vXAxis of matrix3x3 to the Vector3 argument.
+void Matrix3x3::setXAxis(const Vector3 &a_c_v3Vector3)//A setter to change the vXAxis of matrix3x3 to the Vector3 argument.
 {
-	vXAxis = a_c_vVector3;//Sets the vXAxis Vector3 of the Matrix3x3 equal to the Vector3 passed in.
+	vXAxis = a_c_v3Vector3;//Sets the vXAxis Vector3 of the Matrix3x3 equal to the Vector3 passed in.
 }
 
-void Matrix3x3::setYAxis(const Vector3 &a_c_vVector3)//A setter to change the vYAxis of matrix3x3 to the Vector3 argument.
+void Matrix3x3::setYAxis(const Vector3 &a_c_v3Vector3)//A setter to change the vYAxis of matrix3x3 to the Vector3 argument.
 {
-	vYAxis = a_c_vVector3;//Sets the vYAxis Vector3 of the Matrix3x3 equal to the Vector3 passed in.
+	vYAxis = a_c_v3Vector3;//Sets the vYAxis Vector3 of the Matrix3x3 equal to the Vector3 passed in.
 }
 
-void Matrix3x3::setZAxis(const Vector3 &a_c_vVector3)//A setter to change the vZAxis of matrix3x3 to the Vector3 argument.
+void Matrix3x3::setZAxis(const Vector3 &a_c_v3Vector3)//A setter to change the vZAxis of matrix3x3 to the Vector3 argument.
 {
-	vZAxis = a_c_vVector3;//Sets the vZAxis Vector3 of the Matrix3x3 equal to the Vector3 passed in.
+	vZAxis = a_c_v3Vector3;//Sets the vZAxis Vector3 of the Matrix3x3 equal to the Vector3 passed in.
 }
 
-void Matrix3x3::setTranslation(const Vector3 &a_c_vVector3)//A setter to change the vTranslation of matrix3x3 to the vTranslation argument.
+void Matrix3x3::setTranslation(const Vector3 &a_c_v3Vector3)//A setter to change the vTranslation of matrix3x3 to the vTranslation argument.
 {
-	vTranslation = a_c_vVector3;//Sets the vTranslation Vector3 of the Matrix3x3 equal to the Vector3 passed in.
+	vTranslation = a_c_v3Vector3;//Sets the vTranslation Vector3 of the Matrix3x3 equal to the Vector3 passed in.
 }
 
-void Matrix3x3::setColumn(const int &a_c_iCol, Vector3 &a_c_vVector3)//A setter for the column specified by the argument a_c_iCol.
+void Matrix3x3::setColumn(const int &a_c_iCol, Vector3 &a_c_v3Vector3)//A setter for the column specified by the argument a_c_iCol.
 {
-	fmMatrix[0][a_c_iCol] = a_c_vVector3.getfX();
-	fmMatrix[1][a_c_iCol] = a_c_vVector3.getfY();
-    fmMatrix[2][a_c_iCol] = a_c_vVector3.getfZ();//Sets the column specified by the a_c_iCol equal to the argument vector3.
+	fmMatrix[0][a_c_iCol] = a_c_v3Vector3.getfX();
+	fmMatrix[1][a_c_iCol] = a_c_v3Vector3.getfY();
+    fmMatrix[2][a_c_iCol] = a_c_v3Vector3.getfZ();//Sets the column specified by the a_c_iCol equal to the argument vector3.
 }
 
-void Matrix3x3::setRow(const int &a_c_iRow, Vector3 &a_c_vVector3)//A setter for the row specified by the argument a_c_iRow.
+void Matrix3x3::setRow(const int &a_c_iRow, Vector3 &a_c_v3Vector3)//A setter for the row specified by the argument a_c_iRow.
 {
-	fmMatrix[a_c_iRow][0] = a_c_vVector3.getfX();
-	fmMatrix[a_c_iRow][1] = a_c_vVector3.getfY();
-	fmMatrix[a_c_iRow][2] = a_c_vVector3.getfZ();//Sets the row specified by the a_c_iRow equal to the argument vector3.
+	fmMatrix[a_c_iRow][0] = a_c_v3Vector3.getfX();
+	fmMatrix[a_c_iRow][1] = a_c_v3Vector3.getfY();
+	fmMatrix[a_c_iRow][2] = a_c_v3Vector3.getfZ();//Sets the row specified by the a_c_iRow equal to the argument vector3.
 }
 
 //\===========================================================================================
@@ -201,26 +201,26 @@ Matrix3x3 Matrix3x3::operator+(const float &a_c_fScalar)const//Overloaded additi
 	return Matrix3x3(tempAdditionMatrix);//Returns the increased matrix.
 }
 
-Matrix3x3 Matrix3x3::operator+(const Vector3 &a_c_vVector3)const//Overloaded addition operation for Matrix3x3.
+Matrix3x3 Matrix3x3::operator+(const Vector3 &a_c_v3Vector3)const//Overloaded addition operation for Matrix3x3.
 {
-	vXAxis + a_c_vVector3;//Increases the vXAxis by the argument Vector3.
-	vYAxis + a_c_vVector3;//Increases the vYAxis by the argument Vector3.
-	vZAxis + a_c_vVector3;//Increases the vZAxis by the argument Vector3.
+	vXAxis + a_c_v3Vector3;//Increases the vXAxis by the argument Vector3.
+	vYAxis + a_c_v3Vector3;//Increases the vYAxis by the argument Vector3.
+	vZAxis + a_c_v3Vector3;//Increases the vZAxis by the argument Vector3.
 	return Matrix3x3(*this);//Returns the increased matrix.
 }
 
-Matrix3x3 Matrix3x3::operator+(const Matrix3x3 &a_c_mMatrix3x3)const//Overloaded addition operation for Matrix3x3.
+Matrix3x3 Matrix3x3::operator+(const Matrix3x3 &a_c_fm3Matrix3x3)const//Overloaded addition operation for Matrix3x3.
 {
 	Matrix3x3 tempAdditionMatrix;//Creates a temporary matrix that will hold the added matrix.
-	tempAdditionMatrix.fm_00 = fm_00 + a_c_mMatrix3x3.fm_00;//Makes temporary matrix equal to the first element of the matrix increase by the equivalent part of the matrix3x3 passed in.
-	tempAdditionMatrix.fm_01 = fm_01 + a_c_mMatrix3x3.fm_01;//Makes temporary matrix equal to the second element of the matrix increase by the equivalent part of the matrix3x3 passed in.
-	tempAdditionMatrix.fm_02 = fm_02 + a_c_mMatrix3x3.fm_02;//Makes temporary matrix equal to the third element of the matrix increase by the equivalent part of the matrix3x3 passed in.
-	tempAdditionMatrix.fm_10 = fm_10 + a_c_mMatrix3x3.fm_10;//Makes temporary matrix equal to the fourth element of the matrix increase by the equivalent part of the matrix3x3 passed in.
-	tempAdditionMatrix.fm_11 = fm_11 + a_c_mMatrix3x3.fm_11;//Makes temporary matrix equal to the fifth element of the matrix increase by the equivalent part of the matrix3x3 passed in.
-	tempAdditionMatrix.fm_12 = fm_12 + a_c_mMatrix3x3.fm_12;//Makes temporary matrix equal to the sixth element of the matrix increase by the equivalent part of the matrix3x3 passed in.
-	tempAdditionMatrix.fm_20 = fm_20 + a_c_mMatrix3x3.fm_20;//Makes temporary matrix equal to the seventh element of the matrix increase by the equivalent part of the matrix3x3 passed in.
-	tempAdditionMatrix.fm_21 = fm_21 + a_c_mMatrix3x3.fm_21;//Makes temporary matrix equal to the eighth element of the matrix increase by the equivalent part of the matrix3x3 passed in.
-	tempAdditionMatrix.fm_22 = fm_22 + a_c_mMatrix3x3.fm_22;//Makes temporary matrix equal to the ninth element of the matrix increase by the equivalent part of the matrix3x3 passed in.
+	tempAdditionMatrix.fm_00 = fm_00 + a_c_fm3Matrix3x3.fm_00;//Makes temporary matrix equal to the first element of the matrix increase by the equivalent part of the matrix3x3 passed in.
+	tempAdditionMatrix.fm_01 = fm_01 + a_c_fm3Matrix3x3.fm_01;//Makes temporary matrix equal to the second element of the matrix increase by the equivalent part of the matrix3x3 passed in.
+	tempAdditionMatrix.fm_02 = fm_02 + a_c_fm3Matrix3x3.fm_02;//Makes temporary matrix equal to the third element of the matrix increase by the equivalent part of the matrix3x3 passed in.
+	tempAdditionMatrix.fm_10 = fm_10 + a_c_fm3Matrix3x3.fm_10;//Makes temporary matrix equal to the fourth element of the matrix increase by the equivalent part of the matrix3x3 passed in.
+	tempAdditionMatrix.fm_11 = fm_11 + a_c_fm3Matrix3x3.fm_11;//Makes temporary matrix equal to the fifth element of the matrix increase by the equivalent part of the matrix3x3 passed in.
+	tempAdditionMatrix.fm_12 = fm_12 + a_c_fm3Matrix3x3.fm_12;//Makes temporary matrix equal to the sixth element of the matrix increase by the equivalent part of the matrix3x3 passed in.
+	tempAdditionMatrix.fm_20 = fm_20 + a_c_fm3Matrix3x3.fm_20;//Makes temporary matrix equal to the seventh element of the matrix increase by the equivalent part of the matrix3x3 passed in.
+	tempAdditionMatrix.fm_21 = fm_21 + a_c_fm3Matrix3x3.fm_21;//Makes temporary matrix equal to the eighth element of the matrix increase by the equivalent part of the matrix3x3 passed in.
+	tempAdditionMatrix.fm_22 = fm_22 + a_c_fm3Matrix3x3.fm_22;//Makes temporary matrix equal to the ninth element of the matrix increase by the equivalent part of the matrix3x3 passed in.
 	return Matrix3x3(tempAdditionMatrix);//Returns the increased matrix.
 }
 
@@ -239,26 +239,26 @@ Matrix3x3 Matrix3x3::operator-(const float &a_c_fScalar)const//Overloaded subtra
 	return Matrix3x3(tempSubtractionMatrix);//Returns the decreased matrix.
 }
 
-Matrix3x3 Matrix3x3::operator-(const Vector3 &a_c_vVector3)const//Overloaded subtraction operation for Matrix3x3.
+Matrix3x3 Matrix3x3::operator-(const Vector3 &a_c_v3Vector3)const//Overloaded subtraction operation for Matrix3x3.
 {
-	vXAxis - a_c_vVector3;//decreases the vXAxis by the argument Vector3.
-	vYAxis - a_c_vVector3;//decreases the vYAxis by the argument Vector3.
-	vZAxis - a_c_vVector3;//decreases the vZAxis by the argument Vector3.
+	vXAxis - a_c_v3Vector3;//decreases the vXAxis by the argument Vector3.
+	vYAxis - a_c_v3Vector3;//decreases the vYAxis by the argument Vector3.
+	vZAxis - a_c_v3Vector3;//decreases the vZAxis by the argument Vector3.
 	return Matrix3x3(*this);//Returns the decreased matrix.
 }
 
-Matrix3x3 Matrix3x3::operator-(const Matrix3x3 &a_c_mMatrix3x3)const//Overloaded subtraction operation for Matrix3x3.
+Matrix3x3 Matrix3x3::operator-(const Matrix3x3 &a_c_fm3Matrix3x3)const//Overloaded subtraction operation for Matrix3x3.
 {
 	Matrix3x3 tempSubtractionMatrix;//Creates a temporary matrix that will hold the subtracted matrix.
-	tempSubtractionMatrix.fm_00 = fm_00 - a_c_mMatrix3x3.fm_00;//Makes temporary matrix equal to the first element of the matrix decreased by the equivalent part of the matrix3x3 passed in.
-	tempSubtractionMatrix.fm_01 = fm_01 - a_c_mMatrix3x3.fm_01;//Makes temporary matrix equal to the second element of the matrix decreased by the equivalent part of the matrix3x3 passed in.
-	tempSubtractionMatrix.fm_02 = fm_02 - a_c_mMatrix3x3.fm_02;//Makes temporary matrix equal to the third element of the matrix decreased by the equivalent part of the matrix3x3 passed in.
-	tempSubtractionMatrix.fm_10 = fm_10 - a_c_mMatrix3x3.fm_10;//Makes temporary matrix equal to the fourth element of the matrix decreased by the equivalent part of the matrix3x3 passed in.
-	tempSubtractionMatrix.fm_11 = fm_11 - a_c_mMatrix3x3.fm_11;//Makes temporary matrix equal to the fifth element of the matrix decreased by the equivalent part of the matrix3x3 passed in.
-	tempSubtractionMatrix.fm_12 = fm_12 - a_c_mMatrix3x3.fm_12;//Makes temporary matrix equal to the sixth element of the matrix decreased by the equivalent part of the matrix3x3 passed in.
-	tempSubtractionMatrix.fm_20 = fm_20 - a_c_mMatrix3x3.fm_20;//Makes temporary matrix equal to the seventh element of the matrix decreased by the equivalent part of the matrix3x3 passed in.
-	tempSubtractionMatrix.fm_21 = fm_21 - a_c_mMatrix3x3.fm_21;//Makes temporary matrix equal to the eighth element of the matrix decreased by the equivalent part of the matrix3x3 passed in.
-	tempSubtractionMatrix.fm_22 = fm_22 - a_c_mMatrix3x3.fm_22;//Makes temporary matrix equal to the ninth element of the matrix decreased by the equivalent part of the matrix3x3 passed in.
+	tempSubtractionMatrix.fm_00 = fm_00 - a_c_fm3Matrix3x3.fm_00;//Makes temporary matrix equal to the first element of the matrix decreased by the equivalent part of the matrix3x3 passed in.
+	tempSubtractionMatrix.fm_01 = fm_01 - a_c_fm3Matrix3x3.fm_01;//Makes temporary matrix equal to the second element of the matrix decreased by the equivalent part of the matrix3x3 passed in.
+	tempSubtractionMatrix.fm_02 = fm_02 - a_c_fm3Matrix3x3.fm_02;//Makes temporary matrix equal to the third element of the matrix decreased by the equivalent part of the matrix3x3 passed in.
+	tempSubtractionMatrix.fm_10 = fm_10 - a_c_fm3Matrix3x3.fm_10;//Makes temporary matrix equal to the fourth element of the matrix decreased by the equivalent part of the matrix3x3 passed in.
+	tempSubtractionMatrix.fm_11 = fm_11 - a_c_fm3Matrix3x3.fm_11;//Makes temporary matrix equal to the fifth element of the matrix decreased by the equivalent part of the matrix3x3 passed in.
+	tempSubtractionMatrix.fm_12 = fm_12 - a_c_fm3Matrix3x3.fm_12;//Makes temporary matrix equal to the sixth element of the matrix decreased by the equivalent part of the matrix3x3 passed in.
+	tempSubtractionMatrix.fm_20 = fm_20 - a_c_fm3Matrix3x3.fm_20;//Makes temporary matrix equal to the seventh element of the matrix decreased by the equivalent part of the matrix3x3 passed in.
+	tempSubtractionMatrix.fm_21 = fm_21 - a_c_fm3Matrix3x3.fm_21;//Makes temporary matrix equal to the eighth element of the matrix decreased by the equivalent part of the matrix3x3 passed in.
+	tempSubtractionMatrix.fm_22 = fm_22 - a_c_fm3Matrix3x3.fm_22;//Makes temporary matrix equal to the ninth element of the matrix decreased by the equivalent part of the matrix3x3 passed in.
 	return Matrix3x3(tempSubtractionMatrix);//Returns the decreased matrix.	
 }
 
@@ -277,26 +277,26 @@ Matrix3x3 Matrix3x3::operator*(const float &a_c_fScalar)const//Overloaded multip
 	return Matrix3x3(tempMultiplicationMatrix);//Returns the multiplied matrix.
 }
 
-Vector3 Matrix3x3::operator*(const Vector3 &a_c_vVector3)const//Overloaded multiplication operation for Matrix3x3.
+Vector3 Matrix3x3::operator*(const Vector3 &a_c_v3Vector3)const//Overloaded multiplication operation for Matrix3x3.
 {
 	return Vector3(//Returns the multiplied matrix.
-		fm_00 * a_c_vVector3.getfX() + fm_01 * a_c_vVector3.getfY() + fm_02 * a_c_vVector3.getfZ(),//Dot product for the first row of the first matrix and the only column of the Vector3.
-		fm_10 * a_c_vVector3.getfX() + fm_11 * a_c_vVector3.getfY() + fm_12 * a_c_vVector3.getfZ(),//Dot product for the second row of the first matrix and the only column of the Vector3.
-		fm_20 * a_c_vVector3.getfX() + fm_21 * a_c_vVector3.getfY() + fm_22 * a_c_vVector3.getfZ());//Dot product for the third row of the first matrix and the only column of the Vector3.
+		fm_00 * a_c_v3Vector3.getfX() + fm_01 * a_c_v3Vector3.getfY() + fm_02 * a_c_v3Vector3.getfZ(),//Dot product for the first row of the first matrix and the only column of the Vector3.
+		fm_10 * a_c_v3Vector3.getfX() + fm_11 * a_c_v3Vector3.getfY() + fm_12 * a_c_v3Vector3.getfZ(),//Dot product for the second row of the first matrix and the only column of the Vector3.
+		fm_20 * a_c_v3Vector3.getfX() + fm_21 * a_c_v3Vector3.getfY() + fm_22 * a_c_v3Vector3.getfZ());//Dot product for the third row of the first matrix and the only column of the Vector3.
 }
 
-Matrix3x3 Matrix3x3::operator*(const Matrix3x3 &a_c_mMatrix3x3)const//Overloaded multiplication operation for Matrix3x3.
+Matrix3x3 Matrix3x3::operator*(const Matrix3x3 &a_c_fm3Matrix3x3)const//Overloaded multiplication operation for Matrix3x3.
 {
 	Matrix3x3 tempMultiplicationMatrix;//Creates a temporary matrix that will hold the multiplied vector.
-	tempMultiplicationMatrix.fm_00 = fm_00 * a_c_mMatrix3x3.fm_00 + fm_01 * a_c_mMatrix3x3.fm_10 + fm_02 * a_c_mMatrix3x3.fm_20;//Dot product for the first row of the first matrix and the first column of the second matrix.
-	tempMultiplicationMatrix.fm_01 = fm_00 * a_c_mMatrix3x3.fm_01 + fm_01 * a_c_mMatrix3x3.fm_11 + fm_02 * a_c_mMatrix3x3.fm_21;//Dot product for the first row of the first matrix and the second column of the second matrix.
-	tempMultiplicationMatrix.fm_02 = fm_00 * a_c_mMatrix3x3.fm_02 + fm_01 * a_c_mMatrix3x3.fm_12 + fm_02 * a_c_mMatrix3x3.fm_22;//Dot product for the first row of the first matrix and the third column of the second matrix.																																		  
-	tempMultiplicationMatrix.fm_10 = fm_10 * a_c_mMatrix3x3.fm_00 + fm_11 * a_c_mMatrix3x3.fm_10 + fm_12 * a_c_mMatrix3x3.fm_20;//Dot product for the second row of the first matrix and the first column of the second matrix.
-	tempMultiplicationMatrix.fm_11 = fm_10 * a_c_mMatrix3x3.fm_01 + fm_11 * a_c_mMatrix3x3.fm_11 + fm_12 * a_c_mMatrix3x3.fm_21;//Dot product for the second row of the first matrix and the second column of the second matrix.
-	tempMultiplicationMatrix.fm_12 = fm_10 * a_c_mMatrix3x3.fm_02 + fm_11 * a_c_mMatrix3x3.fm_12 + fm_12 * a_c_mMatrix3x3.fm_22;//Dot product for the second row of the first matrix and the third column of the second matrix.																						  
-	tempMultiplicationMatrix.fm_20 = fm_20 * a_c_mMatrix3x3.fm_00 + fm_21 * a_c_mMatrix3x3.fm_10 + fm_22 * a_c_mMatrix3x3.fm_20;//Dot product for the third row of the first matrix and the first column of the second matrix.
-	tempMultiplicationMatrix.fm_21 = fm_20 * a_c_mMatrix3x3.fm_01 + fm_21 * a_c_mMatrix3x3.fm_11 + fm_22 * a_c_mMatrix3x3.fm_21;//Dot product for the third row of the first matrix and the second column of the second matrix.
-	tempMultiplicationMatrix.fm_22 = fm_20 * a_c_mMatrix3x3.fm_02 + fm_21 * a_c_mMatrix3x3.fm_12 + fm_22 * a_c_mMatrix3x3.fm_22;//Dot product for the third row of the first matrix and the third column of the second matrix.
+	tempMultiplicationMatrix.fm_00 = fm_00 * a_c_fm3Matrix3x3.fm_00 + fm_01 * a_c_fm3Matrix3x3.fm_10 + fm_02 * a_c_fm3Matrix3x3.fm_20;//Dot product for the first row of the first matrix and the first column of the second matrix.
+	tempMultiplicationMatrix.fm_01 = fm_00 * a_c_fm3Matrix3x3.fm_01 + fm_01 * a_c_fm3Matrix3x3.fm_11 + fm_02 * a_c_fm3Matrix3x3.fm_21;//Dot product for the first row of the first matrix and the second column of the second matrix.
+	tempMultiplicationMatrix.fm_02 = fm_00 * a_c_fm3Matrix3x3.fm_02 + fm_01 * a_c_fm3Matrix3x3.fm_12 + fm_02 * a_c_fm3Matrix3x3.fm_22;//Dot product for the first row of the first matrix and the third column of the second matrix.																																		  
+	tempMultiplicationMatrix.fm_10 = fm_10 * a_c_fm3Matrix3x3.fm_00 + fm_11 * a_c_fm3Matrix3x3.fm_10 + fm_12 * a_c_fm3Matrix3x3.fm_20;//Dot product for the second row of the first matrix and the first column of the second matrix.
+	tempMultiplicationMatrix.fm_11 = fm_10 * a_c_fm3Matrix3x3.fm_01 + fm_11 * a_c_fm3Matrix3x3.fm_11 + fm_12 * a_c_fm3Matrix3x3.fm_21;//Dot product for the second row of the first matrix and the second column of the second matrix.
+	tempMultiplicationMatrix.fm_12 = fm_10 * a_c_fm3Matrix3x3.fm_02 + fm_11 * a_c_fm3Matrix3x3.fm_12 + fm_12 * a_c_fm3Matrix3x3.fm_22;//Dot product for the second row of the first matrix and the third column of the second matrix.																						  
+	tempMultiplicationMatrix.fm_20 = fm_20 * a_c_fm3Matrix3x3.fm_00 + fm_21 * a_c_fm3Matrix3x3.fm_10 + fm_22 * a_c_fm3Matrix3x3.fm_20;//Dot product for the third row of the first matrix and the first column of the second matrix.
+	tempMultiplicationMatrix.fm_21 = fm_20 * a_c_fm3Matrix3x3.fm_01 + fm_21 * a_c_fm3Matrix3x3.fm_11 + fm_22 * a_c_fm3Matrix3x3.fm_21;//Dot product for the third row of the first matrix and the second column of the second matrix.
+	tempMultiplicationMatrix.fm_22 = fm_20 * a_c_fm3Matrix3x3.fm_02 + fm_21 * a_c_fm3Matrix3x3.fm_12 + fm_22 * a_c_fm3Matrix3x3.fm_22;//Dot product for the third row of the first matrix and the third column of the second matrix.
 	return Matrix3x3(tempMultiplicationMatrix);//Returns the multiplied matrix.
 }
 
@@ -305,14 +305,14 @@ Matrix3x3 Matrix3x3::operator/(const float &a_c_fScalar)const//Overloaded divisi
 	return Matrix3x3(*this * reciprocal(a_c_fScalar));//Returns the Matrix3x3 / the argument.
 }
 
-Vector3 Matrix3x3::operator/(const Vector3 &a_c_vVector3)const//Overloaded division operation for Matrix3x3.
+Vector3 Matrix3x3::operator/(const Vector3 &a_c_v3Vector3)const//Overloaded division operation for Matrix3x3.
 {
-	return Vector3(*this * a_c_vVector3.inverse());//Returns the Matrix3x3 / the argument.
+	return Vector3(*this * a_c_v3Vector3.inverse());//Returns the Matrix3x3 / the argument.
 }
 
-Matrix3x3 Matrix3x3::operator/(const Matrix3x3 &a_c_mMatrix3x3)const//Overloaded division operation for Matrix3x3.
+Matrix3x3 Matrix3x3::operator/(const Matrix3x3 &a_c_fm3Matrix3x3)const//Overloaded division operation for Matrix3x3.
 {
-	Matrix3x3 tempMatrix = a_c_mMatrix3x3;
+	Matrix3x3 tempMatrix = a_c_fm3Matrix3x3;
 	tempMatrix.inverse();
 	return Matrix3x3(*this * tempMatrix);//Returns the Matrix3x3 / the argument.
 }
@@ -326,14 +326,14 @@ Matrix3x3 Matrix3x3::operator+=(const float &a_c_fScalar)//Overloaded times equa
 	return Matrix3x3(*this = *this + a_c_fScalar);//Returns the added equated matrix.
 }
 
-Matrix3x3 Matrix3x3::operator+=(const Vector3 &a_c_vVector3)//Overloaded times equals operation for Matrix3x3.
+Matrix3x3 Matrix3x3::operator+=(const Vector3 &a_c_v3Vector3)//Overloaded times equals operation for Matrix3x3.
 {
-	return Matrix3x3(*this = *this + a_c_vVector3);//Returns the added equated matrix.
+	return Matrix3x3(*this = *this + a_c_v3Vector3);//Returns the added equated matrix.
 }
 
-Matrix3x3 Matrix3x3::operator+=(const Matrix3x3 &a_c_mMatrix3x3)//Overloaded times equals operation for Matrix3x3.
+Matrix3x3 Matrix3x3::operator+=(const Matrix3x3 &a_c_fm3Matrix3x3)//Overloaded times equals operation for Matrix3x3.
 {
-	return Matrix3x3(*this = *this + a_c_mMatrix3x3);//Returns the added equated matrix.
+	return Matrix3x3(*this = *this + a_c_fm3Matrix3x3);//Returns the added equated matrix.
 }
 
 Matrix3x3 Matrix3x3::operator-=(const float &a_c_fScalar)//Overloaded times equals operation for Matrix3x3.
@@ -341,14 +341,14 @@ Matrix3x3 Matrix3x3::operator-=(const float &a_c_fScalar)//Overloaded times equa
 	return Matrix3x3(*this = *this - a_c_fScalar);//Returns the subtracted equated matrix.
 }
 
-Matrix3x3 Matrix3x3::operator-=(const Vector3 &a_c_vVector3)//Overloaded times equals operation for Matrix3x3.
+Matrix3x3 Matrix3x3::operator-=(const Vector3 &a_c_v3Vector3)//Overloaded times equals operation for Matrix3x3.
 {
-	return Matrix3x3(*this = *this - a_c_vVector3);//Returns the subtracted equated matrix.
+	return Matrix3x3(*this = *this - a_c_v3Vector3);//Returns the subtracted equated matrix.
 }
 
-Matrix3x3 Matrix3x3::operator-=(const Matrix3x3 &a_c_mMatrix3x3)//Overloaded times equals operation for Matrix3x3.
+Matrix3x3 Matrix3x3::operator-=(const Matrix3x3 &a_c_fm3Matrix3x3)//Overloaded times equals operation for Matrix3x3.
 {
-	return Matrix3x3(*this = *this - a_c_mMatrix3x3);//Returns the subtracted equated matrix.
+	return Matrix3x3(*this = *this - a_c_fm3Matrix3x3);//Returns the subtracted equated matrix.
 }
 
 Matrix3x3 Matrix3x3::operator=(const float &a_c_fScalar)//Overloaded equals operation for Matrix3x3.
@@ -365,25 +365,25 @@ Matrix3x3 Matrix3x3::operator=(const float &a_c_fScalar)//Overloaded equals oper
 	return Matrix3x3(*this);//Returns the equated matrix.
 }
 
-Matrix3x3 Matrix3x3::operator=(const Vector3 &a_c_vVector3)//Overloaded equals operation for Matrix3x3.
+Matrix3x3 Matrix3x3::operator=(const Vector3 &a_c_v3Vector3)//Overloaded equals operation for Matrix3x3.
 {
-	vXAxis = a_c_vVector3;//Equates the vXAxis to the argument Vector3.
-	vYAxis = a_c_vVector3;//Equates the vYAxis to the argument Vector3.
-	vZAxis = a_c_vVector3;//Equates the vZAxis to the argument Vector3.
+	vXAxis = a_c_v3Vector3;//Equates the vXAxis to the argument Vector3.
+	vYAxis = a_c_v3Vector3;//Equates the vYAxis to the argument Vector3.
+	vZAxis = a_c_v3Vector3;//Equates the vZAxis to the argument Vector3.
 	return Matrix3x3(*this);//Returns the equated matrix.
 }
 
-Matrix3x3 Matrix3x3::operator=(const Matrix3x3 &a_c_mMatrix3x3)//Overloaded equals operation for Matrix3x3.
+Matrix3x3 Matrix3x3::operator=(const Matrix3x3 &a_c_fm3Matrix3x3)//Overloaded equals operation for Matrix3x3.
 {
-	fm_00 = a_c_mMatrix3x3.fm_00;//Makes the first element of the matrix equal to the equivalent part of the matrix3x3 passed in.
-	fm_01 = a_c_mMatrix3x3.fm_01;//Makes the second element of the matrix equal to the equivalent part of the matrix3x3 passed in.
-	fm_02 = a_c_mMatrix3x3.fm_02;//Makes the third element of the matrix equal to the equivalent part of the matrix3x3 passed in.
-	fm_10 = a_c_mMatrix3x3.fm_10;//Makes the fourth element of the matrix equal to the equivalent part of the matrix3x3 passed in.
-	fm_11 = a_c_mMatrix3x3.fm_11;//Makes the fifth element of the matrix equal to the equivalent part of the matrix3x3 passed in.
-	fm_12 = a_c_mMatrix3x3.fm_12;//Makes the sixth element of the matrix equal to the equivalent part of the matrix3x3 passed in.
-	fm_20 = a_c_mMatrix3x3.fm_20;//Makes the seventh element of the matrix equal to the equivalent part of the matrix3x3 passed in.
-	fm_21 = a_c_mMatrix3x3.fm_21;//Makes the eighth element of the matrix equal to the equivalent part of the matrix3x3 passed in.
-	fm_22 = a_c_mMatrix3x3.fm_22;//Makes the ninth element of the matrix equal to the equivalent part of the matrix3x3 passed in.
+	fm_00 = a_c_fm3Matrix3x3.fm_00;//Makes the first element of the matrix equal to the equivalent part of the matrix3x3 passed in.
+	fm_01 = a_c_fm3Matrix3x3.fm_01;//Makes the second element of the matrix equal to the equivalent part of the matrix3x3 passed in.
+	fm_02 = a_c_fm3Matrix3x3.fm_02;//Makes the third element of the matrix equal to the equivalent part of the matrix3x3 passed in.
+	fm_10 = a_c_fm3Matrix3x3.fm_10;//Makes the fourth element of the matrix equal to the equivalent part of the matrix3x3 passed in.
+	fm_11 = a_c_fm3Matrix3x3.fm_11;//Makes the fifth element of the matrix equal to the equivalent part of the matrix3x3 passed in.
+	fm_12 = a_c_fm3Matrix3x3.fm_12;//Makes the sixth element of the matrix equal to the equivalent part of the matrix3x3 passed in.
+	fm_20 = a_c_fm3Matrix3x3.fm_20;//Makes the seventh element of the matrix equal to the equivalent part of the matrix3x3 passed in.
+	fm_21 = a_c_fm3Matrix3x3.fm_21;//Makes the eighth element of the matrix equal to the equivalent part of the matrix3x3 passed in.
+	fm_22 = a_c_fm3Matrix3x3.fm_22;//Makes the ninth element of the matrix equal to the equivalent part of the matrix3x3 passed in.
 	return Matrix3x3(*this);//Returns the equated matrix.
 }
 
@@ -392,14 +392,14 @@ Matrix3x3 Matrix3x3::operator*=(const float &a_c_fScalar)//Overloaded times equa
     return Matrix3x3(*this = *this * a_c_fScalar);//Returns the multiplied equated matrix.
 }
 
-Matrix3x3 Matrix3x3::operator*=(const Vector3 &a_c_vVector3)//Overloaded times equals operation for Matrix3x3.
+Matrix3x3 Matrix3x3::operator*=(const Vector3 &a_c_v3Vector3)//Overloaded times equals operation for Matrix3x3.
 {
-	return Matrix3x3(*this = *this * a_c_vVector3);//Returns the multiplied equated matrix.
+	return Matrix3x3(*this = *this * a_c_v3Vector3);//Returns the multiplied equated matrix.
 }
 
-Matrix3x3 Matrix3x3::operator*=(const Matrix3x3 &a_c_mMatrix3x3)//Overloaded times equals operation for Matrix3x3.
+Matrix3x3 Matrix3x3::operator*=(const Matrix3x3 &a_c_fm3Matrix3x3)//Overloaded times equals operation for Matrix3x3.
 {
-    return Matrix3x3(*this = *this * a_c_mMatrix3x3);//Returns the multiplied equated matrix.
+    return Matrix3x3(*this = *this * a_c_fm3Matrix3x3);//Returns the multiplied equated matrix.
 }
 
 Matrix3x3 Matrix3x3::operator/=(const float &a_c_fScalar)//Overloaded times equals operation for Matrix3x3.
@@ -407,14 +407,14 @@ Matrix3x3 Matrix3x3::operator/=(const float &a_c_fScalar)//Overloaded times equa
 	return Matrix3x3(*this = *this / a_c_fScalar);//Returns the divided equated matrix.
 }
 
-Matrix3x3 Matrix3x3::operator/=(const Vector3 &a_c_vVector3)//Overloaded times equals operation for Matrix3x3.
+Matrix3x3 Matrix3x3::operator/=(const Vector3 &a_c_v3Vector3)//Overloaded times equals operation for Matrix3x3.
 {
-	return Matrix3x3(*this = *this / a_c_vVector3);//Returns the divided equated matrix.
+	return Matrix3x3(*this = *this / a_c_v3Vector3);//Returns the divided equated matrix.
 }
 
-Matrix3x3 Matrix3x3::operator/=(const Matrix3x3 &a_c_mMatrix3x3)//Overloaded times equals operation for Matrix3x3.
+Matrix3x3 Matrix3x3::operator/=(const Matrix3x3 &a_c_fm3Matrix3x3)//Overloaded times equals operation for Matrix3x3.
 {
-	return Matrix3x3(*this = *this / a_c_mMatrix3x3);//Returns the divided equated matrix.
+	return Matrix3x3(*this = *this / a_c_fm3Matrix3x3);//Returns the divided equated matrix.
 }
 
 //\===========================================================================================
@@ -429,20 +429,20 @@ bool Matrix3x3::operator!=(const float &a_c_fScalar)const//Overloaded not equals
 		fm_20 != a_c_fScalar || fm_21 != a_c_fScalar || fm_22 != a_c_fScalar);
 }
 
-bool Matrix3x3::operator!=(const Vector3 &a_c_vVector3)const//Overloaded not equals operation for Matrix3x3.
+bool Matrix3x3::operator!=(const Vector3 &a_c_v3Vector3)const//Overloaded not equals operation for Matrix3x3.
 {
 	return bool(//Checks to see if each axis in the Matrix3x3 is not equal to the Vector3 argument passed in and returns true if one is not.
-		vXAxis != a_c_vVector3 ||
-		vYAxis != a_c_vVector3 ||
-		vZAxis != a_c_vVector3);
+		vXAxis != a_c_v3Vector3 ||
+		vYAxis != a_c_v3Vector3 ||
+		vZAxis != a_c_v3Vector3);
 }
 
-bool Matrix3x3::operator!=(const Matrix3x3 &a_c_mMatrix3x3)const//Overloaded not equals operation for Matrix3x3.
+bool Matrix3x3::operator!=(const Matrix3x3 &a_c_fm3Matrix3x3)const//Overloaded not equals operation for Matrix3x3.
 {
 	return bool(//Checks each element in the Matrix3x3 against the passed in Matrix3x3 and if one element is not the same as the passed in matrix then return true.
-		fm_00 != a_c_mMatrix3x3.fm_00 || fm_01 != a_c_mMatrix3x3.fm_01 || fm_02 != a_c_mMatrix3x3.fm_02 ||
-		fm_10 != a_c_mMatrix3x3.fm_10 || fm_11 != a_c_mMatrix3x3.fm_11 || fm_12 != a_c_mMatrix3x3.fm_12 ||
-		fm_20 != a_c_mMatrix3x3.fm_20 || fm_21 != a_c_mMatrix3x3.fm_21 || fm_22 != a_c_mMatrix3x3.fm_22);
+		fm_00 != a_c_fm3Matrix3x3.fm_00 || fm_01 != a_c_fm3Matrix3x3.fm_01 || fm_02 != a_c_fm3Matrix3x3.fm_02 ||
+		fm_10 != a_c_fm3Matrix3x3.fm_10 || fm_11 != a_c_fm3Matrix3x3.fm_11 || fm_12 != a_c_fm3Matrix3x3.fm_12 ||
+		fm_20 != a_c_fm3Matrix3x3.fm_20 || fm_21 != a_c_fm3Matrix3x3.fm_21 || fm_22 != a_c_fm3Matrix3x3.fm_22);
 }
 
 bool Matrix3x3::operator==(const float &a_c_fScalar)const//Overloaded is equals operation for Matrix3x3.
@@ -453,20 +453,20 @@ bool Matrix3x3::operator==(const float &a_c_fScalar)const//Overloaded is equals 
 		fm_20 == a_c_fScalar && fm_21 == a_c_fScalar && fm_22 == a_c_fScalar);
 }
 
-bool Matrix3x3::operator==(const Vector3 &a_c_vVector3)const//Overloaded is equals operation for Matrix3x3.
+bool Matrix3x3::operator==(const Vector3 &a_c_v3Vector3)const//Overloaded is equals operation for Matrix3x3.
 {
 	return bool(//Checks to see if every axis in the Matrix3x3 is equal to the argument vector and returns true if they are all equal.
-		vXAxis == a_c_vVector3 &&
-		vYAxis == a_c_vVector3 &&
-		vZAxis == a_c_vVector3);
+		vXAxis == a_c_v3Vector3 &&
+		vYAxis == a_c_v3Vector3 &&
+		vZAxis == a_c_v3Vector3);
 }
 
-bool Matrix3x3::operator==(const Matrix3x3 &a_c_mMatrix3x3)const//Overloaded is equals operation for Matrix3x3.
+bool Matrix3x3::operator==(const Matrix3x3 &a_c_fm3Matrix3x3)const//Overloaded is equals operation for Matrix3x3.
 {
 	return bool(// Checks each element in the Matrix3x3 against the passed in Matrix3x3 and if all elements are the same return true.
-		fm_00 == a_c_mMatrix3x3.fm_00 && fm_01 == a_c_mMatrix3x3.fm_01 && fm_02 == a_c_mMatrix3x3.fm_02 &&
-		fm_10 == a_c_mMatrix3x3.fm_10 && fm_11 == a_c_mMatrix3x3.fm_11 && fm_12 == a_c_mMatrix3x3.fm_12 &&
-		fm_20 == a_c_mMatrix3x3.fm_20 && fm_21 == a_c_mMatrix3x3.fm_21 && fm_22 == a_c_mMatrix3x3.fm_22);
+		fm_00 == a_c_fm3Matrix3x3.fm_00 && fm_01 == a_c_fm3Matrix3x3.fm_01 && fm_02 == a_c_fm3Matrix3x3.fm_02 &&
+		fm_10 == a_c_fm3Matrix3x3.fm_10 && fm_11 == a_c_fm3Matrix3x3.fm_11 && fm_12 == a_c_fm3Matrix3x3.fm_12 &&
+		fm_20 == a_c_fm3Matrix3x3.fm_20 && fm_21 == a_c_fm3Matrix3x3.fm_21 && fm_22 == a_c_fm3Matrix3x3.fm_22);
 }
 
 //\===========================================================================================

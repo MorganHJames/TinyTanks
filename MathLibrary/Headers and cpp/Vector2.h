@@ -5,8 +5,8 @@
 //\ Brief: Contains the Vector2 class declarations.
 //\===========================================================================================
 
-#ifndef _Vector2_H_
-#define _Vector2_H_
+#ifndef _VECTOR2_H_
+#define _VECTOR2_H_
 
 //\===========================================================================================
 //\ Author: Morgan James
@@ -45,7 +45,7 @@ public:
 
 	Vector2();//A default constructor that initialises X and Y to 0.
 
-	Vector2(const Vector2 &a_c_vVector2);//Copy constructor.
+	Vector2(const Vector2 &a_c_v2Vector2);//Copy constructor.
 
 	Vector2(const float a_c_fX, float a_c_fY);//Constructor.
 
@@ -73,19 +73,19 @@ public:
 
 	Vector2 operator+(const float &a_c_fScalar)const;//Overloaded addition operation for Vector2.
 
-	Vector2 operator+(const Vector2 &a_c_vVector2)const;//Overloaded addition operation for Vector2.
+	Vector2 operator+(const Vector2 &a_c_v2Vector2)const;//Overloaded addition operation for Vector2.
 
 	Vector2 operator-(const float &a_c_fScalar)const;//Overloaded subtraction operation for Vector2.
 
-	Vector2 operator-(const Vector2 &a_c_vVector2)const;//Overloaded subtraction operation for Vector2.
+	Vector2 operator-(const Vector2 &a_c_v2Vector2)const;//Overloaded subtraction operation for Vector2.
 
 	Vector2 operator*(const float &a_c_fScalar)const;//Overloaded multiplication operation for Vector2.
 
-	Vector2 operator*(const Vector2 &a_c_vVector2)const;//Overloaded multiplication operation for Vector2.
+	Vector2 operator*(const Vector2 &a_c_v2Vector2)const;//Overloaded multiplication operation for Vector2.
 
 	Vector2 operator/(const float &a_c_fScalar)const;//Overloaded division operation for Vector2.
 
-	Vector2 operator/(const Vector2 &a_c_vVector2)const;//Overloaded division operation for Vector2.
+	Vector2 operator/(const Vector2 &a_c_v2Vector2)const;//Overloaded division operation for Vector2.
 
 	//\===========================================================================================
 	//\ Assignment Operation Overloads
@@ -93,23 +93,23 @@ public:
 
 	Vector2 operator+=(const float &a_c_fScalar);//Overloaded plus equals operation for Vector2.
 
-	Vector2 operator+=(const Vector2 &a_c_vVector2);//Overloaded plus equals operation for Vector2.
+	Vector2 operator+=(const Vector2 &a_c_v2Vector2);//Overloaded plus equals operation for Vector2.
 
 	Vector2 operator-=(const float &a_c_fScalar);//Overloaded decrease equals operation for Vector2.
 
-	Vector2 operator-=(const Vector2 &a_c_vVector2);//Overloaded decrease equals operation for Vector2.
+	Vector2 operator-=(const Vector2 &a_c_v2Vector2);//Overloaded decrease equals operation for Vector2.
 
 	Vector2 operator=(const float &a_c_fScalar);//Overloaded equals operation for Vector2.
 
-	Vector2 operator=(const Vector2 &a_c_vVector2);//Overloaded equals operation for Vector2.
+	Vector2 operator=(const Vector2 &a_c_v2Vector2);//Overloaded equals operation for Vector2.
 	
 	Vector2 operator*=(const float &a_c_fScalar);//Overloaded times equals operation for Vector2.
 	
-	Vector2 operator*=(const Vector2 &a_c_vVector2);//Overloaded times equals operation for Vector2.
+	Vector2 operator*=(const Vector2 &a_c_v2Vector2);//Overloaded times equals operation for Vector2.
 
 	Vector2 operator/=(const float &a_c_fScalar);//Overloaded divide equals operation for Vector2.
 
-	Vector2 operator/=(const Vector2 &a_c_vVector2);//Overloaded divide equals operation for Vector2.
+	Vector2 operator/=(const Vector2 &a_c_v2Vector2);//Overloaded divide equals operation for Vector2.
 	
 	//\===========================================================================================
 	//\ Relational Operation Overloads
@@ -117,11 +117,11 @@ public:
 
 	bool operator!=(const float &a_c_fScalar)const;//Overloaded not equals operation for Vector2.
 
-	bool operator!=(const Vector2 &a_c_vVector2)const;//Overloaded not equals operation for Vector2.
+	bool operator!=(const Vector2 &a_c_v2Vector2)const;//Overloaded not equals operation for Vector2.
 
 	bool operator==(const float &a_c_fScalar)const;//Overloaded is equals operation for Vector2.
 
-	bool operator==(const Vector2 &a_c_vVector2)const;//Overloaded is equals operation for Vector2.
+	bool operator==(const Vector2 &a_c_v2Vector2)const;//Overloaded is equals operation for Vector2.
 
 	//\===========================================================================================
 	//\ Magnitude
@@ -139,25 +139,25 @@ public:
 	//\ Distance Between this Vector2 and another Vector2
 	//\===========================================================================================
 
-	float distance(const Vector2 &a_c_vVector2)const;//Returns the distance from this Vector2 and the passed in argument.
+	float distance(const Vector2 &a_c_v2Vector2)const;//Returns the distance from this Vector2 and the passed in argument.
 
 	//\===========================================================================================
 	//\ Squared Distance Between this Vector2 and another Vector2
 	//\===========================================================================================
 
-	float squaredDistance(const Vector2 &a_c_vVector2)const;//Returns the squared distance from this Vector2 and the passed in argument.
+	float squaredDistance(const Vector2 &a_c_v2Vector2)const;//Returns the squared distance from this Vector2 and the passed in argument.
 
 	//\===========================================================================================
 	//\ Dot Product
 	//\===========================================================================================
 
-	float dotProduct(const Vector2 &a_c_vVector2)const;//A dot product function that takes in a Vector2.
+	float dotProduct(const Vector2 &a_c_v2Vector2)const;//A dot product function that takes in a Vector2.
 
 	//\===========================================================================================
 	//\ Cross Product
 	//\===========================================================================================
 
-	float crossProduct(const Vector2 &a_c_vVector2)const;//A dot product function that takes in a Vector2.
+	float crossProduct(const Vector2 &a_c_v2Vector2)const;//A dot product function that takes in a Vector2.
 
 	//\===========================================================================================
 	//\ Perpendicular

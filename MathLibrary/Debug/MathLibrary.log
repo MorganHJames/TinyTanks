@@ -1,6 +1,8 @@
 ﻿  Vector4.cpp
   Vector3.cpp
   Vector2.cpp
+  Matrix4x4.cpp
   Matrix3x3.cpp
+  MathUtil.cpp
   Generating Code...
   MathLibrary.vcxproj -> D:\unishit\CT4019 Programming and Mathematics for Games (Sem1-2 - 201617)\semester 2\Tiny Tanks\MathLibrary\.\Debug\MathLibrary.lib

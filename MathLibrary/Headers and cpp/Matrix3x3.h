@@ -60,7 +60,7 @@ public:
 
 	Matrix3x3();//The Default constructor for a Matrix3x3 that initialises everything to 0.
 
-	Matrix3x3(const Matrix3x3 &a_c_mMatrix3x3);//Copy constructor.
+	Matrix3x3(const Matrix3x3 &a_c_fm3Matrix3x3);//Copy constructor.
 
 	Matrix3x3(const float a_c_fmMatrix[3][3]);//Constructor for a Matrix3x3 that is made from two arrays of three.
 
@@ -112,17 +112,17 @@ public:
 
 	void setiMatrix(const int &a_c_iPosition, float &a_c_fNewNumber);//A setter to change the float in the matrix at the position of the argument passed in.
 
-	void setXAxis(const Vector3 &a_c_vVector3);//A setter to change the vXAxis of matrix3x3 to the Vector3 argument.
+	void setXAxis(const Vector3 &a_c_v3Vector3);//A setter to change the vXAxis of matrix3x3 to the Vector3 argument.
 
-	void setYAxis(const Vector3 &a_c_vVector3);//A setter to change the vYAxis of matrix3x3 to the Vector3 argument.
+	void setYAxis(const Vector3 &a_c_v3Vector3);//A setter to change the vYAxis of matrix3x3 to the Vector3 argument.
 
-	void setZAxis(const Vector3 &a_c_vVector3);//A setter to change the vZAxis of matrix3x3 to the Vector3 argument.
+	void setZAxis(const Vector3 &a_c_v3Vector3);//A setter to change the vZAxis of matrix3x3 to the Vector3 argument.
 
-	void setTranslation(const Vector3 &a_c_vVector3);//A setter to change the vTranslation of matrix3x3 to the vTranslation argument.
+	void setTranslation(const Vector3 &a_c_v3Vector3);//A setter to change the vTranslation of matrix3x3 to the vTranslation argument.
 
-	void setColumn(const int &a_c_iCol, Vector3 &a_c_vVector3);//A setter for the column specified by the argument a_c_iCol.
+	void setColumn(const int &a_c_iCol, Vector3 &a_c_v3Vector3);//A setter for the column specified by the argument a_c_iCol.
 
-	void setRow(const int &a_c_iRow, Vector3 &a_c_vVector3);//A setter for the row specified by the argument a_c_iRow.
+	void setRow(const int &a_c_iRow, Vector3 &a_c_v3Vector3);//A setter for the row specified by the argument a_c_iRow.
 
 	//\===========================================================================================
 	//\ Arithmetic Operation Overloads
@@ -130,27 +130,27 @@ public:
 
 	Matrix3x3 operator+(const float &a_c_fScalar)const;//Overloaded addition operation for Matrix3x3.
 
-	Matrix3x3 operator+(const Vector3 &a_c_vVector3)const;//Overloaded addition operation for Matrix3x3.
+	Matrix3x3 operator+(const Vector3 &a_c_v3Vector3)const;//Overloaded addition operation for Matrix3x3.
 
-	Matrix3x3 operator+(const Matrix3x3 &a_c_mMatrix3x3)const;//Overloaded addition operation for Matrix3x3.
+	Matrix3x3 operator+(const Matrix3x3 &a_c_fm3Matrix3x3)const;//Overloaded addition operation for Matrix3x3.
 
 	Matrix3x3 operator-(const float &a_c_fScalar)const;//Overloaded subtraction operation for Matrix3x3.
 
-	Matrix3x3 operator-(const Vector3 &a_c_vVector3)const;//Overloaded subtraction operation for Matrix3x3.
+	Matrix3x3 operator-(const Vector3 &a_c_v3Vector3)const;//Overloaded subtraction operation for Matrix3x3.
 
-	Matrix3x3 operator-(const Matrix3x3 &a_c_mMatrix3x3)const;//Overloaded subtraction operation for Matrix3x3.
+	Matrix3x3 operator-(const Matrix3x3 &a_c_fm3Matrix3x3)const;//Overloaded subtraction operation for Matrix3x3.
 
 	Matrix3x3 operator*(const float &a_c_fScalar)const;//Overloaded multiplication operation for Matrix3x3.
 
-	Vector3 operator*(const Vector3 &a_c_vVector3)const;//Overloaded multiplication operation for Matrix3x3.
+	Vector3 operator*(const Vector3 &a_c_v3Vector3)const;//Overloaded multiplication operation for Matrix3x3.
 
-	Matrix3x3 operator*(const Matrix3x3 &a_c_mMatrix3x3)const;//Overloaded multiplication operation for Matrix3x3.
+	Matrix3x3 operator*(const Matrix3x3 &a_c_fm3Matrix3x3)const;//Overloaded multiplication operation for Matrix3x3.
 
 	Matrix3x3 operator/(const float &a_c_fScalar)const;//Overloaded division operation for Matrix3x3.
 
-	Vector3 operator/(const Vector3 &a_c_vVector3)const;//Overloaded division operation for Matrix3x3.
+	Vector3 operator/(const Vector3 &a_c_v3Vector3)const;//Overloaded division operation for Matrix3x3.
 
-	Matrix3x3 operator/(const Matrix3x3 &a_c_mMatrix3x3)const;//Overloaded division operation for Matrix3x3.
+	Matrix3x3 operator/(const Matrix3x3 &a_c_fm3Matrix3x3)const;//Overloaded division operation for Matrix3x3.
 
 	//\===========================================================================================
 	//\ Assignment Operation Overloads
@@ -158,33 +158,33 @@ public:
 
 	Matrix3x3 operator+=(const float &a_c_fScalar);//Overloaded times equals operation for Matrix3x3.
 
-	Matrix3x3 operator+=(const Vector3 &a_c_vVector3);//Overloaded times equals operation for Matrix3x3.
+	Matrix3x3 operator+=(const Vector3 &a_c_v3Vector3);//Overloaded times equals operation for Matrix3x3.
 
-	Matrix3x3 operator+=(const Matrix3x3 &a_c_mMatrix3x3);//Overloaded times equals operation for Matrix3x3.
+	Matrix3x3 operator+=(const Matrix3x3 &a_c_fm3Matrix3x3);//Overloaded times equals operation for Matrix3x3.
 
 	Matrix3x3 operator-=(const float &a_c_fScalar);//Overloaded times equals operation for Matrix3x3.
 
-	Matrix3x3 operator-=(const Vector3 &a_c_vVector3);//Overloaded times equals operation for Matrix3x3.
+	Matrix3x3 operator-=(const Vector3 &a_c_v3Vector3);//Overloaded times equals operation for Matrix3x3.
 
-	Matrix3x3 operator-=(const Matrix3x3 &a_c_mMatrix3x3);//Overloaded times equals operation for Matrix3x3.
+	Matrix3x3 operator-=(const Matrix3x3 &a_c_fm3Matrix3x3);//Overloaded times equals operation for Matrix3x3.
 
 	Matrix3x3 operator=(const float &a_c_fScalar);//Overloaded equals operation for Matrix3x3.
 
-	Matrix3x3 operator=(const Vector3 &a_c_vVector3);//Overloaded equals operation for Matrix3x3.
+	Matrix3x3 operator=(const Vector3 &a_c_v3Vector3);//Overloaded equals operation for Matrix3x3.
 
-	Matrix3x3 operator=(const Matrix3x3 &a_c_mMatrix3x3);//Overloaded equals operation for Matrix3x3.
+	Matrix3x3 operator=(const Matrix3x3 &a_c_fm3Matrix3x3);//Overloaded equals operation for Matrix3x3.
 
 	Matrix3x3 operator*=(const float &a_c_fScalar);//Overloaded times equals operation for Matrix3x3.
 
-	Matrix3x3 operator*=(const Vector3 &a_c_vVector3);//Overloaded times equals operation for Matrix3x3.
+	Matrix3x3 operator*=(const Vector3 &a_c_v3Vector3);//Overloaded times equals operation for Matrix3x3.
 	
-	Matrix3x3 operator*=(const Matrix3x3 &a_c_mMatrix3x3);//Overloaded times equals operation for Matrix3x3.
+	Matrix3x3 operator*=(const Matrix3x3 &a_c_fm3Matrix3x3);//Overloaded times equals operation for Matrix3x3.
 
 	Matrix3x3 operator/=(const float &a_c_fScalar);//Overloaded times equals operation for Matrix3x3.
 
-	Matrix3x3 operator/=(const Vector3 &a_c_vVector3);//Overloaded times equals operation for Matrix3x3.
+	Matrix3x3 operator/=(const Vector3 &a_c_v3Vector3);//Overloaded times equals operation for Matrix3x3.
 
-	Matrix3x3 operator/=(const Matrix3x3 &a_c_mMatrix3x3);//Overloaded times equals operation for Matrix3x3.
+	Matrix3x3 operator/=(const Matrix3x3 &a_c_fm3Matrix3x3);//Overloaded times equals operation for Matrix3x3.
 
 	//\===========================================================================================
 	//\ Relational Operation Overloads
@@ -192,15 +192,15 @@ public:
 
 	bool operator!=(const float &a_c_fScalar)const;//Overloaded not equals operation for Matrix3x3.
 
-	bool operator!=(const Vector3 &a_c_vVector3)const;//Overloaded not equals operation for Matrix3x3.
+	bool operator!=(const Vector3 &a_c_v3Vector3)const;//Overloaded not equals operation for Matrix3x3.
 
-	bool operator!=(const Matrix3x3 &a_c_mMatrix3x3)const;//Overloaded not equals operation for Matrix3x3.
+	bool operator!=(const Matrix3x3 &a_c_fm3Matrix3x3)const;//Overloaded not equals operation for Matrix3x3.
 
 	bool operator==(const float &a_c_fScalar)const;//Overloaded is equals operation for Matrix3x3.
 
-	bool operator==(const Vector3 &a_c_vVector3)const;//Overloaded is equals operation for Matrix3x3.
+	bool operator==(const Vector3 &a_c_v3Vector3)const;//Overloaded is equals operation for Matrix3x3.
 
-	bool operator==(const Matrix3x3 &a_c_mMatrix3x3)const;//Overloaded is equals operation for Matrix3x3.
+	bool operator==(const Matrix3x3 &a_c_fm3Matrix3x3)const;//Overloaded is equals operation for Matrix3x3.
 
 	//\===========================================================================================
 	//\ Rotate Around Euler Axis

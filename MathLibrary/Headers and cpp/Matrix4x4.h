@@ -66,7 +66,7 @@ public:
 
 	Matrix4x4();//The Default constructor for a Matrix4x4 that initialises everything to 0.
 
-	Matrix4x4(const Matrix4x4 &a_c_mMatrix4x4);//Copy constructor.
+	Matrix4x4(const Matrix4x4 &a_c_fm4Matrix4x4);//Copy constructor.
 
 	Matrix4x4(const float a_c_fmMatrix[4][4]);//Constructor for a Matrix4x4 that is made from two arrays of four.
 
@@ -96,7 +96,7 @@ public:
 		Vector4  a_c_vZAxis,
 		Vector4  a_c_vWAxis);
 
-	Matrix4x4(const Matrix3x3 a_c_mMatrix3x3);//Constructor to make a Matrix4x4 from a Matrix3x3.
+	Matrix4x4(const Matrix3x3 a_c_fm3Matrix3x3);//Constructor to make a Matrix4x4 from a Matrix3x3.
 
 	//\===========================================================================================
 	//\ Getters
@@ -130,19 +130,19 @@ public:
 
 	void setiMatrix(const int &a_c_iPosition, float &a_c_fNewNumber);//A setter to change the float in the matrix at the position of the argument passed in.
 
-	void setXAxis(const Vector4 &a_c_vVector4);//A setter to change the vXAxis of Matrix4x4 to the Vector4 argument.
+	void setXAxis(const Vector4 &a_c_v4Vector4);//A setter to change the vXAxis of Matrix4x4 to the Vector4 argument.
 
-	void setYAxis(const Vector4 &a_c_vVector4);//A setter to change the vYAxis of Matrix4x4 to the Vector4 argument.
+	void setYAxis(const Vector4 &a_c_v4Vector4);//A setter to change the vYAxis of Matrix4x4 to the Vector4 argument.
 
-	void setZAxis(const Vector4 &a_c_vVector4);//A setter to change the vZAxis of Matrix4x4 to the Vector4 argument.
+	void setZAxis(const Vector4 &a_c_v4Vector4);//A setter to change the vZAxis of Matrix4x4 to the Vector4 argument.
 	
-	void setWAxis(const Vector4 &a_c_vVector4);//A setter to change the vWAxis of Matrix4x4 to the Vector4 argument.
+	void setWAxis(const Vector4 &a_c_v4Vector4);//A setter to change the vWAxis of Matrix4x4 to the Vector4 argument.
 
-	void setTranslation(const Vector4 &a_c_vVector4);//A setter to change the vTranslation of Matrix4x4 to the vTranslation argument.
+	void setTranslation(const Vector4 &a_c_v4Vector4);//A setter to change the vTranslation of Matrix4x4 to the vTranslation argument.
 
-	void setColumn(const int &a_c_iCol, Vector4 &a_c_vVector4);//A setter for the column specified by the argument a_c_iCol.
+	void setColumn(const int &a_c_iCol, Vector4 &a_c_v4Vector4);//A setter for the column specified by the argument a_c_iCol.
 
-	void setRow(const int &a_c_iRow, Vector4 &a_c_vVector4);//A setter for the row specified by the argument a_c_iRow.
+	void setRow(const int &a_c_iRow, Vector4 &a_c_v4Vector4);//A setter for the row specified by the argument a_c_iRow.
 
 	//\===========================================================================================
 	//\ Arithmetic Operation Overloads
@@ -150,27 +150,27 @@ public:
 
 	Matrix4x4 operator+(const float &a_c_fScalar)const;//Overloaded addition operation for Matrix4x4.
 
-	Matrix4x4 operator+(const Vector3 &a_c_vVector3)const;//Overloaded addition operation for Matrix4x4.
+	Matrix4x4 operator+(const Vector3 &a_c_v3Vector3)const;//Overloaded addition operation for Matrix4x4.
 
-	Matrix4x4 operator+(const Matrix4x4 &a_c_mMatrix4x4)const;//Overloaded addition operation for Matrix4x4.
+	Matrix4x4 operator+(const Matrix4x4 &a_c_fm4Matrix4x4)const;//Overloaded addition operation for Matrix4x4.
 
 	Matrix4x4 operator-(const float &a_c_fScalar)const;//Overloaded subtraction operation for Matrix4x4.
 
-	Matrix4x4 operator-(const Vector3 &a_c_vVector3)const;//Overloaded subtraction operation for Matrix4x4.
+	Matrix4x4 operator-(const Vector3 &a_c_v3Vector3)const;//Overloaded subtraction operation for Matrix4x4.
 
-	Matrix4x4 operator-(const Matrix4x4 &a_c_mMatrix4x4)const;//Overloaded subtraction operation for Matrix4x4.
+	Matrix4x4 operator-(const Matrix4x4 &a_c_fm4Matrix4x4)const;//Overloaded subtraction operation for Matrix4x4.
 
 	Matrix4x4 operator*(const float &a_c_fScalar)const;//Overloaded multiplication operation for Matrix4x4.
 
-	Vector4 operator*(const Vector3 &a_c_vVector3)const;//Overloaded multiplication operation for Matrix4x4.
+	Vector4 operator*(const Vector3 &a_c_v3Vector3)const;//Overloaded multiplication operation for Matrix4x4.
 
-	Matrix4x4 operator*(const Matrix4x4 &a_c_mMatrix4x4)const;//Overloaded multiplication operation for Matrix4x4.
+	Matrix4x4 operator*(const Matrix4x4 &a_c_fm4Matrix4x4)const;//Overloaded multiplication operation for Matrix4x4.
 
 	Matrix4x4 operator/(const float &a_c_fScalar)const;//Overloaded division operation for Matrix4x4.
 
-	Vector4 operator/(const Vector3 &a_c_vVector3)const;//Overloaded division operation for Matrix4x4.
+	Vector4 operator/(const Vector3 &a_c_v3Vector3)const;//Overloaded division operation for Matrix4x4.
 
-	Matrix4x4 operator/(const Matrix4x4 &a_c_mMatrix4x4)const;//Overloaded division operation for Matrix4x4.
+	Matrix4x4 operator/(const Matrix4x4 &a_c_fm4Matrix4x4)const;//Overloaded division operation for Matrix4x4.
 
 	//\===========================================================================================
 	//\ Assignment Operation Overloads
@@ -178,35 +178,35 @@ public:
 	
 	Matrix4x4 operator+=(const float &a_c_fScalar);//Overloaded times equals operation for Matrix4x4.
 
-	Matrix4x4 operator+=(const Vector3 &a_c_vVector3);//Overloaded times equals operation for Matrix4x4.
+	Matrix4x4 operator+=(const Vector3 &a_c_v3Vector3);//Overloaded times equals operation for Matrix4x4.
 
-	Matrix4x4 operator+=(const Matrix4x4 &a_c_mMatrix4x4);//Overloaded times equals operation for Matrix4x4.
+	Matrix4x4 operator+=(const Matrix4x4 &a_c_fm4Matrix4x4);//Overloaded times equals operation for Matrix4x4.
 
 	Matrix4x4 operator-=(const float &a_c_fScalar);//Overloaded times equals operation for Matrix4x4.
 
-	Matrix4x4 operator-=(const Vector3 &a_c_vVector3);//Overloaded times equals operation for Matrix4x4.
+	Matrix4x4 operator-=(const Vector3 &a_c_v3Vector3);//Overloaded times equals operation for Matrix4x4.
 
-	Matrix4x4 operator-=(const Matrix4x4 &a_c_mMatrix4x4);//Overloaded times equals operation for Matrix4x4.
+	Matrix4x4 operator-=(const Matrix4x4 &a_c_fm4Matrix4x4);//Overloaded times equals operation for Matrix4x4.
 
 	Matrix4x4 operator=(const float &a_c_fScalar);//Overloaded equals operation for Matrix4x4.
 
-	Matrix4x4 operator=(const Vector3 &a_c_vVector3);//Overloaded equals operation for Matrix4x4.
+	Matrix4x4 operator=(const Vector3 &a_c_v3Vector3);//Overloaded equals operation for Matrix4x4.
 
-	Matrix4x4 operator=(const Vector4 &a_c_vVector4);//Overloaded equals operation for Matrix4x4.
+	Matrix4x4 operator=(const Vector4 &a_c_v4Vector4);//Overloaded equals operation for Matrix4x4.
 
-	Matrix4x4 operator=(const Matrix4x4 &a_c_mMatrix4x4);//Overloaded equals operation for Matrix4x4.
+	Matrix4x4 operator=(const Matrix4x4 &a_c_fm4Matrix4x4);//Overloaded equals operation for Matrix4x4.
 
 	Matrix4x4 operator*=(const float &a_c_fScalar);//Overloaded times equals operation for Matrix4x4.
 
-	Matrix4x4 operator*=(const Vector3 &a_c_vVector3);//Overloaded times equals operation for Matrix4x4.
+	Matrix4x4 operator*=(const Vector3 &a_c_v3Vector3);//Overloaded times equals operation for Matrix4x4.
 
-	Matrix4x4 operator*=(const Matrix4x4 &a_c_mMatrix4x4);//Overloaded times equals operation for Matrix4x4.
+	Matrix4x4 operator*=(const Matrix4x4 &a_c_fm4Matrix4x4);//Overloaded times equals operation for Matrix4x4.
 
 	Matrix4x4 operator/=(const float &a_c_fScalar);//Overloaded times equals operation for Matrix4x4.
 
-	Matrix4x4 operator/=(const Vector3 &a_c_vVector3);//Overloaded times equals operation for Matrix4x4.
+	Matrix4x4 operator/=(const Vector3 &a_c_v3Vector3);//Overloaded times equals operation for Matrix4x4.
 
-	Matrix4x4 operator/=(const Matrix4x4 &a_c_mMatrix4x4);//Overloaded times equals operation for Matrix4x4.
+	Matrix4x4 operator/=(const Matrix4x4 &a_c_fm4Matrix4x4);//Overloaded times equals operation for Matrix4x4.
 
 	//\===========================================================================================
 	//\ Relational Operation Overloads
@@ -214,15 +214,15 @@ public:
 
 	bool operator!=(const float &a_c_fScalar)const;//Overloaded not equals operation for Matrix4x4.
 
-	bool operator!=(const Vector3 &a_c_vVector3)const;//Overloaded not equals operation for Matrix4x4.
+	bool operator!=(const Vector3 &a_c_v3Vector3)const;//Overloaded not equals operation for Matrix4x4.
 
-	bool operator!=(const Matrix4x4 &a_c_mMatrix4x4)const;//Overloaded not equals operation for Matrix4x4.
+	bool operator!=(const Matrix4x4 &a_c_fm4Matrix4x4)const;//Overloaded not equals operation for Matrix4x4.
 
 	bool operator==(const float &a_c_fScalar)const;//Overloaded is equals operation for Matrix4x4.
 
-	bool operator==(const Vector3 &a_c_vVector3)const;//Overloaded is equals operation for Matrix4x4.
+	bool operator==(const Vector3 &a_c_v3Vector3)const;//Overloaded is equals operation for Matrix4x4.
 
-	bool operator==(const Matrix4x4 &a_c_mMatrix4x4)const;//Overloaded is equals operation for Matrix4x4.
+	bool operator==(const Matrix4x4 &a_c_fm4Matrix4x4)const;//Overloaded is equals operation for Matrix4x4.
 
 	//\===========================================================================================
 	//\ Rotate Around Euler Axis

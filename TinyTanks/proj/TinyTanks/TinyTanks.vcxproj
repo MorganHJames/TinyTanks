@@ -89,7 +89,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>D:\unishit\CT4019 Programming and Mathematics for Games %28Sem1-2 - 201617%29\semester 2\Tiny Tanks\MathLibrary\Headers and cpp;D:\unishit\CT4019 Programming and Mathematics for Games %28Sem1-2 - 201617%29\semester 2\Tiny Tanks\TinyTanks\deps\UoG\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\unishit\CT4019 Programming and Mathematics for Games %28Sem1-2 - 201617%29\semester 2\Tiny Tanks\TinyTanks\include;D:\unishit\CT4019 Programming and Mathematics for Games %28Sem1-2 - 201617%29\semester 2\Tiny Tanks\MathLibrary\Headers and cpp;D:\unishit\CT4019 Programming and Mathematics for Games %28Sem1-2 - 201617%29\semester 2\Tiny Tanks\TinyTanks\deps\UoG\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -149,6 +149,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\include\Game.cpp" />
+    <ClCompile Include="..\..\include\Node.cpp" />
+    <ClCompile Include="..\..\include\Sprite.cpp" />
+    <ClCompile Include="..\..\include\Tank.cpp" />
     <ClCompile Include="..\..\source\main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -158,8 +162,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\Game.h" />
-    <ClInclude Include="..\..\include\Object.h" />
-    <ClInclude Include="..\..\include\Player.h" />
+    <ClInclude Include="..\..\include\GameStates.h" />
+    <ClInclude Include="..\..\include\Node.h" />
+    <ClInclude Include="..\..\include\Sprite.h" />
     <ClInclude Include="..\..\include\Tank.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

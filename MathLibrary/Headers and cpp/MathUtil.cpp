@@ -93,10 +93,10 @@ checkCollision(GameObject &one, GameObject &two) // AABB - AABB collision
 //\ Smootherstep
 //\===========================================================================================
 
-Vector3 vectorTimesMatrix3x3(const Vector3 &a_c_vVector3, const Matrix3x3 &a_c_mMatrix3x3)//Multiplication for a vector times a matrix as introducing this as an overload would cause circular dependency.
+Vector3 vectorTimesMatrix3x3(const Vector3 &a_c_v3Vector3, const Matrix3x3 &a_c_fm3Matrix3x3)//Multiplication for a vector times a matrix as introducing this as an overload would cause circular dependency.
 {
 	return Vector3(//Returns the multiplied Vector3.
-		a_c_vVector3.getfX() * a_c_mMatrix3x3.getiMatrix(1) + a_c_vVector3.getfY() * a_c_mMatrix3x3.getiMatrix(4) + a_c_vVector3.getfZ() * a_c_mMatrix3x3.getiMatrix(7),//Dot product for the only row of the Vector3 and the first row of the Matrix3x3.
-		a_c_vVector3.getfX() * a_c_mMatrix3x3.getiMatrix(2) + a_c_vVector3.getfY() * a_c_mMatrix3x3.getiMatrix(5) + a_c_vVector3.getfZ() * a_c_mMatrix3x3.getiMatrix(8),//Dot product for the only row of the Vector3 and the second row of the Matrix3x3.
-		a_c_vVector3.getfX() * a_c_mMatrix3x3.getiMatrix(3) + a_c_vVector3.getfY() * a_c_mMatrix3x3.getiMatrix(6) + a_c_vVector3.getfZ() * a_c_mMatrix3x3.getiMatrix(9));//Dot product for the only row of the Vector3 and the third row of the Matrix3x3.
+		a_c_v3Vector3.getfX() * a_c_fm3Matrix3x3.getiMatrix(1) + a_c_v3Vector3.getfY() * a_c_fm3Matrix3x3.getiMatrix(4) + a_c_v3Vector3.getfZ() * a_c_fm3Matrix3x3.getiMatrix(7),//Dot product for the only row of the Vector3 and the first row of the Matrix3x3.
+		a_c_v3Vector3.getfX() * a_c_fm3Matrix3x3.getiMatrix(2) + a_c_v3Vector3.getfY() * a_c_fm3Matrix3x3.getiMatrix(5) + a_c_v3Vector3.getfZ() * a_c_fm3Matrix3x3.getiMatrix(8),//Dot product for the only row of the Vector3 and the second row of the Matrix3x3.
+		a_c_v3Vector3.getfX() * a_c_fm3Matrix3x3.getiMatrix(3) + a_c_v3Vector3.getfY() * a_c_fm3Matrix3x3.getiMatrix(6) + a_c_v3Vector3.getfZ() * a_c_fm3Matrix3x3.getiMatrix(9));//Dot product for the only row of the Vector3 and the third row of the Matrix3x3.
 }
