@@ -62,6 +62,8 @@ Tank::Tank(const Vector2 a_c_v2Position, int a_c_iScreenWidth, int a_c_iScreenHe
 void Tank::tankMovement(float a_fDeltaTime)
 {
 	float dt = a_fDeltaTime;
+	sTank->Update();
+	sTurret->Update();
 	float xPos = 0; float yPos = 0;
 
 	//Create a vector to store our movement
@@ -122,6 +124,4 @@ void Tank::tankMovement(float a_fDeltaTime)
 		sTank->MoveSprite(movementVector);
 	}
 
-	sTank->Update(dt);
-	sTurret->Update(dt);
 }

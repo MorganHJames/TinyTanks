@@ -45,7 +45,7 @@ void Sprite::SetLayer(unsigned int a_uiLayer)
 //\ Update Sprites Data Each Frame
 //\===========================================================================================
 
-void Sprite::Update(float a_fdt)
+void Sprite::Update()
 {
 	//OpenGL which is the underlying rendering pipeline that is being used by the framework
 	//draws all components using a 4x4 matrix to represent their world coordinates, here I am constructing that matrix

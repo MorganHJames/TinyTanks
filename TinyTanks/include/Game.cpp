@@ -17,14 +17,14 @@
 
 Game::Game(int a_c_iWidth, int a_c_iHeight)
 {
-	if (UG::Create(a_c_iWidth, a_c_iHeight, false, "Matrix Demo", 100, 100))
+	if (UG::Create(a_c_iWidth, a_c_iHeight, false, "Tiny Tanks", 100, 100))
 	{
 		//Initialization
 		UG::GetScreenSize(iScreenWidth, iScreenHeight);
 		UG::SetBackgroundColor(UG::SColour(0x2A, 0x57, 0x66, 0xFF));
 		UG::AddFont("./fonts/invaders.fnt");
-		UG::SetFont("./fonts/invaders.fnt");
 
+		UG::SetFont("./fonts/invaders.fnt");
 
 		Tank player(Vector2(0.5f, 0.5f), 87, 83, 65, 68, 69, 81, iScreenWidth, iScreenHeight);
 		Tank Enemy1(Vector2(0.8f, 0.8f), iScreenWidth, iScreenHeight);
@@ -32,6 +32,7 @@ Game::Game(int a_c_iWidth, int a_c_iHeight)
 
 		//Defines the first state of play.
 		GameState currentState = SPLASH;
+
 
 		do
 		{
@@ -76,9 +77,7 @@ Game::Game(int a_c_iWidth, int a_c_iHeight)
 			case MENU:
 			{
 				currentState = GAMEPLAY;
-				Tank player(Vector2(0.5f, 0.5f), 87, 83, 65, 68, 69, 81, iScreenWidth, iScreenHeight);
-				Tank Enemy1(Vector2(0.8f, 0.8f), iScreenWidth, iScreenHeight);
-				Tank Enemy2(Vector2(0.3f, 0.3f), iScreenWidth, iScreenHeight);
+				
 				break;
 			}
 
@@ -87,6 +86,7 @@ Game::Game(int a_c_iWidth, int a_c_iHeight)
 				player.tankMovement(fDeltaTime);
 				Enemy1.tankMovement(fDeltaTime);
 				Enemy2.tankMovement(fDeltaTime);
+				
 				break;
 			}
 

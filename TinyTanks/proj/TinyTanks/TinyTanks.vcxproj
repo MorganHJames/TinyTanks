@@ -89,13 +89,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>D:\unishit\CT4019 Programming and Mathematics for Games %28Sem1-2 - 201617%29\semester 2\Tiny Tanks\TinyTanks\include;D:\unishit\CT4019 Programming and Mathematics for Games %28Sem1-2 - 201617%29\semester 2\Tiny Tanks\MathLibrary\Headers and cpp;D:\unishit\CT4019 Programming and Mathematics for Games %28Sem1-2 - 201617%29\semester 2\Tiny Tanks\TinyTanks\deps\UoG\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)../../TinyTanks\include;$(SolutionDir)../../MathLibrary\Headers and cpp;$(SolutionDir)../../TinyTanks\deps\UoG\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>MathLibrary.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\unishit\CT4019 Programming and Mathematics for Games %28Sem1-2 - 201617%29\semester 2\Tiny Tanks\MathLibrary\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>MathLibrary.lib;UG Basic Framework.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)../../MathLibrary\Debug;$(SolutionDir)../../TinyTanks\deps\UoG\lib\vs2015\Win32\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
