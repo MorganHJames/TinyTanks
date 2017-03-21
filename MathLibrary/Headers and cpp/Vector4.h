@@ -210,7 +210,7 @@ public:
 	//\ Special Points
 	//\===========================================================================================
 
-	static const Vector4 ZERO;
+	static const Vector4 ZERO;//A Vector4 equal to {0,0,0,0}.
 
 };
 

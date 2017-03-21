@@ -18,10 +18,10 @@ Vector4::Vector4() {}//Constructor default that sets all variables to 0.
 
 Vector4::Vector4(const Vector4 &a_c_v4Vector4)//Copy constructor.
 {
-	fX = a_c_v4Vector4.getfX();
-	fY = a_c_v4Vector4.getfY();
-	fZ = a_c_v4Vector4.getfZ();
-	fW = a_c_v4Vector4.getfW();
+	fX = a_c_v4Vector4.getfX();//Sets the x value of the Vector4 equal to the Vector4's x component that is passed in.
+	fY = a_c_v4Vector4.getfY();//Sets the y value of the Vector4 equal to the Vector4's y component that is passed in.
+	fZ = a_c_v4Vector4.getfZ();//Sets the z value of the Vector4 equal to the Vector4's z component that is passed in.
+	fW = a_c_v4Vector4.getfW();//Sets the w value of the Vector4 equal to the Vector4's w component that is passed in.
 }
 
 Vector4::Vector4(const float a_c_fX, float a_c_fY, float a_c_fZ, float a_c_fW) ://Constructor with four scalar values.
@@ -54,7 +54,7 @@ Vector4::Vector4(const Vector3 &a_c_v3Vector3, float a_c_fW) ://Constructor with
 
 const float* Vector4::getVector()const//Returns a pointer to the first element in the array.
 {
-	return (aVector4);
+	return (aVector4);//Returns a pointer to the first element in the array.
 }
 
 float Vector4::getfX()const//A getter to get the x part of Vector4.
@@ -400,11 +400,8 @@ Vector4 Vector4::unit()const//A function that returns a unit vector created from
 //\===========================================================================================
 
 void Vector4::setZero()//Makes each Vector4 element equal to 0. 
-{//Set each element in the Vector4 to zero.
-	fX = 0;
-	fY = 0;
-	fZ = 0;
-	fW = 0;
+{
+	*this = ZERO;//Set each element in the Vector4 to zero.
 }
 
 //\===========================================================================================
@@ -413,13 +410,11 @@ void Vector4::setZero()//Makes each Vector4 element equal to 0.
 
 Vector4 Vector4::zero()const//Returns a Vector4 zero matrix.
 {
-	Vector4 temp;
-	temp.setZero();
-	return Vector4(temp);
+	return Vector4(ZERO);//Returns the Vector4 equal to 0.
 }
 
 //\===========================================================================================
 //\ Special Points
 //\===========================================================================================
 
-const Vector4 Vector4::ZERO{ 0,0,0,0 };
+const Vector4 Vector4::ZERO{ 0,0,0,0 };//A Vector4 equal to {0,0,0,0}.

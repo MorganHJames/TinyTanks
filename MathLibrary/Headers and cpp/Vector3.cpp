@@ -1,4 +1,4 @@
-//\===========================================================================================
+ //\===========================================================================================
 //\ File: Vector3.cpp
 //\ Author: Morgan James
 //\ Date Created: 21/02/2017
@@ -18,9 +18,9 @@ Vector3::Vector3() {}//Constructor default that sets all variables to 0.
 
 Vector3::Vector3(const Vector3 &a_c_v3Vector3)//Copy constructor.
 {
-	fX = a_c_v3Vector3.getfX();
-	fY = a_c_v3Vector3.getfY();
-	fZ = a_c_v3Vector3.getfZ();
+	fX = a_c_v3Vector3.getfX();//Sets the x value of the Vector3 equal to the Vector3's x component that is passed in.
+	fY = a_c_v3Vector3.getfY();//Sets the y value of the Vector3 equal to the VeVector3ctor4's y component that is passed in.
+	fZ = a_c_v3Vector3.getfZ();//Sets the z value of the Vector3 equal to the Vector3's z component that is passed in.
 }
 
 Vector3::Vector3(float a_c_fX, float a_c_fY, float a_c_fZ) ://Constructor with three scalar values.
@@ -250,7 +250,7 @@ bool Vector3::operator==(const Vector3 &a_c_v3Vector3)const//Overloaded is equal
 
 Vector3 Vector3::inverse()const//Returns the inverse of this vector3.
 {
-	return(*this * -1);
+	return(*this * -1);//Returns Vector3 * -1.
 }
 
 //\===========================================================================================
@@ -367,8 +367,8 @@ Vector3 Vector3::unit()const//A function that returns a unit vector created from
 //\===========================================================================================
 
 void Vector3::setZero()//Makes each Vector3 element equal to 0. 
-{//Set each element in the Vector3 to zero.
-	*this = ZERO;
+{
+	*this = ZERO;//Set each element in the Vector3 to zero.
 }
 
 //\===========================================================================================
@@ -377,18 +377,18 @@ void Vector3::setZero()//Makes each Vector3 element equal to 0.
 
 Vector3 Vector3::zero()const//Returns a Vector3 zero matrix.
 {
-	return Vector3(ZERO);
+	return Vector3(ZERO);//Returns the Vector3 equal to 0.
 }
 
 //\===========================================================================================
 //\ Special Points
 //\===========================================================================================
 
-const Vector3 Vector3::ZERO{ 0,0,0 };
-const Vector3 Vector3::UNIT_X{ 1,0,0 };
-const Vector3 Vector3::UNIT_Y{ 0,1,0 };
-const Vector3 Vector3::UNIT_Z{ 0,0,1 };
-const Vector3 Vector3::NEGATIVE_UNIT_X{ -1,0,0 };
-const Vector3 Vector3::NEGATIVE_UNIT_Y{ 0,-1,0 };
-const Vector3 Vector3::NEGATIVE_UNIT_Z{ 0,0,-1 };
-const Vector3 Vector3::UNIT_SCALE{ 1,1,1 };
+const Vector3 Vector3::ZERO{ 0,0,0 };//A Vector3 equal to {0,0,0}.
+const Vector3 Vector3::UNIT_X{ 1,0,0 };//A Vector3 equal to {1,0,0}.
+const Vector3 Vector3::UNIT_Y{ 0,1,0 };//A Vector3 equal to {0,1,0}.
+const Vector3 Vector3::UNIT_Z{ 0,0,1 };//A Vector3 equal to {0,0,1}.
+const Vector3 Vector3::NEGATIVE_UNIT_X{ -1,0,0 };//A Vector3 equal to {-1,0,0}.
+const Vector3 Vector3::NEGATIVE_UNIT_Y{ 0,-1,0 };//A Vector3 equal to {0,-1,0}.
+const Vector3 Vector3::NEGATIVE_UNIT_Z{ 0,0,-1 };//A Vector3 equal to {0,0,-1}.
+const Vector3 Vector3::UNIT_SCALE{ 1,1,1 };//A Vector3 equal to {1,1,1}.

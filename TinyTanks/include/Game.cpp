@@ -53,10 +53,10 @@ Game::Game(int a_c_iWidth, int a_c_iHeight)
 			case SPLASH:
 			{
 				//Draws the string Tiny Tanks to the screen like a title.
-				UG::DrawString("Tiny Tanks", iScreenWidth*(int)0.0f, iScreenHeight * (int)0.6f, (3));
+				UG::DrawString("Tiny Tanks", (int)(iScreenWidth*0.0f), (int)(iScreenHeight * 0.6f), (1.5));
 
 				//Draws the string Produced by Morgan James to the screen like a produced by tag.
-				UG::DrawString("Produced by Morgan James", iScreenWidth*(int)0.075f, iScreenHeight * (int)0.4f, (1.5));
+				UG::DrawString("Produced by Morgan James", (int)(iScreenWidth*0.075f), (int)(iScreenHeight * 0.4f), (1.5));
 
 				//Starts the incrementation of the variable that controls how long the screen is displayed for.
 				fSplashTimer += fDeltaTime;
@@ -64,12 +64,10 @@ Game::Game(int a_c_iWidth, int a_c_iHeight)
 				//After splash timer gets above the time below move to the menu screen.
 				if (fSplashTimer > 1)
 				{
-
 					int fSplashTimer = 0;
 
 					//Sets the current state of game play to the menu.
 					currentState = MENU;
-
 				}
 				break;
 			}
@@ -77,7 +75,9 @@ Game::Game(int a_c_iWidth, int a_c_iHeight)
 			case MENU:
 			{
 				currentState = GAMEPLAY;
-				
+				Tank player(Vector2(0.5f, 0.5f), 87, 83, 65, 68, 69, 81, iScreenWidth, iScreenHeight);
+				Tank Enemy1(Vector2(0.8f, 0.8f), iScreenWidth, iScreenHeight);
+				Tank Enemy2(Vector2(0.3f, 0.3f), iScreenWidth, iScreenHeight);
 				break;
 			}
 
@@ -86,7 +86,6 @@ Game::Game(int a_c_iWidth, int a_c_iHeight)
 				player.tankMovement(fDeltaTime);
 				Enemy1.tankMovement(fDeltaTime);
 				Enemy2.tankMovement(fDeltaTime);
-				
 				break;
 			}
 
@@ -106,9 +105,6 @@ Game::Game(int a_c_iWidth, int a_c_iHeight)
 				break;
 
 			}
-
-
-
 
 		} while (UG::Process());
 

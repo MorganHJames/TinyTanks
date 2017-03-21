@@ -201,12 +201,12 @@ public:
 	//\ Special Points
 	//\===========================================================================================
 
-	static const Vector2 ZERO;
-	static const Vector2 UNIT_X;
-	static const Vector2 UNIT_Y;
-	static const Vector2 NEGATIVE_UNIT_X;
-	static const Vector2 NEGATIVE_UNIT_Y;
-	static const Vector2 UNIT_SCALE;
+	static const Vector2 ZERO;//A Vector2 equal to {0,0}
+	static const Vector2 UNIT_X;//A Vector2 equal to {1,0}
+	static const Vector2 UNIT_Y;//A Vector2 equal to {0,1}
+	static const Vector2 NEGATIVE_UNIT_X;//A Vector2 equal to {-1,0}
+	static const Vector2 NEGATIVE_UNIT_Y;//A Vector2 equal to {0,-1}
+	static const Vector2 UNIT_SCALE;//A Vector2 equal to {1,1}
 };
 
 #endif

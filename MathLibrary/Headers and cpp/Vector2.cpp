@@ -18,8 +18,8 @@ Vector2::Vector2() {}//A default constructor that initialises X and Y to 0.
 
 Vector2::Vector2(const Vector2 &a_c_v2Vector2)//Copy constructor.
 {
-	fX = a_c_v2Vector2.getfX();
-	fY = a_c_v2Vector2.getfY();
+	fX = a_c_v2Vector2.getfX();//Sets the x value of the Vector2 equal to the Vector2's x component that is passed in.
+	fY = a_c_v2Vector2.getfY();//Sets the y value of the Vector2 equal to the Vector2's y component that is passed in.
 }
 
 Vector2::Vector2(const float a_c_fX, float a_c_fY) ://Constructor.
@@ -34,7 +34,7 @@ Vector2::Vector2(const float a_c_fX, float a_c_fY) ://Constructor.
 
 const float* Vector2::getVector()const//Returns a pointer to the first element in the array.
 {
-	return (aVector2);
+	return (aVector2);//Returns a pointer to the first element in the array.
 }
 
 float Vector2::getfX()const//A getter to get the x part of Vector2.
@@ -330,9 +330,8 @@ Vector2 Vector2::unit()const//A function that returns a unit vector created from
 //\===========================================================================================
 
 void Vector2::setZero()//Makes each Vector2 element equal to 0. 
-{//Set each element in the Vector2 to zero.
-	fX = 0;
-	fY = 0;
+{
+	*this = ZERO;//Set each element in the Vector2 to zero.
 }
 
 //\===========================================================================================
@@ -341,18 +340,16 @@ void Vector2::setZero()//Makes each Vector2 element equal to 0.
 
 Vector2 Vector2::zero()const//Returns a Vector2 zero matrix.
 {
-	Vector2 temp;
-	temp.setZero();
-	return Vector2(temp);
+	return Vector2(ZERO);//Returns the Vector2 equal to 0.
 }
 
 //\===========================================================================================
 //\ Special Points
 //\===========================================================================================
 
-const Vector2 Vector2::ZERO{ 0,0 };
-const Vector2 Vector2::UNIT_X{ 1,0 };
-const Vector2 Vector2::UNIT_Y{ 0,1 };
-const Vector2 Vector2::NEGATIVE_UNIT_X{ -1,0 };
-const Vector2 Vector2::NEGATIVE_UNIT_Y{ 0,-1 };
-const Vector2 Vector2::UNIT_SCALE{ 1,1 };
+const Vector2 Vector2::ZERO{ 0,0 };//A Vector2 equal to {0,0}
+const Vector2 Vector2::UNIT_X{ 1,0 };//A Vector2 equal to {1,0}
+const Vector2 Vector2::UNIT_Y{ 0,1 };//A Vector2 equal to {0,1}
+const Vector2 Vector2::NEGATIVE_UNIT_X{ -1,0 };//A Vector2 equal to {-1,0}
+const Vector2 Vector2::NEGATIVE_UNIT_Y{ 0,-1 };//A Vector2 equal to {0,-1}
+const Vector2 Vector2::UNIT_SCALE{ 1,1 };//A Vector2 equal to {1,1}

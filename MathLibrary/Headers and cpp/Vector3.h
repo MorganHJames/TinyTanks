@@ -197,14 +197,14 @@ public:
 	//\ Special Points
 	//\===========================================================================================
 
-	static const Vector3 ZERO;
-	static const Vector3 UNIT_X;
-	static const Vector3 UNIT_Y;
-	static const Vector3 UNIT_Z;
-	static const Vector3 NEGATIVE_UNIT_X;
-	static const Vector3 NEGATIVE_UNIT_Y;
-	static const Vector3 NEGATIVE_UNIT_Z;
-	static const Vector3 UNIT_SCALE;
+	static const Vector3 ZERO;//A Vector3 equal to {0,0,0}.
+	static const Vector3 UNIT_X;//A Vector3 equal to {1,0,0}.
+	static const Vector3 UNIT_Y;//A Vector3 equal to {0,1,0}.
+	static const Vector3 UNIT_Z;//A Vector3 equal to {0,0,1}.
+	static const Vector3 NEGATIVE_UNIT_X;//A Vector3 equal to {-1,0,0}.
+	static const Vector3 NEGATIVE_UNIT_Y;//A Vector3 equal to {0,-1,0}.
+	static const Vector3 NEGATIVE_UNIT_Z;//A Vector3 equal to {0,0,-1}.
+	static const Vector3 UNIT_SCALE;//A Vector3 equal to {1,1,1}.
 };
 
 #endif

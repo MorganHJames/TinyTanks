@@ -294,8 +294,8 @@ public:
 	//\ Special Points
 	//\===========================================================================================
 
-	static const Matrix4x4 ZERO;
-	static const Matrix4x4 IDENTITY;
+	static const Matrix4x4 ZERO;//A Matrix4x4 where every element is equal to zero.
+	static const Matrix4x4 IDENTITY;//A Matrix4x4 where the elements are equal to the identity matrix.
 
 };
 

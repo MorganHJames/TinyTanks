@@ -61,6 +61,7 @@ Tank::Tank(const Vector2 a_c_v2Position, int a_c_iScreenWidth, int a_c_iScreenHe
 
 void Tank::tankMovement(float a_fDeltaTime)
 {
+
 	float dt = a_fDeltaTime;
 	sTank->Update();
 	sTurret->Update();
@@ -95,7 +96,6 @@ void Tank::tankMovement(float a_fDeltaTime)
 
 		if (UG::IsKeyDown(uiRight))
 			sTank->RotateZ(-0.05f);
-
 
 		//Turret Rotation
 		if (UG::IsKeyDown(uiRotateLeft))

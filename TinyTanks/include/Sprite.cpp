@@ -20,7 +20,6 @@ Sprite::Sprite(const char* a_fileName, float a_width, float a_height, Vector2 a_
 	memset(mat4x4, 0, sizeof(float) * 16);
 	UG::GetSpriteMatrix(m_iSpriteID, mat4x4);
 	m3PosRot = Matrix3x3(mat4x4[0], mat4x4[1], mat4x4[2], mat4x4[4], mat4x4[5], mat4x4[6], mat4x4[7], mat4x4[8], 1.f);
-
 }
 
 //\===========================================================================================

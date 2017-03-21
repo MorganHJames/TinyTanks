@@ -18,15 +18,15 @@ Matrix3x3::Matrix3x3() {}//The Default constructor for a Matrix3x3 that initiali
 
 Matrix3x3::Matrix3x3(const Matrix3x3 &a_c_fm3Matrix3x3)//Copy constructor.
 {
-	fm_00 = a_c_fm3Matrix3x3.getiMatrix(0);
-	fm_01 = a_c_fm3Matrix3x3.getiMatrix(1);
-	fm_02 = a_c_fm3Matrix3x3.getiMatrix(2);
-	fm_10 = a_c_fm3Matrix3x3.getiMatrix(3);
-	fm_11 = a_c_fm3Matrix3x3.getiMatrix(4);
-	fm_12 = a_c_fm3Matrix3x3.getiMatrix(5);
-	fm_20 = a_c_fm3Matrix3x3.getiMatrix(6);
-	fm_21 = a_c_fm3Matrix3x3.getiMatrix(7);
-	fm_22 = a_c_fm3Matrix3x3.getiMatrix(8);
+	fm_00 = a_c_fm3Matrix3x3.getiMatrix(0);//Sets the fm_00 value of the Matrix3x3 equal to the Matrix3x3's fm_00 component that is passed in.
+	fm_01 = a_c_fm3Matrix3x3.getiMatrix(1);//Sets the fm_01 value of the Matrix3x3 equal to the Matrix3x3's fm_01 component that is passed in.
+	fm_02 = a_c_fm3Matrix3x3.getiMatrix(2);//Sets the fm_02 value of the Matrix3x3 equal to the Matrix3x3's fm_02 component that is passed in.
+	fm_10 = a_c_fm3Matrix3x3.getiMatrix(3);//Sets the fm_10 value of the Matrix3x3 equal to the Matrix3x3's fm_10 component that is passed in.
+	fm_11 = a_c_fm3Matrix3x3.getiMatrix(4);//Sets the fm_11 value of the Matrix3x3 equal to the Matrix3x3's fm_11 component that is passed in.
+	fm_12 = a_c_fm3Matrix3x3.getiMatrix(5);//Sets the fm_12 value of the Matrix3x3 equal to the Matrix3x3's fm_12 component that is passed in.
+	fm_20 = a_c_fm3Matrix3x3.getiMatrix(6);//Sets the fm_20 value of the Matrix3x3 equal to the Matrix3x3's fm_20 component that is passed in.
+	fm_21 = a_c_fm3Matrix3x3.getiMatrix(7);//Sets the fm_21 value of the Matrix3x3 equal to the Matrix3x3's fm_21 component that is passed in.
+	fm_22 = a_c_fm3Matrix3x3.getiMatrix(8);//Sets the fm_22 value of the Matrix3x3 equal to the Matrix3x3's fm_22 component that is passed in.
 }
 Matrix3x3::Matrix3x3(const float a_c_fmMatrix[3][3])//Constructor for a Matrix3x3 that is made from two arrays of three.
 {
@@ -91,7 +91,7 @@ Matrix3x3::Matrix3x3(const
 
 const float* Matrix3x3::getMatrix()const//Returns a pointer to the first element in the array.
 {
-	return fiMatrix;
+	return fiMatrix;//Returns a pointer to the first element in the matrix.
 }
 
 float Matrix3x3::getmMatrix(const int &a_c_iRow, int &a_c_iCol)const//A getter to return a float at the point specified with the two arguments.
@@ -169,17 +169,17 @@ void Matrix3x3::setTranslation(const Vector3 &a_c_v3Vector3)//A setter to change
 }
 
 void Matrix3x3::setColumn(const int &a_c_iCol, Vector3 &a_c_v3Vector3)//A setter for the column specified by the argument a_c_iCol.
-{
-	fmMatrix[0][a_c_iCol] = a_c_v3Vector3.getfX();
-	fmMatrix[1][a_c_iCol] = a_c_v3Vector3.getfY();
-    fmMatrix[2][a_c_iCol] = a_c_v3Vector3.getfZ();//Sets the column specified by the a_c_iCol equal to the argument vector3.
+{//Sets the column specified by the a_c_iCol equal to the argument vector3.
+	fmMatrix[0][a_c_iCol] = a_c_v3Vector3.getfX();//Sets the first row of the specified column to be equal to the x component of the Vector3 passed in.
+	fmMatrix[1][a_c_iCol] = a_c_v3Vector3.getfY();//Sets the second row of the specified column to be equal to the y component of the Vector3 passed in.
+    fmMatrix[2][a_c_iCol] = a_c_v3Vector3.getfZ();//Sets the third row of the specified column to be equal to the z component of the Vector3 passed in.
 }
 
 void Matrix3x3::setRow(const int &a_c_iRow, Vector3 &a_c_v3Vector3)//A setter for the row specified by the argument a_c_iRow.
-{
-	fmMatrix[a_c_iRow][0] = a_c_v3Vector3.getfX();
-	fmMatrix[a_c_iRow][1] = a_c_v3Vector3.getfY();
-	fmMatrix[a_c_iRow][2] = a_c_v3Vector3.getfZ();//Sets the row specified by the a_c_iRow equal to the argument vector3.
+{//Sets the row specified by the a_c_iRow equal to the argument vector3.
+	fmMatrix[a_c_iRow][0] = a_c_v3Vector3.getfX();//Sets the first column of the specified row to be equal to the x component of the Vector3 passed in.
+	fmMatrix[a_c_iRow][1] = a_c_v3Vector3.getfY();//Sets the second column of the specified row to be equal to the y component of the Vector3 passed in.
+	fmMatrix[a_c_iRow][2] = a_c_v3Vector3.getfZ();//Sets the third column of the specified row to be equal to the z component of the Vector3 passed in.
 }
 
 //\===========================================================================================
@@ -241,9 +241,9 @@ Matrix3x3 Matrix3x3::operator-(const float &a_c_fScalar)const//Overloaded subtra
 
 Matrix3x3 Matrix3x3::operator-(const Vector3 &a_c_v3Vector3)const//Overloaded subtraction operation for Matrix3x3.
 {
-	vXAxis - a_c_v3Vector3;//decreases the vXAxis by the argument Vector3.
-	vYAxis - a_c_v3Vector3;//decreases the vYAxis by the argument Vector3.
-	vZAxis - a_c_v3Vector3;//decreases the vZAxis by the argument Vector3.
+	vXAxis - a_c_v3Vector3;//Decreases the vXAxis by the argument Vector3.
+	vYAxis - a_c_v3Vector3;//Decreases the vYAxis by the argument Vector3.
+	vZAxis - a_c_v3Vector3;//Decreases the vZAxis by the argument Vector3.
 	return Matrix3x3(*this);//Returns the decreased matrix.
 }
 
@@ -311,10 +311,10 @@ Vector3 Matrix3x3::operator/(const Vector3 &a_c_v3Vector3)const//Overloaded divi
 }
 
 Matrix3x3 Matrix3x3::operator/(const Matrix3x3 &a_c_fm3Matrix3x3)const//Overloaded division operation for Matrix3x3.
-{
-	Matrix3x3 tempMatrix = a_c_fm3Matrix3x3;
-	tempMatrix.inverse();
-	return Matrix3x3(*this * tempMatrix);//Returns the Matrix3x3 / the argument.
+{//Returns the Matrix3x3 / the argument.
+	Matrix3x3 tempMatrix = a_c_fm3Matrix3x3;//Creates a temporary Matrix3x3 equal to the argument passed in.
+	tempMatrix.inverse();//Inverses the temporary matrix so it could be multiplied instead of divided.
+	return Matrix3x3(*this * tempMatrix);//Returns the Matrix3x3 * tempMatrix.
 }
 
 //\===========================================================================================
@@ -480,14 +480,14 @@ void Matrix3x3::rotate(float &a_fAngle)//Rotates the Matrix3x3 by the angle in d
 
 Matrix3x3 Matrix3x3::getRotationMatrix(float &a_fAngle)const//Returns the Rotation Matrix3x3 by the angle in degrees. 
 {
-	Matrix3x3 temp = *this;
-	a_fAngle = degreesToRadians(a_fAngle);//Converts the float to radians.//\===================================
-	const float co = cosf(a_fAngle);									  //\= Multiplies the Matrix3x3 by the rotation matrix which is:
-	const float si = sinf(a_fAngle);									  //\= cos(θ), -sin(θ), 0,
-	temp.fm_00 = co; temp.fm_01 = -si; temp.fm_02 = 0;  				  //\= sin(θ),  cos(θ), 0,
-	temp.fm_10 = si; temp.fm_11 =  co; temp.fm_12 = 0;  				  //\=      0,       0, 1, 
-	temp.fm_20 =  0; temp.fm_21 =   0; temp.fm_22 = 1;                    //\===================================
-	return (temp);                                                       
+	Matrix3x3 temp = *this;//Creates a temporary matrix equal to the Matrix you are trying to rotate.
+	a_fAngle = degreesToRadians(a_fAngle);//Converts the float to radians.                                        
+	const float co = cosf(a_fAngle);//Creates a variable equal to the cos of the angle to save on recalculation.	
+	const float si = sinf(a_fAngle);//Creates a variable equal to the sin of the angle to save on recalculation.	   
+	temp.fm_00 = co; temp.fm_01 = -si; temp.fm_02 = 0;//\= cos(θ), -sin(θ), 0,	                                   
+	temp.fm_10 = si; temp.fm_11 =  co; temp.fm_12 = 0;//\= sin(θ),  cos(θ), 0,	                                       
+	temp.fm_20 =  0; temp.fm_21 =   0; temp.fm_22 = 1;//\=      0,       0, 1,                                                    
+	return (temp);//Returns the rotation matrix.                                                      
 }											
 											
 //\===========================================================================================
@@ -509,19 +509,19 @@ float Matrix3x3::determinant()const//A function to get the determinant of a Matr
 bool Matrix3x3::inverse()//A function that make a Matrix3x3 turn to its inverse.
 {
 	float fDeterminant = determinant();//Creates a float equal to the Matrix3x3 determinant.
-	if (fDeterminant != 0.0f)//If the determinant isn't zero inverse it
+	if (fDeterminant != 0.0f)//If the determinant isn't zero inverse the matrix.
 	{
 		const float fInverseDeterminant = reciprocal(fDeterminant);//Creates a constant float equal to the inverse of the determinant.
 		Matrix3x3 temp = *this;//Creates a temporary matrix that is equal to the Matrx3x3 it will inverse.
-		fm_00 = (temp.fm_11 * temp.fm_22 - temp.fm_12 * temp.fm_21) * fInverseDeterminant;//00 = (11 * 22 - 12 * 21) * inverse determinant
-		fm_01 = (temp.fm_02 * temp.fm_21 - temp.fm_01 * temp.fm_22) * fInverseDeterminant;//01 = (02 * 21 -	01 * 22) * inverse determinant
-		fm_02 = (temp.fm_01 * temp.fm_12 - temp.fm_02 * temp.fm_11) * fInverseDeterminant;//02 = (01 * 12 -	02 * 11) * inverse determinant
-		fm_10 = (temp.fm_12 * temp.fm_20 - temp.fm_10 * temp.fm_22) * fInverseDeterminant;//10 = (12 * 20 -	10 * 22) * inverse determinant
-		fm_11 = (temp.fm_00 * temp.fm_22 - temp.fm_02 * temp.fm_20) * fInverseDeterminant;//11 = (00 * 22 -	02 * 20) * inverse determinant
-		fm_12 = (temp.fm_02 * temp.fm_10 - temp.fm_00 * temp.fm_12) * fInverseDeterminant;//12 = (02 * 10 -	00 * 12) * inverse determinant
-		fm_20 = (temp.fm_10 * temp.fm_21 - temp.fm_11 * temp.fm_20) * fInverseDeterminant;//20 = (10 * 21 -	11 * 20) * inverse determinant
-		fm_21 = (temp.fm_01 * temp.fm_20 - temp.fm_00 * temp.fm_21) * fInverseDeterminant;//21 = (01 * 20 -	00 * 21) * inverse determinant
-		fm_22 = (temp.fm_00 * temp.fm_11 - temp.fm_01 * temp.fm_10) * fInverseDeterminant;//22 = (00 * 11 -	01 * 10) * inverse determinant
+		fm_00 = (temp.fm_11 * temp.fm_22 - temp.fm_12 * temp.fm_21) * fInverseDeterminant;//00 = (11 * 22 - 12 * 21) * inverse determinant.
+		fm_01 = (temp.fm_02 * temp.fm_21 - temp.fm_01 * temp.fm_22) * fInverseDeterminant;//01 = (02 * 21 -	01 * 22) * inverse determinant.
+		fm_02 = (temp.fm_01 * temp.fm_12 - temp.fm_02 * temp.fm_11) * fInverseDeterminant;//02 = (01 * 12 -	02 * 11) * inverse determinant.
+		fm_10 = (temp.fm_12 * temp.fm_20 - temp.fm_10 * temp.fm_22) * fInverseDeterminant;//10 = (12 * 20 -	10 * 22) * inverse determinant.
+		fm_11 = (temp.fm_00 * temp.fm_22 - temp.fm_02 * temp.fm_20) * fInverseDeterminant;//11 = (00 * 22 -	02 * 20) * inverse determinant.
+		fm_12 = (temp.fm_02 * temp.fm_10 - temp.fm_00 * temp.fm_12) * fInverseDeterminant;//12 = (02 * 10 -	00 * 12) * inverse determinant.
+		fm_20 = (temp.fm_10 * temp.fm_21 - temp.fm_11 * temp.fm_20) * fInverseDeterminant;//20 = (10 * 21 -	11 * 20) * inverse determinant.
+		fm_21 = (temp.fm_01 * temp.fm_20 - temp.fm_00 * temp.fm_21) * fInverseDeterminant;//21 = (01 * 20 -	00 * 21) * inverse determinant.
+		fm_22 = (temp.fm_00 * temp.fm_11 - temp.fm_01 * temp.fm_10) * fInverseDeterminant;//22 = (00 * 11 -	01 * 10) * inverse determinant.
 		return bool(true);//Returns true if the matrix is inverted.																			  
 	}
 	return bool(false);//If the determinant is zero return false.
@@ -538,11 +538,11 @@ void Matrix3x3::scale(const float &a_c_fXScale, float &a_c_fYScale)//Returns the
 
 Matrix3x3 Matrix3x3::getScaleMatrix(const float &a_c_fXScale, float &a_c_fYScale)const//Returns the scale Matrix3x3. 
 {
-	Matrix3x3 temp = *this;//Creates a temporary matrix that is equal to the Matrx3x3 it will scale matrix.	//\===================================
-	temp.fm_00 = a_c_fXScale; temp.fm_01 = 0;           temp.fm_02 = 0;            							//\= xScale,       0,      0,
-	temp.fm_10 = 0;   	      temp.fm_11 = a_c_fYScale; temp.fm_12 = 0;            							//\=      0,  yScale,      0,
-	temp.fm_20 = 0;           temp.fm_21 = 0;           temp.fm_22 = 1;  							        //\=      0,       0,      1
-	return Matrix3x3(temp);																					//\===================================
+	Matrix3x3 temp = *this;//Creates a temporary matrix that is equal to the Matrx3x3.
+	temp.fm_00 = a_c_fXScale; temp.fm_01 = 0;           temp.fm_02 = 0;//\= xScale,       0,      0,           							
+	temp.fm_10 = 0;   	      temp.fm_11 = a_c_fYScale; temp.fm_12 = 0;//\=      0,  yScale,      0,           							
+	temp.fm_20 = 0;           temp.fm_21 = 0;           temp.fm_22 = 1;//\=      0,       0,      1 							        
+	return Matrix3x3(temp);//Returns the scale Matrix.																					
 }																	   																	 
 																	   
 //\===========================================================================================
@@ -552,12 +552,12 @@ Matrix3x3 Matrix3x3::getScaleMatrix(const float &a_c_fXScale, float &a_c_fYScale
 void Matrix3x3::transpose()//Transposes the Matrix3x3. 
 {
 	Matrix3x3 temp = *this;//Creates a temporary matrix that is equal to the Matrx3x3 it will transpose.
-	fm_01 = temp.fm_10;										       //\===================================
-	fm_02 = temp.fm_20;										       //\= Makes the Matrix3x3 equal to the transpose matrix which is:
-	fm_10 = temp.fm_01;										       //\= 00, 10, 20,
-	fm_12 = temp.fm_21;										       //\= 01, 11, 21,
-	fm_20 = temp.fm_02;										       //\= 02, 12, 22
-	fm_21 = temp.fm_12;										       //\===================================
+	fm_01 = temp.fm_10;//\===================================
+	fm_02 = temp.fm_20;//\= Makes the Matrix3x3 equal to the transpose matrix which is:
+	fm_10 = temp.fm_01;//\= 00, 10, 20,
+	fm_12 = temp.fm_21;//\= 01, 11, 21,
+	fm_20 = temp.fm_02;//\= 02, 12, 22
+	fm_21 = temp.fm_12;//\===================================
 }
 
 //\===========================================================================================
@@ -566,7 +566,7 @@ void Matrix3x3::transpose()//Transposes the Matrix3x3.
 
 void Matrix3x3::setIdentity()//Makes the Matrix3x3 an identity matrix.
 {									  							      
-	*this = IDENTITY;
+	*this = IDENTITY;//Sets Matrix3x3 equal to the identity matrix.
 }									  							      
 	
 //\===========================================================================================
@@ -575,7 +575,7 @@ void Matrix3x3::setIdentity()//Makes the Matrix3x3 an identity matrix.
 
 Matrix3x3 Matrix3x3::identity()const//Returns a Matrix3x3 identity matrix.
 {
-	return Matrix3x3(IDENTITY);
+	return Matrix3x3(IDENTITY);//Returns he Matrix3x3 identity matrix.
 }
 
 //\===========================================================================================
@@ -583,8 +583,8 @@ Matrix3x3 Matrix3x3::identity()const//Returns a Matrix3x3 identity matrix.
 //\===========================================================================================
 
 void Matrix3x3::setZero()//Makes each Matrix3x3 element equal to 0. 
-{//Set each element in the matrix3x3 to zero.
-	*this = ZERO;
+{
+	*this = ZERO;//Set each element in the matrix3x3 to zero.
 }
 
 //\===========================================================================================
@@ -593,14 +593,12 @@ void Matrix3x3::setZero()//Makes each Matrix3x3 element equal to 0.
 
 Matrix3x3 Matrix3x3::zero()const//Returns a Matrix3x3 zero matrix.
 {
-	Matrix3x3 temp;
-	temp.setZero();
-	return Matrix3x3(temp);
+	return Matrix3x3(ZERO);//Returns a Matrix3x3 zero matrix.
 }
 
 //\===========================================================================================
 //\ Special Points
 //\===========================================================================================
 
-const Matrix3x3 Matrix3x3::ZERO{ 0,0,0,0,0,0,0,0,0 };
-const Matrix3x3 Matrix3x3::IDENTITY{ 1,0,0,0,1,0,0,0,1 };
+const Matrix3x3 Matrix3x3::ZERO{ 0,0,0,0,0,0,0,0,0 };//A Matrix3x3 where every element is equal to zero.
+const Matrix3x3 Matrix3x3::IDENTITY{ 1,0,0,0,1,0,0,0,1 };//A Matrix3x3 where the elements are equal to the identity matrix.

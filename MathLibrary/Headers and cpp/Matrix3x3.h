@@ -264,8 +264,8 @@ public:
 	//\ Special Points
 	//\===========================================================================================
 
-	static const Matrix3x3 ZERO;
-	static const Matrix3x3 IDENTITY;
+	static const Matrix3x3 ZERO;//A Matrix3x3 where every element is equal to zero.
+	static const Matrix3x3 IDENTITY;//A Matrix3x3 where the elements are equal to the identity matrix.
 
 };
 

@@ -18,22 +18,22 @@ Matrix4x4::Matrix4x4() {}//The Default constructor for a Matrix4x4 that initiali
 
 Matrix4x4::Matrix4x4(const Matrix4x4 &a_c_fm4Matrix4x4)//Copy constructor.
 {
-	fm_00 = a_c_fm4Matrix4x4.getiMatrix(0);
-	fm_01 = a_c_fm4Matrix4x4.getiMatrix(1);
-	fm_02 = a_c_fm4Matrix4x4.getiMatrix(2);
-	fm_03 = a_c_fm4Matrix4x4.getiMatrix(3);
-	fm_10 = a_c_fm4Matrix4x4.getiMatrix(4);
-	fm_11 = a_c_fm4Matrix4x4.getiMatrix(5);
-	fm_12 = a_c_fm4Matrix4x4.getiMatrix(6);
-	fm_13 = a_c_fm4Matrix4x4.getiMatrix(7);
-	fm_20 = a_c_fm4Matrix4x4.getiMatrix(8);
-	fm_21 = a_c_fm4Matrix4x4.getiMatrix(9);
-	fm_22 = a_c_fm4Matrix4x4.getiMatrix(10);
-	fm_23 = a_c_fm4Matrix4x4.getiMatrix(11);
-	fm_30 = a_c_fm4Matrix4x4.getiMatrix(12);
-	fm_31 = a_c_fm4Matrix4x4.getiMatrix(13);
-	fm_32 = a_c_fm4Matrix4x4.getiMatrix(14);
-	fm_33 = a_c_fm4Matrix4x4.getiMatrix(15);
+	fm_00 = a_c_fm4Matrix4x4.getiMatrix(0);//Sets the fm_00 value of the Matrix4x4 equal to the Matrix4x4's fm_00 component that is passed in.
+	fm_01 = a_c_fm4Matrix4x4.getiMatrix(1);//Sets the fm_01 value of the Matrix4x4 equal to the Matrix4x4's fm_01 component that is passed in.
+	fm_02 = a_c_fm4Matrix4x4.getiMatrix(2);//Sets the fm_02 value of the Matrix4x4 equal to the Matrix4x4's fm_02 component that is passed in.
+	fm_03 = a_c_fm4Matrix4x4.getiMatrix(3);//Sets the fm_03 value of the Matrix4x4 equal to the Matrix4x4's fm_03 component that is passed in.
+	fm_10 = a_c_fm4Matrix4x4.getiMatrix(4);//Sets the fm_10 value of the Matrix4x4 equal to the Matrix4x4's fm_10 component that is passed in.
+	fm_11 = a_c_fm4Matrix4x4.getiMatrix(5);//Sets the fm_11 value of the Matrix4x4 equal to the Matrix4x4's fm_11 component that is passed in.
+	fm_12 = a_c_fm4Matrix4x4.getiMatrix(6);//Sets the fm_12 value of the Matrix4x4 equal to the Matrix4x4's fm_12 component that is passed in.
+	fm_13 = a_c_fm4Matrix4x4.getiMatrix(7);//Sets the fm_13 value of the Matrix4x4 equal to the Matrix4x4's fm_13 component that is passed in.
+	fm_20 = a_c_fm4Matrix4x4.getiMatrix(8);//Sets the fm_20 value of the Matrix4x4 equal to the Matrix4x4's fm_20 component that is passed in.
+	fm_21 = a_c_fm4Matrix4x4.getiMatrix(9);//Sets the fm_21 value of the Matrix4x4 equal to the Matrix4x4's fm_21 component that is passed in.
+	fm_22 = a_c_fm4Matrix4x4.getiMatrix(10);//Sets the fm_22 value of the Matrix4x4 equal to the Matrix4x4's fm_22 component that is passed in.
+	fm_23 = a_c_fm4Matrix4x4.getiMatrix(11);//Sets the fm_23 value of the Matrix4x4 equal to the Matrix4x4's fm_23 component that is passed in.
+	fm_30 = a_c_fm4Matrix4x4.getiMatrix(12);//Sets the fm_30 value of the Matrix4x4 equal to the Matrix4x4's fm_30 component that is passed in.
+	fm_31 = a_c_fm4Matrix4x4.getiMatrix(13);//Sets the fm_31 value of the Matrix4x4 equal to the Matrix4x4's fm_31 component that is passed in.
+	fm_32 = a_c_fm4Matrix4x4.getiMatrix(14);//Sets the fm_32 value of the Matrix4x4 equal to the Matrix4x4's fm_32 component that is passed in.
+	fm_33 = a_c_fm4Matrix4x4.getiMatrix(15);//Sets the fm_33 value of the Matrix4x4 equal to the Matrix4x4's fm_33 component that is passed in.
 }
 
 Matrix4x4::Matrix4x4(const float a_c_fmMatrix[4][4])//Constructor for a Matrix4x4 that is made from two arrays of four.
@@ -149,7 +149,7 @@ Matrix4x4::Matrix4x4(const Matrix3x3 a_c_fm3Matrix3x3)//Constructor to make a Ma
 
 const float* Matrix4x4::getMatrix()const//Returns a pointer to the first element in the array.
 {
-	return fiMatrix;
+	return fiMatrix;//Returns a pointer to the first element in the matrix.
 }
 
 float Matrix4x4::getmMatrix(const int &a_c_iRow, int &a_c_iCol)const//A getter to return a float at the point specified with the two arguments.
@@ -237,19 +237,19 @@ void Matrix4x4::setTranslation(const Vector4 &a_c_v4Vector4)//A setter to change
 }
 
 void Matrix4x4::setColumn(const int &a_c_iCol, Vector4 &a_c_v4Vector4)//A setter for the column specified by the argument a_c_iCol.
-{
-	fmMatrix[0][a_c_iCol] = a_c_v4Vector4.getfX();
-	fmMatrix[1][a_c_iCol] = a_c_v4Vector4.getfY();
-	fmMatrix[2][a_c_iCol] = a_c_v4Vector4.getfZ();
-	fmMatrix[3][a_c_iCol] = a_c_v4Vector4.getfW();//Sets the column specified by the a_c_iCol equal to the argument Vector4.
+{//Sets the column specified by the a_c_iCol equal to the argument Vector4.
+	fmMatrix[0][a_c_iCol] = a_c_v4Vector4.getfX();//Sets the first row of the specified column to be equal to the x component of the Vector4 passed in.
+	fmMatrix[1][a_c_iCol] = a_c_v4Vector4.getfY();//Sets the second row of the specified column to be equal to the y component of the Vector4 passed in.
+	fmMatrix[2][a_c_iCol] = a_c_v4Vector4.getfZ();//Sets the third row of the specified column to be equal to the z component of the Vector4 passed in.
+	fmMatrix[3][a_c_iCol] = a_c_v4Vector4.getfW();//Sets the fourth row of the specified column to be equal to the w component of the Vector4 passed in.
 }
 
 void Matrix4x4::setRow(const int &a_c_iRow, Vector4 &a_c_v4Vector4)//A setter for the row specified by the argument a_c_iRow.
-{
-	fmMatrix[a_c_iRow][0] = a_c_v4Vector4.getfX();
-	fmMatrix[a_c_iRow][1] = a_c_v4Vector4.getfY();
-	fmMatrix[a_c_iRow][2] = a_c_v4Vector4.getfZ();
-	fmMatrix[a_c_iRow][3] = a_c_v4Vector4.getfW();//Sets the row specified by the a_c_iRow equal to the argument Vector4.
+{//Sets the row specified by the a_c_iRow equal to the argument Vector4.
+	fmMatrix[a_c_iRow][0] = a_c_v4Vector4.getfX();//Sets the first column of the specified row to be equal to the x component of the Vector4 passed in.
+	fmMatrix[a_c_iRow][1] = a_c_v4Vector4.getfY();//Sets the second column of the specified row to be equal to the y component of the Vector4 passed in.
+	fmMatrix[a_c_iRow][2] = a_c_v4Vector4.getfZ();//Sets the third column of the specified row to be equal to the z component of the Vector4 passed in.
+	fmMatrix[a_c_iRow][3] = a_c_v4Vector4.getfW();//Sets the fourth column of the specified row to be equal to the w component of the Vector4 passed in.
 }
 
 //\===========================================================================================
@@ -280,7 +280,7 @@ Matrix4x4 Matrix4x4::operator+(const float &a_c_fScalar)const//Overloaded additi
 
 Matrix4x4 Matrix4x4::operator+(const Vector3 &a_c_v3Vector3)const//Overloaded addition operation for Matrix4x4.
 {
-	Vector4 temp(a_c_v3Vector3);
+	Vector4 temp(a_c_v3Vector3);//Creates a temporary Vector4 equal to the passed in Vector3.
 	vXAxis + temp;//Increases the vXAxis by the argument Vector3.
 	vYAxis + temp;//Increases the vYAxis by the argument Vector3.
 	vZAxis + temp;//Increases the vZAxis by the argument Vector3.
@@ -334,7 +334,7 @@ Matrix4x4 Matrix4x4::operator-(const float &a_c_fScalar)const//Overloaded subtra
 
 Matrix4x4 Matrix4x4::operator-(const Vector3 &a_c_v3Vector3)const//Overloaded subtraction operation for Matrix4x4.
 {
-	Vector4 temp(a_c_v3Vector3);
+	Vector4 temp(a_c_v3Vector3);//Creates a temporary Vector4 equal to the passed in Vector3.
 	vXAxis - temp;//Decreases the vXAxis by the argument Vector3.
 	vYAxis - temp;//Decreases the vYAxis by the argument Vector3.
 	vZAxis - temp;//Decreases the vZAxis by the argument Vector3.
@@ -388,7 +388,7 @@ Matrix4x4 Matrix4x4::operator*(const float &a_c_fScalar)const//Overloaded multip
 
 Vector4 Matrix4x4::operator*(const Vector3 &a_c_v3Vector3)const//Overloaded multiplication operation for Matrix4x4.
 {
-	Vector4 temp(a_c_v3Vector3);
+	Vector4 temp(a_c_v3Vector3);//Creates a temporary Vector4 equal to the passed in Vector3.
 	return Vector4(//Returns the multiplied matrix.
 		fm_00 * temp.getfX() + fm_01 * temp.getfY() + fm_02 * temp.getfZ() + fm_03 * temp.getfW(),//Dot product for the first row of the first matrix and the only column of the Vector3.
 		fm_10 * temp.getfX() + fm_11 * temp.getfY() + fm_12 * temp.getfZ() + fm_13 * temp.getfW(),//Dot product for the second row of the first matrix and the only column of the Vector3.
@@ -429,10 +429,10 @@ Vector4 Matrix4x4::operator/(const Vector3 &a_c_v3Vector3)const//Overloaded divi
 }
 
 Matrix4x4 Matrix4x4::operator/(const Matrix4x4 &a_c_fm4Matrix4x4)const//Overloaded division operation for Matrix4x4.
-{
-	Matrix4x4 tempMatrix = a_c_fm4Matrix4x4;
-	tempMatrix.inverse();
-	return Matrix4x4(*this * tempMatrix);//Returns the Matrix4x4 / the argument.
+{//Returns the Matrix4x4 / the argument.
+	Matrix4x4 tempMatrix = a_c_fm4Matrix4x4;//Creates a temporary matrix4x4 equal to the passed in matrix4x4.
+	tempMatrix.inverse();//Inverses the temporary matrix so it can be used in multiplication rather than division.
+	return Matrix4x4(*this * tempMatrix);//Returns the Matrix4x4 * tempMatrix.
 }
 
 //\===========================================================================================
@@ -641,41 +641,41 @@ void Matrix4x4::rotateZ(float &a_fAngle)//Rotates the Matrix4x4 by the angle in 
 
 Matrix4x4 Matrix4x4::getXRotationMatrix(float &a_fAngle)const//Returns the X Rotation Matrix4x4 by the angle in degrees. 
 {
-	Matrix4x4 temp = *this;
+	Matrix4x4 temp = *this;//Creates a temporary Matrix4x4 equal to the Matrix4x4.
 	a_fAngle = degreesToRadians(a_fAngle);//Converts the float to radians.
-	const float co = cosf(a_fAngle);									   //\===================================
-	const float si = sinf(a_fAngle);									   //\= Makes a Matrix4x4 equal to the XRotation matrix which is:
-	temp.fm_00 = 1; temp.fm_01 =   0; temp.fm_02 =  0; temp.fm_03 =  0;	   //\=  1,   0,   0,   0,
-	temp.fm_10 = 0; temp.fm_11 =  co; temp.fm_12 =  si; temp.fm_13 = 0;	   //\=  0, cos, sin,   0,
-	temp.fm_20 = 0; temp.fm_21 = -si; temp.fm_22 =  co; temp.fm_23 = 0;	   //\=  0,-sin, cos,   0,
-	temp.fm_30 = 0; temp.fm_31 =  0; temp.fm_32 =    0; temp.fm_33 = 1;	       //\=  0,   0,   0,   1
-	return Matrix4x4(temp);												   //\===================================
+	const float co = cosf(a_fAngle);//Creates a variable equal to the cos of the angle to save on recalculation.										   
+	const float si = sinf(a_fAngle);//Creates a variable equal to the sin of the angle to save on recalculation.	   									   
+	temp.fm_00 = 1; temp.fm_01 =   0; temp.fm_02 =  0; temp.fm_03 =  0;//\=  1,   0,   0,   0,
+	temp.fm_10 = 0; temp.fm_11 =  co; temp.fm_12 =  si; temp.fm_13 = 0;//\=  0, cos, sin,   0,
+	temp.fm_20 = 0; temp.fm_21 = -si; temp.fm_22 =  co; temp.fm_23 = 0;//\=  0,-sin, cos,   0,
+	temp.fm_30 = 0; temp.fm_31 =  0; temp.fm_32 =    0; temp.fm_33 = 1;	//\=  0,   0,   0,   1
+	return Matrix4x4(temp);//Returns the x rotation matrix.												  
 }
 
 Matrix4x4 Matrix4x4::getYRotationMatrix(float &a_fAngle)const//Returns the Y Rotation Matrix4x4 by the angle in degrees.
 {
-	Matrix4x4 temp = *this;
+	Matrix4x4 temp = *this;//Creates a temporary Matrix4x4 equal to the Matrix4x4.
 	a_fAngle = degreesToRadians(a_fAngle);//Converts the float to radians.
-	const float co = cosf(a_fAngle);										//\===================================
-	const float si = sinf(a_fAngle);										//\= Makes a Matrix4x4 equal to the YRotation matrix which is:
-	temp.fm_00 = co; temp.fm_01 = 0; temp.fm_02 = -si; temp.fm_03 = 0;		//\=  cos,   0,-sin,   0,
-	temp.fm_10 =  0; temp.fm_11 = 1; temp.fm_12 =   0; temp.fm_13 = 0;		//\=    0,   1,   0,   0,
-	temp.fm_20 = si; temp.fm_21 = 0; temp.fm_22 =  co; temp.fm_23 = 0;		//\=  sin,   0, cos,   0,
-	temp.fm_30 =  0; temp.fm_31 = 0; temp.fm_32 =   0; temp.fm_33 = 1;		//\=    0,   0,   0,   1
-	return Matrix4x4(temp);												    //\===================================
+	const float co = cosf(a_fAngle);//Creates a variable equal to the cos of the angle to save on recalculation.										   										
+	const float si = sinf(a_fAngle);//Creates a variable equal to the sin of the angle to save on recalculation.	   									   										
+	temp.fm_00 = co; temp.fm_01 = 0; temp.fm_02 = -si; temp.fm_03 = 0;//\=  cos,   0,-sin,   0,
+	temp.fm_10 =  0; temp.fm_11 = 1; temp.fm_12 =   0; temp.fm_13 = 0;//\=    0,   1,   0,   0,
+	temp.fm_20 = si; temp.fm_21 = 0; temp.fm_22 =  co; temp.fm_23 = 0;//\=  sin,   0, cos,   0,
+	temp.fm_30 =  0; temp.fm_31 = 0; temp.fm_32 =   0; temp.fm_33 = 1;//\=    0,   0,   0,   1
+	return Matrix4x4(temp);//Returns the y rotation matrix.										    
 }
 
 Matrix4x4 Matrix4x4::getZRotationMatrix(float &a_fAngle)const//Returns the Z Rotation Matrix4x4 by the angle in degrees.
 {
-	Matrix4x4 temp = *this;
+	Matrix4x4 temp = *this;//Creates a temporary Matrix4x4 equal to the Matrix4x4.
 	a_fAngle = degreesToRadians(a_fAngle);//Converts the float to radians.
-	const float co = cosf(a_fAngle);										  //\===================================
-	const float si = sinf(a_fAngle);										  //\= Makes a Matrix4x4 equal to the ZRotation matrix which is:
-	temp.fm_00 =  co; temp.fm_01 = si; temp.fm_02 = 0; temp.fm_03 = 0;		  //\=  cos, sin,   0,   0,
-	temp.fm_10 = -si; temp.fm_11 = co; temp.fm_12 = 0; temp.fm_13 = 0;		  //\= -sin, cos,   0,   0,
-	temp.fm_20 =   0; temp.fm_21 =  0; temp.fm_22 = 1; temp.fm_23 = 0;		  //\=    0,   0,   1,   0,
-	temp.fm_30 =   0; temp.fm_31 =  0; temp.fm_32 = 0; temp.fm_33 = 1;		  //\=    0,   0,   0,   1
-	return Matrix4x4(temp);													  //\===================================
+	const float co = cosf(a_fAngle);//Creates a variable equal to the cos of the angle to save on recalculation.										   										  
+	const float si = sinf(a_fAngle);//Creates a variable equal to the sin of the angle to save on recalculation.	   									   										  
+	temp.fm_00 =  co; temp.fm_01 = si; temp.fm_02 = 0; temp.fm_03 = 0;//\=  cos, sin,   0,   0,
+	temp.fm_10 = -si; temp.fm_11 = co; temp.fm_12 = 0; temp.fm_13 = 0;//\= -sin, cos,   0,   0,
+	temp.fm_20 =   0; temp.fm_21 =  0; temp.fm_22 = 1; temp.fm_23 = 0;//\=    0,   0,   1,   0,
+	temp.fm_30 =   0; temp.fm_31 =  0; temp.fm_32 = 0; temp.fm_33 = 1;//\=    0,   0,   0,   1
+	return Matrix4x4(temp);//Returns the z rotation matrix.														  
 }
 
 //\===========================================================================================
@@ -696,36 +696,36 @@ float Matrix4x4::determinant()const//A function to get the determinant of a Matr
 
 bool Matrix4x4::inverse()//A function that returns the inverse of a Matrix4x4.
 {
-	const float fDeterminant = determinant();
-	if (fDeterminant != 0)
+	const float fDeterminant = determinant();//Creates a float equal to the Matrix4x4 determinant.
+	if (fDeterminant != 0)//If the determinant isn't zero inverse the matrix.
 	{
-		const float fInverseDeterminant = reciprocal(fDeterminant);
-		Matrix4x4 temp = *this;
-		fm_00 = (temp.fm_11 * temp.fm_22 - temp.fm_12 * temp.fm_21) * fInverseDeterminant; 
-		fm_01 = (temp.fm_02 * temp.fm_21 - temp.fm_01 * temp.fm_22) * fInverseDeterminant;
-		fm_02 = (temp.fm_01 * temp.fm_12 - temp.fm_02 * temp.fm_11) * fInverseDeterminant;
-		fm_03 = 0;
-		fm_10 = (temp.fm_12 * temp.fm_20 - temp.fm_10 * temp.fm_22) * fInverseDeterminant;
-		fm_11 = (temp.fm_00 * temp.fm_22 - temp.fm_02 * temp.fm_20) * fInverseDeterminant;
-		fm_12 = (temp.fm_02 * temp.fm_10 - temp.fm_00 * temp.fm_12) * fInverseDeterminant;
-		fm_13 = 0;
-		fm_20 = (temp.fm_10 * temp.fm_21 - temp.fm_11 * temp.fm_20) * fInverseDeterminant;
-		fm_21 = (temp.fm_01 * temp.fm_20 - temp.fm_00 * temp.fm_21) * fInverseDeterminant;
-		fm_22 = (temp.fm_00 * temp.fm_11 - temp.fm_01 * temp.fm_10) * fInverseDeterminant;
-		fm_23 = 0;
+		const float fInverseDeterminant = reciprocal(fDeterminant);//Creates a constant float equal to the inverse of the determinant.
+		Matrix4x4 temp = *this;//Creates a temporary matrix that is equal to the Matrix4x4 it will inverse.
+		fm_00 = (temp.fm_11 * temp.fm_22 - temp.fm_12 * temp.fm_21) * fInverseDeterminant;//00 = (11 * 22 - 12 * 21) * inverse determinant. 
+		fm_01 = (temp.fm_02 * temp.fm_21 - temp.fm_01 * temp.fm_22) * fInverseDeterminant;//01 = (02 * 21 -	01 * 22) * inverse determinant.
+		fm_02 = (temp.fm_01 * temp.fm_12 - temp.fm_02 * temp.fm_11) * fInverseDeterminant;//02 = (01 * 12 -	02 * 11) * inverse determinant.
+		fm_03 = 0;//03 = 0.
+		fm_10 = (temp.fm_12 * temp.fm_20 - temp.fm_10 * temp.fm_22) * fInverseDeterminant;//10 = (12 * 20 -	10 * 22) * inverse determinant.
+		fm_11 = (temp.fm_00 * temp.fm_22 - temp.fm_02 * temp.fm_20) * fInverseDeterminant;//11 = (00 * 22 -	02 * 20) * inverse determinant.
+		fm_12 = (temp.fm_02 * temp.fm_10 - temp.fm_00 * temp.fm_12) * fInverseDeterminant;//12 = (02 * 10 -	00 * 12) * inverse determinant.
+		fm_13 = 0;//13 =0.
+		fm_20 = (temp.fm_10 * temp.fm_21 - temp.fm_11 * temp.fm_20) * fInverseDeterminant;//20 = (10 * 21 -	11 * 20) * inverse determinant.
+		fm_21 = (temp.fm_01 * temp.fm_20 - temp.fm_00 * temp.fm_21) * fInverseDeterminant;//21 = (01 * 20 -	00 * 21) * inverse determinant.
+		fm_22 = (temp.fm_00 * temp.fm_11 - temp.fm_01 * temp.fm_10) * fInverseDeterminant;//22 = (00 * 11 -	01 * 10) * inverse determinant.
+		fm_23 = 0;//23 = 0.
 		fm_30 = (temp.fm_10 * (temp.fm_22 * temp.fm_31 - temp.fm_21 * temp.fm_32) + 
 			     temp.fm_11 * (temp.fm_20 * temp.fm_32 - temp.fm_22 * temp.fm_30) + 
-			     temp.fm_12 * (temp.fm_21 * temp.fm_30 - temp.fm_20 * temp.fm_31)) * fInverseDeterminant;
+			     temp.fm_12 * (temp.fm_21 * temp.fm_30 - temp.fm_20 * temp.fm_31)) * fInverseDeterminant;//30 = (10 * (22 * 31 - 21 * 32) + 11 * (20 * 32 - 22 * 30) + 12 * (21 * 30 - 20 *31)) * inverse determinant.
 		fm_31 = (temp.fm_00 * (temp.fm_21 * temp.fm_32 - temp.fm_22 * temp.fm_31) + 
 			     temp.fm_01 * (temp.fm_22 * temp.fm_30 - temp.fm_20 * temp.fm_32) + 
-			     temp.fm_02 * (temp.fm_20 * temp.fm_31 - temp.fm_21 * temp.fm_30)) * fInverseDeterminant;
+			     temp.fm_02 * (temp.fm_20 * temp.fm_31 - temp.fm_21 * temp.fm_30)) * fInverseDeterminant;//31 = (00 * (22 * 33 - 22 * 31) + 01 * (22 * 30 - 20 * 32) + 02 * (20 * 31 - 21 *30)) * inverse determinant.
 		fm_32 = (temp.fm_00 * (temp.fm_12 * temp.fm_31 - temp.fm_11 * temp.fm_32) + 
 			     temp.fm_01 * (temp.fm_10 * temp.fm_32 - temp.fm_12 * temp.fm_30) + 
-			     temp.fm_02 * (temp.fm_11 * temp.fm_30 - temp.fm_10 * temp.fm_31)) * fInverseDeterminant;
-		fm_33 = 1;
-		return bool(true);
+			     temp.fm_02 * (temp.fm_11 * temp.fm_30 - temp.fm_10 * temp.fm_31)) * fInverseDeterminant;//32 = (00 * (12 * 31 - 11 * 32) + 01 * (10 * 32 - 12 * 30) + 02 * (11 * 30 - 10 *31)) * inverse determinant.
+		fm_33 = 1;//33 = 1.
+		return bool(true);//Returns true if inverted.
 	}
-	return bool(false);
+	return bool(false);//Returns false if can't be inverted.
 }
 
 //\===========================================================================================
@@ -737,14 +737,14 @@ void Matrix4x4::scale(const float &a_c_fXScale, float &a_c_fYScale, float &a_c_f
 	*this = *this * getScaleMatrix(a_c_fXScale, a_c_fYScale, a_c_fZScale);//Multiplies the matrix by the scale matrix.
 }
 
-Matrix4x4 Matrix4x4::getScaleMatrix(const float &a_c_fXScale, float &a_c_fYScale, float &a_c_fZScale)const//Returns the scale Matrix4x4                     
+Matrix4x4 Matrix4x4::getScaleMatrix(const float &a_c_fXScale, float &a_c_fYScale, float &a_c_fZScale)const//Returns the scale Matrix4x4.                     
 {
-	Matrix4x4 temp = *this;//Creates a temporary matrix that is equal to the Matrx3x3 it will scale matrix.  //\===================================		   
-	temp.fm_00 = a_c_fXScale; temp.fm_01 =           0; temp.fm_02 =           0; temp.fm_03 = 0;            //\= xScale,       0,      0, 0,
-	temp.fm_10 =           0; temp.fm_11 = a_c_fYScale; temp.fm_12 =           0; temp.fm_13 = 0;            //\=      0,  yScale,      0, 0,
-	temp.fm_20 =           0; temp.fm_21 =           0; temp.fm_22 = a_c_fZScale; temp.fm_23 = 0;            //\=      0,       0, zScale, 0,
-	temp.fm_30 =           0; temp.fm_31 =           0; temp.fm_32 =           0; temp.fm_33 = 1;			 //\=      0,       0,      0, 1
-	return Matrix4x4(temp);                                                                                  //\===================================
+	Matrix4x4 temp = *this;//Creates a temporary matrix that is equal to the Matrx3x3 it will scale matrix.  	   
+	temp.fm_00 = a_c_fXScale; temp.fm_01 =           0; temp.fm_02 =           0; temp.fm_03 = 0;//\= xScale,       0,      0, 0,            
+	temp.fm_10 =           0; temp.fm_11 = a_c_fYScale; temp.fm_12 =           0; temp.fm_13 = 0;//\=      0,  yScale,      0, 0,            
+	temp.fm_20 =           0; temp.fm_21 =           0; temp.fm_22 = a_c_fZScale; temp.fm_23 = 0;//\=      0,       0, zScale, 0,            
+	temp.fm_30 =           0; temp.fm_31 =           0; temp.fm_32 =           0; temp.fm_33 = 1;//\=      0,       0,      0, 1			 
+	return Matrix4x4(temp);//Returns the scale matrix.                                                                                  
 }
 
 //\===========================================================================================
@@ -752,13 +752,13 @@ Matrix4x4 Matrix4x4::getScaleMatrix(const float &a_c_fXScale, float &a_c_fYScale
 //\===========================================================================================
 
 void Matrix4x4::transpose()//Transposes the Matrix4x4. 													 
-{																										//\===================================
-	Matrix4x4 temp = *this;//Creates a temporary matrix that is equal to the Matrx3x3 it will transpose.//\= Makes the Matrix4x4 equal to the transpose matrix which is:
-	fm_01 = temp.fm_10; fm_02 = temp.fm_20; fm_03 = temp.fm_30;											//\= 00, 10, 20, 30,
-	fm_10 = temp.fm_01; fm_12 = temp.fm_21; fm_13 = temp.fm_31;											//\= 01, 11, 21, 31,
-	fm_20 = temp.fm_02; fm_21 = temp.fm_12; fm_23 = temp.fm_32;											//\= 02, 12, 22, 32
-	fm_30 = temp.fm_03; fm_31 = temp.fm_13; fm_32 = temp.fm_23;											//\= 03, 13, 23, 33
-}															   											//\===================================
+{																										
+	Matrix4x4 temp = *this;//Creates a temporary matrix that is equal to the Matrx3x3 it will transpose.
+	fm_01 = temp.fm_10; fm_02 = temp.fm_20; fm_03 = temp.fm_30;//\= 00, 10, 20, 30,											
+	fm_10 = temp.fm_01; fm_12 = temp.fm_21; fm_13 = temp.fm_31;//\= 01, 11, 21, 31,											
+	fm_20 = temp.fm_02; fm_21 = temp.fm_12; fm_23 = temp.fm_32;//\= 02, 12, 22, 32											
+	fm_30 = temp.fm_03; fm_31 = temp.fm_13; fm_32 = temp.fm_23;//\= 03, 13, 23, 33											
+}															   											
 															   									   
 //\===========================================================================================
 //\ Set To Identity
@@ -766,7 +766,7 @@ void Matrix4x4::transpose()//Transposes the Matrix4x4.
 
 void Matrix4x4::setIdentity()//Makes the Matrix4x4 an identity matrix.
 {																      
-	*this = IDENTITY;
+	*this = IDENTITY;//Makes the Matrix4x equal to the 4x4 identity matrix.
 }																      
 																
 //\===================================================================
@@ -775,7 +775,7 @@ void Matrix4x4::setIdentity()//Makes the Matrix4x4 an identity matrix.
 
 Matrix4x4 Matrix4x4::identity()const//Returns a Matrix4x4 identity matrix.
 {
-	return Matrix4x4(IDENTITY);
+	return Matrix4x4(IDENTITY);//Returns the 4x4 identity matrix.
 }
 
 //\===========================================================================================
@@ -783,8 +783,8 @@ Matrix4x4 Matrix4x4::identity()const//Returns a Matrix4x4 identity matrix.
 //\===========================================================================================
 
 void Matrix4x4::setZero()//Makes each Matrix4x4 element equal to 0. 
-{//Set each element in the Matrix4x4 to zero.
-	*this = ZERO;
+{
+	*this = ZERO;//Set each element in the Matrix4x4 to zero.
 }
 
 //\===========================================================================================
@@ -793,12 +793,12 @@ void Matrix4x4::setZero()//Makes each Matrix4x4 element equal to 0.
 
 Matrix4x4 Matrix4x4::zero()const//Returns a Matrix4x4 zero matrix.
 {
-	return Matrix4x4(ZERO);
+	return Matrix4x4(ZERO);//Returns a 4x4 matrix of zero's.
 }
 
 //\===========================================================================================
 //\ Special Points
 //\===========================================================================================
 
-const Matrix4x4 Matrix4x4::ZERO{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
-const Matrix4x4 Matrix4x4::IDENTITY{ 1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1 };
+const Matrix4x4 Matrix4x4::ZERO{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };//A Matrix4x4 where every element is equal to zero.
+const Matrix4x4 Matrix4x4::IDENTITY{ 1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1 };//A Matrix4x4 where the elements are equal to the identity matrix.
