@@ -9,6 +9,7 @@
 #include <cstring>
 #include <cmath>
 #include "MathUtil.h"
+#include "Matrix3x3.h"
 
 //\===========================================================================================
 //\ Constructor
@@ -125,6 +126,15 @@ Vector3 Vector3::operator*(const Vector3 &a_c_v3Vector3)const//Overloaded multip
 		fY * a_c_v3Vector3.fY,
 		fZ * a_c_v3Vector3.fZ);
 }
+
+Vector3 Vector3::operator*(const Matrix3x3 &a_c_fm3Matrix3x3)const//Multiplication for a vector times a matrix as introducing this as an overload would cause circular dependency.
+{
+	return Vector3(//Returns the multiplied Vector3.
+		fX * a_c_fm3Matrix3x3.getiMatrix(1) + fY * a_c_fm3Matrix3x3.getiMatrix(4) + fZ * a_c_fm3Matrix3x3.getiMatrix(7),//Dot product for the only row of the Vector3 and the first row of the Matrix3x3.
+		fX * a_c_fm3Matrix3x3.getiMatrix(2) + fY * a_c_fm3Matrix3x3.getiMatrix(5) + fZ * a_c_fm3Matrix3x3.getiMatrix(8),//Dot product for the only row of the Vector3 and the second row of the Matrix3x3.
+		fX * a_c_fm3Matrix3x3.getiMatrix(3) + fY * a_c_fm3Matrix3x3.getiMatrix(6) + fZ * a_c_fm3Matrix3x3.getiMatrix(9));//Dot product for the only row of the Vector3 and the third row of the Matrix3x3.
+}
+
 
 Vector3 Vector3::operator/(const float &a_c_fScalar)const//Overloaded division operation for Vector3.
 {

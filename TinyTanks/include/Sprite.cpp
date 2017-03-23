@@ -16,10 +16,11 @@
 Sprite::Sprite(const char* a_fileName, float a_width, float a_height, Vector2 a_origin, Vector4 a_UVCoords)
 {
 	m_iSpriteID = UG::CreateSprite(a_fileName, Vector2(a_width, a_height).getVector(), a_origin.getVector(), a_UVCoords.getVector());
+	UG::SetSpriteScale(m_iSpriteID, a_width, a_height);
 	float mat4x4[16];
 	memset(mat4x4, 0, sizeof(float) * 16);
 	UG::GetSpriteMatrix(m_iSpriteID, mat4x4);
-	m3PosRot = Matrix3x3(mat4x4[0], mat4x4[1], mat4x4[2], mat4x4[4], mat4x4[5], mat4x4[6], mat4x4[7], mat4x4[8], 1.f);
+	m3PosRot = Matrix3x3(mat4x4[0], mat4x4[1], mat4x4[2], mat4x4[4], mat4x4[5], mat4x4[6], mat4x4[8], mat4x4[9], 1.f);
 }
 
 //\===========================================================================================
@@ -55,9 +56,9 @@ void Sprite::Update()
 	GetWorldTransform(worldTx);
 	Matrix4x4 m4x4(
 		worldTx.getiMatrix(0), worldTx.getiMatrix(1), worldTx.getiMatrix(2), 0.f,
-		worldTx.getiMatrix(4), worldTx.getiMatrix(5), worldTx.getiMatrix(6), 0.f,
+		worldTx.getiMatrix(3), worldTx.getiMatrix(4), worldTx.getiMatrix(5), 0.f,
 		0.f, 0.f, 1.f, 0.f,
-		worldTx.getiMatrix(12), worldTx.getiMatrix(13), 0.f, 1.f);
+		worldTx.getiMatrix(6), worldTx.getiMatrix(7), 0.f, 1.f);
 		UG::SetSpriteMatrix(m_iSpriteID, m4x4.getMatrix());
 
 }
@@ -74,7 +75,7 @@ void Sprite::MoveSprite(Vector3 a_movementVec)
 	//Multiplying the movement vector by our local transform will put that vector in the local space of this object
 	//if we were after moving this object along a world vector then we would need to multiply that vector by the inverse
 	//of our worldspace matrix
-	pos += vectorTimesMatrix3x3(a_movementVec, m3PosRot);
+	pos += a_movementVec * m3PosRot;
 
 	m3PosRot.setRow(2, pos);
 }

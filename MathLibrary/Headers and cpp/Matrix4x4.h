@@ -8,8 +8,8 @@
 #ifndef _MATRIX4X4_H_
 #define _MATRIX4X4_H_
 
-#include "Vector4.h"
 #include "Matrix3x3.h"
+#include "Vector4.h"
 #include "Vector3.h"
 
 //\===========================================================================================

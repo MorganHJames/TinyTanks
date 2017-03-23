@@ -77,26 +77,49 @@ checkCollision(GameObject &one, GameObject &two) // AABB - AABB collision
 //\ Clamp 
 //\===========================================================================================
 
+float clamp(float x, float min, float max)
+{
+	if (x < min) 
+		x = min;
+	else if (x > max) 
+		x = max;
+	return x;
+}
+
 //\===========================================================================================
 //\ Lerp 
 //\===========================================================================================
+
+float lerp(float v0, float v1, float t)
+{
+	return (1 - t) * v0 + t * v1;
+}
 
 //\===========================================================================================
 //\ Slerp 
 //\===========================================================================================
 
+
 //\===========================================================================================
 //\ Smoothstep
 //\===========================================================================================
+
+float smoothstep(float edge0, float edge1, float x)
+{
+	// Scale, bias and saturate x to 0..1 range
+	x = clamp((x - edge0) / (edge1 - edge0), 0.0, 1.0);
+	// Evaluate polynomial
+	return x*x*(3 - 2 * x);
+}
 
 //\===========================================================================================
 //\ Smootherstep
 //\===========================================================================================
 
-Vector3 vectorTimesMatrix3x3(const Vector3 &a_c_v3Vector3, const Matrix3x3 &a_c_fm3Matrix3x3)//Multiplication for a vector times a matrix as introducing this as an overload would cause circular dependency.
+float smootherstep(float edge0, float edge1, float x)
 {
-	return Vector3(//Returns the multiplied Vector3.
-		a_c_v3Vector3.getfX() * a_c_fm3Matrix3x3.getiMatrix(1) + a_c_v3Vector3.getfY() * a_c_fm3Matrix3x3.getiMatrix(4) + a_c_v3Vector3.getfZ() * a_c_fm3Matrix3x3.getiMatrix(7),//Dot product for the only row of the Vector3 and the first row of the Matrix3x3.
-		a_c_v3Vector3.getfX() * a_c_fm3Matrix3x3.getiMatrix(2) + a_c_v3Vector3.getfY() * a_c_fm3Matrix3x3.getiMatrix(5) + a_c_v3Vector3.getfZ() * a_c_fm3Matrix3x3.getiMatrix(8),//Dot product for the only row of the Vector3 and the second row of the Matrix3x3.
-		a_c_v3Vector3.getfX() * a_c_fm3Matrix3x3.getiMatrix(3) + a_c_v3Vector3.getfY() * a_c_fm3Matrix3x3.getiMatrix(6) + a_c_v3Vector3.getfZ() * a_c_fm3Matrix3x3.getiMatrix(9));//Dot product for the only row of the Vector3 and the third row of the Matrix3x3.
+	// Scale, and clamp x to 0..1 range
+	x = clamp((x - edge0) / (edge1 - edge0), 0.0, 1.0);
+	// Evaluate polynomial
+	return x*x*x*(x*(x * 6 - 15) + 10);
 }

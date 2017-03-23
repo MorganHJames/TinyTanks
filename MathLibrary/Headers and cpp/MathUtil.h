@@ -8,9 +8,6 @@
 #ifndef _MATHUTIL_H_
 #define _MATHUTIL_H_
 
-#include "Vector3.h"
-#include "Matrix3x3.h"
-
 //\===========================================================================================
 //\ Author: Morgan James
 //\ Brief: Multiple #defines for constants E.G. PI, 2PI, HALF_PI.
@@ -84,6 +81,12 @@ float reciprocal(const float a_c_fScalar);
 //\ Lerp 
 //\===========================================================================================
 
+float lerp(float v0, float v1, float t);
+
+//\===========================================================================================
+//\ Quad Bezzier
+//\===========================================================================================
+
 //\===========================================================================================
 //\ Slerp 
 //\===========================================================================================
@@ -95,8 +98,5 @@ float reciprocal(const float a_c_fScalar);
 //\===========================================================================================
 //\ Smootherstep
 //\===========================================================================================
-
-
-Vector3 vectorTimesMatrix3x3(const Vector3 &a_c_v3Vector3, const Matrix3x3 &a_c_fm3Matrix3x3);//Multiplication for a vector times a matrix as introducing this as an overload would cause circular dependency.
 
 #endif

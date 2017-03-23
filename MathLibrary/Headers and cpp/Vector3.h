@@ -18,9 +18,9 @@
 //\ Constructor to create vector 3 from vector 2.
 //\ Functions to allow for dot product, cross product, rotation, magnitude, normalisation.
 //\===========================================================================================
-
 class Vector3
 {
+	friend class Matrix3x3;
 private:
 	//\===========================================================================================
 	//\ Member Variables
@@ -76,6 +76,8 @@ public:
 	Vector3 operator*(const float &a_c_fScalar)const;//Overloaded multiplication operation for Vector3.
 
 	Vector3 operator*(const Vector3 &a_c_v3Vector3)const;//Overloaded multiplication operation for Vector3.
+
+	Vector3 operator*(const Matrix3x3 &a_c_fm3Matrix3x3)const;//Multiplication for a vector times a matrix as introducing this as an overload would cause circular dependency.
 
 	Vector3 operator/(const float &a_c_fScalar)const;//Overloaded division operation for Vector3.
 

@@ -26,9 +26,9 @@ Game::Game(int a_c_iWidth, int a_c_iHeight)
 
 		UG::SetFont("./fonts/invaders.fnt");
 
-		Tank player(Vector2(0.5f, 0.5f), 87, 83, 65, 68, 69, 81, iScreenWidth, iScreenHeight);
-		Tank Enemy1(Vector2(0.8f, 0.8f), iScreenWidth, iScreenHeight);
-		Tank Enemy2(Vector2(0.3f, 0.3f), iScreenWidth, iScreenHeight);
+		Tank player(Vector2(0.5f * iScreenWidth, 0.5f * iScreenHeight), 87, 83, 65, 68, 69, 81, iScreenWidth, iScreenHeight);
+		Tank Enemy1(Vector2(0.8f * iScreenWidth, 0.8f * iScreenHeight), iScreenWidth, iScreenHeight);
+		Tank Enemy2(Vector2(0.3f * iScreenWidth, 0.3f * iScreenHeight), iScreenWidth, iScreenHeight);
 
 		//Defines the first state of play.
 		GameState currentState = SPLASH;
@@ -75,9 +75,9 @@ Game::Game(int a_c_iWidth, int a_c_iHeight)
 			case MENU:
 			{
 				currentState = GAMEPLAY;
-				Tank player(Vector2(0.5f, 0.5f), 87, 83, 65, 68, 69, 81, iScreenWidth, iScreenHeight);
-				Tank Enemy1(Vector2(0.8f, 0.8f), iScreenWidth, iScreenHeight);
-				Tank Enemy2(Vector2(0.3f, 0.3f), iScreenWidth, iScreenHeight);
+				//Tank player(Vector2(0.5f, 0.5f), 87, 83, 65, 68, 69, 81, iScreenWidth, iScreenHeight);
+				//Tank Enemy1(Vector2(0.8f, 0.8f), iScreenWidth, iScreenHeight);
+				//Tank Enemy2(Vector2(0.3f, 0.3f), iScreenWidth, iScreenHeight);
 				break;
 			}
 
