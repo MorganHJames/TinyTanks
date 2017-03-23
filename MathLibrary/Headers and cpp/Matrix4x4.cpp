@@ -472,7 +472,7 @@ Matrix4x4 Matrix4x4::operator-=(const Matrix4x4 &a_c_fm4Matrix4x4)//Overloaded s
 Matrix4x4 Matrix4x4::operator=(const float &a_c_fScalar)//Overloaded equals operation for Matrix4x4.
 {
 	fm_00 = a_c_fScalar;//Makes the first element of the matrix equal to the scalar passed in.
-	fm_01 = a_c_fScalar;//Makes the second element of the matrix equal to the scalar passed in.
+    fm_01 = a_c_fScalar;//Makes the second element of the matrix equal to the scalar passed in.
 	fm_02 = a_c_fScalar;//Makes the third element of the matrix equal to the scalar passed in.
 	fm_03 = a_c_fScalar;//Makes the fourth element of the matrix equal to the scalar passed in.
 	fm_10 = a_c_fScalar;//Makes the fifth element of the matrix equal to the scalar passed in.

@@ -207,6 +207,7 @@ public:
 	static const Vector3 NEGATIVE_UNIT_Y;//A Vector3 equal to {0,-1,0}.
 	static const Vector3 NEGATIVE_UNIT_Z;//A Vector3 equal to {0,0,-1}.
 	static const Vector3 UNIT_SCALE;//A Vector3 equal to {1,1,1}.
+
 };
 
 #endif

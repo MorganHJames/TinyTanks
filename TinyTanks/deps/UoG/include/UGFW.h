@@ -23,7 +23,7 @@
 namespace UG
 {
 
-
+//https://connectglosac-my.sharepoint.com/personal/s1602293_connect_glos_ac_uk/_layouts/15/guestaccess.aspx?docid=1e8bdf3c9ae84430d82cd701e4844e286&authkey=AUJP5PIjCDv5dyUaUmtsCFM
 #pragma region SColor structure to describe a colour
 	/**
 	* @brief A Structure to describe a colour value as an unsigned int, and as individual 8 bit components (char values)
