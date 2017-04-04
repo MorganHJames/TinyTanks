@@ -1,9 +1,9 @@
-﻿  Matrix3x3.cpp
+﻿  Matrix4x4.cpp
+  MathUtil.cpp
   Generating Code...
   Skipping... (no relevant changes detected)
   Vector2.cpp
-  MathUtil.cpp
   Vector4.cpp
   Vector3.cpp
-  Matrix4x4.cpp
+  Matrix3x3.cpp
   MathLibrary.vcxproj -> D:\unistuff\CT4019 Programming and Mathematics for Games (Sem1-2 - 201617)\semester 2\Tiny Tanks\MathLibrary\.\Debug\MathLibrary.lib
