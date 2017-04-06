@@ -30,8 +30,8 @@ private:
 	//Controls
 	unsigned int uiUp, uiDown, uiLeft, uiRight, uiRotateRight, uiRotateLeft = 0;
 	//Default Sprites
-	Sprite* sTank = new Sprite("./images/tanks.png", 66, 72, Vector2(0.5f, 0.5f), Vector4(0.058f, 0.536f, 0.442f, 0.964f));
-	Sprite* sTurret = new Sprite("./images/tanks.png", 38, 64, Vector2(0.5f, 0.5f - 0.21f), Vector4(0.622f, 0.607f, 0.843f, 0.988f));
+	Sprite* sTank;
+	Sprite* sTurret;
 
 public:
 	//\===========================================================================================

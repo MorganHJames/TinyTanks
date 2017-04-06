@@ -16,6 +16,7 @@
 Sprite::Sprite(const char* a_fileName, float a_width, float a_height, Vector2 a_origin, Vector4 a_UVCoords)
 {
 	m_iSpriteID = UG::CreateSprite(a_fileName, Vector2(a_width, a_height).getVector(), a_origin.getVector(), a_UVCoords.getVector());
+	//m_iSpriteID = UG::CreateSprite(a_fileName, a_width, a_height, true);
 	UG::SetSpriteScale(m_iSpriteID, a_width, a_height);
 	float mat4x4[16];
 	memset(mat4x4, 0, sizeof(float) * 16);
