@@ -22,8 +22,6 @@ private:
 	//\===========================================================================================
 	//\ Member Variables
 	//\===========================================================================================
-
-	float fX, fY;//Two float variables created.
 	union
 	{
 		struct//A structure two floats to make a Vector2.
