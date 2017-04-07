@@ -26,15 +26,10 @@ Game::Game(int a_c_iWidth, int a_c_iHeight)
 
 		UG::SetFont("./fonts/invaders.fnt");
 
-
-		Tank player(Vector2(0.5f * iScreenWidth, 0.5f * iScreenHeight), 87, 83, 65, 68, 69, 81);
-
-
 		//Defines the first state of play.
 		GameState currentState = SPLASH;
 
-
-
+		Tank player(Vector2(0.5f * iScreenWidth, 0.5f * iScreenHeight), 87, 83, 65, 68, 69, 81);
 		
 		do
 		{
@@ -70,7 +65,6 @@ Game::Game(int a_c_iWidth, int a_c_iHeight)
 					//Sets the current state of game play to the menu.
 					currentState = MENU;
 
-
 				}
 				break;
 			}
@@ -78,14 +72,14 @@ Game::Game(int a_c_iWidth, int a_c_iHeight)
 			case MENU:
 			{
 				currentState = GAMEPLAY;
-				//Tank player(Vector2(0.5f, 0.5f), 87, 83, 65, 68, 69, 81, iScreenWidth, iScreenHeight);
-				//Tank Enemy1(Vector2(0.8f, 0.8f), iScreenWidth, iScreenHeight);
-				//Tank Enemy2(Vector2(0.3f, 0.3f), iScreenWidth, iScreenHeight);
+
+				player.markforDraw();
 				break;
 			}
 
 			case GAMEPLAY:
 			{
+
 				player.tankMovement(fDeltaTime);
 				break;
 			}

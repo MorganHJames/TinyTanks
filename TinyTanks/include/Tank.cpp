@@ -18,13 +18,11 @@ Tank::Tank(const Vector2 a_c_v2Position, unsigned int a_c_uiUp, unsigned int a_c
 	//Create a sprite for our tank's base
 	sTank = new Sprite("./images/tanks.png", 66, 72, Vector2(0.5f, 0.5f), Vector4(0.058f, 0.536f, 0.442f, 0.964f));
 	sTank->SetPosition(a_c_v2Position);
-	sTank->MarkForDraw();
 	sTank->SetLayer(0);
 
 	//Create a sprite for our tank's turret
 	sTurret = new Sprite("./images/tanks.png", 38, 64, Vector2(0.5f, 0.25f), Vector4(0.622f, 0.607f, 0.843f, 0.988f));
 	sTurret->SetParent(sTank);
-	sTurret->MarkForDraw();
 	sTurret->SetLayer(1);
 
 	bPlayer = true;
@@ -46,16 +44,29 @@ Tank::Tank(const Vector2 a_c_v2Position)
 	//Create a sprite for our tank's base
 	sTank = new Sprite("./images/tanks.png", 66, 72, Vector2(0.5f, 0.5f), Vector4(0.058f, 0.536f, 0.442f, 0.964f));
 	sTank->SetPosition(a_c_v2Position);
-	sTank->MarkForDraw();
 	sTank->SetLayer(0);
 
 	//Create a sprite for our tank's turret
 	sTurret = new Sprite("./images/tanks.png", 38, 64, Vector2(0.5f, 0.25f), Vector4(0.622f, 0.607f, 0.843f, 0.988f));
 	sTurret->SetParent(sTank);
-	sTurret->MarkForDraw();
 	sTurret->SetLayer(1);
 }
 
+//\===========================================================================================
+//\ Draw Functions
+//\===========================================================================================
+
+void Tank::stopDrawing()
+{
+	sTank->StopDrawing();
+	sTurret->StopDrawing();
+}
+
+void Tank::markforDraw()
+{
+	sTank->MarkForDraw();
+	sTurret->MarkForDraw();
+}
 //\===========================================================================================
 //\ Tank Movement 
 //\===========================================================================================
@@ -113,9 +124,11 @@ void Tank::tankMovement(float a_fDeltaTime)
 	fCurrentVelocity += fAccelleration * dt;
 	fCurrentVelocity -= fCurrentVelocity * fDrag;
 
+	//max speed.
+
 	if (fabsf(fCurrentVelocity) > fMaxVelocity)
 	{
-		fCurrentVelocity = fMaxVelocity * sinf(fCurrentVelocity);
+		fCurrentVelocity = fMaxVelocity ;
 	}
 	// Get tank Matrix
 	Matrix3x3 mWorldTransform;
