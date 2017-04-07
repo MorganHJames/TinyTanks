@@ -38,13 +38,13 @@ public:
 	//\ Player Constructor 
 	//\===========================================================================================
 
-	Tank(const Vector2 a_c_v2Position, unsigned int a_c_uiUp, unsigned int a_c_uiDown, unsigned int a_c_uiLeft, unsigned int a_c_uiRight, unsigned int a_c_uiRotateRight, unsigned int a_c_uiRotateLeft, int a_c_iScreenWidth, int a_c_iScreenHeight);
+	Tank(const Vector2 a_c_v2Position, unsigned int a_c_uiUp, unsigned int a_c_uiDown, unsigned int a_c_uiLeft, unsigned int a_c_uiRight, unsigned int a_c_uiRotateRight, unsigned int a_c_uiRotateLeft);
 
 	//\===========================================================================================
 	//\ Enemy Constructor 
 	//\===========================================================================================
 
-	Tank(const Vector2 a_c_v2Position, int a_c_iScreenWidth, int a_c_iScreenHeight);
+	Tank(const Vector2 a_c_v2Position);
 
 	//\===========================================================================================
 	//\ Tank Movement 

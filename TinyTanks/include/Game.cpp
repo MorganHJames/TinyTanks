@@ -27,7 +27,7 @@ Game::Game(int a_c_iWidth, int a_c_iHeight)
 		UG::SetFont("./fonts/invaders.fnt");
 
 
-		Tank player(Vector2(0.5f * iScreenWidth, 0.5f * iScreenHeight), 87, 83, 65, 68, 69, 81, iScreenWidth, iScreenHeight);
+		Tank player(Vector2(0.5f * iScreenWidth, 0.5f * iScreenHeight), 87, 83, 65, 68, 69, 81);
 
 
 		//Defines the first state of play.
@@ -45,13 +45,12 @@ Game::Game(int a_c_iWidth, int a_c_iHeight)
 
 			float fDeltaTime = UG::GetDeltaTime();
 
-				//Draw some text
-				UG::ClearScreen();
+			//Draw some text
+			UG::ClearScreen();
 
 			//The switch statement containing all the different stages of the game.
 			switch (currentState)
 			{
-
 			case SPLASH:
 			{
 				//Draws the string Tiny Tanks to the screen like a title.
