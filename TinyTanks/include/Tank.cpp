@@ -16,23 +16,32 @@
 Tank::Tank(const Vector2 a_c_v2Position, unsigned int a_c_uiUp, unsigned int a_c_uiDown, unsigned int a_c_uiLeft, unsigned int a_c_uiRight, unsigned int a_c_uiRotateRight, unsigned int a_c_uiRotateLeft)
 {
 	//Create a sprite for our tank's base
-	sTank = new Sprite("./images/tanks.png", 66, 72, Vector2(0.5f, 0.5f), Vector4(0.058f, 0.536f, 0.442f, 0.964f));
-	sTank->SetPosition(a_c_v2Position);
-	sTank->SetLayer(0);
+	m_sTank = new Sprite("./images/tanks.png", 66, 72, Vector2(0.5f, 0.5f), Vector4(0.058f, 0.536f, 0.442f, 0.964f));
+	
+	m_sTank->setPosition(a_c_v2Position);
+	
+	m_sTank->setLayer(0);
 
 	//Create a sprite for our tank's turret
-	sTurret = new Sprite("./images/tanks.png", 38, 64, Vector2(0.5f, 0.25f), Vector4(0.622f, 0.607f, 0.843f, 0.988f));
-	sTurret->SetParent(sTank);
-	sTurret->SetLayer(1);
+	m_sTurret = new Sprite("./images/tanks.png", 38, 64, Vector2(0.5f, 0.25f), Vector4(0.622f, 0.607f, 0.843f, 0.988f));
+	
+	m_sTurret->setParent(m_sTank);
+	
+	m_sTurret->setLayer(1);
 
-	bPlayer = true;
+	m_bPlayer = true;
 
-	uiUp = a_c_uiUp;
-	uiDown = a_c_uiDown;
-	uiLeft = a_c_uiLeft;
-	uiRight = a_c_uiRight;
-	uiRotateLeft = a_c_uiRotateLeft;
-	uiRotateRight = a_c_uiRotateRight;
+	m_uiUp = a_c_uiUp;
+	
+	m_uiDown = a_c_uiDown;
+	
+	m_uiLeft = a_c_uiLeft;
+	
+	m_uiRight = a_c_uiRight;
+	
+	m_uiRotateLeft = a_c_uiRotateLeft;
+	
+	m_uiRotateRight = a_c_uiRotateRight;
 }
 
 //\===========================================================================================
@@ -42,14 +51,18 @@ Tank::Tank(const Vector2 a_c_v2Position, unsigned int a_c_uiUp, unsigned int a_c
 Tank::Tank(const Vector2 a_c_v2Position)
 {
 	//Create a sprite for our tank's base
-	sTank = new Sprite("./images/tanks.png", 66, 72, Vector2(0.5f, 0.5f), Vector4(0.058f, 0.536f, 0.442f, 0.964f));
-	sTank->SetPosition(a_c_v2Position);
-	sTank->SetLayer(0);
+	m_sTank = new Sprite("./images/tanks.png", 66, 72, Vector2(0.5f, 0.5f), Vector4(0.058f, 0.536f, 0.442f, 0.964f));
+	
+	m_sTank->setPosition(a_c_v2Position);
+	
+	m_sTank->setLayer(0);
 
 	//Create a sprite for our tank's turret
-	sTurret = new Sprite("./images/tanks.png", 38, 64, Vector2(0.5f, 0.25f), Vector4(0.622f, 0.607f, 0.843f, 0.988f));
-	sTurret->SetParent(sTank);
-	sTurret->SetLayer(1);
+	m_sTurret = new Sprite("./images/tanks.png", 38, 64, Vector2(0.5f, 0.25f), Vector4(0.622f, 0.607f, 0.843f, 0.988f));
+
+	m_sTurret->setParent(m_sTank);
+
+	m_sTurret->setLayer(1);
 }
 
 //\===========================================================================================
@@ -58,14 +71,16 @@ Tank::Tank(const Vector2 a_c_v2Position)
 
 void Tank::stopDrawing()
 {
-	sTank->StopDrawing();
-	sTurret->StopDrawing();
+	m_sTank->stopDrawing();
+	
+	m_sTurret->stopDrawing();
 }
 
 void Tank::markforDraw()
 {
-	sTank->MarkForDraw();
-	sTurret->MarkForDraw();
+	m_sTank->markForDraw();
+	
+	m_sTurret->markForDraw();
 }
 //\===========================================================================================
 //\ Tank Movement 
@@ -73,10 +88,10 @@ void Tank::markforDraw()
 
 void Tank::tankMovement(float a_fDeltaTime)
 {
-
-	float dt = a_fDeltaTime;
-	sTank->Update();
-	sTurret->Update();
+	m_sTank->update();
+	
+	m_sTurret->update();
+	
 	float xPos = 0; float yPos = 0;
 
 	
@@ -84,36 +99,38 @@ void Tank::tankMovement(float a_fDeltaTime)
 	//If our sprite was rotated 90 degrees on the sprite sheet then we would treat that direction as forward.
 	float fAccelleration = 0.f;
 
-	if (bPlayer = true)
+	if (m_bPlayer = true)
 	{
-		if (UG::IsKeyDown(uiUp))
+		if (UG::IsKeyDown(m_uiUp))
 		{
 			fAccelleration += 1.f;
-			fDrag = 0.f;
+	
+			m_fDrag = 0.f;
 		}
 
-		if (UG::IsKeyDown(uiDown))
+		if (UG::IsKeyDown(m_uiDown))
 		{
 			fAccelleration -= 0.75f;
-			fDrag = 0.f;
+			
+			m_fDrag = 0.f;
 		}
 
-		if (!UG::IsKeyDown(uiDown) && !UG::IsKeyDown(uiUp))
-			fDrag = 0.08f;
+		if (!UG::IsKeyDown(m_uiDown) && !UG::IsKeyDown(m_uiUp))
+			m_fDrag = 0.08f;
 
 		//Tank Rotation
-		if (UG::IsKeyDown(uiLeft))
-			sTank->RotateZ(-0.5f);
+		if (UG::IsKeyDown(m_uiLeft))
+			m_sTank->rotateZ(-0.5f);
 
-		if (UG::IsKeyDown(uiRight))
-			sTank->RotateZ(0.5f);
+		if (UG::IsKeyDown(m_uiRight))
+			m_sTank->rotateZ(0.5f);
 
 		//Turret Rotation
-		if (UG::IsKeyDown(uiRotateLeft))
-			sTurret->RotateZ(0.85f);
+		if (UG::IsKeyDown(m_uiRotateLeft))
+			m_sTurret->rotateZ(0.85f);
 
-		if (UG::IsKeyDown(uiRotateRight))
-			sTurret->RotateZ(-0.85f);
+		if (UG::IsKeyDown(m_uiRotateRight))
+			m_sTurret->rotateZ(-0.85f);
 	}
 
 	else
@@ -121,29 +138,33 @@ void Tank::tankMovement(float a_fDeltaTime)
 		//AI goes here
 	}
 
-	fCurrentVelocity += fAccelleration * dt;
-	fCurrentVelocity -= fCurrentVelocity * fDrag;
+	m_fCurrentVelocity += fAccelleration * a_fDeltaTime;
+
+	m_fCurrentVelocity -= m_fCurrentVelocity * m_fDrag;
 
 	//max speed.
 
-	if (fabsf(fCurrentVelocity) > fMaxVelocity)
+	if (fabsf(m_fCurrentVelocity) > m_fMaxVelocity)
 	{
-		fCurrentVelocity = fMaxVelocity ;
+		m_fCurrentVelocity = m_fMaxVelocity ;
 	}
 	// Get tank Matrix
 	Matrix3x3 mWorldTransform;
-	sTank->GetWorldTransform(mWorldTransform);
+	
+	m_sTank->getWorldTransform(mWorldTransform);
 
 	// Get the position and forward vectors
-	Vector2 xPosition = Vector2(mWorldTransform.getRow(2).getfX(), mWorldTransform.getRow(2).getfY());
-	Vector2 xForward = Vector2(mWorldTransform.getRow(1).getfX(), mWorldTransform.getRow(1).getfY());
+	Vector2 v2XPosition = Vector2(mWorldTransform.getRow(2).getfX(), mWorldTransform.getRow(2).getfY());
+	
+	Vector2 v2XForward = Vector2(mWorldTransform.getRow(1).getfX(), mWorldTransform.getRow(1).getfY());
 
 
-	if (fabsf(fCurrentVelocity) > 0.25f)
+	if (fabsf(m_fCurrentVelocity) > 0.25f)
 	{
 		// Add forward and velocity to position
-		xPosition += (xForward * fCurrentVelocity);
-		sTank->SetPosition(xPosition);
+		v2XPosition += (v2XForward * m_fCurrentVelocity);
+	
+		m_sTank->setPosition(v2XPosition);
 	}
 
 

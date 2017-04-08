@@ -25,8 +25,18 @@ private:
 	//\===========================================================================================
 	//\ Member Variables
 	//\===========================================================================================
+	union
+	{
+		struct//A structure three floats to make a vector3.
+		{
+			float m_fX, m_fY, m_fZ;//three float variables created.
+		};
 
-	float fX, fY, fZ;//Three float variables created.
+		struct//A structure containing 3 floats representing a Vector3.
+		{
+			float m_aVector3[3];//An array of 3 floats.
+		};
+	};
 
 public:
 	//\===========================================================================================
@@ -44,6 +54,8 @@ public:
 	//\===========================================================================================
 	//\ Getters
 	//\===========================================================================================
+
+	const float* Vector3::getVector()const;//Returns a pointer to the first element in the array.
 
 	float getfX()const;//A getter to get the x part of Vector3.
 
@@ -200,12 +212,19 @@ public:
 	//\===========================================================================================
 
 	static const Vector3 ZERO;//A Vector3 equal to {0,0,0}.
+	
 	static const Vector3 UNIT_X;//A Vector3 equal to {1,0,0}.
+
 	static const Vector3 UNIT_Y;//A Vector3 equal to {0,1,0}.
+
 	static const Vector3 UNIT_Z;//A Vector3 equal to {0,0,1}.
+
 	static const Vector3 NEGATIVE_UNIT_X;//A Vector3 equal to {-1,0,0}.
+
 	static const Vector3 NEGATIVE_UNIT_Y;//A Vector3 equal to {0,-1,0}.
+
 	static const Vector3 NEGATIVE_UNIT_Z;//A Vector3 equal to {0,0,-1}.
+
 	static const Vector3 UNIT_SCALE;//A Vector3 equal to {1,1,1}.
 
 };

@@ -30,12 +30,12 @@ private:
 	{
 		struct//A structure four floats to make a vector4.
 		{
-			float fX, fY, fZ, fW;//Four float variables created.
+			float m_fX, m_fY, m_fZ, m_fW;//Four float variables created.
 		};
 
 		struct//A structure containing 4 floats representing a Vector4.
 		{
-			float aVector4[4];//An array of 4 floats.
+			float m_aVector4[4];//An array of 4 floats.
 		};
 	};
 

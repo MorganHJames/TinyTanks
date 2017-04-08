@@ -15,97 +15,93 @@
 //\ Constructor 
 //\===========================================================================================
 
-Game::Game(int a_c_iWidth, int a_c_iHeight)
+Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch statement for game state control.
 {
-	if (UG::Create(a_c_iWidth, a_c_iHeight, false, "Tiny Tanks", 100, 100))
+	if (UG::Create(a_c_iWidth, a_c_iHeight, false, "Tiny Tanks", 100, 100))//An if statement calling the UG::create that returns true, and creates a window with the height and width passed in at the position passed in called the name passed in.
 	{
-		//Initialization
-		UG::GetScreenSize(iScreenWidth, iScreenHeight);
-		UG::SetBackgroundColor(UG::SColour(0x2A, 0x57, 0x66, 0xFF));
-		UG::AddFont("./fonts/invaders.fnt");
+        //\===========================================================================================
+        //\ Initialization
+        //\===========================================================================================
 
-		UG::SetFont("./fonts/invaders.fnt");
+		UG::GetScreenSize(iScreenWidth, iScreenHeight);//Sets the corresponding integers to the correct values for height and width.
 
-		//Defines the first state of play.
-		GameState currentState = SPLASH;
+		UG::SetBackgroundColor(UG::SColour(0x2A, 0x57, 0x66, 0xFF));//Sets the background color of the screen to match the values of colors passed in.
 
-		Tank player(Vector2(0.5f * iScreenWidth, 0.5f * iScreenHeight), 87, 83, 65, 68, 69, 81);
+		UG::AddFont("./fonts/invaders.fnt");//Adds the invaders font to the game.
+
+		UG::SetFont("./fonts/invaders.fnt");//Sets the font of the game to be the invaders font.
+
+		GameState currentState = SPLASH;//Defines the first state of the game.
+
+		Tank player(Vector2(0.5f * iScreenWidth, 0.5f * iScreenHeight), 87, 83, 65, 68, 69, 81);//Initializes the players tank.
 		
-		do
+		//\===========================================================================================
+		//\ Update
+		//\===========================================================================================
+
+		do//Do whilst the framework updates successfully.
 		{
-			// quit our application when escape is pressed
-			if (UG::IsKeyDown(256))
-				UG::Close();
+			if (UG::IsKeyDown(256))//If ESC is pressed.
+				UG::Close();//Close the game.
 
+			float fDeltaTime = UG::GetDeltaTime();//Sets the float fDeltaTime to be equal to the time between now and the last call of the processor.
+		
+			UG::ClearScreen();//Clears the screen.
 
-			float fDeltaTime = UG::GetDeltaTime();
-
-			//Draw some text
-			UG::ClearScreen();
-
-			//The switch statement containing all the different stages of the game.
-			switch (currentState)
+			switch (currentState)//The switch statement containing all the different stages of the game.
 			{
-			case SPLASH:
+			case SPLASH://The splash screen state that shows some text and after a moment goes to the menu.
 			{
-				//Draws the string Tiny Tanks to the screen like a title.
-				UG::DrawString("Tiny Tanks", (int)(iScreenWidth*0.0f), (int)(iScreenHeight * 0.6f), (1.5));
+				UG::DrawString("Tiny Tanks", (int)(iScreenWidth*0.0f), (int)(iScreenHeight * 0.6f), (1.5));//Draws the string Tiny Tanks to the screen like a title.
+				
+				UG::DrawString("Produced by Morgan James", (int)(iScreenWidth*0.075f), (int)(iScreenHeight * 0.4f), (1.5));//Draws the string Produced by Morgan James to the screen like a produced by tag.
+				
+				fSplashTimer += fDeltaTime;//Starts the incrementation of the variable that controls how long the screen is displayed for.
 
-				//Draws the string Produced by Morgan James to the screen like a produced by tag.
-				UG::DrawString("Produced by Morgan James", (int)(iScreenWidth*0.075f), (int)(iScreenHeight * 0.4f), (1.5));
-
-				//Starts the incrementation of the variable that controls how long the screen is displayed for.
-				fSplashTimer += fDeltaTime;
-
-				//After splash timer gets above the time below move to the menu screen.
-				if (fSplashTimer > 1)
+				if (fSplashTimer > 1)//If splash timer gets above 1 move to the menu screen.
 				{
-					int fSplashTimer = 0;
+					fSplashTimer = 0;//Reset the splash timer.
 
-					//Sets the current state of game play to the menu.
-					currentState = MENU;
-
+					//\===========================================================================================
+					//\ MENU Setup
+					//\===========================================================================================
+					
+					currentState = MENU;//Sets the current state of game play to the menu.
 				}
 				break;
 			}
 
-			case MENU:
+			case MENU://The Menu state where buttons should be present to navigate the application.
 			{
-				currentState = GAMEPLAY;
+				//\===========================================================================================
+				//\ GAMEPLAY Setup
+				//\===========================================================================================
 
-				player.markforDraw();
+				currentState = GAMEPLAY;//Sets the current state of game play to the main game.
+
+				player.markforDraw();//Sets the player tank to be drawn.
+
 				break;
 			}
 
-			case GAMEPLAY:
-			{
-
-				player.tankMovement(fDeltaTime);
-				break;
-			}
-
-			case OPTIONS:
+			case GAMEPLAY://The game play state where the game will be played and the user should be the majority of the time.
 			{
 
+				player.tankMovement(fDeltaTime);//Allows for movement of the player tank.
 				break;
 			}
 
-			case HIGHSCORE:
-			{
-
+			default://The default statement which should never be used.
 				break;
 			}
 
-			default:
-				break;
+		} while (UG::Process());//Returns true if the framework updates successfully and false if not.
 
-			}
+		//\===========================================================================================
+		//\ Clean Up
+		//\===========================================================================================
 
-		} while (UG::Process());
-
-
-		UG::Dispose();
-
+		UG::Dispose();//Unloads loaded components of the framework.
 
 	}
 }

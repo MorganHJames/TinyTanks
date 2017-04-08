@@ -21,16 +21,16 @@ private:
 	//\ Member Variables 
 	//\===========================================================================================
 
-	int iScreenWidth = 0, iScreenHeight = 0;
-	float fDeltaTime = 0;
-	float fSplashTimer = 0;
+	int iScreenWidth = 0, iScreenHeight = 0;//Integers to save to screen height and width.
+	float fDeltaTime = 0;//A float used to hold the time between the current time and the last time the processor was called.
+	float fSplashTimer = 0;//A float used to count time passed for how long the splash screen should be displayed.
 
 public:
 	//\===========================================================================================
 	//\ Constructor 
 	//\===========================================================================================
 
-	Game(int a_c_iWidth, int a_c_iHeight);
+	Game(const int a_c_iWidth, int a_c_iHeight);//Creates a game with a switch statement for game state control.
 	
 };
 #endif

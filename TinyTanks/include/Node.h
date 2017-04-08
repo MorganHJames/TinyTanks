@@ -27,11 +27,12 @@ class Node
 	//\===========================================================================================
 
 protected:
-	Matrix3x3 m3PosRot;
+	Matrix3x3 m_m3PosRot;
 
 private:
-	Node* m_pParent;
-	std::set<Node*>m_pChildren;
+	Node* m_nParent;
+	
+	std::set<Node*>m_nChildren;
 
 public:
 
@@ -53,49 +54,49 @@ public:
 	//\ Set Node's Parent
 	//\===========================================================================================
 
-	void Node::SetParent(Node* a_nParent);
+	void Node::setParent(Node* a_nParent);
 
 	//\===========================================================================================
 	//\ Add Child To Node
 	//\===========================================================================================
 	
-	void AddChild(Node* a_nChild);
+	void addChild(Node* a_nChild);
 
 	//\===========================================================================================
 	//\ Remove a child from the node hierarchy structure
 	//\===========================================================================================
 	
-	void RemoveChild(Node* a_nChild);
+	void removeChild(Node* a_nChild);
 
 	//\===========================================================================================
 	//\ Get World Transform (where is the node in the world? gotten by multiplying the node by all its parents and there parents in turn.
 	//\===========================================================================================
 
-	void GetWorldTransform(Matrix3x3& a_m3Transform);
+	void getWorldTransform(Matrix3x3& a_m3Transform);
 
 	//\===========================================================================================
 	//\ Get The Local Transform For The Point
 	//\===========================================================================================
 
-	void GetLocalTransform(Matrix3x3 a_m3Transform);
+	void getLocalTransform(Matrix3x3 a_m3Transform);
 
 	//\===========================================================================================
 	//\ Set The Translation
 	//\===========================================================================================
 	
-	void SetTranslation(Vector2 a_v2Translation);
+	void setTranslation(Vector2 a_v2Translation);
 
 	//\===========================================================================================
 	//\ Rotate Node Around It's Z Axis
 	//\===========================================================================================
 	
-	void RotateZ(float a_fRotation);
+	void rotateZ(float a_fRotation);
 
 	//\===========================================================================================
 	//\ Scales The Node
 	//\===========================================================================================
 	
-	void Scale(float a_fScale);
+	void scale(float a_fScale);
 
 };
 

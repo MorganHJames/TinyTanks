@@ -13,15 +13,19 @@
 //\ Constructor -- Makes A UG Sprite Object 
 //\===========================================================================================
 
-Sprite::Sprite(const char* a_fileName, float a_width, float a_height, Vector2 a_origin, Vector4 a_UVCoords)
+Sprite::Sprite(const char* a_c_cFileName, float a_c_fWidth, float a_c_fHeight, Vector2 a_c_v2Origin, Vector4 a_c_v4UVCoords)
 {
-	m_iSpriteID = UG::CreateSprite(a_fileName, Vector2(a_width, a_height).getVector(), a_origin.getVector(), a_UVCoords.getVector());
-	//m_iSpriteID = UG::CreateSprite(a_fileName, a_width, a_height, true);
-	UG::SetSpriteScale(m_iSpriteID, a_width, a_height);
-	float mat4x4[16];
-	memset(mat4x4, 0, sizeof(float) * 16);
-	UG::GetSpriteMatrix(m_iSpriteID, mat4x4);
-	m3PosRot = Matrix3x3(mat4x4[0], mat4x4[1], mat4x4[2], mat4x4[4], mat4x4[5], mat4x4[6], mat4x4[8], mat4x4[9], 1.f);
+	m_iSpriteID = UG::CreateSprite(a_c_cFileName, Vector2(a_c_fWidth, a_c_fHeight).getVector(), a_c_v2Origin.getVector(), a_c_v4UVCoords.getVector());
+
+	UG::SetSpriteScale(m_iSpriteID, a_c_fWidth, a_c_fHeight);
+
+	float fMat4x4[16];
+	
+	memset(fMat4x4, 0, sizeof(float) * 16);
+	
+	UG::GetSpriteMatrix(m_iSpriteID, fMat4x4);
+	
+	m_m3PosRot = Matrix3x3(fMat4x4[0], fMat4x4[1], fMat4x4[2], fMat4x4[4], fMat4x4[5], fMat4x4[6], fMat4x4[8], fMat4x4[9], 1.f);
 }
 
 //\===========================================================================================
@@ -37,7 +41,7 @@ Sprite::~Sprite()
 //\ Set The Sprite Layer
 //\===========================================================================================
 
-void Sprite::SetLayer(unsigned int a_uiLayer)
+void Sprite::setLayer(unsigned int a_uiLayer)
 {
 	UG::SetSpriteLayer(m_iSpriteID, a_uiLayer);
 }
@@ -46,21 +50,24 @@ void Sprite::SetLayer(unsigned int a_uiLayer)
 //\ Update Sprites Data Each Frame
 //\===========================================================================================
 
-void Sprite::Update()
+void Sprite::update()
 {
 	//OpenGL which is the underlying rendering pipeline that is being used by the framework
 	//draws all components using a 4x4 matrix to represent their world coordinates, here I am constructing that matrix
 	//from the 3x3 matrix that we are using internally
 	//set the sprites matrix
 
-	Matrix3x3 worldTx = Matrix3x3::IDENTITY;
-	GetWorldTransform(worldTx);
+	Matrix3x3 m3WorldTx = Matrix3x3::IDENTITY;
+	
+	getWorldTransform(m3WorldTx);
+	
 	Matrix4x4 m4x4(
-		worldTx.getiMatrix(0), worldTx.getiMatrix(1), worldTx.getiMatrix(2), 0.f,
-		worldTx.getiMatrix(3), worldTx.getiMatrix(4), worldTx.getiMatrix(5), 0.f,
+		m3WorldTx.getiMatrix(0), m3WorldTx.getiMatrix(1), m3WorldTx.getiMatrix(2), 0.f,
+		m3WorldTx.getiMatrix(3), m3WorldTx.getiMatrix(4), m3WorldTx.getiMatrix(5), 0.f,
 		0.f, 0.f, 1.f, 0.f,
-		worldTx.getiMatrix(6), worldTx.getiMatrix(7), 0.f, 1.f);
-		UG::SetSpriteMatrix(m_iSpriteID, m4x4.getMatrix());
+		m3WorldTx.getiMatrix(6), m3WorldTx.getiMatrix(7), 0.f, 1.f);
+	
+	UG::SetSpriteMatrix(m_iSpriteID, m4x4.getMatrix());
 
 }
 
@@ -68,24 +75,25 @@ void Sprite::Update()
 //\ Move Sprite 
 //\===========================================================================================
 
-void Sprite::MoveSprite(Vector3 a_movementVec)
+void Sprite::moveSprite(Vector3 a_v3MovementVec)
 {
 	// The movement vector argument is not guaranteed to be a unit vector as we may be moving scaled by a velocity
-	Vector3 pos;
-	pos = m3PosRot.getRow(2);
+	Vector3 v3Pos;
+	
+	v3Pos = m_m3PosRot.getRow(2);
 	//Multiplying the movement vector by our local transform will put that vector in the local space of this object
 	//if we were after moving this object along a world vector then we would need to multiply that vector by the inverse
 	//of our worldspace matrix
-	pos += a_movementVec * m3PosRot;
+	v3Pos += a_v3MovementVec * m_m3PosRot;
 
-	m3PosRot.setRow(2, pos);
+	m_m3PosRot.setRow(2, v3Pos);
 }
 
 //\===========================================================================================
 //\ Mark For Draw
 //\===========================================================================================
 
-void Sprite::MarkForDraw()
+void Sprite::markForDraw()
 {
 	UG::DrawSprite(m_iSpriteID);
 }
@@ -94,7 +102,7 @@ void Sprite::MarkForDraw()
 //\ Stop Drawing
 //\===========================================================================================
 
-void Sprite::StopDrawing()
+void Sprite::stopDrawing()
 {
 	UG::StopDrawingSprite(m_iSpriteID);
 }
@@ -103,9 +111,9 @@ void Sprite::StopDrawing()
 //\ Set Position
 //\===========================================================================================
 
-void Sprite::SetPosition(Vector2 a_pos)
+void Sprite::setPosition(Vector2 a_v2Pos)
 {
-	Vector3 np = Vector3(a_pos.getfX(), a_pos.getfY(), 1.f);
-	m3PosRot.setRow(2, np);
+	Vector3 v3NewPos = Vector3(a_v2Pos.getfX(), a_v2Pos.getfY(), 1.f);
 
+	m_m3PosRot.setRow(2, v3NewPos);
 }

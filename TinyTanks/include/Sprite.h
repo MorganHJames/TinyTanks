@@ -20,8 +20,11 @@ class Sprite : public Node
 {
 private:
 	int m_iSpriteID;
+	
 	int m_iWidth;
+	
 	int m_iHeight;
+	
 	Vector2 m_v2Origin;
 
 public:
@@ -29,7 +32,7 @@ public:
 	//\ Constructor -- Makes A UG Sprite Object 
 	//\===========================================================================================
 	
-	Sprite(const char* a_fileName, float a_width, float a_height, Vector2 a_origin, Vector4 a_UVCoords);
+	Sprite(const char* a_c_cFileName, float a_c_fWidth, float a_c_fHeight, Vector2 a_c_v2Origin, Vector4 a_c_v4UVCoords);
 
     //\===========================================================================================
     //\ Destructor
@@ -41,37 +44,37 @@ public:
     //\ Set The Sprite Layer
     //\===========================================================================================
     
-    void SetLayer(unsigned int a_uiLayer);
+    void setLayer(unsigned int a_uiLayer);
     
     //\===========================================================================================
     //\ Update Sprites Data Each Frame
     //\===========================================================================================
     
-    void Update();
+    void update();
     
     //\===========================================================================================
     //\ Move Sprite 
     //\===========================================================================================
     
-    void MoveSprite(Vector3 a_movementVec);
+    void moveSprite(Vector3 a_v3MovementVec);
     
     //\===========================================================================================
     //\ Mark For Draw
     //\===========================================================================================
     
-    void MarkForDraw();
+    void markForDraw();
     
     //\===========================================================================================
     //\ Stop Drawing
     //\===========================================================================================
     
-    void StopDrawing();
+    void stopDrawing();
     
     //\===========================================================================================
     //\ Set Position
     //\===========================================================================================
     
-    void SetPosition(Vector2 a_pos);
+    void setPosition(Vector2 a_v2Pos);
 	
 };
 

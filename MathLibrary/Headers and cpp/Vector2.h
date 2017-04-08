@@ -26,12 +26,12 @@ private:
 	{
 		struct//A structure two floats to make a Vector2.
 		{
-			float fX, fY;//Two float variables created.
+			float m_fX, m_fY;//Two float variables created.
 		};
 
 		struct//A structure containing two floats representing a Vector2.
 		{
-			float aVector2[2];//An array of two floats.
+			float m_aVector2[2];//An array of two floats.
 		};
 	};
 
@@ -200,10 +200,15 @@ public:
 	//\===========================================================================================
 
 	static const Vector2 ZERO;//A Vector2 equal to {0,0}
+	
 	static const Vector2 UNIT_X;//A Vector2 equal to {1,0}
+
 	static const Vector2 UNIT_Y;//A Vector2 equal to {0,1}
+
 	static const Vector2 NEGATIVE_UNIT_X;//A Vector2 equal to {-1,0}
+
 	static const Vector2 NEGATIVE_UNIT_Y;//A Vector2 equal to {0,-1}
+
 	static const Vector2 UNIT_SCALE;//A Vector2 equal to {1,1}
 };
 

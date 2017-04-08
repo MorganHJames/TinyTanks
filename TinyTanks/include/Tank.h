@@ -23,15 +23,19 @@ private:
 	//\ Member Variables 
 	//\===========================================================================================
 
-	float fCurrentVelocity = 0.f;
-	float fMaxVelocity = 0.75f;
-	float fDrag = 0.03f;
-	bool bPlayer = true;
+	float m_fCurrentVelocity = 0.f;
+	
+	float m_fMaxVelocity = 0.75f;
+	
+	float m_fDrag = 0.03f;
+	
+	bool m_bPlayer = true;
 	//Controls
-	unsigned int uiUp, uiDown, uiLeft, uiRight, uiRotateRight, uiRotateLeft = 0;
+	unsigned int m_uiUp, m_uiDown, m_uiLeft, m_uiRight, m_uiRotateRight, m_uiRotateLeft = 0;
 	//Default Sprites
-	Sprite* sTank;
-	Sprite* sTurret;
+	Sprite* m_sTank;
+	
+	Sprite* m_sTurret;
 
 public:
 	//\===========================================================================================

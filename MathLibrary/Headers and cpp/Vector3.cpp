@@ -19,22 +19,24 @@ Vector3::Vector3() {}//Constructor default that sets all variables to 0.
 
 Vector3::Vector3(const Vector3 &a_c_v3Vector3)//Copy constructor.
 {
-	fX = a_c_v3Vector3.getfX();//Sets the x value of the Vector3 equal to the Vector3's x component that is passed in.
-	fY = a_c_v3Vector3.getfY();//Sets the y value of the Vector3 equal to the VeVector3ctor4's y component that is passed in.
-	fZ = a_c_v3Vector3.getfZ();//Sets the z value of the Vector3 equal to the Vector3's z component that is passed in.
+	m_fX = a_c_v3Vector3.getfX();//Sets the x value of the Vector3 equal to the Vector3's x component that is passed in.
+	
+	m_fY = a_c_v3Vector3.getfY();//Sets the y value of the Vector3 equal to the VeVector3ctor4's y component that is passed in.
+	
+	m_fZ = a_c_v3Vector3.getfZ();//Sets the z value of the Vector3 equal to the Vector3's z component that is passed in.
 }
 
 Vector3::Vector3(float a_c_fX, float a_c_fY, float a_c_fZ) ://Constructor with three scalar values.
-	fX(a_c_fX),//Sets the x value of the Vector3 to the first argument passed in on Creation.
-	fY(a_c_fY),//Sets the y value of the Vector3 to the second argument passed in on Creation.
-	fZ(a_c_fZ)//Sets the z value of the Vector3 to the third argument passed in on Creation.
+	m_fX(a_c_fX),//Sets the x value of the Vector3 to the first argument passed in on Creation.
+	m_fY(a_c_fY),//Sets the y value of the Vector3 to the second argument passed in on Creation.
+	m_fZ(a_c_fZ)//Sets the z value of the Vector3 to the third argument passed in on Creation.
 {
 }
 
 Vector3::Vector3(const Vector2 &a_c_v2Vector2, float a_c_fZ) ://Constructor with a Vector2 and a scalar value.
-	fX(a_c_v2Vector2.getfX()),//Sets the x value of the Vector3 to the first part of the Vector2 passed in.
-	fY(a_c_v2Vector2.getfY()),//Sets the y value of the Vector3 to the second part of the Vector2 passed in.
-	fZ(a_c_fZ)//Sets the z value of the Vector3 to the third argument passed in on Creation.
+	m_fX(a_c_v2Vector2.getfX()),//Sets the x value of the Vector3 to the first part of the Vector2 passed in.
+	m_fY(a_c_v2Vector2.getfY()),//Sets the y value of the Vector3 to the second part of the Vector2 passed in.
+	m_fZ(a_c_fZ)//Sets the z value of the Vector3 to the third argument passed in on Creation.
 {
 }
 
@@ -42,19 +44,24 @@ Vector3::Vector3(const Vector2 &a_c_v2Vector2, float a_c_fZ) ://Constructor with
 //\ Getters
 //\===========================================================================================
 
+const float* Vector3::getVector()const//Returns a pointer to the first element in the array.
+{
+	return (m_aVector3);//Returns a pointer to the first element in the array.
+}
+
 float Vector3::getfX()const//A getter to get the x part of Vector3.
 {
-	return float(fX);//Returns the fX of this Vector3.
+	return float(m_fX);//Returns the m_fX of this Vector3.
 }
 
 float Vector3::getfY()const//A getter to get the y part of Vector3.
 {
-	return float(fY);//Returns the fY of this Vector3.
+	return float(m_fY);//Returns the fY of this Vector3.
 }
 
 float Vector3::getfZ()const//A getter to get the z part of Vector3.
 {
-	return float(fZ);//Returns the fZ of this Vector3.
+	return float(m_fZ);//Returns the fZ of this Vector3.
 }
 
 //\===========================================================================================
@@ -63,16 +70,16 @@ float Vector3::getfZ()const//A getter to get the z part of Vector3.
 
 void Vector3::setfX(const float &a_c_fX)//A setter to set the x part of Vector3 to the passed in argument.
 {
-	fX = a_c_fX;//Makes this Vector3's fX value equal to the passed in argument.
+	m_fX = a_c_fX;//Makes this Vector3's m_fX value equal to the passed in argument.
 }
 
 void Vector3::setfY(const float &a_c_fY)//A setter to set the y part of Vector3 to the passed in argument.
 {
-	fY = a_c_fY;//Makes this Vector3's fY value equal to the passed in argument.
+	m_fY = a_c_fY;//Makes this Vector3's fY value equal to the passed in argument.
 }
 void Vector3::setfZ(const float &a_c_fZ)//A setter to set the z part of Vector3 to the passed in argument.
 {
-	fY = a_c_fZ;//Makes this Vector3's fZ value equal to the passed in argument.
+	m_fY = a_c_fZ;//Makes this Vector3's fZ value equal to the passed in argument.
 }
 
 //\===========================================================================================
@@ -82,57 +89,57 @@ void Vector3::setfZ(const float &a_c_fZ)//A setter to set the z part of Vector3 
 Vector3 Vector3::operator+(const float &a_c_fScalar)const//Overloaded addition operation for Vector3.
 {
 	return Vector3(//Returns x + number, y + number, z + number.
-		fX + a_c_fScalar,
-		fY + a_c_fScalar,
-		fZ + a_c_fScalar);
+		m_fX + a_c_fScalar,
+		m_fY + a_c_fScalar,
+		m_fZ + a_c_fScalar);
 }
 
 Vector3 Vector3::operator+(const Vector3 &a_c_v3Vector3)const//Overloaded addition operation for Vector3.
 {
 	return Vector3(//Returns Ax + Bx, Ay + By, Az + Bz.
-		fX + a_c_v3Vector3.fX,
-		fY + a_c_v3Vector3.fY,
-		fZ + a_c_v3Vector3.fZ);
+		m_fX + a_c_v3Vector3.m_fX,
+		m_fY + a_c_v3Vector3.m_fY,
+		m_fZ + a_c_v3Vector3.m_fZ);
 }
 
 Vector3 Vector3::operator-(const float &a_c_fScalar)const//Overloaded subtraction operation for Vector3.
 {
 	return Vector3(//Returns x - number, y - number, z - number.
-		fX - a_c_fScalar,
-		fY - a_c_fScalar,
-		fZ - a_c_fScalar);
+		m_fX - a_c_fScalar,
+		m_fY - a_c_fScalar,
+		m_fZ - a_c_fScalar);
 }
 
 Vector3 Vector3::operator-(const Vector3 &a_c_v3Vector3)const//Overloaded subtraction operation for Vector3.
 {
 	return Vector3(//Returns Ax - Bx, Ay - By, Az - Bz.
-		fX - a_c_v3Vector3.fX,
-		fY - a_c_v3Vector3.fY,
-		fZ - a_c_v3Vector3.fZ);
+		m_fX - a_c_v3Vector3.m_fX,
+		m_fY - a_c_v3Vector3.m_fY,
+		m_fZ - a_c_v3Vector3.m_fZ);
 }
 
 Vector3 Vector3::operator*(const float &a_c_fScalar)const//Overloaded multiplication operation for Vector3.
 {
 	return Vector3(//Returns x * number, y * number, z * number.
-		fX * a_c_fScalar,
-		fY * a_c_fScalar,
-		fZ * a_c_fScalar);
+		m_fX * a_c_fScalar,
+		m_fY * a_c_fScalar,
+		m_fZ * a_c_fScalar);
 }
 
 Vector3 Vector3::operator*(const Vector3 &a_c_v3Vector3)const//Overloaded multiplication operation for Vector3.
 {
 	return Vector3(//Returns Ax * Bx, Ay * By, Az * Bz.
-		fX * a_c_v3Vector3.fX,
-		fY * a_c_v3Vector3.fY,
-		fZ * a_c_v3Vector3.fZ);
+		m_fX * a_c_v3Vector3.m_fX,  
+		m_fY * a_c_v3Vector3.m_fY,  
+		m_fZ * a_c_v3Vector3.m_fZ); 
 }
 
 Vector3 Vector3::operator*(const Matrix3x3 &a_c_fm3Matrix3x3)const//Multiplication for a vector times a matrix as introducing this as an overload would cause circular dependency.
 {
 	return Vector3(//Returns the multiplied Vector3.
-		fX * a_c_fm3Matrix3x3.getiMatrix(1) + fY * a_c_fm3Matrix3x3.getiMatrix(4) + fZ * a_c_fm3Matrix3x3.getiMatrix(7),//Dot product for the only row of the Vector3 and the first row of the Matrix3x3.
-		fX * a_c_fm3Matrix3x3.getiMatrix(2) + fY * a_c_fm3Matrix3x3.getiMatrix(5) + fZ * a_c_fm3Matrix3x3.getiMatrix(8),//Dot product for the only row of the Vector3 and the second row of the Matrix3x3.
-		fX * a_c_fm3Matrix3x3.getiMatrix(3) + fY * a_c_fm3Matrix3x3.getiMatrix(6) + fZ * a_c_fm3Matrix3x3.getiMatrix(9));//Dot product for the only row of the Vector3 and the third row of the Matrix3x3.
+		m_fX * a_c_fm3Matrix3x3.getiMatrix(1) + m_fY * a_c_fm3Matrix3x3.getiMatrix(4) + m_fZ * a_c_fm3Matrix3x3.getiMatrix(7),//Dot product for the only row of the Vector3 and the first row of the Matrix3x3.
+		m_fX * a_c_fm3Matrix3x3.getiMatrix(2) + m_fY * a_c_fm3Matrix3x3.getiMatrix(5) + m_fZ * a_c_fm3Matrix3x3.getiMatrix(8),//Dot product for the only row of the Vector3 and the second row of the Matrix3x3.
+		m_fX * a_c_fm3Matrix3x3.getiMatrix(3) + m_fY * a_c_fm3Matrix3x3.getiMatrix(6) + m_fZ * a_c_fm3Matrix3x3.getiMatrix(9));//Dot product for the only row of the Vector3 and the third row of the Matrix3x3.
 }
 
 
@@ -145,10 +152,10 @@ Vector3 Vector3::operator/(const float &a_c_fScalar)const//Overloaded division o
 Vector3 Vector3::operator/(const Vector3 &a_c_v3Vector3)const//Overloaded division operation for Vector3.
 {
 	return Vector3(//Returns Ax / Bx, Ay / By, Az / Bz.
-		fX / a_c_v3Vector3.fX,
-		fY / a_c_v3Vector3.fY,
-		fZ / a_c_v3Vector3.fZ);
-}
+		m_fX / a_c_v3Vector3.m_fX,
+		m_fY / a_c_v3Vector3.m_fY,
+		m_fZ / a_c_v3Vector3.m_fZ);
+}		
 
 //\===========================================================================================
 //\ Assignment Operation Overloads
@@ -181,17 +188,17 @@ Vector3 Vector3::operator-=(const Vector3 &a_c_v3Vector3)//Overloaded decrease e
 Vector3 Vector3::operator=(const float &a_c_fScalar)//Overloaded equals operation for Vector3.
 {
 	return Vector3(//Returns x = number, y = number, z = number.
-		fX = a_c_fScalar,
-		fY = a_c_fScalar,
-		fZ = a_c_fScalar);
+	    m_fX = a_c_fScalar,
+		m_fY = a_c_fScalar,
+		m_fZ = a_c_fScalar);
 }
 
 Vector3 Vector3::operator=(const Vector3 &a_c_v3Vector3)//Overloaded equals operation for Vector3.
 {
 	return Vector3(//Returns Ax = Bx, Ay = By, Az = Bz.
-		fX = a_c_v3Vector3.fX,
-		fY = a_c_v3Vector3.fY,
-		fZ = a_c_v3Vector3.fZ);
+		m_fX = a_c_v3Vector3.m_fX,
+		m_fY = a_c_v3Vector3.m_fY,
+		m_fZ = a_c_v3Vector3.m_fZ);
 }
 
 Vector3 Vector3::operator*=(const float &a_c_fScalar)//Overloaded times equals operation for Vector3.
@@ -225,33 +232,33 @@ Vector3 Vector3::operator/=(const Vector3 &a_c_v3Vector3)//Overloaded divide equ
 bool Vector3::operator!=(const float &a_c_fScalar)const//Overloaded not equals operation for Vector3.
 {
 	return bool(//Returns x != number || y != number || z != number.
-		fX != a_c_fScalar ||
-		fY != a_c_fScalar ||
-		fZ != a_c_fScalar);
+		m_fX != a_c_fScalar ||
+		m_fY != a_c_fScalar ||
+		m_fZ != a_c_fScalar);
 }
 
 bool Vector3::operator!=(const Vector3 &a_c_v3Vector3)const//Overloaded not equals operation for Vector3.
 {
 	return bool(//Returns Ax != Bx || Ay != By || Az != Bz.
-		fX != a_c_v3Vector3.fX ||
-		fY != a_c_v3Vector3.fY ||
-		fZ != a_c_v3Vector3.fZ);
+		m_fX != a_c_v3Vector3.m_fX ||
+		m_fY != a_c_v3Vector3.m_fY ||
+		m_fZ != a_c_v3Vector3.m_fZ);
 }
 
 bool Vector3::operator==(const float &a_c_fScalar)const//Overloaded is equals operation for Vector3.
 {
 	return bool(//Returns x == number && y == number && z == number.
-		fX == a_c_fScalar &&
-		fY == a_c_fScalar &&
-		fZ == a_c_fScalar);
+		m_fX == a_c_fScalar &&
+		m_fY == a_c_fScalar &&
+		m_fZ == a_c_fScalar);
 }
 
 bool Vector3::operator==(const Vector3 &a_c_v3Vector3)const//Overloaded is equals operation for Vector3.
 {
 	return bool(//Returns Ax == Bx && Ay == By && Az == Bz.
-		fX == a_c_v3Vector3.fX &&
-		fY == a_c_v3Vector3.fY &&
-		fZ == a_c_v3Vector3.fZ);
+		m_fX == a_c_v3Vector3.m_fX &&
+		m_fY == a_c_v3Vector3.m_fY &&
+		m_fZ == a_c_v3Vector3.m_fZ);
 }
 
 //\===========================================================================================
@@ -269,7 +276,7 @@ Vector3 Vector3::inverse()const//Returns the inverse of this vector3.
 
 float Vector3::magnitude()const//A magnitude function that returns a float.
 {
-	return float(sqrtf(fX * fX + fY * fY + fZ * fZ));//Returns the square root of x^2 + y^2 + z^2
+	return float(sqrtf(m_fX * m_fX + m_fY * m_fY + m_fZ * m_fZ));//Returns the square root of x^2 + y^2 + z^2
 }
 
 //\===========================================================================================
@@ -278,7 +285,7 @@ float Vector3::magnitude()const//A magnitude function that returns a float.
 
 float Vector3::squaredMagnitude()const//A function that returns the Magnitude squared of the vector as a float.
 {
-	return float(fX * fX + fY * fY + fZ * fZ);//Returns ( x^2 + y^2 + z^2 ).
+	return float(m_fX * m_fX + m_fY * m_fY + m_fZ * m_fZ);//Returns ( x^2 + y^2 + z^2 ).
 }
 
 //\===========================================================================================
@@ -305,7 +312,7 @@ float Vector3::squaredDistance(const Vector3 &a_c_v3Vector3)const//Returns the s
 
 float Vector3::dotProduct(const Vector3 &a_c_v3Vector3)const//A dot product function that takes in a Vector3.
 {
-	return float((fX * a_c_v3Vector3.fX) + (fY * a_c_v3Vector3.fY) + (fZ * a_c_v3Vector3.fZ));//Returns ( Ax * Bx ) + ( Ay * By ) + ( Az * Bz ).
+	return float((m_fX * a_c_v3Vector3.m_fX) + (m_fY * a_c_v3Vector3.m_fY) + (m_fZ * a_c_v3Vector3.m_fZ));//Returns ( Ax * Bx ) + ( Ay * By ) + ( Az * Bz ).
 }
 
 //\===========================================================================================
@@ -315,9 +322,9 @@ float Vector3::dotProduct(const Vector3 &a_c_v3Vector3)const//A dot product func
 Vector3 Vector3::crossProduct(const Vector3 &a_c_v3Vector3)const//A cross product function that takes in a Vector3 .
 {
 	return Vector3(//Returns cross product using formula = ( a2 * b3 - a3 * b2, a3 * b1 - a1 * b3, a1 * b2 - a2 * b1 ).
-		fY * a_c_v3Vector3.fZ - fZ * a_c_v3Vector3.fY,
-		fZ * a_c_v3Vector3.fX - fX * a_c_v3Vector3.fZ,
-		fX * a_c_v3Vector3.fY - fY * a_c_v3Vector3.fX);
+		m_fY * a_c_v3Vector3.m_fZ - m_fZ * a_c_v3Vector3.m_fY,
+		m_fZ * a_c_v3Vector3.m_fX - m_fX * a_c_v3Vector3.m_fZ,
+		m_fX * a_c_v3Vector3.m_fY - m_fY * a_c_v3Vector3.m_fX);
 }
 
 //\===========================================================================================
@@ -327,25 +334,34 @@ Vector3 Vector3::crossProduct(const Vector3 &a_c_v3Vector3)const//A cross produc
 void Vector3::rotateZ(float a_fAngle)//A Rotate function that takes in an angle in float format.
 {
 	a_fAngle = degreesToRadians(a_fAngle);//Converts the float to radians.
-	float fXTemp = fX;//A temporary value for x as it will change after assignment.
-	fX = (fX * cosf(a_fAngle)) - (fY * sinf(a_fAngle));//Assigns the x value to x * cos(number) - y * sin(number).
-	fY = (fXTemp * sinf(a_fAngle)) + (fY * cosf(a_fAngle));//Assigns the y value to x * sin(number) + y * cos(number).
+
+	float fXTemp = m_fX;//A temporary value for x as it will change after assignment.
+
+	m_fX = (m_fX * cosf(a_fAngle)) - (m_fY * sinf(a_fAngle));//Assigns the x value to x * cos(number) - y * sin(number).
+
+	m_fY = (fXTemp * sinf(a_fAngle)) + (m_fY * cosf(a_fAngle));//Assigns the y value to x * sin(number) + y * cos(number).
 }
 
 void Vector3::rotateX(float a_fAngle)//A Rotate function that takes in an angle in float format.
 {
 	a_fAngle = degreesToRadians(a_fAngle);//Converts the float to radians.
-	float fYTemp = fY;//A temporary value for y as it will change after assignment.
-	fY = (fY * cosf(a_fAngle)) - (fZ * sinf(a_fAngle));//Assigns the y value to y * cos(number) - z * sin(number).
-	fZ = (fYTemp * sinf(a_fAngle)) + (fZ * cosf(a_fAngle));//Assigns the z value to y * sin(number) + z * cos(number).
+
+	float fYTemp = m_fY;//A temporary value for y as it will change after assignment.
+
+	m_fY = (m_fY * cosf(a_fAngle)) - (m_fZ * sinf(a_fAngle));//Assigns the y value to y * cos(number) - z * sin(number).
+
+	m_fZ = (fYTemp * sinf(a_fAngle)) + (m_fZ * cosf(a_fAngle));//Assigns the z value to y * sin(number) + z * cos(number).
 }
 
 void Vector3::rotateY(float a_fAngle)//A Rotate function that takes in an angle in float format.
 {
 	a_fAngle = degreesToRadians(a_fAngle);//Converts the float to radians.
-	float fZTemp = fZ;//A temporary value for z as it will change after assignment.
-	fZ = (fZ * cosf(a_fAngle)) - (fX * sinf(a_fAngle));//Assigns the z value to z * cos(number) - x * sin(number).
-	fX = (fZTemp * sinf(a_fAngle)) + (fX * cosf(a_fAngle));//Assigns the x value to z * sin(number) + x * cos(number).
+
+	float fZTemp = m_fZ;//A temporary value for z as it will change after assignment.
+
+	m_fZ = (m_fZ * cosf(a_fAngle)) - (m_fX * sinf(a_fAngle));//Assigns the z value to z * cos(number) - x * sin(number).
+
+	m_fX = (fZTemp * sinf(a_fAngle)) + (m_fX * cosf(a_fAngle));//Assigns the x value to z * sin(number) + x * cos(number).
 }
 
 //\===========================================================================================
@@ -356,9 +372,9 @@ Vector3 Vector3::normalise()//A normalisation function that sets the fX, fY and 
 {
 	float fMulti = 1 / magnitude();//Allows for multiplication rather than division.
 	return Vector3(//Returns a normalised version of this vector.
-		fX *= fMulti,//Sets the fX of Vector3 to the fX of Vector3 divided by Vector3's magnitude.
-		fY *= fMulti,//Sets the fY of Vector3 to the fY of Vector3 divided by Vector3's magnitude.
-		fZ *= fMulti);//Sets the fZ of Vector3 to the fZ of Vector3 divided by Vector3's magnitude.
+		m_fX *= fMulti,//Sets the m_fX of Vector3 to the m_fX of Vector3 divided by Vector3's magnitude.
+		m_fY *= fMulti,//Sets the fY of Vector3 to the fY of Vector3 divided by Vector3's magnitude.
+		m_fZ *= fMulti);//Sets the fZ of Vector3 to the fZ of Vector3 divided by Vector3's magnitude.
 }
 
 //\===========================================================================================
@@ -395,10 +411,17 @@ Vector3 Vector3::zero()const//Returns a Vector3 zero matrix.
 //\===========================================================================================
 
 const Vector3 Vector3::ZERO{ 0,0,0 };//A Vector3 equal to {0,0,0}.
+
 const Vector3 Vector3::UNIT_X{ 1,0,0 };//A Vector3 equal to {1,0,0}.
+
 const Vector3 Vector3::UNIT_Y{ 0,1,0 };//A Vector3 equal to {0,1,0}.
+
 const Vector3 Vector3::UNIT_Z{ 0,0,1 };//A Vector3 equal to {0,0,1}.
+
 const Vector3 Vector3::NEGATIVE_UNIT_X{ -1,0,0 };//A Vector3 equal to {-1,0,0}.
+
 const Vector3 Vector3::NEGATIVE_UNIT_Y{ 0,-1,0 };//A Vector3 equal to {0,-1,0}.
+
 const Vector3 Vector3::NEGATIVE_UNIT_Z{ 0,0,-1 };//A Vector3 equal to {0,0,-1}.
+
 const Vector3 Vector3::UNIT_SCALE{ 1,1,1 };//A Vector3 equal to {1,1,1}.

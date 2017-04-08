@@ -31,30 +31,37 @@ private:
 
 	union//Everything in the union is at the same memory address.
 	{
-		float fmMatrix[4][4];//A matrix of floats in a 4x4 grid created by two arrays of four.
+		float m_fmMatrix[4][4];//A matrix of floats in a 4x4 grid created by two arrays of four.
 
 		struct//A structure three rows of three floats to make a matrix.
 		{
-			float fm_00, fm_01, fm_02, fm_03;//Floats representing the first row of the matrix.
-			float fm_10, fm_11, fm_12, fm_13;//Floats representing the second row of the matrix.
-			float fm_20, fm_21, fm_22, fm_23;//Floats representing the third row of the matrix.
-			float fm_30, fm_31, fm_32, fm_33;//Floats representing the fourth row of the matrix.
+			float m_fm_00, m_fm_01, m_fm_02, m_fm_03;//Floats representing the first row of the matrix.
+				
+			float m_fm_10, m_fm_11, m_fm_12, m_fm_13;//Floats representing the second row of the matrix.
+							
+			float m_fm_20, m_fm_21, m_fm_22, m_fm_23;//Floats representing the third row of the matrix.
+								
+			float m_fm_30, m_fm_31, m_fm_32, m_fm_33;//Floats representing the fourth row of the matrix.
 		};
 
 		struct//A structure containing nine floats representing a matrix.
 		{
-			float fiMatrix[16];//An array of sixteen floats.
+			float m_fiMatrix[16];//An array of sixteen floats.
 		};
 
 		struct//A structure that contains four Vector4's to make up a matrix.
 		{
-			Vector4 vXAxis;//A Vector4 to contain the x axis of the matrix.
-			Vector4 vYAxis;//A Vector4 to contain the y axis of the matrix.
-			Vector4 vZAxis;//A Vector4 to contain the z axis of the matrix.
+			Vector4 m_v4XAxis;//A Vector4 to contain the x axis of the matrix.
+		
+			Vector4 m_v4YAxis;//A Vector4 to contain the y axis of the matrix.
+			
+			Vector4 m_v4ZAxis;//A Vector4 to contain the z axis of the matrix.
+			
 			union//Everything in the union is at the same memory address.
 			{
-				Vector4 vWAxis;//A Vector4 to contain the w axis of the matrix.
-				Vector4 vTranslation;//A Vector4 to contain the translation of the matrix.
+				Vector4 m_v4WAxis;//A Vector4 to contain the w axis of the matrix.
+			
+				Vector4 m_v4Translation;//A Vector4 to contain the translation of the matrix.
 			};
 		};
 	};
@@ -91,10 +98,10 @@ public:
 	Matrix4x4(const float a_c_fiMatrix[16]);//Constructor that takes an array of sixteen floats to make a Matrix4x4.
 
 	Matrix4x4(const//Constructor for a Matrix4x4 made from four Vector4's.
-		Vector4  a_c_vXAxis,
-		Vector4  a_c_vYAxis,
-		Vector4  a_c_vZAxis,
-		Vector4  a_c_vWAxis);
+		Vector4  a_c_v4XAxis,
+		Vector4  a_c_v4YAxis,
+		Vector4  a_c_v4ZAxis,
+		Vector4  a_c_v4WAxis);
 
 	Matrix4x4(const Matrix3x3 a_c_fm3Matrix3x3);//Constructor to make a Matrix4x4 from a Matrix3x3.
 
@@ -295,6 +302,7 @@ public:
 	//\===========================================================================================
 
 	static const Matrix4x4 ZERO;//A Matrix4x4 where every element is equal to zero.
+
 	static const Matrix4x4 IDENTITY;//A Matrix4x4 where the elements are equal to the identity matrix.
 
 };

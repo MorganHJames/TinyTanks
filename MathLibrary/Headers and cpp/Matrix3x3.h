@@ -28,28 +28,33 @@ private:
 
 	union//Everything in the union is at the same memory address.
 	{
-		float fmMatrix[3][3];//A matrix of floats in a 3 x 3 grid created by two arrays of three.
+		float m_fmMatrix[3][3];//A matrix of floats in a 3 x 3 grid created by two arrays of three.
 
 		struct//A structure three rows of three floats to make a matrix.
 		{
-			float fm_00, fm_01, fm_02;//Floats representing the top row of the matrix.
-			float fm_10, fm_11, fm_12;//Floats representing the middle row of the matrix.
-			float fm_20, fm_21, fm_22;//Floats representing the bottom row of the matrix.
+			float m_fm_00, m_fm_01, m_fm_02;//Floats representing the top row of the matrix.
+						  
+			float m_fm_10, m_fm_11, m_fm_12;//Floats representing the middle row of the matrix.
+						 
+			float m_fm_20, m_fm_21, m_fm_22;//Floats representing the bottom row of the matrix.
 		};
 
 		struct//A structure containing nine floats representing a matrix.
 		{
-			float fiMatrix[9];//An array of nine floats.
+			float m_fiMatrix[9];//An array of nine floats.
 		};
 
 		struct//A structure that contains three Vector3's to make up a matrix.
 		{
-			Vector3 vXAxis;//A Vector3 to contain the x axis of the matrix.
-			Vector3 vYAxis;//A Vector3 to contain the y axis of the matrix.
+			Vector3 m_v3XAxis;//A Vector3 to contain the x axis of the matrix.
+		
+			Vector3 m_v3YAxis;//A Vector3 to contain the y axis of the matrix.
+		
 			union//Everything in the union is at the same memory address.
 			{
-				Vector3 vZAxis;//A Vector3 to contain the z axis of the matrix.
-				Vector3 vTranslation;//A Vector3 to contain the translation of the matrix.
+				Vector3 m_v3ZAxis;//A Vector3 to contain the z axis of the matrix.
+			
+				Vector3 m_v3Translation;//A Vector3 to contain the translation of the matrix.
 			};
 		};
 	};
@@ -67,9 +72,9 @@ public:
 	Matrix3x3(const 
 		float a_c_fm_00,
 		float a_c_fm_01, 
-		float a_c_fm_02, 
+		float a_c_fm_02,
 		float a_c_fm_10, 
-		float a_c_fm_11, 
+		float a_c_fm_11,
 		float a_c_fm_12, 
 		float a_c_fm_20, 
 		float a_c_fm_21, 
@@ -78,9 +83,9 @@ public:
 	Matrix3x3(const float a_c_fiMatrix[9]);//Constructor that takes an array of nine floats to make a Matrix3x3.
 
 	Matrix3x3(const
-		Vector3 a_c_vXAxis, 
-		Vector3 a_c_vYAxis, 
-		Vector3 a_c_vZAxis);//Constructor for a Matrix3x3 made from three Vector3's.
+		Vector3 a_c_v3XAxis, 
+		Vector3 a_c_v3YAxis, 
+		Vector3 a_c_v3ZAxis);//Constructor for a Matrix3x3 made from three Vector3's.
 
 	//\===========================================================================================
 	//\ Getters
@@ -265,6 +270,7 @@ public:
 	//\===========================================================================================
 
 	static const Matrix3x3 ZERO;//A Matrix3x3 where every element is equal to zero.
+
 	static const Matrix3x3 IDENTITY;//A Matrix3x3 where the elements are equal to the identity matrix.
 
 };

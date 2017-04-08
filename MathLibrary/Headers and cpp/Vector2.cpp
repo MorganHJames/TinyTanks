@@ -18,13 +18,14 @@ Vector2::Vector2() {}//A default constructor that initialises X and Y to 0.
 
 Vector2::Vector2(const Vector2 &a_c_v2Vector2)//Copy constructor.
 {
-	fX = a_c_v2Vector2.getfX();//Sets the x value of the Vector2 equal to the Vector2's x component that is passed in.
-	fY = a_c_v2Vector2.getfY();//Sets the y value of the Vector2 equal to the Vector2's y component that is passed in.
+	m_fX = a_c_v2Vector2.getfX();//Sets the x value of the Vector2 equal to the Vector2's x component that is passed in.
+
+	m_fY = a_c_v2Vector2.getfY();//Sets the y value of the Vector2 equal to the Vector2's y component that is passed in.
 }
 
 Vector2::Vector2(const float a_c_fX, float a_c_fY) ://Constructor.
-	fX(a_c_fX),//Sets the x value of the Vector2 to the first argument passed in on Creation.
-	fY(a_c_fY)//Sets the y value of the Vector2 to the second argument passed in on Creation.
+	m_fX(a_c_fX),//Sets the x value of the Vector2 to the first argument passed in on Creation.
+	m_fY(a_c_fY)//Sets the y value of the Vector2 to the second argument passed in on Creation.
 {
 }
 
@@ -34,17 +35,17 @@ Vector2::Vector2(const float a_c_fX, float a_c_fY) ://Constructor.
 
 const float* Vector2::getVector()const//Returns a pointer to the first element in the array.
 {
-	return (aVector2);//Returns a pointer to the first element in the array.
+	return (m_aVector2);//Returns a pointer to the first element in the array.
 }
 
 float Vector2::getfX()const//A getter to get the x part of Vector2.
 {
-	return float(fX);//Returns the fX of this Vector2.
+	return float(m_fX);//Returns the m_fX of this Vector2.
 }
 
 float Vector2::getfY()const//A getter to get the y part of Vector2.
 {
-	return float(fY);//Returns the fY of this Vector2.
+	return float(m_fY);//Returns them_fYof this Vector2.
 }
 
 //\===========================================================================================
@@ -53,12 +54,12 @@ float Vector2::getfY()const//A getter to get the y part of Vector2.
 
 void Vector2::setfX(const float &a_c_fX)//A setter to set the x part of Vector2 to the passed in argument.
 {
-	fX = a_c_fX;//Makes this Vector2's fX value equal to the passed in argument.
+	m_fX = a_c_fX;//Makes this Vector2's m_fX value equal to the passed in argument.
 }
 
 void Vector2::setfY(const float &a_c_fY)//A setter to set the y part of Vector2 to the passed in argument.
 {
-	fY = a_c_fY;//Makes this Vector2's fY value equal to the passed in argument.
+	m_fY = a_c_fY;//Makes this Vector2'sm_fYvalue equal to the passed in argument.
 }
 
 //\===========================================================================================
@@ -68,43 +69,43 @@ void Vector2::setfY(const float &a_c_fY)//A setter to set the y part of Vector2 
 Vector2 Vector2::operator+(const float &a_c_fScalar)const//Overloaded addition operation for Vector2.
 {
 	return Vector2(//Returns x + number, y + number.
-		fX + a_c_fScalar,
-		fY + a_c_fScalar);
+		m_fX + a_c_fScalar,
+		m_fY + a_c_fScalar);
 }
 
 Vector2 Vector2::operator+(const Vector2 &a_c_v2Vector2)const//Overloaded addition operation for Vector2.
 {
 	return Vector2(//Returns Ax + Bx, Ay + By.
-		fX + a_c_v2Vector2.fX,
-		fY + a_c_v2Vector2.fY);
+		m_fX + a_c_v2Vector2.m_fX,
+		m_fY + a_c_v2Vector2.m_fY);
 }
 
 Vector2 Vector2::operator-(const float &a_c_fScalar)const//Overloaded subtraction operation for Vector2.
 {
 	return Vector2(//Returns x - number, y - number.
-		fX - a_c_fScalar,
-		fY - a_c_fScalar);
+		m_fX - a_c_fScalar,
+		m_fY - a_c_fScalar);
 }
 
 Vector2 Vector2::operator-(const Vector2 &a_c_v2Vector2)const//Overloaded subtraction operation for Vector2.
 {
 	return Vector2(//Returns Ax - Bx, Ay - By.
-		fX - a_c_v2Vector2.fX,
-		fY - a_c_v2Vector2.fY);
+		m_fX - a_c_v2Vector2.m_fX,
+	    m_fY - a_c_v2Vector2.m_fY);
 }
 
 Vector2 Vector2::operator*(const float &a_c_fScalar)const//Overloaded multiplication operation for Vector2.
 {
 	return Vector2(//Returns x * number, y * number.
-		fX * a_c_fScalar,
-		fY * a_c_fScalar);
+		m_fX * a_c_fScalar,
+		m_fY * a_c_fScalar);
 }
 
 Vector2 Vector2::operator*(const Vector2 &a_c_v2Vector2)const//Overloaded multiplication operation for Vector2.
 {
 	return Vector2(//Returns Ax * Bx, Ay * By.
-		fX * a_c_v2Vector2.fX,
-		fY * a_c_v2Vector2.fY);
+		m_fX * a_c_v2Vector2.m_fX,
+		m_fY * a_c_v2Vector2.m_fY);
 }
 
 Vector2 Vector2::operator/(const float &a_c_fScalar)const//Overloaded division operation for Vector2.
@@ -116,8 +117,8 @@ Vector2 Vector2::operator/(const float &a_c_fScalar)const//Overloaded division o
 Vector2 Vector2::operator/(const Vector2 &a_c_v2Vector2)const//Overloaded division operation for Vector2.
 {
 	return Vector2(//Returns Ax / Bx, Ay / By.
-		fX / a_c_v2Vector2.fX,
-		fY / a_c_v2Vector2.fY);
+		m_fX / a_c_v2Vector2.m_fX,
+		m_fY / a_c_v2Vector2.m_fY);
 }
 
 //\===========================================================================================
@@ -151,15 +152,15 @@ Vector2 Vector2::operator-=(const Vector2 &a_c_v2Vector2)//Overloaded decrease e
 Vector2 Vector2::operator=(const float &a_c_fScalar)//Overloaded equals operation for Vector2.
 {
 	return Vector2(//Returns x = number, y = number.
-		fX = a_c_fScalar,
-		fY = a_c_fScalar);
+		m_fX = a_c_fScalar,
+		m_fY = a_c_fScalar);
 }
 
 Vector2 Vector2::operator=(const Vector2 &a_c_v2Vector2)//Overloaded equals operation for Vector2.
 {
 	return Vector2(//Returns Ax = Bx, Ay = By.
-		fX = a_c_v2Vector2.fX,
-		fY = a_c_v2Vector2.fY);
+		m_fX = a_c_v2Vector2.m_fX,
+		m_fY = a_c_v2Vector2.m_fY);
 }
 
 Vector2 Vector2::operator*=(const float &a_c_fScalar)//Overloaded times equals operation for Vector2.
@@ -193,29 +194,29 @@ Vector2 Vector2::operator/=(const Vector2 &a_c_v2Vector2)//Overloaded divide equ
 bool Vector2::operator!=(const float &a_c_fScalar)const//Overloaded not equals operation for Vector2.
 {
 	return bool(//Returns x != number && y != number.
-		fX != a_c_fScalar ||
-		fY != a_c_fScalar);
+		m_fX != a_c_fScalar ||
+		m_fY != a_c_fScalar);
 }
 
 bool Vector2::operator!=(const Vector2 &a_c_v2Vector2)const//Overloaded not equals operation for Vector2.
 {
 	return bool(//Returns Ax != Bx && Ay != By.
-		fX != a_c_v2Vector2.fX ||
-		fY != a_c_v2Vector2.fY);
+		m_fX != a_c_v2Vector2.m_fX ||
+		m_fY != a_c_v2Vector2.m_fY);
 }
 
 bool Vector2::operator==(const float &a_c_fScalar)const//Overloaded is equals operation for Vector2.
 {
 	return bool(//Returns x == number && y == number.
-		fX == a_c_fScalar &&
-		fY == a_c_fScalar);
+		m_fX == a_c_fScalar &&
+		m_fY == a_c_fScalar);
 }
 
 bool Vector2::operator==(const Vector2 &a_c_v2Vector2)const//Overloaded is equals operation for Vector2.
 {
 	return bool(//Returns Ax == Bx && Ay == By.
-		fX == a_c_v2Vector2.fX &&
-		fY == a_c_v2Vector2.fY);
+		m_fX == a_c_v2Vector2.m_fX &&
+		m_fY == a_c_v2Vector2.m_fY);
 }
 
 //\===========================================================================================
@@ -224,7 +225,7 @@ bool Vector2::operator==(const Vector2 &a_c_v2Vector2)const//Overloaded is equal
 
 float Vector2::magnitude()const//A magnitude function that returns a float.
 {
-	return float(sqrtf(fX * fX + fY * fY));//Returns the square root of x^2 + y^2.
+	return float(sqrtf(m_fX * m_fX +m_fY* m_fY));//Returns the square root of x^2 + y^2.
 }
 
 //\===========================================================================================
@@ -233,7 +234,7 @@ float Vector2::magnitude()const//A magnitude function that returns a float.
 
 float Vector2::squaredMagnitude()const//A function that returns the length squared of the vector as a float.
 {
-	return float(fX * fX + fY * fY);//Returns ( x^2 + y^2 ).
+	return float(m_fX * m_fX +m_fY* m_fY);//Returns ( x^2 + y^2 ).
 }
 
 //\===========================================================================================
@@ -260,7 +261,7 @@ float Vector2::squaredDistance(const Vector2 &a_c_v2Vector2)const//Returns the s
 
 float Vector2::dotProduct(const Vector2 &a_c_v2Vector2)const//A dot product function that takes in a Vector2.
 {
-	return float((fX * a_c_v2Vector2.fX) + (fY * a_c_v2Vector2.fY));//Returns ( Ax * Bx ) + ( Ay * By ).
+	return float((m_fX * a_c_v2Vector2.m_fX) + (m_fY * a_c_v2Vector2.m_fY));//Returns ( Ax * Bx ) + ( Ay * By ).
 }
 
 //\===========================================================================================
@@ -269,7 +270,7 @@ float Vector2::dotProduct(const Vector2 &a_c_v2Vector2)const//A dot product func
 
 float Vector2::crossProduct(const Vector2 &a_c_v2Vector2)const//A dot product function that takes in a Vector.
 {
-	return float((fX * a_c_v2Vector2.fY) - (a_c_v2Vector2.fX * fY));//Returns ( Ax * By ) - ( BX * Ay ).
+	return float((m_fX * a_c_v2Vector2.m_fY) - (a_c_v2Vector2.m_fX * m_fY));//Returns ( Ax * By ) - ( BX * Ay ).
 }
 
 //\===========================================================================================
@@ -279,15 +280,15 @@ float Vector2::crossProduct(const Vector2 &a_c_v2Vector2)const//A dot product fu
 Vector2 Vector2::perpendicularClockwise()const//A perpendicularClockwise function for this Vector2.
 {
 	return Vector2(//Returns -y, x.
-		-fY,
-		fX);
+		-m_fY,
+		m_fX);
 }
 
 Vector2 Vector2::perpendicularCounterClockwise()const//A perpendicularCounterClockwise function for this Vector2.
 {
 	return Vector2(//Returns y, -x.
-		fY,
-		-fX);
+		m_fY,
+		-m_fX);
 }
 
 //\===========================================================================================
@@ -297,21 +298,24 @@ Vector2 Vector2::perpendicularCounterClockwise()const//A perpendicularCounterClo
 void Vector2::rotate(float a_fAngle)//A Rotate function that takes in an angle in float format.
 {
 	a_fAngle = degreesToRadians(a_fAngle);//Converts the float to radians.
-	float fXTemp = fX;//A temporary value for x as it will change after assignment.
-	fX = (fX * cosf(a_fAngle)) - (fY * sinf(a_fAngle));//Assigns the x value to x * cos(number) - y * sin(number).
-	fY = (fXTemp * sinf(a_fAngle)) + (fY * cosf(a_fAngle));//Assigns the y value to x * sin(number) + y * cos(number).
+    
+	float fXTemp = m_fX;//A temporary value for x as it will change after assignment.
+	
+	m_fX = (m_fX * cosf(a_fAngle)) - (m_fY * sinf(a_fAngle));//Assigns the x value to x * cos(number) - y * sin(number).
+	
+	m_fY = (fXTemp * sinf(a_fAngle)) + (m_fY * cosf(a_fAngle));//Assigns the y value to x * sin(number) + y * cos(number).
 }
 
 //\===========================================================================================
 //\ Normalisation
 //\===========================================================================================
 
-Vector2 Vector2::normalise()//A normalisation function that sets the fX and fY of Vector2 to a normalised version.
+Vector2 Vector2::normalise()//A normalisation function that sets the m_fX andm_fYof Vector2 to a normalised version.
 {
 	float fMulti = 1 / magnitude();//Allows for multiplication rather than division.
 	return Vector2(//Returns a normalised version of this vector.
-		fX *= fMulti,//Sets the fX of Vector2 to the fX of Vector2 divided by Vector2's magnitude.
-		fY *= fMulti);//Sets the fY of Vector2 to the fY of Vector2 divided by Vector2's magnitude.
+		m_fX *= fMulti,//Sets the m_fX of Vector2 to the m_fX of Vector2 divided by Vector2's magnitude.
+		m_fY *= fMulti);//Sets them_fYof Vector2 to them_fYof Vector2 divided by Vector2's magnitude.
 }
 
 //\===========================================================================================
@@ -321,7 +325,9 @@ Vector2 Vector2::normalise()//A normalisation function that sets the fX and fY o
 Vector2 Vector2::unit()const//A function that returns a unit vector created from this vector.
 {
 	Vector2 vTemp = *this;//Creates a temporary vector equal to the current Vector 2.
+	
 	vTemp.normalise();//Normalises the temporary vector.
+	
 	return Vector2(vTemp);//Returns a copy of a normalised version of this Vector2.
 }
 
@@ -348,8 +354,13 @@ Vector2 Vector2::zero()const//Returns a Vector2 zero matrix.
 //\===========================================================================================
 
 const Vector2 Vector2::ZERO{ 0,0 };//A Vector2 equal to {0,0}
+
 const Vector2 Vector2::UNIT_X{ 1,0 };//A Vector2 equal to {1,0}
+
 const Vector2 Vector2::UNIT_Y{ 0,1 };//A Vector2 equal to {0,1}
+
 const Vector2 Vector2::NEGATIVE_UNIT_X{ -1,0 };//A Vector2 equal to {-1,0}
+
 const Vector2 Vector2::NEGATIVE_UNIT_Y{ 0,-1 };//A Vector2 equal to {0,-1}
+
 const Vector2 Vector2::UNIT_SCALE{ 1,1 };//A Vector2 equal to {1,1}
