@@ -42,27 +42,27 @@ public:
 	//\ Player Constructor 
 	//\===========================================================================================
 
-	Tank(const Vector2 a_c_v2Position, unsigned int a_c_uiUp, unsigned int a_c_uiDown, unsigned int a_c_uiLeft, unsigned int a_c_uiRight, unsigned int a_c_uiRotateRight, unsigned int a_c_uiRotateLeft);
+	Tank(const Vector2 a_c_v2Position, unsigned int a_c_uiUp, unsigned int a_c_uiDown, unsigned int a_c_uiLeft, unsigned int a_c_uiRight, unsigned int a_c_uiRotateRight, unsigned int a_c_uiRotateLeft);//A constructor for the tank that takes in the in position of where you want to the tank to be and the controls for tank.
 
 	//\===========================================================================================
 	//\ Enemy Constructor 
 	//\===========================================================================================
 
-	Tank(const Vector2 a_c_v2Position);
+	Tank(const Vector2 a_c_v2Position);//A constructor for the tank that takes in the in position of where you want to the tank to be.
 
 	//\===========================================================================================
 	//\ Draw Functions
 	//\===========================================================================================
 
-	void stopDrawing();
+	void markforDraw();//A function to start drawing the parts of the tank.
 
-	void markforDraw();
+	void stopDrawing();//A function to stop drawing the parts of the tank.
 
 	//\===========================================================================================
 	//\ Tank Movement 
 	//\===========================================================================================
 
-	void tankMovement(float a_fDeltaTime);
+	void tankMovement(float a_fDeltaTime);//A function that should be put in the update area to move the tank.
 
 };
 
