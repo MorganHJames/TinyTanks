@@ -675,7 +675,7 @@ bool Matrix3x3::inverse()//A function that make a Matrix3x3 turn to its inverse.
 //\ Scale
 //\===========================================================================================
 
-void Matrix3x3::scale(const float &a_c_fXScale, float &a_c_fYScale)//Returns the scale Matrix3x3                     
+void Matrix3x3::scale(const float &a_c_fXScale, float &a_c_fYScale)//Scales the Matrix3x3 by the arguments.                 
 {
 	*this = *this * getScaleMatrix(a_c_fXScale, a_c_fYScale);//Multiplies the matrix by the scale matrix.
 }
