@@ -23,19 +23,21 @@ private:
 	//\ Member Variables 
 	//\===========================================================================================
 
-	float m_fCurrentVelocity = 0.f;
+	float m_fCurrentVelocity = 0.f;//A float that will contain the current velocity of the tank.
 	
-	float m_fMaxVelocity = 0.75f;
+	float m_fMaxVelocity = 0.75f;//The maximum velocity that the tank may travel at.
+
+	float m_fMaxNegativeVelocity = -0.75f;//The maximum velocity that the tank may travel at.
 	
-	float m_fDrag = 0.03f;
+	float m_fDrag = 0.03f;//The amount of drag applied to the tank whilst moving.
 	
-	bool m_bPlayer = true;
-	//Controls
-	unsigned int m_uiUp, m_uiDown, m_uiLeft, m_uiRight, m_uiRotateRight, m_uiRotateLeft = 0;
-	//Default Sprites
-	Sprite* m_sTank;
+	bool m_bPlayer = true;//A boolean value indicating whether or not the tank is a player or an AI.
 	
-	Sprite* m_sTurret;
+	unsigned int m_uiUp, m_uiDown, m_uiLeft, m_uiRight, m_uiRotateRight, m_uiRotateLeft = 0;//The controls for the tank movement
+	
+	Sprite* m_sTank;//The default sprite for the tank.
+	
+	Sprite* m_sTurret;//The default sprite for the turret.
 
 public:
 	//\===========================================================================================

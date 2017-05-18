@@ -132,9 +132,14 @@ void Tank::tankMovement(float a_fDeltaTime)//A function that should be put in th
 
 	m_fCurrentVelocity -= m_fCurrentVelocity * m_fDrag;//Decreases the current velocity by the current velocity multiplied by the drag.
 
-	if (fabsf(m_fCurrentVelocity) > m_fMaxVelocity)//If the current velocity is above the max velocity.
+	if (m_fCurrentVelocity > m_fMaxVelocity)//If the current velocity is above the max velocity.
 	{
 		m_fCurrentVelocity = m_fMaxVelocity ;//Set the current velocity to the max velocity.
+	}
+
+	if (m_fCurrentVelocity < m_fMaxNegativeVelocity)//If the current velocity is less than the max  negative velocity.
+	{
+		m_fCurrentVelocity = m_fMaxNegativeVelocity;//Set the current velocity to the max velocity.
 	}
 
 	Matrix3x3 m3WorldTransform;//Creates a matrix3x3 called world transform to hold the world transformation.

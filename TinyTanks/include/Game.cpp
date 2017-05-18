@@ -10,6 +10,7 @@
 #include "GameStates.h"
 #include "Vector2.h"
 #include "Tank.h"
+#include "Map.h"
 
 //\===========================================================================================
 //\ Constructor 
@@ -34,7 +35,9 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 		GameState currentState = SPLASH;//Defines the first state of the game.
 
 		Tank player(Vector2(0.5f * iScreenWidth, 0.5f * iScreenHeight), 87, 83, 65, 68, 69, 81);//Initializes the players tank.
-		
+
+		Map level1(a_c_iWidth, a_c_iHeight, std::string("./maps/level1.txt"),"./images/tanks.png");//
+
 		//\===========================================================================================
 		//\ Update
 		//\===========================================================================================
@@ -80,7 +83,7 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 				currentState = GAMEPLAY;//Sets the current state of game play to the main game.
 
 				player.markforDraw();//Sets the player tank to be drawn.
-
+				level1.markForDraw();
 				break;
 			}
 

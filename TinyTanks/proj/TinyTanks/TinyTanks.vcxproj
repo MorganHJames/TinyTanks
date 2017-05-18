@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\include\Game.cpp" />
+    <ClCompile Include="..\..\include\Map.cpp" />
     <ClCompile Include="..\..\include\Node.cpp" />
     <ClCompile Include="..\..\include\Sprite.cpp" />
     <ClCompile Include="..\..\include\Tank.cpp" />
@@ -161,9 +162,11 @@
   <ItemGroup>
     <ClInclude Include="..\..\include\Game.h" />
     <ClInclude Include="..\..\include\GameStates.h" />
+    <ClInclude Include="..\..\include\Map.h" />
     <ClInclude Include="..\..\include\Node.h" />
     <ClInclude Include="..\..\include\Sprite.h" />
     <ClInclude Include="..\..\include\Tank.h" />
+    <ClInclude Include="Tile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

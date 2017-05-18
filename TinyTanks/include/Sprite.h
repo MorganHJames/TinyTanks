@@ -19,6 +19,10 @@
 class Sprite : public Node 
 {
 private:
+	//\===========================================================================================
+	//\ Member Variables 
+	//\===========================================================================================
+
 	int m_iSpriteID;//A integer representing the sprites identification.
 	
 	int m_iWidth;//An integer that represent how wide the sprite is to be rendered.
