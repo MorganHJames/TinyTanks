@@ -24,15 +24,18 @@ private:
 	//\===========================================================================================
 	//\ Member Variables 
 	//\===========================================================================================
+	
 
-	Tile *pTileArray = new Tile[56 * 35];
+	int iLevelMap[1961];
+
+	Tile *pTileArray = new Tile[1961];
 
 public:
 	//\===========================================================================================
 	//\ Constructor 
 	//\===========================================================================================
 
-	Map(const int a_c_iWidth, int a_c_iHeight, std::string &a_c_sFilename, char* a_c_sTileSet);
+	Map(const int a_c_iWidth, int a_c_iHeight, char* a_c_sFilename, char* a_c_sTileSet);
 
 	//\===========================================================================================
 	//\ Destructor
@@ -52,7 +55,7 @@ public:
 	//\ Get Tile
 	//\===========================================================================================
 
-	Tile& getTile(Tile *a_pTileArray, int a_iCol, int a_iRow);
+	Tile& getTile(int a_iCol, int a_iRow);
 
 };
 

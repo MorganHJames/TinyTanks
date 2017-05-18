@@ -15,54 +15,56 @@
 //\ Constructor 
 //\===========================================================================================
 
-Map::Map(const int a_c_iWidth, int a_c_iHeight, std::string &a_c_sFilename, char* a_c_sTileSet)
+Map::Map(const int a_c_iWidth, int a_c_iHeight, char* a_c_sFilename, char* a_c_sTileSet)
 {
 	std::ifstream levelMap;//Sets the stream directory.
 
 	levelMap.open(a_c_sFilename);//Opens the level map.
 
-	std::string row;
-
-	while (std::getline(levelMap, row))
+	for (int i = 0; i < 1960; ++i)//Iterates through each tile in the array.
 	{
-		int iRow = 0;
-		std::istringstream iss(row);
+		levelMap >> iLevelMap[i];
+	}
 
-		char column[56];
+	levelMap.close();
 
-		while (iss >> column)
+	for (int iCol = 0; iCol < 56; ++iCol)
+	{
+		for (int iRow = 0; iRow < 35; ++iRow)
 		{
-			for (int iColumn = 0; iColumn < 57; ++iColumn)
+
+			Tile &rCurrentTile = this->getTile(iCol, iRow);
+
+			if (iLevelMap[iRow, iCol] == 0)
 			{
-				Tile &rcurrentTile = getTile(pTileArray, iColumn, iRow);
+				rCurrentTile.iSpriteID = UG::CreateSprite(a_c_sTileSet, a_c_iWidth / 56.0f, a_c_iHeight / 35.0f, true);
 
-				if (column[iColumn] == '0')
-				{
-					rcurrentTile.iSpriteID = UG::CreateSprite(a_c_sTileSet, a_c_iWidth / 56.0f, a_c_iHeight / 35.0f, true);
-					UG::SetSpriteUVCoordinates(rcurrentTile.iSpriteID, 0, 0, 1, 1);
-				}
-				else if (column[iColumn] == '1')
-				{
+				UG::SetSpriteUVCoordinates(rCurrentTile.iSpriteID, 0, 0, 1, 1);
 
-				}
-				int iWidthPositionIncs = (int)((a_c_iWidth * 0.7f) / 56);
+			}
+			else if (iLevelMap[iRow , iCol] == 1)
+			{
+				rCurrentTile.iSpriteID = UG::CreateSprite(a_c_sTileSet, a_c_iWidth / 56.0f, a_c_iHeight / 35.0f, true);
 
-				int iHeightPositionIncs = (int)((a_c_iHeight * 0.4f) / 35);
+				UG::SetSpriteUVCoordinates(rCurrentTile.iSpriteID, 0, 0, 1, 1);
 
-				int iStartingWidth = (int)(a_c_iWidth * 0.15f);
-
-				int iStartingHeight = (int)(a_c_iHeight * 0.55f);
-
-				rcurrentTile.v2Pos.setfX((iStartingWidth + iWidthPositionIncs * (iColumn + 0.5f)));
-
-				rcurrentTile.v2Pos.setfY((iStartingHeight + iHeightPositionIncs * (iRow - 0.5f)));
 			}
 
+			int iWidthPositionIncs = (int)((a_c_iWidth * 0.7f) / 56);//Will be changed.
+
+			int iHeightPositionIncs = (int)((a_c_iHeight * 0.4f) / 35);//Will be changed.
+
+			int iStartingWidth = (int)(a_c_iWidth * 0.15f);//Will be changed.
+
+			int iStartingHeight = (int)(a_c_iHeight * 0.55f);//Will be changed.
+
+			rCurrentTile.v2Pos.setfX((iStartingWidth + iWidthPositionIncs * (iCol + 0.5f)));//Will be changed.
+
+			rCurrentTile.v2Pos.setfY((iStartingHeight + iHeightPositionIncs * (iRow - 0.5f)));//Will be changed.
+
+
 		}
-	
-		iRow++;
 	}
-	levelMap.close();
 
 }
 
@@ -82,23 +84,24 @@ Map::~Map()
 
 void Map::markForDraw()
 {
-	for (int iRow = 0; iRow < 36; ++iRow)
+	for (int iRow = 0; iRow < 35; ++iRow)
 	{
-		for (int iCol = 0; iCol < 57; ++iCol)
+		for (int iCol = 0; iCol < 56; ++iCol)
 		{
-			Tile &rcurrentTile = getTile(pTileArray, iCol, iRow);
+			Tile &rcurrentTile = getTile(iCol, iRow);
 			UG::DrawSprite(rcurrentTile.iSpriteID);
+			UG::MoveSprite(rcurrentTile.iSpriteID,iCol*(a_c_iWidth / 56.0f))
 		}
 	}
 }
 
 void Map::stopDrawing()
 {
-	for (int iRow = 0; iRow < 36; ++iRow)
+	for (int iRow = 0; iRow < 35; ++iRow)
 	{
-		for (int iCol = 0; iCol < 57; ++iCol)
+		for (int iCol = 0; iCol < 56; ++iCol)
 		{
-			Tile &rcurrentTile = getTile(pTileArray, iCol, iRow);
+			Tile &rcurrentTile = getTile(iCol, iRow);
 			UG::StopDrawingSprite(rcurrentTile.iSpriteID);
 		}
 	}
@@ -108,7 +111,7 @@ void Map::stopDrawing()
 //\ Get Tile
 //\===========================================================================================
 
-Tile& Map::getTile(Tile *a_pTileArray, int a_iCol, int a_iRow)
+Tile& Map::getTile(int a_iCol, int a_iRow)
 {
 	return pTileArray[a_iRow * 56 + a_iCol];
 }
