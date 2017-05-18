@@ -25,6 +25,15 @@ private:
 	//\ Member Variables 
 	//\===========================================================================================
 	
+	int iWidth = 0;
+
+	int iHeight = 0;
+
+	int iSpriteDimentions = 32;
+
+	int iTilesHigh = 22;
+
+	int iTilesWide = 40;
 
 	int iLevelMap[1961];
 

@@ -19,13 +19,13 @@ Tank::Tank(const Vector2 a_c_v2Position, unsigned int a_c_uiUp, unsigned int a_c
 	
 	m_sTank->setPosition(a_c_v2Position);//Sets the position of the tanks base to be equal to the argument passed in.
 	
-	m_sTank->setLayer(0);//Sets the layer of the tank so that it is rendered as far back as possible.
+	m_sTank->setLayer(10);//Sets the layer of the tank so that it is rendered as far back as possible.
 
 	m_sTurret = new Sprite("./images/tanks.png", 38, 64, Vector2(0.5f, 0.25f), Vector4(0.622f, 0.607f, 0.843f, 0.988f));//Creates a sprite for the tanks turret.
 	
 	m_sTurret->setParent(m_sTank);//Sets the parent of the turret to be the base of the tank.
 	
-	m_sTurret->setLayer(1);//Sets the layer of tank turret so that it is rendered on top of the base.
+	m_sTurret->setLayer(11);//Sets the layer of tank turret so that it is rendered on top of the base.
 
 	m_bPlayer = true;//Sets the player boolean to true as if the controls are defined the tank must be a player.
 
