@@ -24,20 +24,20 @@ private:
 	//\===========================================================================================
 	//\ Member Variables 
 	//\===========================================================================================
-	
+
 	int iWidth = 0;
 
 	int iHeight = 0;
 
 	int iSpriteDimentions = 32;
 
-	int iTilesHigh = 22;
+	int iTilesHigh = 18;
 
-	int iTilesWide = 40;
+	int iTilesWide = 25;
 
-	int iLevelMap[1961];
+	int iLevelMap[25 * 18];
 
-	Tile *pTileArray = new Tile[1961];
+	Tile *pTileArray = new Tile[25 * 18];
 
 public:
 	//\===========================================================================================
