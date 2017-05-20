@@ -94,6 +94,8 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 					tCampaignPlayer.markforDraw();//Sets the player tank to be drawn.
 
 					mLevel1.markForDraw();//Sets the first map to be drawn.
+
+					bStart.stopDrawing();//Stops the start button from being drawn.
 				}
 
 				break;

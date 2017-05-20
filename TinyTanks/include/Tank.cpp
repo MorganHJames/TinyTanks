@@ -88,7 +88,7 @@ void Tank::stopDrawing()//A function to stop drawing the parts of the tank.
 void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePosY)//A function that should be put in the update area to move the tank.
 {
 	m_sTank->update();//Updates the base of the tank.
-	
+
 	m_sTurret->update();//Updates the turret of the tank.
 
 	UG::GetMouseButtonDown(m_bMousePressed);//Sets the boolean to be equal to true if the mouse button is down and false if not.
@@ -96,10 +96,69 @@ void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePos
 	UG::GetMouseButtonReleased(m_bMouseReleased);//Sets the boolean to be equal to true if the mouse is not being pressed and false if it is.
 
 	//\===========================================================================================
+	//\ Turret Rotation  
+	//\===========================================================================================
+
+	if (m_bMouse == true)//If the mouse boolean is true then execute the following code.
+	{
+		Matrix3x3 m3WorldTurretTransform;//Creates a matrix3x3 called world transform to hold the world transformation.
+
+		m_sTurret->getWorldTransform(m3WorldTurretTransform);//Sets the newly created matrix to the turrets world transformation matrix.
+
+		Vector2 v2XTurretForward = Vector2(m3WorldTurretTransform.getRow(1).getfX(), m3WorldTurretTransform.getRow(1).getfY());//Sets the forward vector.
+
+		m_sTurret->rotateZ(v2XTurretForward.dotProduct(Vector2(-a_dMousePosX, -a_dMousePosY).normalise()));
+	}
+
+	if (UG::IsKeyDown(m_uiRotateLeft))//If the left rotation button of the tank is being pressed.
+		m_sTurret->rotateZ(-0.85f);//Rotate the turret counter clockwise.
+
+	if (UG::IsKeyDown(m_uiRotateRight))//If the right rotation button of the tank is being pressed.
+		m_sTurret->rotateZ(0.85f);//Rotate the turret clockwise.
+
+	//\===========================================================================================
+	//\ Tank Rotation  
+	//\===========================================================================================
+
+	if (UG::IsKeyDown(m_uiLeft))//If the left button of the tank is pressed.
+		m_sTank->rotateZ(-0.5f);//Rotate the tank counter clockwise.
+
+	if (UG::IsKeyDown(m_uiRight))//If the right button of the tank is pressed.
+		m_sTank->rotateZ(0.5f);//Rotate the tank clockwise.
+
+	//\===========================================================================================
 	//\ Tank Movement 
 	//\===========================================================================================
 
 	float fAccelleration = 0.f;//A float to hold the tanks acceleration.
+
+	if (m_bPlayer = true)//If the tank is a player.
+	{
+		if (UG::IsKeyDown(m_uiUp))//If the up key for the tank is pressed.
+		{
+			fAccelleration += 1.f;//Increase the acceleration of the tank.
+
+			m_fDrag = 0.f;//Sets the drag of the tank to zero.
+		}
+
+		if (UG::IsKeyDown(m_uiDown))//If the down key for the tank is pressed.
+		{
+			fAccelleration -= 0.75f;//Decrease the acceleration.
+
+			m_fDrag = 0.f;//Sets the drag of the tank to zero.
+		}
+
+		if (!UG::IsKeyDown(m_uiDown) && !UG::IsKeyDown(m_uiUp))//If neither the up or down key of the tank is pressed.
+			m_fDrag = 0.08f;//Set the drag of the tank to 0.08f.
+	}
+	//\===========================================================================================
+	//\ Enemy AI  
+	//\===========================================================================================
+
+	else//If the tank is not a player
+	{
+		//Enemy AI goes here
+	}
 
 	m_fCurrentVelocity += fAccelleration * a_fDeltaTime;//Increases the current velocity by the accelerations multiplied by the delta time.
 
@@ -130,66 +189,5 @@ void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePos
 		m_sTank->setPosition(v2XPosition);//Sets the position of the tank to be the new position vector.
 	}
 
-
-	if (m_bPlayer = true)//If the tank is a player.
-	{
-		if (UG::IsKeyDown(m_uiUp))//If the up key for the tank is pressed.
-		{
-			fAccelleration += 1.f;//Increase the acceleration of the tank.
-	
-			m_fDrag = 0.f;//Sets the drag of the tank to zero.
-		}
-
-		if (UG::IsKeyDown(m_uiDown))//If the down key for the tank is pressed.
-		{
-			fAccelleration -= 0.75f;//Decrease the acceleration.
-			
-			m_fDrag = 0.f;//Sets the drag of the tank to zero.
-		}
-
-		if (!UG::IsKeyDown(m_uiDown) && !UG::IsKeyDown(m_uiUp))//If neither the up or down key of the tank is pressed.
-			m_fDrag = 0.08f;//Set the drag of the tank to 0.08f.
-
-		//\===========================================================================================
-		//\ Tank Rotation  
-		//\===========================================================================================
-
-		if (UG::IsKeyDown(m_uiLeft))//If the left button of the tank is pressed.
-			m_sTank->rotateZ(-0.5f);//Rotate the tank counter clockwise.
-
-		if (UG::IsKeyDown(m_uiRight))//If the right button of the tank is pressed.
-			m_sTank->rotateZ(0.5f);//Rotate the tank clockwise.
-		
-		//\===========================================================================================
-		//\ Turret Rotation  
-		//\===========================================================================================
-
-		if (m_bMouse == true)//If the mouse boolean is true then execute the following code.
-		{
-			Matrix3x3 m3WorldTurretTransform;//Creates a matrix3x3 called world transform to hold the world transformation.
-
-			m_sTurret->getWorldTransform(m3WorldTurretTransform);//Sets the newly created matrix to the turrets world transformation matrix.
-
-			Vector2 v2XForward = Vector2(m3WorldTurretTransform.getRow(1).getfX(), m3WorldTurretTransform.getRow(1).getfY());//Sets the forward vector.
-
-			m_sTurret->rotateZ(v2XForward.dotProduct(Vector2(-a_dMousePosX, -a_dMousePosY).normalise()));
-
-		}
-
-		if (UG::IsKeyDown(m_uiRotateLeft))//If the left rotation button of the tank is being pressed.
-			m_sTurret->rotateZ(-0.85f);//Rotate the turret counter clockwise.
-
-		if (UG::IsKeyDown(m_uiRotateRight))//If the right rotation button of the tank is being pressed.
-			m_sTurret->rotateZ(0.85f);//Rotate the turret clockwise.
-
-	}
-
-	//\===========================================================================================
-	//\ Enemy AI  
-	//\===========================================================================================
-
-	else//If the tank is not a player
-	{
-		//Enemy AI goes here
-	}
 }
+	

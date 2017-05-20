@@ -44,56 +44,46 @@ Button::~Button()//The default destructor for a button.
 
 bool Button::buttonLogic(double a_dMousePosX, double a_dMousePosY)//Will return true if the button is activated.
 {
-	if (UG::GetMouseButtonReleased(m_bMouseReleased))
+	if (UG::GetMouseButtonReleased(m_bMouseReleased))//If the mouse button is released.
 	{
-		m_bCanBePressed = false;
+		m_bCanBePressed = true;//Allow the button to be pressed.
 	}
 
-	if (UG::GetMouseButtonDown(m_bMousePressed) == true && a_dMousePosX < m_v2Position.getfX() - (0.5 * m_fButtonWidth) || a_dMousePosX > m_v2Position.getfX() + (0.5 * m_fButtonWidth) || a_dMousePosY < m_v2Position.getfY() - (0.5 * m_fButtonHeight) || a_dMousePosY > m_v2Position.getfY() + (0.5 * m_fButtonHeight))
+	if (UG::GetMouseButtonDown(m_bMousePressed) == true && a_dMousePosX < m_v2Position.getfX() - (0.5 * m_fButtonWidth) || a_dMousePosX > m_v2Position.getfX() + (0.5 * m_fButtonWidth) || a_dMousePosY < m_v2Position.getfY() - (0.5 * m_fButtonHeight) || a_dMousePosY > m_v2Position.getfY() + (0.5 * m_fButtonHeight))//If the mouse is clicked outside of the button.
 	{
-		m_bCanBePressed = true; 
-		//pressed//clicked outside
-
+		m_bCanBePressed = false;//Don't allow the button to be pressed.
 	}
-	//functions to make it so you have to reclick on each button instead of releasing on the button you want
-	if (a_dMousePosX < m_v2Position.getfX() - (0.5 * m_fButtonWidth) || a_dMousePosX > m_v2Position.getfX() + (0.5 * m_fButtonWidth) || a_dMousePosY < m_v2Position.getfY() - (0.5 * m_fButtonHeight) || a_dMousePosY > m_v2Position.getfY() + (0.5 * m_fButtonHeight))
+	
+	if (a_dMousePosX < m_v2Position.getfX() - (0.5 * m_fButtonWidth) || a_dMousePosX > m_v2Position.getfX() + (0.5 * m_fButtonWidth) || a_dMousePosY < m_v2Position.getfY() - (0.5 * m_fButtonHeight) || a_dMousePosY > m_v2Position.getfY() + (0.5 * m_fButtonHeight))//If the mouse is outside of the button.
 	{
-		m_bBeingPressed = false;
-		UG::SetSpriteUVCoordinates(m_sButton->getSpriteID(), 0, 0, 0.25, 1);
-		//Leaves box
+		m_bBeingPressed = false;//Stop the button from being pressed.
+
+		UG::SetSpriteUVCoordinates(m_sButton->getSpriteID(), 0, 0, 0.25, 1);//Set the sprite to the non triggered state.
 	}
 
-	if (UG::GetMouseButtonDown(m_bMousePressed) == true && a_dMousePosX > m_v2Position.getfX() - (0.5 * m_fButtonWidth)&&a_dMousePosX < m_v2Position.getfX() - (0.5 * m_fButtonWidth)&& a_dMousePosY > m_v2Position.getfY() + (0.5 * m_fButtonHeight) && a_dMousePosY < m_v2Position.getfY() + (0.5 * m_fButtonHeight))
+	if (UG::IsKeyDown(m_uiKey) || m_bCanBePressed == true && m_bBeingPressed == true && UG::GetMouseButtonReleased(m_bMouseReleased) == true && a_dMousePosX > m_v2Position.getfX() - (0.5 * m_fButtonWidth) && a_dMousePosX < m_v2Position.getfX() + (0.5 * m_fButtonWidth) && a_dMousePosY > m_v2Position.getfY() - (0.5 * m_fButtonHeight) && a_dMousePosY < m_v2Position.getfY() + (0.5 * m_fButtonHeight))//If the key is pressed or the mouse is released after clicking within the button.
 	{
-		UG::SetSpriteUVCoordinates( m_sButton->getSpriteID(),0.5,0,0.75,1);
-		//clicked
-		m_bBeingPressed = true;
+		UG::SetSpriteUVCoordinates(m_sButton->getSpriteID(), 0.5, 0, 0.75, 1);//Sets the sprite to the pressed state.
+
+		return true;//Exits the function with the true statement.
 	}
 
-
-
-
-
-	//when hovered over by mouse changes colour
-
-	else if (a_dMousePosX > m_v2Position.getfX() - (0.5 * m_fButtonWidth)&&a_dMousePosX < m_v2Position.getfX() + (0.5 * m_fButtonWidth)&& a_dMousePosY > m_v2Position.getfY() - (0.5 * m_fButtonHeight) && a_dMousePosY < m_v2Position.getfY() + (0.5 * m_fButtonHeight))
+	if (m_bCanBePressed == true && UG::GetMouseButtonDown(m_bMousePressed) == true && a_dMousePosX > m_v2Position.getfX() - (0.5 * m_fButtonWidth)&&a_dMousePosX < m_v2Position.getfX() + (0.5 * m_fButtonWidth)&& a_dMousePosY > m_v2Position.getfY() - (0.5 * m_fButtonHeight) && a_dMousePosY < m_v2Position.getfY() + (0.5 * m_fButtonHeight))//If the mouse is within the button and the mouse button is pressed whilst the button can be pressed.
 	{
-		UG::SetSpriteUVCoordinates(m_sButton->getSpriteID(), 0.25, 0, 0.5, 1);
-		//hover
+		UG::SetSpriteUVCoordinates( m_sButton->getSpriteID(),0.5,0,0.75,1);//Sets the sprite to the pressed state.
+		
+		m_bBeingPressed = true;//Indicate that the button is being pressed.
+	}
+	else if (a_dMousePosX > m_v2Position.getfX() - (0.5 * m_fButtonWidth)&&a_dMousePosX < m_v2Position.getfX() + (0.5 * m_fButtonWidth)&& a_dMousePosY > m_v2Position.getfY() - (0.5 * m_fButtonHeight) && a_dMousePosY < m_v2Position.getfY() + (0.5 * m_fButtonHeight))//If the mouse is just within the button.
+	{
+		UG::SetSpriteUVCoordinates(m_sButton->getSpriteID(), 0.25, 0, 0.5, 1);//Sets the sprite to the hovered state.
 	}
 	else
 	{
-		UG::SetSpriteUVCoordinates(m_sButton->getSpriteID(), 0, 0, 0.25, 1);
-		//default
+		UG::SetSpriteUVCoordinates(m_sButton->getSpriteID(), 0, 0, 0.25, 1);//Sets the sprite to the default state.
 	}
-	if (UG::IsKeyDown(m_uiKey) || m_bCanBePressed == false && m_bBeingPressed == true && UG::GetMouseButtonReleased(m_bMouseReleased) == true && a_dMousePosX > m_v2Position.getfX() - (0.5 * m_fButtonWidth) &&a_dMousePosX < m_v2Position.getfY() - (0.5 * m_fButtonHeight) && a_dMousePosY < m_v2Position.getfY() + (0.5 * m_fButtonHeight))
-	{
-		UG::SetSpriteUVCoordinates(m_sButton->getSpriteID(), 0.5, 0, 0.75, 1);
-		//activate
-		return true;
-	}
+
 	return false;
-	
 }
 
 //\===========================================================================================
@@ -104,7 +94,7 @@ void Button::markForDraw()//A function to draw the button.
 {
 	m_sButton->markForDraw();//Starts the drawing of the button.
 
-	UG::MoveSprite(m_sButton->getSpriteID(), m_v2Position.getfX(), m_v2Position.getfY());
+	UG::MoveSprite(m_sButton->getSpriteID(), m_v2Position.getfX(), m_v2Position.getfY());//Moves the button to the correct position.
 }
 
 void Button::stopDrawing()//A function to stop drawing the button.

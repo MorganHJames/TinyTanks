@@ -37,7 +37,7 @@ private:
 
 	bool m_bMousePressed = false;//If the mouse is pressed this well be true.
 
-	bool m_bMouseReleased = true;//If the mouse is not being pressed this will be false.
+	bool m_bMouseReleased = false;//If the mouse is not being pressed this will be false.
 
 public:
 	//\===========================================================================================
