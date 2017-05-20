@@ -24,7 +24,7 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
         //\ Initialization
         //\===========================================================================================
 
-		UG::GetScreenSize(iScreenWidth, iScreenHeight);//Sets the corresponding integers to the correct values for height and width.
+		UG::GetScreenSize(m_iScreenWidth, m_iScreenHeight);//Sets the corresponding integers to the correct values for height and width.
 
 		UG::SetBackgroundColor(UG::SColour(0x2A, 0x57, 0x66, 0xFF));//Sets the background color of the screen to match the values of colors passed in.
 
@@ -34,9 +34,9 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 
 		GameState currentState = SPLASH;//Defines the first state of the game.
 
-		Tank player(Vector2(0.5f * iScreenWidth, 0.5f * iScreenHeight), 87, 83, 65, 68, 69, 81);//Initializes the players tank.
+		Tank tCampaignPlayer(Vector2(0.5f * m_iScreenWidth, 0.5f * m_iScreenHeight), true, 87, 83, 65, 68, 69, 81);//Initializes the players tank for campaign.
 
-		Map level1(a_c_iWidth, a_c_iHeight, "./maps/level1.txt","./images/tanks.png");//
+		Map mLevel1(a_c_iWidth, a_c_iHeight, "./maps/level1.txt","./images/tileSetOne.png");//
 
 		//\===========================================================================================
 		//\ Update
@@ -47,23 +47,29 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 			if (UG::IsKeyDown(256))//If ESC is pressed.
 				UG::Close();//Close the game.
 
-			float fDeltaTime = UG::GetDeltaTime();//Sets the float fDeltaTime to be equal to the time between now and the last call of the processor.
+			m_fDeltaTime = UG::GetDeltaTime();//Sets the float m_fDeltaTime to be equal to the time between now and the last call of the processor.
 		
 			UG::ClearScreen();//Clears the screen.
+
+			UG::GetMousePos(m_dMousePosX, m_dMousePosY);//Sets the mouse position equal to the mouse position on the screen.
+
+			UG::GetMouseButtonDown(m_bMousePressed);//Sets the boolean to be equal to true if the mouse button is down and false if not.
+
+			UG::GetMouseButtonReleased(m_bMouseReleased);//Sets the boolean to be equal to true if the mouse is not being pressed and false if it is.
 
 			switch (currentState)//The switch statement containing all the different stages of the game.
 			{
 			case SPLASH://The splash screen state that shows some text and after a moment goes to the menu.
 			{
-				UG::DrawString("Tiny Tanks", (int)(iScreenWidth*0.0f), (int)(iScreenHeight * 0.6f), (1.5));//Draws the string Tiny Tanks to the screen like a title.
+				UG::DrawString("Tiny Tanks", (int)(m_iScreenWidth*0.0f), (int)(m_iScreenHeight * 0.6f), (1.5));//Draws the string Tiny Tanks to the screen like a title.
 				
-				UG::DrawString("Produced by Morgan James", (int)(iScreenWidth*0.075f), (int)(iScreenHeight * 0.4f), (1.5));//Draws the string Produced by Morgan James to the screen like a produced by tag.
+				UG::DrawString("Produced by Morgan James", (int)(m_iScreenWidth*0.075f), (int)(m_iScreenHeight * 0.4f), (1.5));//Draws the string Produced by Morgan James to the screen like a produced by tag.
 				
-				fSplashTimer += fDeltaTime;//Starts the incrementation of the variable that controls how long the screen is displayed for.
+				m_fSplashTimer += m_fDeltaTime;//Starts the incrementation of the variable that controls how long the screen is displayed for.
 
-				if (fSplashTimer > 1)//If splash timer gets above 1 move to the menu screen.
+				if (m_fSplashTimer > 1)//If splash timer gets above 1 move to the menu screen.
 				{
-					fSplashTimer = 0;//Reset the splash timer.
+					m_fSplashTimer = 0;//Reset the splash timer.
 
 					//\===========================================================================================
 					//\ MENU Setup
@@ -82,15 +88,15 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 
 				currentState = GAMEPLAY;//Sets the current state of game play to the main game.
 
-				player.markforDraw();//Sets the player tank to be drawn.
-				level1.markForDraw();
+				tCampaignPlayer.markforDraw();//Sets the player tank to be drawn.
+				mLevel1.markForDraw();
 				break;
 			}
 
 			case GAMEPLAY://The game play state where the game will be played and the user should be the majority of the time.
 			{
 
-				player.tankMovement(fDeltaTime);//Allows for movement of the player tank.
+				tCampaignPlayer.tankLogic(m_fDeltaTime, m_dMousePosX, m_dMousePosY, m_bMousePressed, m_bMouseReleased);//Allows for movement of the player tank.
 				break;
 			}
 

@@ -9,6 +9,6 @@
 
 int main()
 {
-	Game newGame(800, 576);
+	Game newGame(1200, 864);
 	return 0;
 }

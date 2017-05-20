@@ -39,12 +39,14 @@ private:
 	
 	Sprite* m_sTurret;//The default sprite for the turret.
 
+	bool m_bMouse = true;
+
 public:
 	//\===========================================================================================
 	//\ Player Constructor 
 	//\===========================================================================================
 
-	Tank(const Vector2 a_c_v2Position, unsigned int a_c_uiUp, unsigned int a_c_uiDown, unsigned int a_c_uiLeft, unsigned int a_c_uiRight, unsigned int a_c_uiRotateRight, unsigned int a_c_uiRotateLeft);//A constructor for the tank that takes in the in position of where you want to the tank to be and the controls for tank.
+	Tank(const Vector2 a_c_v2Position, bool a_c_bMouse, unsigned int a_c_uiUp, unsigned int a_c_uiDown, unsigned int a_c_uiLeft, unsigned int a_c_uiRight, unsigned int a_c_uiRotateRight, unsigned int a_c_uiRotateLeft);//A constructor for the tank that takes in the in position of where you want to the tank to be and the controls for tank.
 
 	//\===========================================================================================
 	//\ Enemy Constructor 
@@ -64,7 +66,7 @@ public:
 	//\ Tank Movement 
 	//\===========================================================================================
 
-	void tankMovement(float a_fDeltaTime);//A function that should be put in the update area to move the tank.
+	void tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePosY, bool a_bMousePressed, bool a_bMouseReleased);//A function that should be put in the update area to move the tank.
 
 };
 

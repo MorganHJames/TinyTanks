@@ -25,46 +25,48 @@ private:
 	//\ Member Variables 
 	//\===========================================================================================
 
-	int iWidth = 0;
+	int m_iWidth = 0;//The width of the screen.
 
-	int iHeight = 0;
+	int m_iHeight = 0;//The height of the screen.
 
-	int iSpriteDimentions = 32;
+	int m_iTilesHigh = 18;//How many tiles high the map is.
 
-	int iTilesHigh = 18;
+	int m_iTilesWide = 25;//How many tiles wide the map is.
 
-	int iTilesWide = 25;
+	int m_iLevelMap[25 * 18];//An array to hold the type of tile in each position.
 
-	int iLevelMap[25 * 18];
+	float m_iSpriteDimentions = 0;//A float to represent the height and the width of each tile.
 
-	Tile *pTileArray = new Tile[25 * 18];
+	Tile *m_tTileArray = new Tile[25 * 18];//An array of tiles that will be moved to there correct position.
 
 public:
 	//\===========================================================================================
 	//\ Constructor 
 	//\===========================================================================================
 
-	Map(const int a_c_iWidth, int a_c_iHeight, char* a_c_sFilename, char* a_c_sTileSet);
+	Map(const int a_c_iWidth, int a_c_iHeight, char* a_c_sFilename, char* a_c_sTileSet);//A constructor for a map that takes in the screen height and width along with the map file location and the tile set location that will be used.
 
 	//\===========================================================================================
 	//\ Destructor
 	//\===========================================================================================
 
-	~Map();
+	~Map();//A default destructor for the Map.
 
 	//\===========================================================================================
 	//\ Draw Functions
 	//\===========================================================================================
 
-	void markForDraw();
+	void markForDraw();//A function to draw the map.
 
-	void stopDrawing();
+	void stopDrawing();//A function to stop drawing the map.
 
 	//\===========================================================================================
 	//\ Get Tile
 	//\===========================================================================================
 
-	Tile& getTile(int a_iCol, int a_iRow);
+	Tile& getTile(const int a_iCol, int a_iRow);//Gets the tile at the desired position in the tile array.
+
+	int getTileType(const int a_iCol, int a_iRow);//Gets the tile type from iLevelMap array.
 
 };
 

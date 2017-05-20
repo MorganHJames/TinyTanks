@@ -21,9 +21,19 @@ private:
 	//\ Member Variables 
 	//\===========================================================================================
 
-	int iScreenWidth = 0, iScreenHeight = 0;//Integers to save to screen height and width.
-	float fDeltaTime = 0;//A float used to hold the time between the current time and the last time the processor was called.
-	float fSplashTimer = 0;//A float used to count time passed for how long the splash screen should be displayed.
+	int m_iScreenWidth = 0, m_iScreenHeight = 0;//Integers to save to screen height and width.
+
+	float m_fDeltaTime = 0;//A float used to hold the time between the current time and the last time the processor was called.
+
+	float m_fSplashTimer = 0;//A float used to count time passed for how long the splash screen should be displayed.
+
+	double m_dMousePosX = 0;//The mouse x position on the screen.
+
+	double m_dMousePosY = 0;//The mouse y position on the screen.
+
+	bool m_bMousePressed = false;//If the mouse is pressed this well be true.
+
+	bool m_bMouseReleased = true;//If the mouse is not being pressed this will be false.
 
 public:
 	//\===========================================================================================
