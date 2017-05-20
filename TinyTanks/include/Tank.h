@@ -39,7 +39,11 @@ private:
 	
 	Sprite* m_sTurret;//The default sprite for the turret.
 
-	bool m_bMouse = true;
+	bool m_bMouse = true;//True if the turret should follow the mouse.
+
+	bool m_bMousePressed = false;//If the mouse is pressed this well be true.
+
+	bool m_bMouseReleased = true;//If the mouse is not being pressed this will be false.
 
 public:
 	//\===========================================================================================
@@ -66,7 +70,7 @@ public:
 	//\ Tank Movement 
 	//\===========================================================================================
 
-	void tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePosY, bool a_bMousePressed, bool a_bMouseReleased);//A function that should be put in the update area to move the tank.
+	void tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePosY);//A function that should be put in the update area to move the tank.
 
 };
 

@@ -106,3 +106,12 @@ void Sprite::setPosition(Vector2 a_v2Pos)//A function set the current position o
 { 
 	m_m3PosRot.setRow(2, Vector3(a_v2Pos.getfX(), a_v2Pos.getfY(), 1.f));//Sets the new position of the local transform to the argument passed in.
 }
+
+//\===========================================================================================
+//\ Get Sprite ID
+//\===========================================================================================
+
+int Sprite::getSpriteID()//A function to get the sprites ID.
+{
+	return m_iSpriteID;//Returns the sprite ID.
+}

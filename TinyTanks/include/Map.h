@@ -25,10 +25,6 @@ private:
 	//\ Member Variables 
 	//\===========================================================================================
 
-	int m_iWidth = 0;//The width of the screen.
-
-	int m_iHeight = 0;//The height of the screen.
-
 	int m_iTilesHigh = 18;//How many tiles high the map is.
 
 	int m_iTilesWide = 25;//How many tiles wide the map is.
@@ -44,7 +40,7 @@ public:
 	//\ Constructor 
 	//\===========================================================================================
 
-	Map(const int a_c_iWidth, int a_c_iHeight, char* a_c_sFilename, char* a_c_sTileSet);//A constructor for a map that takes in the screen height and width along with the map file location and the tile set location that will be used.
+	Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet);//A constructor for a map that takes in the screen height and width along with the map file location and the tile set location that will be used.
 
 	//\===========================================================================================
 	//\ Destructor

@@ -85,11 +85,15 @@ void Tank::stopDrawing()//A function to stop drawing the parts of the tank.
 //\ Tank Logic 
 //\===========================================================================================
 
-void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePosY, bool a_bMousePressed, bool a_bMouseReleased)//A function that should be put in the update area to move the tank.
+void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePosY)//A function that should be put in the update area to move the tank.
 {
 	m_sTank->update();//Updates the base of the tank.
 	
 	m_sTurret->update();//Updates the turret of the tank.
+
+	UG::GetMouseButtonDown(m_bMousePressed);//Sets the boolean to be equal to true if the mouse button is down and false if not.
+
+	UG::GetMouseButtonReleased(m_bMouseReleased);//Sets the boolean to be equal to true if the mouse is not being pressed and false if it is.
 
 	//\===========================================================================================
 	//\ Tank Movement 

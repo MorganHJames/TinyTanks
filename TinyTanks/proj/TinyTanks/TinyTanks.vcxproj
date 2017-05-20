@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\include\Button.cpp" />
     <ClCompile Include="..\..\include\Game.cpp" />
     <ClCompile Include="..\..\include\Map.cpp" />
     <ClCompile Include="..\..\include\Node.cpp" />
@@ -160,6 +161,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\include\Button.h" />
     <ClInclude Include="..\..\include\Game.h" />
     <ClInclude Include="..\..\include\GameStates.h" />
     <ClInclude Include="..\..\include\Map.h" />

@@ -15,13 +15,9 @@
 //\ Constructor 
 //\===========================================================================================
 
-Map::Map(const int a_c_iWidth, int a_c_iHeight, char* a_c_sFilename, char* a_c_sTileSet)//A constructor for a map that takes in the screen height and width along with the map file location and the tile set location that will be used.
+Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A constructor for a map that takes in the screen height and width along with the map file location and the tile set location that will be used.
 {
-	m_iWidth = a_c_iWidth;//Sets the member variable for width to be equal to the screens width.
-
-	m_iHeight = a_c_iHeight;//Sets the member variable for height to be equal to the screens height.
-
-	m_iSpriteDimentions = (float)m_iWidth / (float)m_iTilesWide;//Sets the sprite dimensions equal to the width of the screen divided by how many tiles wide the map will be.
+	m_iSpriteDimentions = (float)a_c_iWidth / (float)m_iTilesWide;//Sets the sprite dimensions equal to the width of the screen divided by how many tiles wide the map will be.
 
 	std::ifstream levelMap;//Sets the stream directory.
 

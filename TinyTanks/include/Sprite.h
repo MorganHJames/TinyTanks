@@ -79,6 +79,13 @@ public:
     //\===========================================================================================
     
     void setPosition(Vector2 a_v2Pos);//A function set the current position of the sprite to the argument passed in.
+
+
+	//\===========================================================================================
+	//\ Get Sprite ID
+	//\===========================================================================================
+	
+	int getSpriteID();//A function to get the sprites ID.
 	
 };
 

@@ -31,10 +31,6 @@ private:
 
 	double m_dMousePosY = 0;//The mouse y position on the screen.
 
-	bool m_bMousePressed = false;//If the mouse is pressed this well be true.
-
-	bool m_bMouseReleased = true;//If the mouse is not being pressed this will be false.
-
 public:
 	//\===========================================================================================
 	//\ Constructor 

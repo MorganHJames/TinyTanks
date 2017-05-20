@@ -11,6 +11,7 @@
 #include "Vector2.h"
 #include "Tank.h"
 #include "Map.h"
+#include "Button.h"
 
 //\===========================================================================================
 //\ Constructor 
@@ -36,7 +37,9 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 
 		Tank tCampaignPlayer(Vector2(0.5f * m_iScreenWidth, 0.5f * m_iScreenHeight), true, 87, 83, 65, 68, 69, 81);//Initializes the players tank for campaign.
 
-		Map mLevel1(a_c_iWidth, a_c_iHeight, "./maps/level1.txt","./images/tileSetOne.png");//
+		Map mLevel1(a_c_iWidth, "./maps/level1.txt","./images/tileSetOne.png");//Initializes the first map.
+
+		Button bStart("./images/start.png", Vector2(m_iScreenWidth * 0.5, m_iScreenHeight * 0.5), 100, 100, 257);
 
 		//\===========================================================================================
 		//\ Update
@@ -52,10 +55,6 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 			UG::ClearScreen();//Clears the screen.
 
 			UG::GetMousePos(m_dMousePosX, m_dMousePosY);//Sets the mouse position equal to the mouse position on the screen.
-
-			UG::GetMouseButtonDown(m_bMousePressed);//Sets the boolean to be equal to true if the mouse button is down and false if not.
-
-			UG::GetMouseButtonReleased(m_bMouseReleased);//Sets the boolean to be equal to true if the mouse is not being pressed and false if it is.
 
 			switch (currentState)//The switch statement containing all the different stages of the game.
 			{
@@ -76,6 +75,8 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 					//\===========================================================================================
 					
 					currentState = MENU;//Sets the current state of game play to the menu.
+
+					bStart.markForDraw();//Sets the start button to be drawn,
 				}
 				break;
 			}
@@ -85,18 +86,23 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 				//\===========================================================================================
 				//\ GAMEPLAY Setup
 				//\===========================================================================================
+				
+				if (bStart.buttonLogic(m_dMousePosX, m_dMousePosY))
+				{
+					currentState = GAMEPLAY;//Sets the current state of game play to the main game.
 
-				currentState = GAMEPLAY;//Sets the current state of game play to the main game.
+					tCampaignPlayer.markforDraw();//Sets the player tank to be drawn.
 
-				tCampaignPlayer.markforDraw();//Sets the player tank to be drawn.
-				mLevel1.markForDraw();
+					mLevel1.markForDraw();//Sets the first map to be drawn.
+				}
+
 				break;
 			}
 
 			case GAMEPLAY://The game play state where the game will be played and the user should be the majority of the time.
 			{
 
-				tCampaignPlayer.tankLogic(m_fDeltaTime, m_dMousePosX, m_dMousePosY, m_bMousePressed, m_bMouseReleased);//Allows for movement of the player tank.
+				tCampaignPlayer.tankLogic(m_fDeltaTime, m_dMousePosX, m_dMousePosY);//Allows for movement of the player tank.
 				break;
 			}
 
