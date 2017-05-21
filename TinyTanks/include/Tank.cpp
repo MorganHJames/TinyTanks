@@ -61,7 +61,7 @@ Tank::Tank(const Vector2 a_c_v2Position)//A constructor for the tank that takes 
 
 	m_sTurret->setParent(m_sTank);//Sets the parent of the turret to be the base of the tank.
 
-	m_sTurret->setLayer(1);//Sets the layer of tank turret so that it is rendered on top of the base.
+	m_sTurret->setLayer(2);//Sets the layer of tank turret so that it is rendered on top of the base.
 }
 
 //\===========================================================================================
@@ -169,29 +169,23 @@ void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePos
 		//\===========================================================================================
 		//\ Shooting
 		//\===========================================================================================
-
-		float fShotDelayTimer =- a_fDeltaTime;
-
-		float fShotDelay = 1;
 		/*
-		if (UG::GetMouseButtonDown(m_bMousePressed) == true && m_iBulletsShot <= m_iMaxBullets)
+		Bullet normalBullets(4, "./images/tanks.png", 1);
+
+		if (UG::GetMouseButtonDown(m_bMousePressed) == true)
 		{
-			if (fShotDelayTimer <= 0)
-			{
-				for (int i = 0; i < m_iMaxBullets; ++i)
-				{
-					if (bBullet[i].active == false)
-					{
-						bBullet[i].fire();
+			Matrix3x3 m3WorldTurretTransform;//Creates a matrix3x3 called world transform to hold the world transformation.
 
-						fShotDelayTimer = fShotDelay;
+			m_sTurret->getWorldTransform(m3WorldTurretTransform);//Sets the newly created matrix to the tanks world transformation matrix.
 
-						m_iBulletsShot++
-					}
-				}
-			}
+			Vector2 v2TurretPosition = Vector2(m3WorldTurretTransform.getRow(2).getfX(), m3WorldTurretTransform.getRow(2).getfY());//Sets the position vector.
+
+			Vector2 v2TurretForward = Vector2(m3WorldTurretTransform.getRow(1).getfX(), m3WorldTurretTransform.getRow(1).getfY());//Sets the forward vector.
+
+			normalBullets.shoot(v2TurretPosition, v2TurretForward, a_fDeltaTime);
 		}
 		*/
+		
 	}
 	//\===========================================================================================
 	//\ Enemy AI  
@@ -230,7 +224,7 @@ void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePos
 
 	if (fabsf(m_fCurrentVelocity) > 0.25f)//If the current velocity is higher than 0.25f.
 	{
-		v2Position += (v2Forward * m_fCurrentVelocity);//Add forward and velocity to the position.
+		v2Position += (v2Forward * m_fCurrentVelocity * a_fDeltaTime);//Add forward and velocity to the position.
 
 		m_sTank->setPosition(v2Position);//Sets the position of the tank to be the new position vector.
 

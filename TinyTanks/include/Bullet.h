@@ -14,6 +14,8 @@
 //\ Brief: A class that is used to create projectiles.
 //\===========================================================================================
 
+#include "Vector2.h"
+
 class Bullet
 {
 private:
@@ -21,15 +23,51 @@ private:
 	//\ Member Variables 
 	//\===========================================================================================
 
-	float m_fVelocity = 0.f;//A float that will contain the current velocity of the bullet.
-	
+	struct basic
+	{
+		int iSpriteID = -1;//The ID of the sprite.
+
+		Vector2 v2Pos;//The coordinates to where the bullet is on the screen.
+
+		Vector2 v2Forward;//The forward of the bullet.
+
+		bool active = false;//Whether or not the bullet is being shot.
+
+		float fVelocity = 1.0f;//A float that will contain the current velocity of the bullet.
+
+		float fLifeTimer = 0.0f;
+	};
+
+	int m_iSpriteHeight = 12;
+
+	float m_fLifeTime = 5;
+
+	int m_iSpriteWidth = 6;
+
+	float m_fShotDelay = 1;
+
+	int m_iMaxBullets = 0;//How many bullets there will be available for the player to shoot.
+
+	basic *m_bBulletArray = new basic[m_iMaxBullets];//An array of tiles that will be moved to there correct position.
 
 public:
 	//\===========================================================================================
 	//\ Constructor 
 	//\===========================================================================================
 
-	Bullet();
+	Bullet(const int a_c_iMaxBullets, char* a_c_cFileLocation, float a_c_fShotDelay);//The default constructor for the sprite.
+
+	//\===========================================================================================
+	//\ Shoot Function 
+	//\===========================================================================================
+
+	void shoot(const Vector2 a_c_v2Pos, Vector2 a_c_v2Forward, float a_fDeltaTime);
+
+	//\===========================================================================================
+	//\ Update Function 
+	//\===========================================================================================
+
+	void update(float a_fDeltaTime);
 
 };
 #endif

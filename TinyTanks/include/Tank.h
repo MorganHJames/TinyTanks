@@ -9,6 +9,7 @@
 #define _TANK_H_
 
 #include "Sprite.h"
+#include "Bullet.h"
 
 //\===========================================================================================
 //\ Author: Morgan James
