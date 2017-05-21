@@ -35,11 +35,19 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 
 		GameState currentState = SPLASH;//Defines the first state of the game.
 
-		Tank tCampaignPlayer(Vector2(0.5f * m_iScreenWidth, 0.5f * m_iScreenHeight), true, 87, 83, 65, 68, 69, 81);//Initializes the players tank for campaign.
+		Tank tCampaignPlayer(Vector2(0.5f * m_iScreenWidth, 0.5f * m_iScreenHeight), true, 87, 83, 65, 68, 69, 81, "./images/tanks.png");//Initializes the players tank for campaign.
 
-		Map mLevel1(a_c_iWidth, "./maps/level1.txt","./images/tileSetOne.png");//Initializes the first map.
+		Tank tVersusPlayer1(Vector2(0.25f * m_iScreenWidth, 0.5f * m_iScreenHeight), false, 87, 83, 65, 68, 69, 81, "./images/tanks.png");//Initializes the player1 tank for versus.
+		
+		Tank tVersusPlayer2(Vector2(0.75f * m_iScreenWidth, 0.5f * m_iScreenHeight), false, 328, 325, 324, 326, 329, 327, "./images/tanks.png");//Initializes the player2 tank for versus.
 
-		Button bStart("./images/start.png", Vector2(m_iScreenWidth * 0.5, m_iScreenHeight * 0.5), 100, 100, 257);
+		Map mCampaignLevel1(a_c_iWidth, "./maps/level1.txt","./images/tileSetOne.png");//Initializes the first map.
+
+		Button bCampaign("./images/start.png", Vector2((float)m_iScreenWidth * 0.5, (float) m_iScreenHeight * 0.75), 100, 100, 257);
+
+		Button bVS("./images/start.png", Vector2((float) m_iScreenWidth * 0.5, (float) m_iScreenHeight * 0.5), 100, 100, 257);
+
+		Button bExit("./images/start.png", Vector2((float) m_iScreenWidth * 0.5, (float) m_iScreenHeight * 0.25), 100, 100, 257);
 
 		//\===========================================================================================
 		//\ Update
@@ -55,6 +63,8 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 			UG::ClearScreen();//Clears the screen.
 
 			UG::GetMousePos(m_dMousePosX, m_dMousePosY);//Sets the mouse position equal to the mouse position on the screen.
+
+			m_dMousePosY = a_c_iHeight - m_dMousePosY;
 
 			switch (currentState)//The switch statement containing all the different stages of the game.
 			{
@@ -76,7 +86,11 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 					
 					currentState = MENU;//Sets the current state of game play to the menu.
 
-					bStart.markForDraw();//Sets the start button to be drawn,
+					bCampaign.markForDraw();//Sets the campaign button to be drawn.
+
+					bVS.markForDraw();//Sets the versus button to be drawn.
+
+					bExit.markForDraw();//Sets the Exit button to be drawn.
 				}
 				break;
 			}
@@ -84,30 +98,77 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 			case MENU://The Menu state where buttons should be present to navigate the application.
 			{
 				//\===========================================================================================
-				//\ GAMEPLAY Setup
+				//\ CAMPAIGN Setup
 				//\===========================================================================================
 				
-				if (bStart.buttonLogic(m_dMousePosX, m_dMousePosY))
+				if (bCampaign.buttonLogic(m_dMousePosX, m_dMousePosY))
 				{
-					currentState = GAMEPLAY;//Sets the current state of game play to the main game.
+					currentState = CAMPAIGN;//Sets the current state of game play to the main game.
 
 					tCampaignPlayer.markforDraw();//Sets the player tank to be drawn.
 
-					mLevel1.markForDraw();//Sets the first map to be drawn.
+					mCampaignLevel1.markForDraw();//Sets the first map to be drawn.
 
-					bStart.stopDrawing();//Stops the start button from being drawn.
+					bCampaign.stopDrawing();//Stops the campaign button from being drawn.
+
+					bVS.stopDrawing();//Stops the versus button from being drawn.
+
+					bExit.stopDrawing();//Stops the exit button from being drawn.
+				}
+				
+				//\===========================================================================================
+				//\ VERSUS Setup
+				//\===========================================================================================
+				
+				if (bVS.buttonLogic(m_dMousePosX, m_dMousePosY))
+				{
+					currentState = VERSUS;//Sets the current state of game play to the main game.
+
+					mCampaignLevel1.markForDraw();//Sets the first map to be drawn.
+
+					tVersusPlayer1.markforDraw();//Sets the player tank to be drawn.
+
+					tVersusPlayer2.markforDraw();//Sets the player tank to be drawn.
+
+					bCampaign.stopDrawing();//Stops the campaign button from being drawn.
+
+					bVS.stopDrawing();//Stops the versus button from being drawn.
+
+					bExit.stopDrawing();//Stops the exit button from being drawn.
+				}
+				
+				//\===========================================================================================
+				//\ EXIT 
+				//\===========================================================================================
+				
+				if (bExit.buttonLogic(m_dMousePosX, m_dMousePosY))
+				{
+					bCampaign.stopDrawing();//Stops the campaign button from being drawn.
+
+					bVS.stopDrawing();//Stops the versus button from being drawn.
+
+					bExit.stopDrawing();//Stops the exit button from being drawn.
+
+					UG::Dispose();//Unloads loaded components of the framework.
+
+					UG::Close();//Closes the game.
 				}
 
 				break;
 			}
 
-			case GAMEPLAY://The game play state where the game will be played and the user should be the majority of the time.
+			case CAMPAIGN://The game play state where the game will be played and the user should be the majority of the time.
 			{
-
 				tCampaignPlayer.tankLogic(m_fDeltaTime, m_dMousePosX, m_dMousePosY);//Allows for movement of the player tank.
 				break;
 			}
+			case VERSUS://The game play state where the game will be played and the user should be the majority of the time.
+			{
+				tVersusPlayer1.tankLogic(m_fDeltaTime, m_dMousePosX, m_dMousePosY);//Allows for movement of the player1 tank.
 
+				tVersusPlayer2.tankLogic(m_fDeltaTime, m_dMousePosX, m_dMousePosY);//Allows for movement of the player1 tank.
+				break;
+			}
 			default://The default statement which should never be used.
 				break;
 			}

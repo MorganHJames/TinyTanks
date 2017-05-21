@@ -4,7 +4,8 @@
 typedef enum GameStates
 {
 	MENU,
-	GAMEPLAY,
+	CAMPAIGN,
+	VERSUS,
 	SPLASH
 }GameState;
 

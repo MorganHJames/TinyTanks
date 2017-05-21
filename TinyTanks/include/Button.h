@@ -21,8 +21,6 @@ class Button
 private:
 	unsigned int m_uiKey = 0;//The key that will activate the button.
 
-	char* m_cFilename;//The location of the sprite image.
-
 	Sprite* m_sButton;//The default sprite for the button.
 
 	float m_fButtonWidth = 0;//A float to hold the button's width.

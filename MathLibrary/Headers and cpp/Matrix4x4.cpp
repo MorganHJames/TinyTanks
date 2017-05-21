@@ -14,7 +14,7 @@
 //\ Constructor
 //\===========================================================================================
 
-Matrix4x4::Matrix4x4() {}//The Default constructor for a Matrix4x4 that initialises everything to 0.
+Matrix4x4::Matrix4x4() {}//The Default constructor for a Matrix4x4 that initializes everything to 0.
 
 Matrix4x4::Matrix4x4(const Matrix4x4 &a_c_fm4Matrix4x4)//Copy constructor.
 {

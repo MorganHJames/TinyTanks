@@ -45,12 +45,18 @@ private:
 
 	bool m_bMouseReleased = true;//If the mouse is not being pressed this will be false.
 
+	int m_iMaxBullets = 4;//How many bullets may be on the screen at one time.
+
+	int m_iBulletsShot = 0;//How many bullets are currently being shot.
+
+	int m_iScreenHeight = 0;//How many pixels tall the screen is.
+
 public:
 	//\===========================================================================================
 	//\ Player Constructor 
 	//\===========================================================================================
 
-	Tank(const Vector2 a_c_v2Position, bool a_c_bMouse, unsigned int a_c_uiUp, unsigned int a_c_uiDown, unsigned int a_c_uiLeft, unsigned int a_c_uiRight, unsigned int a_c_uiRotateRight, unsigned int a_c_uiRotateLeft);//A constructor for the tank that takes in the in position of where you want to the tank to be and the controls for tank.
+	Tank(const Vector2 a_c_v2Position, bool a_c_bMouse, unsigned int a_c_uiUp, unsigned int a_c_uiDown, unsigned int a_c_uiLeft, unsigned int a_c_uiRight, unsigned int a_c_uiRotateRight, unsigned int a_c_uiRotateLeft, char* m_cFilename);//A constructor for the tank that takes in the in position of where you want to the tank to be and the controls for tank.
 
 	//\===========================================================================================
 	//\ Enemy Constructor 
@@ -71,7 +77,7 @@ public:
 	//\===========================================================================================
 
 	void tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePosY);//A function that should be put in the update area to move the tank.
-
+	
 };
 
 #endif

@@ -63,7 +63,7 @@ public:
 	//\ Constructor
 	//\===========================================================================================
 
-	Matrix3x3();//The Default constructor for a Matrix3x3 that initialises everything to 0.
+	Matrix3x3();//The Default constructor for a Matrix3x3 that initializes everything to 0.
 
 	Matrix3x3(const Matrix3x3 &a_c_fm3Matrix3x3);//Copy constructor.
 
