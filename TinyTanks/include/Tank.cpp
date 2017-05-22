@@ -169,7 +169,7 @@ void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePos
 			
 	        if (UG::GetMouseButtonDown(m_bMousePressed) == true || UG::IsKeyDown(m_uiFire))//If the mouse controls are true and the mouse is being pressed or the fire key is being pressed.
 	        {
-	             float fSpriteTurretMat[16];//Creates an array of 16 floats.
+				float fSpriteTurretMat[16];//Creates an array of 16 floats.
 		        
 			     UG::GetSpriteMatrix(m_sTurret->getSpriteID(), fSpriteTurretMat);//Gets the sprite matrix of the turret and sets it in the array.
 		        

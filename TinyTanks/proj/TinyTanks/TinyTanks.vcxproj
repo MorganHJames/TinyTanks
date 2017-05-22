@@ -162,6 +162,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\include\BasicAmmo.h" />
     <ClInclude Include="..\..\include\Bullet.h" />
     <ClInclude Include="..\..\include\Button.h" />
     <ClInclude Include="..\..\include\Game.h" />
