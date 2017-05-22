@@ -31,10 +31,13 @@ private:
 
 		bool active = false;//Whether or not the bullet is being shot.
 
-		float fVelocity = 1.0f;//A float that will contain the current velocity of the bullet.
+		float fVelocity = 250.0f;//A float that will contain the current velocity of the bullet.
 
 		float fLifeTimer = 0.0f;
+
+		Vector2 v2Forward;
 	};
+	float m_fOffSet = 55.0f;
 
 	int m_iSpriteHeight = 32;
 
@@ -61,7 +64,7 @@ public:
 	//\ Shoot Function 
 	//\===========================================================================================
 
-	void shoot(const Vector2 a_c_v2Pos, Vector2 a_c_v2Forward);
+	void shoot(const Vector2 a_c_v2Pos, Vector2 a_c_v2Forward, Vector2 a_c_v2Rotation);
 
 	//\===========================================================================================
 	//\ Update Function 

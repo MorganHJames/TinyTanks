@@ -3,9 +3,8 @@
 
 #include "Vector2.h"
 
-class Tile
+struct Tile
 {
-public:
 	int iSpriteID = -1;
 	Vector2 v2Pos;
 	bool bWalkable = false;

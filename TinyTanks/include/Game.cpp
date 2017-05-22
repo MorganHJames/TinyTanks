@@ -43,11 +43,11 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 
 		Map mCampaignLevel1(a_c_iWidth, "./maps/level1.txt","./images/tileSetOne.png");//Initializes the first map.
 
-		Button bCampaign("./images/start.png", Vector2((float)m_iScreenWidth * 0.5, (float) m_iScreenHeight * 0.75), 100, 100, 257);
+		Button bCampaign("./images/start.png", Vector2((float)m_iScreenWidth * 0.5f, (float) m_iScreenHeight * 0.75f), 100, 100, 257);
 
-		Button bVS("./images/start.png", Vector2((float) m_iScreenWidth * 0.5, (float) m_iScreenHeight * 0.5), 100, 100, 257);
+		Button bVS("./images/start.png", Vector2((float) m_iScreenWidth * 0.5f, (float) m_iScreenHeight * 0.5f), 100, 100, 257);
 
-		Button bExit("./images/start.png", Vector2((float) m_iScreenWidth * 0.5, (float) m_iScreenHeight * 0.25), 100, 100, 257);
+		Button bExit("./images/start.png", Vector2((float) m_iScreenWidth * 0.5f, (float) m_iScreenHeight * 0.25f), 100, 100, 257);
 
 		//\===========================================================================================
 		//\ Update

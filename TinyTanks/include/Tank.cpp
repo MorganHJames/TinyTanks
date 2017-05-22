@@ -164,24 +164,22 @@ void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePos
 	        //\===========================================================================================
 	        //\ Campaign Shooting
 	        //\===========================================================================================
-	        
+			
 	        if (UG::GetMouseButtonDown(m_bMousePressed) == true)
 	        {
-	        Matrix3x3 m3WorldTurretTransform;//Creates a matrix3x3 called world transform to hold the world transformation.
-	        
-	        m_sTurret->getWorldTransform(m3WorldTurretTransform);//Sets the newly created matrix to the tanks world transformation matrix.
-	        
-	        Vector2 v2TurretPosition = Vector2(m3WorldTurretTransform.getRow(2).getfX(), m3WorldTurretTransform.getRow(2).getfY());//Sets the position vector.
-			
-			double m_dMousePosX =0;
+	             float fSpriteTurretMat[16];//Creates an array of 16 floats.
+		        
+			     UG::GetSpriteMatrix(m_sTurret->getSpriteID(), fSpriteTurretMat);//Gets the sprite matrix of the turret and sets it in the array.
+		        
+			     Matrix4x4 m4SpriteTurretMat(fSpriteTurretMat);//Creates a 4x4 matrix from the float array.
+		        
+			     Vector2 v2TurretForward = Vector2(m4SpriteTurretMat.getRow(1).getfX(), m4SpriteTurretMat.getRow(1).getfY());//Sets the forward vector.
 
-			double m_dMousePosY=0;
-			
-			UG::GetMousePos(m_dMousePosX, m_dMousePosY);
-			
-			Vector2 v2TurretForward = v2TurretPosition - Vector2(m_dMousePosX, m_dMousePosY);//Sets the forward vector.
-	        
-	        normalBullets.shoot(v2TurretPosition, v2TurretForward);
+				 Vector2 v2TurretPosition = Vector2(m4SpriteTurretMat.getRow(3).getfX(), m4SpriteTurretMat.getRow(3).getfY());//Sets the position vector.
+
+				 Vector2 v2TurretRotation = Vector2(m4SpriteTurretMat.getRow(0).getfX(), m4SpriteTurretMat.getRow(0).getfY());//Sets the position vector.
+
+	             normalBullets.shoot(v2TurretPosition, v2TurretForward, v2TurretRotation);
 	        }
 
 		}
