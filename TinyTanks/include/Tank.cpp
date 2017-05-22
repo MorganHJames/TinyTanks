@@ -172,13 +172,18 @@ void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePos
 	        m_sTurret->getWorldTransform(m3WorldTurretTransform);//Sets the newly created matrix to the tanks world transformation matrix.
 	        
 	        Vector2 v2TurretPosition = Vector2(m3WorldTurretTransform.getRow(2).getfX(), m3WorldTurretTransform.getRow(2).getfY());//Sets the position vector.
-	        
-	        Vector2 v2TurretForward = Vector2(m3WorldTurretTransform.getRow(1).getfX(), m3WorldTurretTransform.getRow(1).getfY());//Sets the forward vector.
+			
+			double m_dMousePosX =0;
+
+			double m_dMousePosY=0;
+			
+			UG::GetMousePos(m_dMousePosX, m_dMousePosY);
+			
+			Vector2 v2TurretForward = v2TurretPosition - Vector2(m_dMousePosX, m_dMousePosY);//Sets the forward vector.
 	        
 	        normalBullets.shoot(v2TurretPosition, v2TurretForward);
 	        }
-	        
-	        
+
 		}
 		else
 		{

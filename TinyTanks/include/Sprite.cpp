@@ -62,7 +62,6 @@ void Sprite::update()//The update function for the sprite.
 		0.f, 0.f, 1.f, 0.f,
 		m3WorldTx.getiMatrix(6), m3WorldTx.getiMatrix(7), 0.f, 1.f);//Creates a matrix4x4 from the matrix3x3 as OpenGL which is the underlying rendering pipeline that is being used by the framework draws all components using a 4x4 matrix to represent their world coordinates.
 	UG::SetSpriteMatrix(m_iSpriteID, m4x4.getMatrix());//Sets the sprite matrix of the sprite to be equal to the m4x4.
-
 }
 
 //\===========================================================================================

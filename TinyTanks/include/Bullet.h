@@ -34,15 +34,13 @@ private:
 		float fVelocity = 1.0f;//A float that will contain the current velocity of the bullet.
 
 		float fLifeTimer = 0.0f;
-
-		Vector2 vForward;
 	};
 
-	int m_iSpriteHeight = 12;
+	int m_iSpriteHeight = 32;
 
 	float m_fLifeTime = 5;
 
-	int m_iSpriteWidth = 6;
+	int m_iSpriteWidth = 32;
 
 	float m_fShotDelay = 1;
 
