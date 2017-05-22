@@ -1,8 +1,4 @@
-﻿  Vector4.cpp
-  Vector3.cpp
-  Vector2.cpp
-  Matrix3x3.cpp
-  MathUtil.cpp
-  Matrix4x4.cpp
-  Generating Code...
+﻿  MathUtil.cpp
+d:\unistuff\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\mathutil.cpp(43): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\unistuff\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\mathlibrary\headers and cpp\mathutil.cpp(44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   MathLibrary.vcxproj -> D:\unistuff\CT4019 Programming and Mathematics for Games (Sem1-2 - 201617)\semester 2\Tiny Tanks\MathLibrary\.\Debug\MathLibrary.lib

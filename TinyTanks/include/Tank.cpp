@@ -251,7 +251,7 @@ void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePos
 
 	if (fabsf(m_fCurrentVelocity) > 125.0f)//If the current velocity is higher than 0.25f.
 	{
-		v2Position += (v2Forward * m_fCurrentVelocity * a_fDeltaTime);//Add forward and velocity to the position.
+		v2Position += (v2Forward * (m_fCurrentVelocity * a_fDeltaTime));//Add forward and velocity to the position.
 
 		m_sTank->setPosition(v2Position);//Sets the position of the tank to be the new position vector.
 

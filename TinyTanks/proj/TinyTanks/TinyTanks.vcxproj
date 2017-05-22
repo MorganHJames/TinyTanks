@@ -170,7 +170,7 @@
     <ClInclude Include="..\..\include\Node.h" />
     <ClInclude Include="..\..\include\Sprite.h" />
     <ClInclude Include="..\..\include\Tank.h" />
-    <ClInclude Include="Tile.h" />
+    <ClInclude Include="..\..\include\Tile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
