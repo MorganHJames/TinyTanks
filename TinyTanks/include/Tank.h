@@ -34,7 +34,7 @@ private:
 	
 	bool m_bPlayer = true;//A boolean value indicating whether or not the tank is a player or an AI.
 	
-	unsigned int m_uiUp, m_uiDown, m_uiLeft, m_uiRight, m_uiRotateRight, m_uiRotateLeft = 0;//The controls for the tank movement
+	unsigned int m_uiUp, m_uiDown, m_uiLeft, m_uiRight, m_uiRotateRight, m_uiRotateLeft, m_uiFire = 0;//The controls for the tank movement
 	
 	Sprite* m_sTank;//The default sprite for the tank.
 	
@@ -59,7 +59,7 @@ public:
 	//\ Player Constructor 
 	//\===========================================================================================
 
-	Tank(const Vector2 a_c_v2Position, bool a_c_bMouse, unsigned int a_c_uiUp, unsigned int a_c_uiDown, unsigned int a_c_uiLeft, unsigned int a_c_uiRight, unsigned int a_c_uiRotateRight, unsigned int a_c_uiRotateLeft, char* m_cFilename);//A constructor for the tank that takes in the in position of where you want to the tank to be and the controls for tank.
+	Tank(const Vector2 a_c_v2Position, bool a_c_bMouse, unsigned int a_c_uiUp, unsigned int a_c_uiDown, unsigned int a_c_uiLeft, unsigned int a_c_uiRight, unsigned int a_c_uiRotateRight, unsigned int a_c_uiRotateLeft, unsigned int a_c_uiFire, char* m_cFilename);//A constructor for the tank that takes in the in position of where you want to the tank to be and the controls for tank.
 
 	//\===========================================================================================
 	//\ Enemy Constructor 

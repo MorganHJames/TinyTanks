@@ -35,19 +35,19 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 
 		GameState currentState = SPLASH;//Defines the first state of the game.
 
-		Tank tCampaignPlayer(Vector2(0.5f * m_iScreenWidth, 0.5f * m_iScreenHeight), true, 87, 83, 65, 68, 69, 81, "./images/tanks.png");//Initializes the players tank for campaign.
+		Tank tCampaignPlayer(Vector2(0.5f * m_iScreenWidth, 0.5f * m_iScreenHeight), true, 87, 83, 65, 68, 69, 81, 32, "./images/tanks.png");//Initializes the players tank for campaign.
 
-		Tank tVersusPlayer1(Vector2(0.25f * m_iScreenWidth, 0.5f * m_iScreenHeight), false, 87, 83, 65, 68, 69, 81, "./images/tanks.png");//Initializes the player1 tank for versus.
+		Tank tVersusPlayer1(Vector2(0.25f * m_iScreenWidth, 0.5f * m_iScreenHeight), false, 87, 83, 65, 68, 69, 81, 32, "./images/tanks.png");//Initializes the player1 tank for versus.
 		
-		Tank tVersusPlayer2(Vector2(0.75f * m_iScreenWidth, 0.5f * m_iScreenHeight), false, 328, 325, 324, 326, 329, 327, "./images/tanks.png");//Initializes the player2 tank for versus.
+		Tank tVersusPlayer2(Vector2(0.75f * m_iScreenWidth, 0.5f * m_iScreenHeight), false, 328, 325, 324, 326, 329, 327, 335, "./images/tanks.png");//Initializes the player2 tank for versus.
 
 		Map mCampaignLevel1(a_c_iWidth, "./maps/level1.txt","./images/tileSetOne.png");//Initializes the first map.
 
-		Button bCampaign("./images/start.png", Vector2((float)m_iScreenWidth * 0.5f, (float) m_iScreenHeight * 0.75f), 100, 100, 257);
+		Button bCampaign("./images/start.png", Vector2((float)m_iScreenWidth * 0.5f, (float) m_iScreenHeight * 0.75f), 100, 100, 257);//Initializes the campaign button.
 
-		Button bVS("./images/start.png", Vector2((float) m_iScreenWidth * 0.5f, (float) m_iScreenHeight * 0.5f), 100, 100, 257);
+		Button bVS("./images/start.png", Vector2((float) m_iScreenWidth * 0.5f, (float) m_iScreenHeight * 0.5f), 100, 100, 257);//Initializes the versus button.
 
-		Button bExit("./images/start.png", Vector2((float) m_iScreenWidth * 0.5f, (float) m_iScreenHeight * 0.25f), 100, 100, 257);
+		Button bExit("./images/start.png", Vector2((float) m_iScreenWidth * 0.5f, (float) m_iScreenHeight * 0.25f), 100, 100, 257);//Initializes the exit button.
 
 		//\===========================================================================================
 		//\ Update
@@ -64,7 +64,7 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 
 			UG::GetMousePos(m_dMousePosX, m_dMousePosY);//Sets the mouse position equal to the mouse position on the screen.
 
-			m_dMousePosY = a_c_iHeight - m_dMousePosY;
+			m_dMousePosY = a_c_iHeight - m_dMousePosY;//Sets the mouse position to be the height of the screen minus the current mouse height.
 
 			switch (currentState)//The switch statement containing all the different stages of the game.
 			{

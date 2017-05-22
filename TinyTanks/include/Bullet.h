@@ -15,6 +15,7 @@
 //\===========================================================================================
 
 #include "Vector2.h"
+#include "Vector4.h"
 
 class Bullet
 {
@@ -33,21 +34,22 @@ private:
 
 		float fVelocity = 250.0f;//A float that will contain the current velocity of the bullet.
 
-		float fLifeTimer = 0.0f;
+		float fLifeTimer = 0.0f;//How much time the bullet has left in it's life.
 
-		Vector2 v2Forward;
+		Vector2 v2Forward;//Which direction the bullet is facing.
 	};
-	float m_fOffSet = 55.0f;
 
-	int m_iSpriteHeight = 32;
+	float m_fOffSet = 55.0f;//How far away from the turrets center the bullet will appear.
 
-	float m_fLifeTime = 5;
+	int m_iSpriteHeight = 32;//How long each bullet is.
 
-	int m_iSpriteWidth = 32;
+	float m_fLifeTime = 5;//How long each bullet will travel for.
 
-	float m_fShotDelay = 1;
+	int m_iSpriteWidth = 32;//How wide each bullet is.
 
-	float m_fShotDelayTimer = 0;
+	float m_fShotDelay = 1;//The time between shots.
+
+	float m_fShotDelayTimer = 0;//How long left until a bullet can be fired.
 
 	int m_iMaxBullets = 0;//How many bullets there will be available for the player to shoot.
 
@@ -58,20 +60,19 @@ public:
 	//\ Constructor
 	//\===========================================================================================
 
-	Bullet(const int a_c_iMaxBullets, char* a_c_cFileLocation, float a_c_fShotDelay);//The default initialize for the sprite.
+	Bullet(const int a_c_iMaxBullets, char* a_c_cFileLocation, float a_c_fShotDelay);//The default initialize for the sprites.
 
 	//\===========================================================================================
 	//\ Shoot Function 
 	//\===========================================================================================
 
-	void shoot(const Vector2 a_c_v2Pos, Vector2 a_c_v2Forward, Vector2 a_c_v2Rotation);
+	void shoot(const Vector2 a_c_v2Pos, Vector4 a_c_v4Rotation);//A function to shoot bullets from the end of a turret.
 
 	//\===========================================================================================
 	//\ Update Function 
 	//\===========================================================================================
 
-	void update(float a_fDeltaTime);
-
+	void update(float a_fDeltaTime);//Updates the bullets to travel and change states.
 
 };
 #endif
