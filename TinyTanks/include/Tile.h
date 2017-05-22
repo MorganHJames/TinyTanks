@@ -7,7 +7,9 @@
 struct Tile
 {
 	Sprite* m_sTile;//The default sprite for the tile.
+
 	Vector2 v2Pos;
+
 	bool bWalkable = false;
 };
 

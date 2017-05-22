@@ -21,12 +21,15 @@ Bullet::Bullet(const int a_c_iMaxBullets, char* a_c_cFileLocation, float a_c_fSh
 
 	m_fShotDelay = a_c_fShotDelay;
 
+	m_bBasicAmmoArray = new BasicAmmo[m_iMaxBullets];//An array of bullets that will be moved to there correct position.
+
 	for (int i = 0; i < m_iMaxBullets; ++i)
 	{
-		m_bBasicAmmoArray[i].sBasicAmmo = new Sprite(a_c_cFileLocation, m_iSpriteWidth, m_iSpriteHeight, Vector2(0.5f, 0.5f), Vector4(0.0f, 0.0f, 1.0f, 1.0f));//Creates a sprite for the tanks base.
+		m_bBasicAmmoArray[i].sBasicAmmo = new Sprite(a_c_cFileLocation, (float) m_iSpriteWidth, (float) m_iSpriteHeight, Vector2(0.5f, 0.5f), Vector4(0.0f, 0.0f, 1.0f, 1.0f));//Creates a sprite for the tanks base.
 
 		UG::SetSpriteLayer(m_bBasicAmmoArray[i].sBasicAmmo->getSpriteID(), 4);//Sets the current sprite layer to be under the turret.
 	}
+
 }
 
 //\===========================================================================================
@@ -59,7 +62,7 @@ void Bullet::shoot(const Vector2 a_c_v2Pos,  Vector4 a_c_v4Rotation)//A function
 			
 			m_bBasicAmmoArray[i].active = true;//Sets the bullet to be active.
 
-			UG::DrawSprite(m_bBasicAmmoArray[i].sBasicAmmo->getSpriteID());//Draws the current bullet.
+			m_bBasicAmmoArray[i].sBasicAmmo->markForDraw();//Draws the current bullet.
 
 			m_bBasicAmmoArray[i].fLifeTimer = m_fLifeTime;//Start the life timer for the bullet.
 
@@ -86,11 +89,11 @@ void Bullet::update(float a_fDeltaTime)//Updates the bullets to travel and chang
 
 			m_bBasicAmmoArray[i].v2Pos += (m_bBasicAmmoArray[i].v2Forward * m_bBasicAmmoArray[i].fVelocity * a_fDeltaTime);//Add forward and velocity to the position.
 
-			UG::MoveSprite(m_bBasicAmmoArray[i].sBasicAmmo->getSpriteID(), m_bBasicAmmoArray[i].v2Pos.getfX(), (m_bBasicAmmoArray[i].v2Pos.getfY()));//Moves the sprite to the correct location on the screen.
+			m_bBasicAmmoArray[i].sBasicAmmo->setPosition(Vector2(m_bBasicAmmoArray[i].v2Pos.getfX(), m_bBasicAmmoArray[i].v2Pos.getfY()));
 
 			if (m_bBasicAmmoArray[i].fLifeTimer <= 0)//If the life timer is less than or equal to zero.
 			{
-				UG::StopDrawingSprite(m_bBasicAmmoArray[i].sBasicAmmo->getSpriteID());//Stops drawing the current bullet.
+				m_bBasicAmmoArray[i].sBasicAmmo->stopDrawing();//Stops drawing the current bullet.
 
 				m_bBasicAmmoArray[i].active = false;//Set the bullet to be false.
 			}

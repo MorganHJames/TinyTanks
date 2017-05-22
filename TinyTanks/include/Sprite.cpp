@@ -107,6 +107,69 @@ void Sprite::setPosition(Vector2 a_v2Pos)//A function set the current position o
 }
 
 //\===========================================================================================
+//\ Get Position
+//\===========================================================================================
+
+Vector2 Sprite::getPosition()//A function get the current position of the sprite.
+{ 
+	return Vector2(m_m3PosRot.getRow(2).getfX(), m_m3PosRot.getRow(2).getfY());//Sets the new position of the local transform to the argument passed in.
+}
+
+//\===========================================================================================
+//\ Set Velocity
+//\===========================================================================================
+
+void Sprite::setVelocity(Vector2 a_v2Velocity)//A function set the current velocity of the sprite to the argument passed in.
+{
+	m_v2Velocity = a_v2Velocity;
+}
+
+//\===========================================================================================
+//\ Get Velocity
+//\===========================================================================================
+
+Vector2 Sprite::getVelocity()//A function get the current velocity of the sprite.
+{
+	return m_v2Velocity;
+}
+
+//\===========================================================================================
+//\ Set Width
+//\===========================================================================================
+
+void Sprite::setWidth(float a_fWidth)//A function set the current velocity of the sprite to the argument passed in.
+{
+	m_iWidth = a_fWidth;
+}
+
+//\===========================================================================================
+//\ Get Width
+//\===========================================================================================
+
+float Sprite::getWidth()//A function get the current velocity of the sprite.
+{
+	return m_iWidth;
+}
+
+//\===========================================================================================
+//\ Set Height
+//\===========================================================================================
+
+void Sprite::setHeight(float a_fHeight)//A function set the current velocity of the sprite to the argument passed in.
+{
+	m_iHeight = a_fHeight;
+}
+
+//\===========================================================================================
+//\ Get Height
+//\===========================================================================================
+
+float Sprite::getHeight()//A function get the current velocity of the sprite.
+{
+	return m_iHeight;
+}
+
+//\===========================================================================================
 //\ Get Sprite ID
 //\===========================================================================================
 

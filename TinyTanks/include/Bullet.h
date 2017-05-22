@@ -39,7 +39,7 @@ private:
 
 	int m_iMaxBullets = 0;//How many bullets there will be available for the player to shoot.
 
-	BasicAmmo *m_bBasicAmmoArray= new BasicAmmo[4];//An array of bullets that will be moved to there correct position.
+	BasicAmmo* m_bBasicAmmoArray = new BasicAmmo[m_iMaxBullets];//An array of bullets that will be moved to there correct position.
 
 public:
 	//\===========================================================================================

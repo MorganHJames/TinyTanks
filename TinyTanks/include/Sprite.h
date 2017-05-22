@@ -12,7 +12,7 @@
 
 //\===========================================================================================
 //\ Author: Morgan James
-//\ Class: Node
+//\ Class: Sprite
 //\ Brief: A very simple sprite class that extends from node allowing us to have a sprite hierarchy tree in our game
 //\===========================================================================================
 
@@ -24,12 +24,14 @@ private:
 	//\===========================================================================================
 
 	int m_iSpriteID;//A integer representing the sprites identification.
-	
+
 	int m_iWidth;//An integer that represent how wide the sprite is to be rendered.
-	
+
 	int m_iHeight;//An integer that represent how tall the sprite is to be rendered.
 	
 	Vector2 m_v2Origin;//A vector2 which contains the position of which the sprite is to be drawn from.
+
+	Vector2 m_v2Velocity;//A vector 2 that contains the velocity of the sprite.
 
 public:
 	//\===========================================================================================
@@ -80,6 +82,47 @@ public:
     
     void setPosition(Vector2 a_v2Pos);//A function set the current position of the sprite to the argument passed in.
 
+	//\===========================================================================================
+	//\ Get Position
+	//\===========================================================================================
+
+	Vector2 getPosition();//A function get the current position of the sprite.
+
+	//\===========================================================================================
+	//\ Set Velocity
+	//\===========================================================================================
+
+	void setVelocity(Vector2 a_v2Velocity);//A function set the current velocity of the sprite to the argument passed in.
+
+	//\===========================================================================================
+	//\ Get Velocity
+	//\===========================================================================================
+
+	Vector2 getVelocity();//A function get the current velocity of the sprite.
+
+	//\===========================================================================================
+	//\ Set Width
+	//\===========================================================================================
+
+	void setWidth(float a_fWidth);//A function set the current width of the sprite to the argument passed in.
+
+	//\===========================================================================================
+	//\ Get Width
+	//\===========================================================================================
+
+	float getWidth();//A function get the current width of the sprite.
+
+	//\===========================================================================================
+	//\ Set Height
+	//\===========================================================================================
+
+	void setHeight(float a_fHeight);//A function set the current height of the sprite to the argument passed in.
+
+	//\===========================================================================================
+	//\ Get Height
+	//\===========================================================================================
+
+	float getHeight();//A function get the current height of the sprite.
 
 	//\===========================================================================================
 	//\ Get Sprite ID
