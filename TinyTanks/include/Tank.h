@@ -26,11 +26,11 @@ private:
 
 	float m_fCurrentVelocity = 0.f;//A float that will contain the current velocity of the tank.
 	
-	float m_fMaxVelocity = 0.75f;//The maximum velocity that the tank may travel at.
+	float m_fMaxVelocity = 200.0f;//The maximum velocity that the tank may travel at.
 
-	float m_fMaxNegativeVelocity = -0.75f;//The maximum velocity that the tank may travel at.
+	float m_fMaxNegativeVelocity = -150.0f;//The maximum velocity that the tank may travel at.
 	
-	float m_fDrag = 0.03f;//The amount of drag applied to the tank whilst moving.
+	float m_fDrag = 0.0f;//The amount of drag applied to the tank whilst moving.
 	
 	bool m_bPlayer = true;//A boolean value indicating whether or not the tank is a player or an AI.
 	
@@ -52,6 +52,8 @@ private:
 
 	int m_iScreenHeight = 0;//How many pixels tall the screen is.
 
+	Bullet normalBullets;//Creates the normal bullets.
+
 public:
 	//\===========================================================================================
 	//\ Player Constructor 
@@ -69,7 +71,7 @@ public:
 	//\ Draw Functions
 	//\===========================================================================================
 
-	void markforDraw();//A function to start drawing the parts of the tank.
+	void markForDraw();//A function to start drawing the parts of the tank.
 
 	void stopDrawing();//A function to stop drawing the parts of the tank.
 

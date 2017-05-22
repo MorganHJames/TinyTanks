@@ -8,13 +8,13 @@
 #include "Tank.h"
 #include "UGFW.h"
 #include "MathUtil.h"
-#include "iostream"
 
 //\===========================================================================================
 //\ Player Constructor 
 //\===========================================================================================
 
 Tank::Tank(const Vector2 a_c_v2Position, bool a_c_bMouse, unsigned int a_c_uiUp, unsigned int a_c_uiDown, unsigned int a_c_uiLeft, unsigned int a_c_uiRight, unsigned int a_c_uiRotateRight, unsigned int a_c_uiRotateLeft, char* a_c_cFilename)//A constructor for the tank that takes in the in position of where you want to the tank to be and the controls for tank.
+	: normalBullets(4, "./images/tanks.png", 1)//Creates the normal bullets.
 {
 	m_sTank = new Sprite(a_c_cFilename, 66, 72, Vector2(0.5f, 0.5f), Vector4(0.058f, 0.536f, 0.442f, 0.964f));//Creates a sprite for the tanks base.
 
@@ -42,7 +42,7 @@ Tank::Tank(const Vector2 a_c_v2Position, bool a_c_bMouse, unsigned int a_c_uiUp,
 	
 	m_uiRotateLeft = a_c_uiRotateLeft;//Assigns the rotate left control to be equal to the rotate left control passed in.
 	
-	m_uiRotateRight = a_c_uiRotateRight;//Assigns the rotate right control to be equal to the rotate right control passed in.
+	m_uiRotateRight = a_c_uiRotateRight;//Assigns the rotate right control to be equal to the rotate right control passed in. 
 }
 
 //\===========================================================================================
@@ -50,6 +50,7 @@ Tank::Tank(const Vector2 a_c_v2Position, bool a_c_bMouse, unsigned int a_c_uiUp,
 //\===========================================================================================
 
 Tank::Tank(const Vector2 a_c_v2Position)//A constructor for the tank that takes in the in position of where you want to the tank to be.
+	: normalBullets(4, "./images/tanks.png", 1)//Creates the normal bullets.
 {
 	m_sTank = new Sprite("./images/tanks.png", 66, 72, Vector2(0.5f, 0.5f), Vector4(0.058f, 0.536f, 0.442f, 0.964f));//Creates a sprite for the tanks base.
 
@@ -68,11 +69,12 @@ Tank::Tank(const Vector2 a_c_v2Position)//A constructor for the tank that takes 
 //\ Draw Functions
 //\===========================================================================================
 
-void Tank::markforDraw()//A function to start drawing the parts of the tank.
+void Tank::markForDraw()//A function to start drawing the parts of the tank.
 {
 	m_sTank->markForDraw();//Starts the drawing of the tank base.
 	
 	m_sTurret->markForDraw();//Starts the drawing of the tanks turret.
+	
 }
 
 void Tank::stopDrawing()//A function to stop drawing the parts of the tank.
@@ -88,6 +90,8 @@ void Tank::stopDrawing()//A function to stop drawing the parts of the tank.
 
 void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePosY)//A function that should be put in the update area to move the tank.
 {
+	normalBullets.update(a_fDeltaTime);//Updates the bullets.
+
 	m_sTank->update();//Updates the base of the tank.
 
 	m_sTurret->update();//Updates the turret of the tank.
@@ -102,20 +106,30 @@ void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePos
 	{
 		if (UG::IsKeyDown(m_uiUp))//If the up key for the tank is pressed.
 		{
-			fAccelleration += 1.f;//Increase the acceleration of the tank.
+			fAccelleration += 2.f;//Increase the acceleration of the tank.
 
 			m_fDrag = 0.f;//Sets the drag of the tank to zero.
 		}
 
 		if (UG::IsKeyDown(m_uiDown))//If the down key for the tank is pressed.
 		{
-			fAccelleration -= 0.75f;//Decrease the acceleration.
+			fAccelleration -= 1.5f;//Decrease the acceleration.
 
 			m_fDrag = 0.f;//Sets the drag of the tank to zero.
 		}
 
 		if (!UG::IsKeyDown(m_uiDown) && !UG::IsKeyDown(m_uiUp))//If neither the up or down key of the tank is pressed.
-			m_fDrag = 0.08f;//Set the drag of the tank to 0.08f.
+			m_fDrag = 0.01f;//Set the drag of the tank to 0.1f.
+
+		//\===========================================================================================
+		//\ Tank Rotation  
+		//\===========================================================================================
+
+		if (UG::IsKeyDown(m_uiLeft))//If the left button of the tank is pressed.
+			m_sTank->rotateZ(-0.5f);//Rotate the tank counter clockwise.
+
+		if (UG::IsKeyDown(m_uiRight))//If the right button of the tank is pressed.
+			m_sTank->rotateZ(0.5f);//Rotate the tank clockwise.
 
 		//\===========================================================================================
 		//\ Turret Rotation  
@@ -146,47 +160,37 @@ void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePos
 			fSpriteMat[5] = m4SpriteMat.getiMatrix(5);//Sets the float array's sixth element to be equal to the rotated matrix's counterpart.
 
 			UG::SetSpriteMatrix(m_sTurret->getSpriteID(), fSpriteMat);//Set's the sprite matrix to be equal to the rotated version.
+		
+	        //\===========================================================================================
+	        //\ Campaign Shooting
+	        //\===========================================================================================
+	        
+	        if (UG::GetMouseButtonDown(m_bMousePressed) == true)
+	        {
+	        Matrix3x3 m3WorldTurretTransform;//Creates a matrix3x3 called world transform to hold the world transformation.
+	        
+	        m_sTurret->getWorldTransform(m3WorldTurretTransform);//Sets the newly created matrix to the tanks world transformation matrix.
+	        
+	        Vector2 v2TurretPosition = Vector2(m3WorldTurretTransform.getRow(2).getfX(), m3WorldTurretTransform.getRow(2).getfY());//Sets the position vector.
+	        
+	        Vector2 v2TurretForward = Vector2(m3WorldTurretTransform.getRow(1).getfX(), m3WorldTurretTransform.getRow(1).getfY());//Sets the forward vector.
+	        
+	        normalBullets.shoot(v2TurretPosition, v2TurretForward);
+	        }
+	        
+	        
 		}
 		else
 		{
+			if (UG::IsKeyDown(m_uiRotateRight))//If the right rotation button of the tank is being pressed.
+				m_sTurret->rotateZ(0.85f);//Rotate the turret clockwise.)
+
 			if (UG::IsKeyDown(m_uiRotateLeft))//If the left rotation button of the tank is being pressed.
 				m_sTurret->rotateZ(-0.85f);//Rotate the turret counter clockwise.
 
-			if (UG::IsKeyDown(m_uiRotateRight))//If the right rotation button of the tank is being pressed.
-				m_sTurret->rotateZ(0.85f);//Rotate the turret clockwise.)
 		}
-
-		//\===========================================================================================
-		//\ Tank Rotation  
-		//\===========================================================================================
-
-		if (UG::IsKeyDown(m_uiLeft))//If the left button of the tank is pressed.
-			m_sTank->rotateZ(-0.5f);//Rotate the tank counter clockwise.
-
-		if (UG::IsKeyDown(m_uiRight))//If the right button of the tank is pressed.
-			m_sTank->rotateZ(0.5f);//Rotate the tank clockwise.
-
-		//\===========================================================================================
-		//\ Shooting
-		//\===========================================================================================
-		/*
-		Bullet normalBullets(4, "./images/tanks.png", 1);
-
-		if (UG::GetMouseButtonDown(m_bMousePressed) == true)
-		{
-			Matrix3x3 m3WorldTurretTransform;//Creates a matrix3x3 called world transform to hold the world transformation.
-
-			m_sTurret->getWorldTransform(m3WorldTurretTransform);//Sets the newly created matrix to the tanks world transformation matrix.
-
-			Vector2 v2TurretPosition = Vector2(m3WorldTurretTransform.getRow(2).getfX(), m3WorldTurretTransform.getRow(2).getfY());//Sets the position vector.
-
-			Vector2 v2TurretForward = Vector2(m3WorldTurretTransform.getRow(1).getfX(), m3WorldTurretTransform.getRow(1).getfY());//Sets the forward vector.
-
-			normalBullets.shoot(v2TurretPosition, v2TurretForward, a_fDeltaTime);
-		}
-		*/
-		
 	}
+
 	//\===========================================================================================
 	//\ Enemy AI  
 	//\===========================================================================================
@@ -200,7 +204,7 @@ void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePos
 	//\ Tank Movement 
 	//\===========================================================================================
 
-	m_fCurrentVelocity += fAccelleration * a_fDeltaTime;//Increases the current velocity by the accelerations multiplied by the delta time.
+	m_fCurrentVelocity += fAccelleration;//Increases the current velocity by the accelerations multiplied by the delta time.
 
 	m_fCurrentVelocity -= m_fCurrentVelocity * m_fDrag;//Decreases the current velocity by the current velocity multiplied by the drag.
 
@@ -222,7 +226,7 @@ void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePos
 
 	Vector2 v2Forward = Vector2(m3WorldTransform.getRow(1).getfX(), m3WorldTransform.getRow(1).getfY());//Sets the forward vector.
 
-	if (fabsf(m_fCurrentVelocity) > 0.25f)//If the current velocity is higher than 0.25f.
+	if (fabsf(m_fCurrentVelocity) > 125.0f)//If the current velocity is higher than 0.25f.
 	{
 		v2Position += (v2Forward * m_fCurrentVelocity * a_fDeltaTime);//Add forward and velocity to the position.
 

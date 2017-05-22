@@ -29,13 +29,13 @@ private:
 
 		Vector2 v2Pos;//The coordinates to where the bullet is on the screen.
 
-		Vector2 v2Forward;//The forward of the bullet.
-
 		bool active = false;//Whether or not the bullet is being shot.
 
 		float fVelocity = 1.0f;//A float that will contain the current velocity of the bullet.
 
 		float fLifeTimer = 0.0f;
+
+		Vector2 vForward;
 	};
 
 	int m_iSpriteHeight = 12;
@@ -46,28 +46,31 @@ private:
 
 	float m_fShotDelay = 1;
 
+	float m_fShotDelayTimer = 0;
+
 	int m_iMaxBullets = 0;//How many bullets there will be available for the player to shoot.
 
-	basic *m_bBulletArray = new basic[m_iMaxBullets];//An array of tiles that will be moved to there correct position.
+	basic m_bBulletArray[4];//An array of tiles that will be moved to there correct position.
 
 public:
 	//\===========================================================================================
-	//\ Constructor 
+	//\ Constructor
 	//\===========================================================================================
 
-	Bullet(const int a_c_iMaxBullets, char* a_c_cFileLocation, float a_c_fShotDelay);//The default constructor for the sprite.
+	Bullet(const int a_c_iMaxBullets, char* a_c_cFileLocation, float a_c_fShotDelay);//The default initialize for the sprite.
 
 	//\===========================================================================================
 	//\ Shoot Function 
 	//\===========================================================================================
 
-	void shoot(const Vector2 a_c_v2Pos, Vector2 a_c_v2Forward, float a_fDeltaTime);
+	void shoot(const Vector2 a_c_v2Pos, Vector2 a_c_v2Forward);
 
 	//\===========================================================================================
 	//\ Update Function 
 	//\===========================================================================================
 
 	void update(float a_fDeltaTime);
+
 
 };
 #endif

@@ -105,7 +105,7 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 				{
 					currentState = CAMPAIGN;//Sets the current state of game play to the main game.
 
-					tCampaignPlayer.markforDraw();//Sets the player tank to be drawn.
+					tCampaignPlayer.markForDraw();//Sets the player tank to be drawn.
 
 					mCampaignLevel1.markForDraw();//Sets the first map to be drawn.
 
@@ -126,9 +126,9 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 
 					mCampaignLevel1.markForDraw();//Sets the first map to be drawn.
 
-					tVersusPlayer1.markforDraw();//Sets the player tank to be drawn.
+					tVersusPlayer1.markForDraw();//Sets the player tank to be drawn.
 
-					tVersusPlayer2.markforDraw();//Sets the player tank to be drawn.
+					tVersusPlayer2.markForDraw();//Sets the player tank to be drawn.
 
 					bCampaign.stopDrawing();//Stops the campaign button from being drawn.
 
