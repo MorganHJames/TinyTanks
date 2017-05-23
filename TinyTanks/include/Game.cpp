@@ -12,8 +12,8 @@
 #include "Tank.h"
 #include "Map.h"
 #include "Button.h"
-#include "iostream"
 #include "MathUtil.h"
+#include "Upgrades.h"
 
 //\===========================================================================================
 //\ Constructor 
@@ -59,7 +59,9 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 
 		Button bVS("./images/versus.png", Vector2((float) m_iScreenWidth * 0.5f, (float) m_iScreenHeight * 0.4f), 200, 200, 257);//Initializes the versus button.
 
-		Button bExit("./images/quit.png", Vector2((float) m_iScreenWidth * 0.5f, (float) m_iScreenHeight * 0.15f), 200, 200, 257);//Initializes the exit button.
+		Button bExit("./images/quit.png", Vector2((float) m_iScreenWidth * 0.5f, (float) m_iScreenHeight * 0.15f), 200, 200, 257);//Initializes the exit button.																											  //Explosion set up.
+
+		Upgrade powerUp(mCampaignLevel1.getTileDimensions());//Initializes the upgrades.
 
 		//\===========================================================================================
 		//\ Update
@@ -209,6 +211,7 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 
 			case CAMPAIGN://The game play state where the game will be played and the user should be the majority of the time.
 			{
+				powerUp.Update(mCampaignLevel1.getTileArray(), mCampaignLevel1.getTileArrayIndex(), m_fDeltaTime);//Updates the upgrades.
 				//Collision for player and AI one.
 				
 				Vector2 v2CoordinatesToEvade1;//A vector to hold the coordinates that pertain to avoiding the object.
@@ -261,6 +264,49 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 					}
 				}
 
+				//Collision for AI two and normal bullets.
+
+				for (int i = 0; i < 4; ++i)//For every bullet.
+				{
+					if (tCampaignPlayer.getBasicBulletArray()[i].active == true && tCampaignAI2.getAlive() == true)//If the bullet is active.
+					{
+						if (true == AABB(Box(tCampaignPlayer.getBasicBulletArray()[i].sBasicAmmo->getPosition(), tCampaignPlayer.getBasicBulletArray()[i].sBasicAmmo->getWidth(), tCampaignPlayer.getBasicBulletArray()[i].sBasicAmmo->getHeight(), tCampaignPlayer.getBasicBulletArray()[i].sBasicAmmo->getVelocity()), Box(tCampaignAI2.getSprite()->getPosition(), tCampaignAI2.getSprite()->getWidth(), tCampaignAI2.getSprite()->getHeight(), tCampaignAI2.getSprite()->getVelocity()), v2CoordinatesToEvade3))//If there is a collision.
+						{
+							tCampaignPlayer.getBasicBulletArray()[i].active = false;
+
+							tCampaignAI2.setAlive(false);//Sets the tank's alive status to false.
+
+							tCampaignAI2.stopDrawing();//Stops drawing the tank.
+						}
+					}
+				}
+
+				//Collision for player and upgrades.
+
+				if (powerUp.getActive() == true && true == AABB(Box(tCampaignPlayer.getSprite()->getPosition(), tCampaignPlayer.getSprite()->getWidth(), tCampaignPlayer.getSprite()->getHeight(), tCampaignPlayer.getSprite()->getVelocity()), Box(powerUp.getSprite()->getPosition(), powerUp.getSprite()->getWidth(), powerUp.getSprite()->getHeight(), powerUp.getSprite()->getVelocity()), v2CoordinatesToEvade2))
+				{
+					powerUp.setActive(false);
+
+					powerUp.stopDrawing();
+
+					if (powerUp.getType() == 1)
+					{
+						tCampaignPlayer.setUpgrade(1);
+					}
+					else if (powerUp.getType() == 2)
+					{
+						tCampaignPlayer.setUpgrade(2);
+					}
+					else if (powerUp.getType() == 3)
+					{
+						tCampaignPlayer.setUpgrade(3);
+					}
+					else if (powerUp.getType() == 4)
+					{
+						tCampaignPlayer.setUpgrade(4);
+					}
+				}
+
 				tCampaignAI1.tankLogic(m_fDeltaTime, m_dMousePosX, m_dMousePosY);//Updates the tank AI.
 
 				tCampaignAI2.tankLogic(m_fDeltaTime, m_dMousePosX, m_dMousePosY);//Updates the tank AI.
@@ -270,6 +316,8 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 			}
 			case VERSUS://The game play state where the game will be played and the user should be the majority of the time.
 			{
+				powerUp.Update(mCampaignLevel1.getTileArray(), mCampaignLevel1.getTileArrayIndex(), m_fDeltaTime);//Updates the upgrades.
+
 				//Collision for both tank's touching each other to stop them pushing each other around.
 
 				Vector2 v2CoordinatesToEvade6;//A vector to hold the coordinates that pertain to avoiding the object.
@@ -349,6 +397,23 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 							tVersusPlayer2.setAlive(false);//Sets the tank's alive status to false.
 
 							tVersusPlayer2.stopDrawing();//Stops drawing the tank.
+						}
+					}
+				}
+
+				//Collision for player1's bullets and player 2.
+
+				for (int i = 0; i < 4; ++i)//For every bullet.
+				{
+					if (tVersusPlayer2.getBasicBulletArray()[i].active == true && tVersusPlayer1.getAlive() == true)//If the bullet is active.
+					{
+						if (true == AABB(Box(tVersusPlayer2.getBasicBulletArray()[i].sBasicAmmo->getPosition(), tVersusPlayer2.getBasicBulletArray()[i].sBasicAmmo->getWidth(), tVersusPlayer2.getBasicBulletArray()[i].sBasicAmmo->getHeight(), tVersusPlayer2.getBasicBulletArray()[i].sBasicAmmo->getVelocity()), Box(tVersusPlayer1.getSprite()->getPosition(), tVersusPlayer1.getSprite()->getWidth(), tVersusPlayer1.getSprite()->getHeight(), tVersusPlayer1.getSprite()->getVelocity()), v2CoordinatesToEvade3))//If there is a collision.
+						{
+							tVersusPlayer2.getBasicBulletArray()[i].active = false;
+
+							tVersusPlayer1.setAlive(false);//Sets the tank's alive status to false.
+
+							tVersusPlayer1.stopDrawing();//Stops drawing the tank.
 						}
 					}
 				}

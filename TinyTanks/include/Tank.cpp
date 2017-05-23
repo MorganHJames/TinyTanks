@@ -109,6 +109,13 @@ void Tank::stopDrawing()//A function to stop drawing the parts of the tank.
 
 void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePosY)//A function that should be put in the update area to move the tank.
 {
+	m_fUpgradeTimer -= a_fDeltaTime;//Decreases the upgrade timer.
+
+	if (m_fUpgradeTimer <= 0)
+	{
+		m_iCurrentUpgrade = 0;
+	}
+
 	normalBullets.update(a_fDeltaTime);//Updates the bullets.
 
 	m_sTank->update();//Updates the base of the tank.
@@ -244,6 +251,22 @@ void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePos
 	//\ Tank Movement 
 	//\===========================================================================================
 
+	if (m_iCurrentUpgrade == 1)
+	{
+		m_fMaxVelocity = 400.f;
+		m_fMaxNegativeVelocity = -300.0f;
+	}
+	else if (m_iCurrentUpgrade == 3)
+	{
+		m_fMaxVelocity = 100.0f;
+		m_fMaxNegativeVelocity = -75.0f;
+	}
+	else
+	{
+		m_fMaxVelocity = 200.0f;
+		m_fMaxNegativeVelocity = -150.0f;
+	}
+
 	m_fCurrentVelocity += fAccelleration;//Increases the current velocity by the accelerations multiplied by the delta time.
 
 	m_fCurrentVelocity -= m_fCurrentVelocity * m_fDrag;//Decreases the current velocity by the current velocity multiplied by the drag.
@@ -266,7 +289,7 @@ void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePos
 
 	Vector2 v2Forward = Vector2(m3WorldTransform.getRow(1).getfX(), m3WorldTransform.getRow(1).getfY());//Sets the forward vector.
 
-	if (fabsf(m_fCurrentVelocity) > 125.0f)//If the current velocity is higher than 0.25f.
+	if (fabsf(m_fCurrentVelocity) > 74.0f)//If the current velocity is higher than 0.25f.
 	{
 		m_sTank->setVelocity(v2Forward * (m_fCurrentVelocity * a_fDeltaTime));
 
@@ -312,4 +335,14 @@ bool Tank::getAlive()//Returns the status of the tank.
 void Tank::setAlive(bool a_bStatus)//Returns the status of the tank.
 {
 	m_bAlive = a_bStatus;
+}
+
+//\===========================================================================================
+//\ Set Upgrade 
+//\===========================================================================================
+
+void Tank::setUpgrade(int a_iUpgrateType)//Sets the upgrade for the tank.
+{
+	m_iCurrentUpgrade = a_iUpgrateType;//Sets the current upgrade to the one passed in.
+	m_fUpgradeTimer = m_fUpgradeTime;//Sets the upgrade timer to 5.
 }

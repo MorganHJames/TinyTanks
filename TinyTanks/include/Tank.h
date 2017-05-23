@@ -62,7 +62,13 @@ private:
 
 	Bullet normalBullets;//Creates the normal bullets.
 
-	bool m_bAlive = true;
+	bool m_bAlive = true;//If the tank is alive or dead.
+
+	int m_iCurrentUpgrade = 0;//The current upgrade the tank has.
+
+	float m_fUpgradeTimer = 0;//The remaining time the upgrade will last.
+
+	float m_fUpgradeTime = 5;//How long the upgrade will last.
 
 public:
 	//\===========================================================================================
@@ -114,6 +120,12 @@ public:
 	//\===========================================================================================
 
 	void setAlive(bool a_bStatus);//Returns the status of the tank.
+
+	//\===========================================================================================
+	//\ Set Upgrade 
+	//\===========================================================================================
+
+	void setUpgrade(int a_iUpgrateType);//Sets the upgrade for the tank.
 };
 
 #endif

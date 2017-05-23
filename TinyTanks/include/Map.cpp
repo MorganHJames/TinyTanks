@@ -344,3 +344,21 @@ Tile* Map::getTileArray()//Returns the tile array.
 {
 	return m_tTileArray;//Returns the tile array.
 }
+
+//\===========================================================================================
+//\ Get Tile Array Index
+//\===========================================================================================
+
+int* Map::getTileArrayIndex()//Returns the tile array Index.
+{
+	return m_iLevelMap;//Returns the tile array index.
+}
+
+//\===========================================================================================
+//\ Get Tile Dimensions
+//\===========================================================================================
+
+float Map::getTileDimensions()//Returns the tile dimensions.
+{
+	return m_iSpriteDimentions;//Returns the tile dimensions.
+}

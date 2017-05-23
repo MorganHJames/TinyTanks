@@ -154,6 +154,7 @@
     <ClCompile Include="..\..\include\Node.cpp" />
     <ClCompile Include="..\..\include\Sprite.cpp" />
     <ClCompile Include="..\..\include\Tank.cpp" />
+    <ClCompile Include="..\..\include\Upgrades.cpp" />
     <ClCompile Include="..\..\source\main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +173,7 @@
     <ClInclude Include="..\..\include\Sprite.h" />
     <ClInclude Include="..\..\include\Tank.h" />
     <ClInclude Include="..\..\include\Tile.h" />
+    <ClInclude Include="..\..\include\Upgrades.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
