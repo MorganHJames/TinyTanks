@@ -29,43 +29,11 @@ float reciprocal(const float a_c_fScalar)
 	return (1 / a_c_fScalar);
 }
 
-
 //\===========================================================================================
 //\ Test Collision Functions
 //\===========================================================================================
 
-
 // describes an axis-aligned rectangle with a velocity
-struct Box
-{
-	Box(float a_fX, float a_fY, float a_fWidth, float a_fHeight, Vector2 a_v2Veclocity)
-	{
-		x = a_fX - (a_fWidth * 0.5);
-		y = a_fY + (a_fHeight * 0.5);
-		w = a_fWidth;
-		h = a_fHeight;
-		vx = a_v2Veclocity.getfX();
-		vy = a_v2Veclocity.getfY();
-	}
-
-	Box(float a_fX, float a_fY, float a_fWidth, float a_fHeight)
-	{
-		x = a_fX;
-		y = a_fY;
-		w = a_fWidth;
-		h = a_fHeight;
-		vx = 0.0f;
-		vy = 0.0f;
-	}
-	// position of top-left corner
-	float x, y;
-
-	// dimensions
-	float w, h;
-
-	// velocity
-	float vx, vy;
-};
 
 // returns true if the boxes are colliding (velocities are not used)
 bool AABBCheck(Box b1, Box b2)
@@ -100,7 +68,7 @@ bool AABB(Box b1, Box b2, float& moveX, float& moveY)
 
 	return true;
 }
-
+/*
 // returns a box the spans both a current box and the destination box
 Box GetSweptBroadphaseBox(Box b)
 {
@@ -217,7 +185,7 @@ float SweptAABB(Box b1, Box b2, float& normalx, float& normaly)
 		return entryTime;
 	}
 }
-
+*/
 //\===========================================================================================
 //\ Min Value
 //\===========================================================================================
@@ -225,6 +193,12 @@ float SweptAABB(Box b1, Box b2, float& normalx, float& normaly)
 //\===========================================================================================
 //\ Max Value
 //\===========================================================================================
+
+template <typename T>
+inline T const& Max(T const& a, T const& b)
+{
+	return a < b ? b : a;
+}
 
 //\===========================================================================================
 //\ Clamp 
@@ -247,6 +221,10 @@ float lerp(float v0, float v1, float t)
 {
 	return (1 - t) * v0 + t * v1;
 }
+
+//\===========================================================================================
+//\ Quad Bezzier
+//\===========================================================================================
 
 //\===========================================================================================
 //\ Slerp 

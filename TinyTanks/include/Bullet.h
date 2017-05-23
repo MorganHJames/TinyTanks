@@ -27,11 +27,11 @@ private:
 
 	float m_fOffSet = 55.0f;//How far away from the turrets center the bullet will appear.
 
-	int m_iSpriteHeight = 32;//How long each bullet is.
+	int m_iSpriteHeight = 16;//How long each bullet is.
 
 	float m_fLifeTime = 5;//How long each bullet will travel for.
 
-	int m_iSpriteWidth = 32;//How wide each bullet is.
+	int m_iSpriteWidth = 16;//How wide each bullet is.
 
 	float m_fShotDelay = 1;//The time between shots.
 

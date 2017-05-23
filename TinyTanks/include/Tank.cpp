@@ -14,7 +14,7 @@
 //\===========================================================================================
 
 Tank::Tank(const Vector2 a_c_v2Position, bool a_c_bMouse, unsigned int a_c_uiUp, unsigned int a_c_uiDown, unsigned int a_c_uiLeft, unsigned int a_c_uiRight, unsigned int a_c_uiRotateRight, unsigned int a_c_uiRotateLeft, unsigned int a_c_uiFire, char* a_c_cFilename)//A constructor for the tank that takes in the in position of where you want to the tank to be and the controls for tank.
-	: normalBullets(4, "./images/tanks.png", 1)//Creates the normal bullets.
+	: normalBullets(4, "./images/bullet.png", 1)//Creates the normal bullets.
 {
 	m_sTank = new Sprite(a_c_cFilename, m_fTankWidth, m_fTankHeight, Vector2(0.5f, 0.5f), Vector4(0.058f, 0.536f, 0.442f, 0.964f));//Creates a sprite for the tanks base.
 
@@ -60,19 +60,28 @@ Tank::Tank(const Vector2 a_c_v2Position, bool a_c_bMouse, unsigned int a_c_uiUp,
 //\===========================================================================================
 
 Tank::Tank(const Vector2 a_c_v2Position)//A constructor for the tank that takes in the in position of where you want to the tank to be.
-	: normalBullets(4, "./images/tanks.png", 1)//Creates the normal bullets.
+	: normalBullets(4, "./images/bullet.png", 1)//Creates the normal bullets.
 {
-	m_sTank = new Sprite("./images/tanks.png", 66, 72, Vector2(0.5f, 0.5f), Vector4(0.058f, 0.536f, 0.442f, 0.964f));//Creates a sprite for the tanks base.
+	m_sTank = new Sprite("./images/tanks2.png", m_fTankWidth, m_fTankHeight, Vector2(0.5f, 0.5f), Vector4(0.058f, 0.536f, 0.442f, 0.964f));//Creates a sprite for the tanks base.
 
 	m_sTank->setPosition(a_c_v2Position);//Sets the position of the tanks base to be equal to the argument passed in.
 
-	m_sTank->setLayer(0);//Sets the layer of the tank so that it is rendered as far back as possible.
+	m_sTank->setLayer(10);//Sets the layer of the tank so that it is rendered as far back as possible.
 
-	m_sTurret = new Sprite("./images/tanks.png", 38, 64, Vector2(0.5f, 0.25f), Vector4(0.622f, 0.607f, 0.843f, 0.988f));//Creates a sprite for the tanks turret.
+	m_sTank->setWidth(m_fTankWidth);//Sets the width of the sprite to be the same as the member variable.
 
-	m_sTurret->setParent(m_sTank);//Sets the parent of the turret to be the base of the tank.
+	m_sTank->setHeight(m_fTankHeight);//Sets the height of the sprite to be the same as the member variable.
 
-	m_sTurret->setLayer(2);//Sets the layer of tank turret so that it is rendered on top of the base.
+
+	m_sTurret = new Sprite("./images/tanks2.png", m_fTurretWidth, m_fTurretHeight, Vector2(0.5f, 0.25f), Vector4(0.622f, 0.607f, 0.843f, 0.988f));//Creates a sprite for the tanks turret.
+
+	m_sTurret->setPosition(a_c_v2Position);//Sets the position of the tanks base to be equal to the argument passed in.
+
+	m_sTurret->setLayer(11);//Sets the layer of tank turret so that it is rendered on top of the base.
+
+	m_sTurret->setWidth(m_fTurretWidth);//Sets the width of the sprite to be the same as the member variable.
+
+	m_sTurret->setHeight(m_fTurretHeight);//Sets the height of the sprite to be the same as the member variable.
 }
 
 //\===========================================================================================
@@ -112,7 +121,7 @@ void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePos
 
 	float fAccelleration = 0.f;//A float to hold the tanks acceleration.
 
-	if (m_bPlayer = true)//If the tank is a player.
+	if (m_bPlayer == true)//If the tank is a player.
 	{
 		if (UG::IsKeyDown(m_uiUp))//If the up key for the tank is pressed.
 		{

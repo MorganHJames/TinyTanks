@@ -40,7 +40,7 @@ private:
 	
 	float m_fDrag = 0.0f;//The amount of drag applied to the tank whilst moving.
 	
-	bool m_bPlayer = true;//A boolean value indicating whether or not the tank is a player or an AI.
+	bool m_bPlayer = false;//A boolean value indicating whether or not the tank is a player or an AI.
 	
 	unsigned int m_uiUp, m_uiDown, m_uiLeft, m_uiRight, m_uiRotateRight, m_uiRotateLeft, m_uiFire = 0;//The controls for the tank movement
 	

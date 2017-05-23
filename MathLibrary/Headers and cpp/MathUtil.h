@@ -8,6 +8,8 @@
 #ifndef _MATHUTIL_H_
 #define _MATHUTIL_H_
 
+#include "Vector2.h"
+
 //\===========================================================================================
 //\ Author: Morgan James
 //\ Brief: Multiple #defines for constants E.G. PI, 2PI, HALF_PI.
@@ -65,6 +67,50 @@ float reciprocal(const float a_c_fScalar);
 //\ Test Collision Functions
 //\===========================================================================================
 
+//Formula from https://www.gamedev.net/resources/_/technical/game-programming/swept-aabb-collision-detection-and-response-r3084
+
+// describes an axis-aligned rectangle with a velocity
+struct Box
+{
+	Box(Vector2 a_v2Position, float a_fWidth, float a_fHeight, Vector2 a_v2Veclocity)
+	{
+		x = a_v2Position.getfX() - (a_fWidth * 0.5f);
+		y = a_v2Position.getfY() + (a_fHeight * 0.5f);
+		w = a_fWidth;
+		h = a_fHeight;
+		vx = a_v2Veclocity.getfX();
+		vy = a_v2Veclocity.getfY();
+	}
+
+	// position of top-left corner
+	float x, y;
+
+	// dimensions
+	float w, h;
+
+	// velocity
+	float vx, vy;
+};
+
+// returns true if the boxes are colliding (velocities are not used)
+bool AABBCheck(Box b1, Box b2);
+
+// returns true if the boxes are colliding (velocities are not used)
+// moveX and moveY will return the movement the b1 must move to avoid the collision
+bool AABB(Box b1, Box b2, float& moveX, float& moveY);
+
+
+/*
+// returns a box the spans both a current box and the destination box
+Box GetSweptBroadphaseBox(Box b);
+
+// performs collision detection on moving box b1 and static box b2
+// returns the time that the collision occured (where 0 is the start of the movement and 1 is the destination)
+// getting the new position can be retrieved by box.x = box.x + box.vx * collisiontime
+// normalx and normaly return the normal of the collided surface (this can be used to do a response)
+float SweptAABB(Box b1, Box b2, float& normalx, float& normaly);
+*/
+
 //\===========================================================================================
 //\ Min Value
 //\===========================================================================================
@@ -74,10 +120,7 @@ float reciprocal(const float a_c_fScalar);
 //\===========================================================================================
 
 template <typename T>
-inline T const& Max(T const& a, T const& b)
-{
-	return a < b ? b : a;
-}
+inline T const& Max(T const& a, T const& b);
 
 //\===========================================================================================
 //\ Clamp 
