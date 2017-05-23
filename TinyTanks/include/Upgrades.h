@@ -28,9 +28,9 @@ private:
 
 	bool m_bActive = false;//The current state of the upgrades's existence.
 
-	int m_iUpgradeType = 0;
+	int m_iUpgradeType = 0;//The type of upgrade the upgrade currently is.
 
-	float m_fUpgradeTimer = 0;
+	float m_fUpgradeTimer = 0;//How long the upgrade has left to exist.
 
 public:
 	//\===========================================================================================
@@ -43,7 +43,7 @@ public:
 	//\ Update 
 	//\===========================================================================================
 
-	void Update(Tile *a_tTileArray, int m_iLevelMap[], float a_fDeltaTime);//The update for the upgrades that randomly spawns them on useable tiles.
+	void Update(Tile *a_tTileArray, int m_iLevelMap[], float a_fDeltaTime);//The update for the upgrades that randomly spawns them on usable tiles.
 	
 	//\===========================================================================================
 	//\ Get sprite 

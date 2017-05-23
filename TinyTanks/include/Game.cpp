@@ -15,6 +15,8 @@
 #include "MathUtil.h"
 #include "Upgrades.h"
 
+#include "iostream"
+
 //\===========================================================================================
 //\ Constructor 
 //\===========================================================================================
@@ -211,7 +213,62 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 
 			case CAMPAIGN://The game play state where the game will be played and the user should be the majority of the time.
 			{
+				if (tCampaignAI1.getAlive() == false && tCampaignAI2.getAlive() == false)
+			    {
+			    	currentState = MENU;//Sets the current state of game play to the main game.
+			    
+					tCampaignPlayer.stopDrawing();//Stop drawing the player
+
+			    	title.setPosition(Vector2(0.5f * m_iScreenWidth, 0.85f * m_iScreenHeight));//Sets the position of the title image.
+			    
+			    	title.update();//Updates the title image.
+			    
+			    	title.markForDraw();//Sets the title image to be drawn.
+			    
+			    	mCampaignLevel1.stopDrawing();//Stops drawing the map.
+			    
+			    	bCampaign.markForDraw();//Sets the campaign button to be drawn.
+			    
+			    	bVS.markForDraw();//Sets the versus button to be drawn.
+			    
+			    	bExit.markForDraw();//Sets the Exit button to be drawn.
+			    
+			    	mMenu.markForDraw();//Sets the menu map to be drawn.
+			    
+			    	powerUp.stopDrawing();//Stops drawing the power up.
+			    
+					tCampaignAI1.setAlive(true);//Sets the player to be true for the next game.
+			    
+					tCampaignAI2.setAlive(true);//Sets the player to be true for the next game.
+			    
+					tCampaignAI1.getSprite()->setPosition(Vector2(0.75f * m_iScreenWidth, 0.5f * m_iScreenHeight));//Moves the tank to it's original spot.
+
+					tCampaignAI2.getSprite()->setPosition(Vector2(0.25f * m_iScreenWidth, 0.5f * m_iScreenHeight));//Moves the tank to it's original spot.
+
+					tCampaignPlayer.getSprite()->setPosition(Vector2(0.5f * m_iScreenWidth, 0.5f * m_iScreenHeight));//Moves the tank to it's original spot.
+			    
+			    }
 				powerUp.Update(mCampaignLevel1.getTileArray(), mCampaignLevel1.getTileArrayIndex(), m_fDeltaTime);//Updates the upgrades.
+
+				//Collision for bullets and tiles.
+
+				Vector2 v2CoordinatesToEvade9;//A vector to hold the coordinates that pertain to avoiding the object.
+				for (int j = 0; j < 4; ++j)
+				{
+					if (tCampaignPlayer.getBasicBulletArray()[j].active == true)//If the bullet is active.
+					{
+						for (int i = 0; i < 450; ++i)//For every tile.
+						{
+							if (mCampaignLevel1.getTileArray()[i].bWalkable == false)//If the tile is not walkable.
+							{
+								if (true == AABB(Box(tCampaignPlayer.getBasicBulletArray()[j].sBasicAmmo->getPosition(), tCampaignPlayer.getBasicBulletArray()[j].sBasicAmmo->getWidth(), tCampaignPlayer.getBasicBulletArray()[j].sBasicAmmo->getHeight(), tCampaignPlayer.getBasicBulletArray()[j].sBasicAmmo->getVelocity()), Box(mCampaignLevel1.getTileArray()[i].m_sTile->getPosition(), mCampaignLevel1.getTileArray()[i].m_sTile->getWidth(), mCampaignLevel1.getTileArray()[i].m_sTile->getHeight(), mCampaignLevel1.getTileArray()[i].m_sTile->getVelocity()), v2CoordinatesToEvade9))//If there is a collision.
+								{
+									tCampaignPlayer.getBasicBulletArray()[j].active = false;//Sets the bullet to inactive.
+								}
+							}
+						}
+					}
+				}
 				//Collision for player and AI one.
 				
 				Vector2 v2CoordinatesToEvade1;//A vector to hold the coordinates that pertain to avoiding the object.
@@ -255,7 +312,7 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 					{
 						if (true == AABB(Box(tCampaignPlayer.getBasicBulletArray()[i].sBasicAmmo->getPosition(), tCampaignPlayer.getBasicBulletArray()[i].sBasicAmmo->getWidth(), tCampaignPlayer.getBasicBulletArray()[i].sBasicAmmo->getHeight(), tCampaignPlayer.getBasicBulletArray()[i].sBasicAmmo->getVelocity()), Box(tCampaignAI1.getSprite()->getPosition(), tCampaignAI1.getSprite()->getWidth(), tCampaignAI1.getSprite()->getHeight(), tCampaignAI1.getSprite()->getVelocity()), v2CoordinatesToEvade3))//If there is a collision.
 						{
-							tCampaignPlayer.getBasicBulletArray()[i].active = false;
+							tCampaignPlayer.getBasicBulletArray()[i].active = false;//Sets the bullet to inactive.
 
 							tCampaignAI1.setAlive(false);//Sets the tank's alive status to false.
 
@@ -272,7 +329,7 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 					{
 						if (true == AABB(Box(tCampaignPlayer.getBasicBulletArray()[i].sBasicAmmo->getPosition(), tCampaignPlayer.getBasicBulletArray()[i].sBasicAmmo->getWidth(), tCampaignPlayer.getBasicBulletArray()[i].sBasicAmmo->getHeight(), tCampaignPlayer.getBasicBulletArray()[i].sBasicAmmo->getVelocity()), Box(tCampaignAI2.getSprite()->getPosition(), tCampaignAI2.getSprite()->getWidth(), tCampaignAI2.getSprite()->getHeight(), tCampaignAI2.getSprite()->getVelocity()), v2CoordinatesToEvade3))//If there is a collision.
 						{
-							tCampaignPlayer.getBasicBulletArray()[i].active = false;
+							tCampaignPlayer.getBasicBulletArray()[i].active = false;//Sets the bullet to be false.
 
 							tCampaignAI2.setAlive(false);//Sets the tank's alive status to false.
 
@@ -285,25 +342,25 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 
 				if (powerUp.getActive() == true && true == AABB(Box(tCampaignPlayer.getSprite()->getPosition(), tCampaignPlayer.getSprite()->getWidth(), tCampaignPlayer.getSprite()->getHeight(), tCampaignPlayer.getSprite()->getVelocity()), Box(powerUp.getSprite()->getPosition(), powerUp.getSprite()->getWidth(), powerUp.getSprite()->getHeight(), powerUp.getSprite()->getVelocity()), v2CoordinatesToEvade2))
 				{
-					powerUp.setActive(false);
+					powerUp.setActive(false);//Deactivates the power up.
 
-					powerUp.stopDrawing();
+					powerUp.stopDrawing();//Stops drawing the power up.
 
-					if (powerUp.getType() == 1)
+					if (powerUp.getType() == 1)//If the power up was a speed up.
 					{
-						tCampaignPlayer.setUpgrade(1);
+						tCampaignPlayer.setUpgrade(1);//Set the tanks upgrade to be a speed up.
 					}
-					else if (powerUp.getType() == 2)
+					else if (powerUp.getType() == 2)//If the power up was a power up.
 					{
-						tCampaignPlayer.setUpgrade(2);
+						tCampaignPlayer.setUpgrade(2);//Increase the power of the tank.
 					}
-					else if (powerUp.getType() == 3)
+					else if (powerUp.getType() == 3)//If the power up was a speed down.
 					{
-						tCampaignPlayer.setUpgrade(3);
+						tCampaignPlayer.setUpgrade(3);//Decrease the speed of the tank.
 					}
-					else if (powerUp.getType() == 4)
+					else if (powerUp.getType() == 4)//If the power up was a power down.
 					{
-						tCampaignPlayer.setUpgrade(4);
+						tCampaignPlayer.setUpgrade(4);//Decrease the power of the tank.
 					}
 				}
 
@@ -312,10 +369,51 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 				tCampaignAI2.tankLogic(m_fDeltaTime, m_dMousePosX, m_dMousePosY);//Updates the tank AI.
 
 				tCampaignPlayer.tankLogic(m_fDeltaTime, m_dMousePosX, m_dMousePosY);//Allows for movement of the player tank.
+				
 				break;
 			}
 			case VERSUS://The game play state where the game will be played and the user should be the majority of the time.
 			{
+
+				if (tVersusPlayer1.getAlive() == false || tVersusPlayer2.getAlive() == false)//If either player dies.
+				{
+					currentState = MENU;//Sets the current state of game play to the main game.
+
+					if (tVersusPlayer1.getAlive() == false)//If one player is dead.
+						tVersusPlayer2.stopDrawing();//Stop drawing the player.
+
+					if (tVersusPlayer2.getAlive() == false)//If one player is dead.
+						tVersusPlayer1.stopDrawing();//Stop drawing the other player
+
+
+					title.setPosition(Vector2(0.5f * m_iScreenWidth, 0.85f * m_iScreenHeight));//Sets the position of the title image.
+
+					title.update();//Updates the title image.
+
+					title.markForDraw();//Sets the title image to be drawn.
+
+					mCampaignLevel1.stopDrawing();//Stops drawing the map.
+
+					bCampaign.markForDraw();//Sets the campaign button to be drawn.
+
+					bVS.markForDraw();//Sets the versus button to be drawn.
+
+					bExit.markForDraw();//Sets the Exit button to be drawn.
+
+					mMenu.markForDraw();//Sets the menu map to be drawn.
+
+					powerUp.stopDrawing();//Stops drawing the powerup.
+
+					tVersusPlayer1.setAlive(true);//Sets the player to be true for the next game.
+
+					tVersusPlayer2.setAlive(true);//Sets the player to be true for the next game.
+
+					tVersusPlayer1.getSprite()->setPosition(Vector2(0.25f * m_iScreenWidth, 0.5f * m_iScreenHeight));//Moves the tank to it's original spot.
+
+					tVersusPlayer2.getSprite()->setPosition(Vector2(0.75f * m_iScreenWidth, 0.5f * m_iScreenHeight));//Moves the tank to it's original spot.
+
+				}
+
 				powerUp.Update(mCampaignLevel1.getTileArray(), mCampaignLevel1.getTileArrayIndex(), m_fDeltaTime);//Updates the upgrades.
 
 				//Collision for both tank's touching each other to stop them pushing each other around.
@@ -392,7 +490,7 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 					{
 						if (true == AABB(Box(tVersusPlayer1.getBasicBulletArray()[i].sBasicAmmo->getPosition(), tVersusPlayer1.getBasicBulletArray()[i].sBasicAmmo->getWidth(), tVersusPlayer1.getBasicBulletArray()[i].sBasicAmmo->getHeight(), tVersusPlayer1.getBasicBulletArray()[i].sBasicAmmo->getVelocity()),Box(tVersusPlayer2.getSprite()->getPosition(), tVersusPlayer2.getSprite()->getWidth(), tVersusPlayer2.getSprite()->getHeight(),	tVersusPlayer2.getSprite()->getVelocity()), v2CoordinatesToEvade3))//If there is a collision.
 						{
-							tVersusPlayer1.getBasicBulletArray()[i].active = false;
+							tVersusPlayer1.getBasicBulletArray()[i].active = false;//Deactivates the bullet.
 
 							tVersusPlayer2.setAlive(false);//Sets the tank's alive status to false.
 
@@ -409,7 +507,7 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 					{
 						if (true == AABB(Box(tVersusPlayer2.getBasicBulletArray()[i].sBasicAmmo->getPosition(), tVersusPlayer2.getBasicBulletArray()[i].sBasicAmmo->getWidth(), tVersusPlayer2.getBasicBulletArray()[i].sBasicAmmo->getHeight(), tVersusPlayer2.getBasicBulletArray()[i].sBasicAmmo->getVelocity()), Box(tVersusPlayer1.getSprite()->getPosition(), tVersusPlayer1.getSprite()->getWidth(), tVersusPlayer1.getSprite()->getHeight(), tVersusPlayer1.getSprite()->getVelocity()), v2CoordinatesToEvade3))//If there is a collision.
 						{
-							tVersusPlayer2.getBasicBulletArray()[i].active = false;
+							tVersusPlayer2.getBasicBulletArray()[i].active = false;//Deactivates the bullet.
 
 							tVersusPlayer1.setAlive(false);//Sets the tank's alive status to false.
 
@@ -422,25 +520,25 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 
 				if (powerUp.getActive() == true && true == AABB(Box(tVersusPlayer1.getSprite()->getPosition(), tVersusPlayer1.getSprite()->getWidth(), tVersusPlayer1.getSprite()->getHeight(), tVersusPlayer1.getSprite()->getVelocity()), Box(powerUp.getSprite()->getPosition(), powerUp.getSprite()->getWidth(), powerUp.getSprite()->getHeight(), powerUp.getSprite()->getVelocity()), v2CoordinatesToEvade3))
 				{
-					powerUp.setActive(false);
+					powerUp.setActive(false);//Deactivates the power up.
 
-					powerUp.stopDrawing();
+					powerUp.stopDrawing();//Stops drawing the power up.
 
-					if (powerUp.getType() == 1)
+					if (powerUp.getType() == 1)//If the power up was a speed up.
 					{
-						tVersusPlayer1.setUpgrade(1);
+						tVersusPlayer1.setUpgrade(1);//Set the tanks upgrade to be a speed up.
 					}
-					else if (powerUp.getType() == 2)
+					else if (powerUp.getType() == 2)//If the power up was a power up.
 					{
-						tVersusPlayer1.setUpgrade(2);
+						tVersusPlayer1.setUpgrade(2);//Increase the power of the tank.
 					}
-					else if (powerUp.getType() == 3)
+					else if (powerUp.getType() == 3)//If the power up was a speed down.
 					{
-						tVersusPlayer1.setUpgrade(3);
+						tVersusPlayer1.setUpgrade(3);//Decrease the speed of the tank.
 					}
-					else if (powerUp.getType() == 4)
+					else if (powerUp.getType() == 4)//If the power up was a power down.
 					{
-						tVersusPlayer1.setUpgrade(4);
+						tVersusPlayer1.setUpgrade(4);//Decrease the power of the tank.
 					}
 				}
 
@@ -448,27 +546,28 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 
 				if (powerUp.getActive() == true && true == AABB(Box(tVersusPlayer2.getSprite()->getPosition(), tVersusPlayer2.getSprite()->getWidth(), tVersusPlayer2.getSprite()->getHeight(), tVersusPlayer2.getSprite()->getVelocity()), Box(powerUp.getSprite()->getPosition(), powerUp.getSprite()->getWidth(), powerUp.getSprite()->getHeight(), powerUp.getSprite()->getVelocity()), v2CoordinatesToEvade3))
 				{
-					powerUp.setActive(false);
+					powerUp.setActive(false);//Deactivates the power up.
 
-					powerUp.stopDrawing();
+					powerUp.stopDrawing();//Stops drawing the power up.
 
-					if (powerUp.getType() == 1)
+					if (powerUp.getType() == 1)//If the power up was a speed up.
 					{
-						tVersusPlayer2.setUpgrade(1);
+						tVersusPlayer2.setUpgrade(1);//Set the tanks upgrade to be a speed up.
 					}
-					else if (powerUp.getType() == 2)
+					else if (powerUp.getType() == 2)//If the power up was a power up.
 					{
-						tVersusPlayer2.setUpgrade(2);
+						tVersusPlayer2.setUpgrade(2);//Increase the power of the tank.
 					}
-					else if (powerUp.getType() == 3)
+					else if (powerUp.getType() == 3)//If the power up was a speed down.
 					{
-						tVersusPlayer2.setUpgrade(3);
+						tVersusPlayer2.setUpgrade(3);//Decrease the speed of the tank.
 					}
-					else if (powerUp.getType() == 4)
+					else if (powerUp.getType() == 4)//If the power up was a power down.
 					{
-						tVersusPlayer2.setUpgrade(4);
+						tVersusPlayer2.setUpgrade(4);//Decrease the power of the tank.
 					}
 				}
+
 				tVersusPlayer1.tankLogic(m_fDeltaTime, m_dMousePosX, m_dMousePosY);//Allows for movement of the player1 tank.
 
 				tVersusPlayer2.tankLogic(m_fDeltaTime, m_dMousePosX, m_dMousePosY);//Allows for movement of the player1 tank.

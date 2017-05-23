@@ -105,6 +105,7 @@ void Bullet::update(float a_fDeltaTime)//Updates the bullets to travel and chang
 		else
 		{
 			UG::StopDrawingSprite(m_bBasicAmmoArray[i].sBasicAmmo->getSpriteID());//Stops drawing the current bullet.
+			m_bBasicAmmoArray[i].sBasicAmmo->setPosition(Vector2(-100, -100));//Moves the bullets so they can respawn.
 		}
 	}
 }
@@ -131,5 +132,17 @@ void Bullet::setShot(float a_fShotDelay, float a_fShotVelocity, float a_fShotLif
 	for (int i = 0; i < m_iMaxBullets; ++i)//For each bullet.
 	{
 		m_bBasicAmmoArray[i].fVelocity = a_fShotVelocity;//Sets the shot velocity to be equal to the passed in argument.
+	}
+}
+
+//\===========================================================================================
+//\ Stop Drawing  
+//\===========================================================================================
+
+void Bullet::stopDrawing()//Stops drawing the bullets.
+{
+	for (int i = 0; i < m_iMaxBullets; ++i)//For each bullet.
+	{
+		UG::StopDrawingSprite(m_bBasicAmmoArray[i].sBasicAmmo->getSpriteID());//Stops drawing the current bullet.
 	}
 }

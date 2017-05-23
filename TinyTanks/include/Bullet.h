@@ -72,5 +72,10 @@ public:
 
 	void setShot(float a_fShotDelay, float a_fShotVelocity, float a_fShotLifeTime);//Changes how fast the bullet moves, and is able to be fired again.
 
+	//\===========================================================================================
+	//\ Stop Drawing  
+	//\===========================================================================================
+
+	void stopDrawing();//Stops drawing the bullets.
 };
 #endif

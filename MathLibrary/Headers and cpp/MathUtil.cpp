@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <limits>
 #include "Vector2.h"
+#include "Vector3.h"
 
 //\===========================================================================================
 //\ Degrees To Radians
@@ -32,8 +33,6 @@ float reciprocal(const float a_c_fScalar)
 //\===========================================================================================
 //\ Test Collision Functions
 //\===========================================================================================
-
-
 
 // returns true if the boxes are colliding (velocities are not used)
 bool AABBCheck(Box b1, Box b2)
@@ -68,7 +67,6 @@ bool AABB(Box b1, Box b2, Vector2& a_v2Pos)
 
 	return true;
 }
-
 
 // performs collision detection on moving box b1 and static box b2
 // returns the time that the collision occured (where 0 is the start of the movement and 1 is the destination)
@@ -175,10 +173,6 @@ float SweptAABB(Box b1, Box b2, float& normalx, float& normaly)
 }
 
 //\===========================================================================================
-//\ Min Value
-//\===========================================================================================
-
-//\===========================================================================================
 //\ Max Value
 //\===========================================================================================
 
@@ -214,10 +208,62 @@ float lerp(float v0, float v1, float t)
 //\ Quad Bezzier
 //\===========================================================================================
 
+//Sourced from https://stackoverflow.com/questions/785097/how-do-i-implement-a-b%C3%A9zier-curve-in-c
+
+Vector2 getBezierPoint(Vector2* points, int numPoints, float t)
+{
+	Vector2* tmp = new Vector2[numPoints];
+	memcpy(tmp, points, numPoints * sizeof(Vector2));
+	int i = numPoints - 1;
+	while (i > 0)
+	{
+		for (int k = 0; k < i; k++)
+			tmp[k] = tmp[k] + t * (tmp[k + 1] - tmp[k]);
+		i--;
+	}
+	Vector2 answer = tmp[0];
+	delete[] tmp;
+	return answer;
+}
+
 //\===========================================================================================
 //\ Slerp 
 //\===========================================================================================
 
+// Code sourced from https https://en.wikipedia.org/wiki/Slerp
+
+Vector3 slerp(float a_fT, Vector3 a_v3V0, Vector3 a_v3V1)
+{
+	a_v3V0.normalise();
+	a_v3V1.normalise();
+
+	float fDot = a_v3V0.dotProduct(a_v3V1);
+
+	const float c_fDotThreshold = 0.999f;
+	if (fabs(fDot) > c_fDotThreshold)
+	{
+		Vector3 v3Result = (a_v3V1 - a_v3V0) * (a_v3V0 + a_fT);
+		v3Result.normalise();
+		return v3Result;
+	}
+
+	if (fDot < 0.0f)
+	{
+		a_v3V1.setfX(-a_v3V1.getfX());
+		a_v3V1.setfY(-a_v3V1.getfY());
+		a_v3V1.setfZ(-a_v3V1.getfZ());
+		fDot = -fDot;
+	}
+
+	clamp(fDot, -1.f, 1.f);
+	float fTheta_0 = acos(fDot);
+	float fTheta = fTheta_0 * a_fT;
+
+	Vector3 v3V2 = a_v3V1 * fDot;
+	v3V2.normalise();
+
+	return a_v3V0 * cos(fTheta) + v3V2 * sin(fTheta);
+}
 
 //\===========================================================================================
 //\ Smoothstep

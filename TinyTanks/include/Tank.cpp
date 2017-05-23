@@ -100,6 +100,8 @@ void Tank::stopDrawing()//A function to stop drawing the parts of the tank.
 	m_sTank->stopDrawing();//Stops the drawing of the tank base.
 
 	m_sTurret->stopDrawing();//Stops the drawing of the tanks turret.
+
+	normalBullets.stopDrawing();//Stops drawing the bullets.
 }
 
 //\===========================================================================================
@@ -110,9 +112,9 @@ void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePos
 {
 	m_fUpgradeTimer -= a_fDeltaTime;//Decreases the upgrade timer.
 
-	if (m_fUpgradeTimer <= 0)
+	if (m_fUpgradeTimer <= 0)//If the upgrade timer is zero or less.
 	{
-		m_iCurrentUpgrade = 0;
+		m_iCurrentUpgrade = 0;//Set the tank to have no upgrade.
 	}
 
 	normalBullets.update(a_fDeltaTime);//Updates the bullets.
@@ -256,9 +258,9 @@ void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePos
 
 		m_fMaxNegativeVelocity = -300.0f;//Decrease the max backwards velocity.
 	}
-	else if (m_iCurrentUpgrade == 2)
+	else if (m_iCurrentUpgrade == 2)//If the upgrade is a 2.
 	{
-		normalBullets.setShot(0.5f,500.0f,2.5f);
+		normalBullets.setShot(0.5f,500.0f,2.5f);//Increase fire power.
 	}
 	else if (m_iCurrentUpgrade == 3)//If the current upgrade is 3.
 	{
@@ -266,15 +268,17 @@ void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePos
 
 		m_fMaxNegativeVelocity = -75.0f;//Increase the max backwards velocity.
 	}
-	else if (m_iCurrentUpgrade == 4)
+	else if (m_iCurrentUpgrade == 4)//If the upgrade is a 4.
 	{
-		normalBullets.setShot(1.5f, 125.0f, 7.5f);
+		normalBullets.setShot(1.5f, 125.0f, 7.5f);//Decrease fire power.
 	}
-	else
+	else//If there is no upgrade.
 	{
-		m_fMaxVelocity = 200.0f;
-		m_fMaxNegativeVelocity = -150.0f;
-		normalBullets.setShot(1.0f, 250.0f, 5.0f);
+		m_fMaxVelocity = 200.0f;//Set the max velocity to normal.
+
+		m_fMaxNegativeVelocity = -150.0f;//Set the max velocity to normal.
+
+		normalBullets.setShot(1.0f, 250.0f, 5.0f);//Set the fire rate,velocity and life time to normal.
 	}
 
 	m_fCurrentVelocity += fAccelleration;//Increases the current velocity by the accelerations multiplied by the delta time.
