@@ -91,6 +91,8 @@ void Bullet::update(float a_fDeltaTime)//Updates the bullets to travel and chang
 
 			m_bBasicAmmoArray[i].v2PosOffSet += m_bBasicAmmoArray[i].sBasicAmmo->getVelocity();//Add forward and velocity to the position.
 
+			m_bBasicAmmoArray[i].sBasicAmmo->setPosition(Vector2(m_bBasicAmmoArray[i].v2PosOffSet.getfX(), m_bBasicAmmoArray[i].v2PosOffSet.getfY()));
+
 			UG::MoveSprite(m_bBasicAmmoArray[i].sBasicAmmo->getSpriteID(), m_bBasicAmmoArray[i].v2PosOffSet.getfX(), (m_bBasicAmmoArray[i].v2PosOffSet.getfY()));//Moves the sprite to the correct location on the screen.
 
 			if (m_bBasicAmmoArray[i].fLifeTimer <= 0)//If the life timer is less than or equal to zero.
@@ -100,5 +102,18 @@ void Bullet::update(float a_fDeltaTime)//Updates the bullets to travel and chang
 				m_bBasicAmmoArray[i].active = false;//Set the bullet to be false.
 			}
 		}
+		else
+		{
+			UG::StopDrawingSprite(m_bBasicAmmoArray[i].sBasicAmmo->getSpriteID());//Stops drawing the current bullet.
+		}
 	}
+}
+
+//\===========================================================================================
+//\ Get Bullet Array 
+//\===========================================================================================
+
+BasicAmmo* Bullet::getBasicBulletArray()//Returns the bullet array.
+{
+	return m_bBasicAmmoArray;//Returns the bullet array.
 }

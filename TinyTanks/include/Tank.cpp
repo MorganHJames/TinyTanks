@@ -32,9 +32,9 @@ Tank::Tank(const Vector2 a_c_v2Position, bool a_c_bMouse, unsigned int a_c_uiUp,
 	
 	m_sTurret->setLayer(11);//Sets the layer of tank turret so that it is rendered on top of the base.
 
-	m_sTurret->setWidth(m_fTurretWidth);//Sets the width of the sprite to be the same as the member variable.
+	m_sTurret->setWidth(m_fTankWidth);//Sets the width of the sprite to be the same as the member variable.
 
-	m_sTurret->setHeight(m_fTurretHeight);//Sets the height of the sprite to be the same as the member variable.
+	m_sTurret->setHeight(m_fTankWidth);//Sets the height of the sprite to be the same as the member variable.
 
 	m_bPlayer = true;//Sets the player boolean to true as if the controls are defined the tank must be a player.
 
@@ -284,5 +284,32 @@ void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePos
 
 Sprite* Tank::getSprite()//A function to return the sprite.
 {
-	return m_sTank;
+	return m_sTank;//Returns the tank sprite.
+}
+
+//\===========================================================================================
+//\ Get Bullet Array 
+//\===========================================================================================
+
+BasicAmmo* Tank::getBasicBulletArray()//Returns the bullet array.
+{
+	return normalBullets.getBasicBulletArray();//Returns the bullet array.
+}
+
+//\===========================================================================================
+//\ Set Alive 
+//\===========================================================================================
+
+bool Tank::getAlive()//Returns the status of the tank.
+{
+	return m_bAlive;//Returns whether or not the tank is alive.
+}	
+
+//\===========================================================================================
+//\ Set Alive 
+//\===========================================================================================
+
+void Tank::setAlive(bool a_bStatus)//Returns the status of the tank.
+{
+	m_bAlive = a_bStatus;
 }

@@ -60,5 +60,11 @@ public:
 
 	void update(float a_fDeltaTime);//Updates the bullets to travel and change states.
 
+	//\===========================================================================================
+	//\ Get Bullet Array 
+	//\===========================================================================================
+
+	BasicAmmo* getBasicBulletArray();//Returns the bullet array.
+
 };
 #endif

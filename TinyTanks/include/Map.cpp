@@ -342,5 +342,5 @@ int Map::getTileType(const int a_c_iCol, int a_c_iRow)//Gets the tile type from 
 
 Tile* Map::getTileArray()//Returns the tile array.
 {
-	return m_tTileArray;
+	return m_tTileArray;//Returns the tile array.
 }
