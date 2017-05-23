@@ -8,7 +8,7 @@ struct BasicAmmo
 {
 	Sprite* sBasicAmmo;//The default sprite for the bullet.
 
-	Vector2 v2Pos;//The coordinates to where the bullet is on the screen.
+	Vector2 v2PosOffSet;//The coordinates to where the bullet is on the screen.
 
 	bool active = false;//Whether or not the bullet is being shot.
 
