@@ -418,6 +418,57 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 					}
 				}
 
+				//Collision for player1 and upgrades.
+
+				if (powerUp.getActive() == true && true == AABB(Box(tVersusPlayer1.getSprite()->getPosition(), tVersusPlayer1.getSprite()->getWidth(), tVersusPlayer1.getSprite()->getHeight(), tVersusPlayer1.getSprite()->getVelocity()), Box(powerUp.getSprite()->getPosition(), powerUp.getSprite()->getWidth(), powerUp.getSprite()->getHeight(), powerUp.getSprite()->getVelocity()), v2CoordinatesToEvade3))
+				{
+					powerUp.setActive(false);
+
+					powerUp.stopDrawing();
+
+					if (powerUp.getType() == 1)
+					{
+						tVersusPlayer1.setUpgrade(1);
+					}
+					else if (powerUp.getType() == 2)
+					{
+						tVersusPlayer1.setUpgrade(2);
+					}
+					else if (powerUp.getType() == 3)
+					{
+						tVersusPlayer1.setUpgrade(3);
+					}
+					else if (powerUp.getType() == 4)
+					{
+						tVersusPlayer1.setUpgrade(4);
+					}
+				}
+
+				//Collision for player2 and upgrades.
+
+				if (powerUp.getActive() == true && true == AABB(Box(tVersusPlayer2.getSprite()->getPosition(), tVersusPlayer2.getSprite()->getWidth(), tVersusPlayer2.getSprite()->getHeight(), tVersusPlayer2.getSprite()->getVelocity()), Box(powerUp.getSprite()->getPosition(), powerUp.getSprite()->getWidth(), powerUp.getSprite()->getHeight(), powerUp.getSprite()->getVelocity()), v2CoordinatesToEvade3))
+				{
+					powerUp.setActive(false);
+
+					powerUp.stopDrawing();
+
+					if (powerUp.getType() == 1)
+					{
+						tVersusPlayer2.setUpgrade(1);
+					}
+					else if (powerUp.getType() == 2)
+					{
+						tVersusPlayer2.setUpgrade(2);
+					}
+					else if (powerUp.getType() == 3)
+					{
+						tVersusPlayer2.setUpgrade(3);
+					}
+					else if (powerUp.getType() == 4)
+					{
+						tVersusPlayer2.setUpgrade(4);
+					}
+				}
 				tVersusPlayer1.tankLogic(m_fDeltaTime, m_dMousePosX, m_dMousePosY);//Allows for movement of the player1 tank.
 
 				tVersusPlayer2.tankLogic(m_fDeltaTime, m_dMousePosX, m_dMousePosY);//Allows for movement of the player1 tank.

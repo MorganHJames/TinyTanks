@@ -66,5 +66,11 @@ public:
 
 	BasicAmmo* getBasicBulletArray();//Returns the bullet array.
 
+	//\===========================================================================================
+	//\ Set Shot  
+	//\===========================================================================================
+
+	void setShot(float a_fShotDelay, float a_fShotVelocity, float a_fShotLifeTime);//Changes how fast the bullet moves, and is able to be fired again.
+
 };
 #endif

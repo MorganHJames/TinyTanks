@@ -24,11 +24,11 @@ Bullet::Bullet(const int a_c_iMaxBullets, char* a_c_cFileLocation, float a_c_fSh
 
 	for (int i = 0; i < m_iMaxBullets; ++i)//For each bullet.
 	{
-		m_bBasicAmmoArray[i].sBasicAmmo = new Sprite(a_c_cFileLocation, m_iSpriteWidth, m_iSpriteHeight, Vector2(0.5f, 0.5f), Vector4(0.0f, 0.0f, 1.0f, 1.0f));//Creates a sprite for the bullet.
+		m_bBasicAmmoArray[i].sBasicAmmo = new Sprite(a_c_cFileLocation, (float) m_iSpriteWidth, (float) m_iSpriteHeight, Vector2(0.5f, 0.5f), Vector4(0.0f, 0.0f, 1.0f, 1.0f));//Creates a sprite for the bullet.
 
-		m_bBasicAmmoArray[i].sBasicAmmo->setWidth(m_iSpriteWidth);//Sets the width of the sprite to be the same as the member variable.
+		m_bBasicAmmoArray[i].sBasicAmmo->setWidth((float) m_iSpriteWidth);//Sets the width of the sprite to be the same as the member variable.
 
-		m_bBasicAmmoArray[i].sBasicAmmo->setHeight(m_iSpriteHeight);//Sets the height of the sprite to be the same as the member variable.
+		m_bBasicAmmoArray[i].sBasicAmmo->setHeight((float) m_iSpriteHeight);//Sets the height of the sprite to be the same as the member variable.
 
 		UG::SetSpriteLayer(m_bBasicAmmoArray[i].sBasicAmmo->getSpriteID(), 4);//Sets the current sprite layer to be under the turret.
 	}
@@ -116,4 +116,20 @@ void Bullet::update(float a_fDeltaTime)//Updates the bullets to travel and chang
 BasicAmmo* Bullet::getBasicBulletArray()//Returns the bullet array.
 {
 	return m_bBasicAmmoArray;//Returns the bullet array.
+}
+
+//\===========================================================================================
+//\ Set Shot  
+//\===========================================================================================
+
+void Bullet::setShot(float a_fShotDelay, float a_fShotVelocity, float a_fShotLifeTime)//Changes how fast the bullet moves, and is able to be fired again.
+{
+	m_fShotDelay = a_fShotDelay;//Sets the shot delay to be equal to the passed in argument.
+
+	m_fLifeTime = a_fShotLifeTime;//Sets the shot life time to be equal to the passed in argument.
+
+	for (int i = 0; i < m_iMaxBullets; ++i)//For each bullet.
+	{
+		m_bBasicAmmoArray[i].fVelocity = a_fShotVelocity;//Sets the shot velocity to be equal to the passed in argument.
+	}
 }

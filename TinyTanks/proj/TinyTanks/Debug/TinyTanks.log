@@ -1,6 +1,4 @@
-﻿  Upgrades.cpp
-  Game.cpp
-  Generating Code...
+﻿  Game.cpp
   UG Basic Framework.lib(stb_image_aug.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
 LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
 Bullet.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification

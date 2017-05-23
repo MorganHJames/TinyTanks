@@ -72,7 +72,6 @@ Tank::Tank(const Vector2 a_c_v2Position)//A constructor for the tank that takes 
 
 	m_sTank->setHeight(m_fTankHeight);//Sets the height of the sprite to be the same as the member variable.
 
-
 	m_sTurret = new Sprite("./images/tanks2.png", m_fTurretWidth, m_fTurretHeight, Vector2(0.5f, 0.25f), Vector4(0.622f, 0.607f, 0.843f, 0.988f));//Creates a sprite for the tanks turret.
 
 	m_sTurret->setPosition(a_c_v2Position);//Sets the position of the tanks base to be equal to the argument passed in.
@@ -251,20 +250,31 @@ void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePos
 	//\ Tank Movement 
 	//\===========================================================================================
 
-	if (m_iCurrentUpgrade == 1)
+	if (m_iCurrentUpgrade == 1)//If the current upgrade type is 1.
 	{
-		m_fMaxVelocity = 400.f;
-		m_fMaxNegativeVelocity = -300.0f;
+		m_fMaxVelocity = 400.f;//Increase the max forward velocity.
+
+		m_fMaxNegativeVelocity = -300.0f;//Decrease the max backwards velocity.
 	}
-	else if (m_iCurrentUpgrade == 3)
+	else if (m_iCurrentUpgrade == 2)
 	{
-		m_fMaxVelocity = 100.0f;
-		m_fMaxNegativeVelocity = -75.0f;
+		normalBullets.setShot(0.5f,500.0f,2.5f);
+	}
+	else if (m_iCurrentUpgrade == 3)//If the current upgrade is 3.
+	{
+		m_fMaxVelocity = 100.0f;//Decrease the max forward velocity.
+
+		m_fMaxNegativeVelocity = -75.0f;//Increase the max backwards velocity.
+	}
+	else if (m_iCurrentUpgrade == 4)
+	{
+		normalBullets.setShot(1.5f, 125.0f, 7.5f);
 	}
 	else
 	{
 		m_fMaxVelocity = 200.0f;
 		m_fMaxNegativeVelocity = -150.0f;
+		normalBullets.setShot(1.0f, 250.0f, 5.0f);
 	}
 
 	m_fCurrentVelocity += fAccelleration;//Increases the current velocity by the accelerations multiplied by the delta time.
@@ -344,5 +354,6 @@ void Tank::setAlive(bool a_bStatus)//Returns the status of the tank.
 void Tank::setUpgrade(int a_iUpgrateType)//Sets the upgrade for the tank.
 {
 	m_iCurrentUpgrade = a_iUpgrateType;//Sets the current upgrade to the one passed in.
+
 	m_fUpgradeTimer = m_fUpgradeTime;//Sets the upgrade timer to 5.
 }
