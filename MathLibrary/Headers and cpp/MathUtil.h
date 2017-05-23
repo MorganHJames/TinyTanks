@@ -97,18 +97,47 @@ bool AABBCheck(Box b1, Box b2);
 
 // returns true if the boxes are colliding (velocities are not used)
 // moveX and moveY will return the movement the b1 must move to avoid the collision
-bool AABB(Box b1, Box b2, float& moveX, float& moveY);
+bool AABB(Box b1, Box b2, Vector2& a_v2Pos);
 
-
-/*
-// returns a box the spans both a current box and the destination box
-Box GetSweptBroadphaseBox(Box b);
 
 // performs collision detection on moving box b1 and static box b2
 // returns the time that the collision occured (where 0 is the start of the movement and 1 is the destination)
 // getting the new position can be retrieved by box.x = box.x + box.vx * collisiontime
 // normalx and normaly return the normal of the collided surface (this can be used to do a response)
 float SweptAABB(Box b1, Box b2, float& normalx, float& normaly);
+/*
+//Do nothing
+float normalx, normaly;
+float collisiontime = SweptAABB(box, block, out normalx, out normaly);
+box.x += box.vx * collisiontime;
+box.y += box.vy * collisiontime;
+
+float remainingtime = 1.0f - collisiontime;
+
+// push
+float magnitude = sqrt((box.vx * box.vx + box.vy * box.vy)) * remainingtime;
+float dotprod = box.vx * normaly + box.vy * normalx;
+if (dotprod > 0.0f)
+dotprod = 1.0f;
+else if (dotprod < 0.0f)
+	dotprod = -1.0f;
+NewBox.vx = dotprod * normaly * magnitude;
+NewBox.vy = dotprod * normalx * magnitude;
+
+
+
+// deflect
+box.vx *= remainingtime;
+box.vy *= remainingtime;
+if (abs(normalx) > 0.0001f)
+box.vx = -box.vx;
+if (abs(normaly) > 0.0001f)
+box.vy = -box.vy;
+
+// slide
+float dotprod = (box.vx * normaly + box.vy * normalx) * remainingtime;
+NewBox.vx = dotprod * normaly;
+NewBox.vy = dotprod * normalx;
 */
 
 //\===========================================================================================

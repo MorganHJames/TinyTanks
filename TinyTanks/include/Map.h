@@ -64,6 +64,13 @@ public:
 
 	int getTileType(const int a_iCol, int a_iRow);//Gets the tile type from iLevelMap array.
 
+	//\===========================================================================================
+	//\ Get Tile Array
+	//\===========================================================================================
+	
+	Tile* getTileArray();//Returns the tile array.
+
+
 };
 
 #endif

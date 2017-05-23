@@ -88,6 +88,12 @@ public:
 	//\===========================================================================================
 
 	void tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePosY);//A function that should be put in the update area to move the tank.
+
+	//\===========================================================================================
+	//\ Tank Sprite Get 
+	//\===========================================================================================
+
+	Sprite* getSprite();//A function to return the sprite.
 	
 };
 

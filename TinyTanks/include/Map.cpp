@@ -336,3 +336,11 @@ int Map::getTileType(const int a_c_iCol, int a_c_iRow)//Gets the tile type from 
 	return m_iLevelMap[(a_c_iRow * m_iTilesWide) + a_c_iCol];//Returns the type of the tile at the specified location.
 }
 
+//\===========================================================================================
+//\ Get Tile Array
+//\===========================================================================================
+
+Tile* Map::getTileArray()//Returns the tile array.
+{
+	return m_tTileArray;
+}

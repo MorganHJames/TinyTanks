@@ -12,6 +12,8 @@
 #include "Tank.h"
 #include "Map.h"
 #include "Button.h"
+#include "iostream"
+#include "MathUtil.h"
 
 //\===========================================================================================
 //\ Constructor 
@@ -207,6 +209,36 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 
 			case CAMPAIGN://The game play state where the game will be played and the user should be the majority of the time.
 			{
+				Vector2 v2CoordinatesToEvade1;
+				//Collision for player and AI one.
+				if (true == AABB(Box(tCampaignPlayer.getSprite()->getPosition(), tCampaignPlayer.getSprite()->getWidth(), tCampaignPlayer.getSprite()->getHeight(), tCampaignPlayer.getSprite()->getVelocity()), Box(tCampaignAI1.getSprite()->getPosition(), tCampaignAI1.getSprite()->getWidth(), tCampaignAI1.getSprite()->getHeight(), tCampaignAI1.getSprite()->getVelocity()), v2CoordinatesToEvade1))
+				{
+					tCampaignPlayer.getSprite()->setPosition(Vector2(tCampaignPlayer.getSprite()->getPosition().getfX() + v2CoordinatesToEvade1.getfX(), tCampaignPlayer.getSprite()->getPosition().getfY() + v2CoordinatesToEvade1.getfY()));
+				}
+
+				Vector2 v2CoordinatesToEvade2;
+				//Collision for player and AI two.
+				if (true == AABB(Box(tCampaignPlayer.getSprite()->getPosition(), tCampaignPlayer.getSprite()->getWidth(), tCampaignPlayer.getSprite()->getHeight(), tCampaignPlayer.getSprite()->getVelocity()), Box(tCampaignAI2.getSprite()->getPosition(), tCampaignAI2.getSprite()->getWidth(), tCampaignAI2.getSprite()->getHeight(), tCampaignAI2.getSprite()->getVelocity()), v2CoordinatesToEvade2))
+				{
+					tCampaignPlayer.getSprite()->setPosition(Vector2(tCampaignPlayer.getSprite()->getPosition().getfX() + v2CoordinatesToEvade2.getfX(), tCampaignPlayer.getSprite()->getPosition().getfY() + v2CoordinatesToEvade2.getfY()));
+				}
+
+
+				Vector2 v2CoordinatesToEvade3;
+				//Collision for player and tiles.
+
+				for (int i = 0; i < 450; ++i)
+				{
+					if (mCampaignLevel1.getTileArray()[i].bWalkable == false)
+					{
+						if (true == AABB(Box(tCampaignPlayer.getSprite()->getPosition(), tCampaignPlayer.getSprite()->getWidth(), tCampaignPlayer.getSprite()->getHeight(), tCampaignPlayer.getSprite()->getVelocity()), Box(mCampaignLevel1.getTileArray()[i].m_sTile->getPosition(), mCampaignLevel1.getTileArray()[i].m_sTile->getWidth(), mCampaignLevel1.getTileArray()[i].m_sTile->getHeight(), mCampaignLevel1.getTileArray()[i].m_sTile->getVelocity()), v2CoordinatesToEvade3))
+						{
+							tCampaignPlayer.getSprite()->setPosition(Vector2(tCampaignPlayer.getSprite()->getPosition().getfX() + v2CoordinatesToEvade3.getfX(), tCampaignPlayer.getSprite()->getPosition().getfY() + v2CoordinatesToEvade3.getfY()));
+						}
+					}
+
+				}
+
 				tCampaignAI1.tankLogic(m_fDeltaTime, m_dMousePosX, m_dMousePosY);//Updates the tank AI.
 
 				tCampaignAI2.tankLogic(m_fDeltaTime, m_dMousePosX, m_dMousePosY);//Updates the tank AI.
@@ -216,6 +248,61 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 			}
 			case VERSUS://The game play state where the game will be played and the user should be the majority of the time.
 			{
+
+				Vector2 v2CoordinatesToEvade6;
+				Vector2 v2CoordinatesToEvade5;
+				if (true == AABB(Box(tVersusPlayer1.getSprite()->getPosition(), tVersusPlayer1.getSprite()->getWidth(), tVersusPlayer1.getSprite()->getHeight(), tVersusPlayer1.getSprite()->getVelocity()), Box(tVersusPlayer2.getSprite()->getPosition(), tVersusPlayer2.getSprite()->getWidth(), tVersusPlayer2.getSprite()->getHeight(), tVersusPlayer2.getSprite()->getVelocity()), v2CoordinatesToEvade6) && (true == AABB(Box(tVersusPlayer2.getSprite()->getPosition(), tVersusPlayer2.getSprite()->getWidth(), tVersusPlayer2.getSprite()->getHeight(), tVersusPlayer2.getSprite()->getVelocity()), Box(tVersusPlayer1.getSprite()->getPosition(), tVersusPlayer1.getSprite()->getWidth(), tVersusPlayer1.getSprite()->getHeight(), tVersusPlayer1.getSprite()->getVelocity()), v2CoordinatesToEvade5)))
+				{
+					tVersusPlayer1.getSprite()->setPosition(tVersusPlayer1.getSprite()->getPosition() + (tVersusPlayer1.getSprite()->getVelocity() * -1));
+					tVersusPlayer2.getSprite()->setPosition(tVersusPlayer2.getSprite()->getPosition() + (tVersusPlayer2.getSprite()->getVelocity() * -1));
+				}
+		        else
+		        {
+		        	Vector2 v2CoordinatesToEvade1;
+		        	//Collision for player1 and player2.
+		        	if (true == AABB(Box(tVersusPlayer1.getSprite()->getPosition(), tVersusPlayer1.getSprite()->getWidth(), tVersusPlayer1.getSprite()->getHeight(), tVersusPlayer1.getSprite()->getVelocity()), Box(tVersusPlayer2.getSprite()->getPosition(), tVersusPlayer2.getSprite()->getWidth(), tVersusPlayer2.getSprite()->getHeight(), tVersusPlayer2.getSprite()->getVelocity()), v2CoordinatesToEvade1))
+		        	{
+		        		tVersusPlayer1.getSprite()->setPosition(Vector2(tVersusPlayer1.getSprite()->getPosition().getfX() + v2CoordinatesToEvade1.getfX(), tVersusPlayer1.getSprite()->getPosition().getfY() + v2CoordinatesToEvade1.getfY()));
+		        	}
+		        
+		        	Vector2 v2CoordinatesToEvade2;
+		        	//Collision for player2 and player1.
+		        	if (true == AABB(Box(tVersusPlayer2.getSprite()->getPosition(), tVersusPlayer2.getSprite()->getWidth(), tVersusPlayer2.getSprite()->getHeight(), tVersusPlayer2.getSprite()->getVelocity()), Box(tVersusPlayer1.getSprite()->getPosition(), tVersusPlayer1.getSprite()->getWidth(), tVersusPlayer1.getSprite()->getHeight(), tVersusPlayer1.getSprite()->getVelocity()), v2CoordinatesToEvade2))
+		        	{
+		        		tVersusPlayer2.getSprite()->setPosition(Vector2(tVersusPlayer2.getSprite()->getPosition().getfX() + v2CoordinatesToEvade2.getfX(), tVersusPlayer2.getSprite()->getPosition().getfY() + v2CoordinatesToEvade2.getfY()));
+		        	}
+		        }
+		            
+			    Vector2 v2CoordinatesToEvade3;
+			    //Collision for player1 and tiles.
+			    
+			    for (int i = 0; i < 450; ++i)
+			    {
+			    	if (mCampaignLevel1.getTileArray()[i].bWalkable == false)
+			    	{
+			    		if (true == AABB(Box(tVersusPlayer1.getSprite()->getPosition(), tVersusPlayer1.getSprite()->getWidth(), tVersusPlayer1.getSprite()->getHeight(), tVersusPlayer1.getSprite()->getVelocity()), Box(mCampaignLevel1.getTileArray()[i].m_sTile->getPosition(), mCampaignLevel1.getTileArray()[i].m_sTile->getWidth(), mCampaignLevel1.getTileArray()[i].m_sTile->getHeight(), mCampaignLevel1.getTileArray()[i].m_sTile->getVelocity()), v2CoordinatesToEvade3))
+			    		{
+							tVersusPlayer1.getSprite()->setPosition(Vector2(tVersusPlayer1.getSprite()->getPosition().getfX() + v2CoordinatesToEvade3.getfX(), tVersusPlayer1.getSprite()->getPosition().getfY() + v2CoordinatesToEvade3.getfY()));
+			    		}
+			    	}
+			    
+			    }
+
+				Vector2 v2CoordinatesToEvade4;
+				//Collision for player2 and tiles.
+
+				for (int i = 0; i < 450; ++i)
+				{
+					if (mCampaignLevel1.getTileArray()[i].bWalkable == false)
+					{
+						if (true == AABB(Box(tVersusPlayer2.getSprite()->getPosition(), tVersusPlayer2.getSprite()->getWidth(), tVersusPlayer2.getSprite()->getHeight(), tVersusPlayer2.getSprite()->getVelocity()), Box(mCampaignLevel1.getTileArray()[i].m_sTile->getPosition(), mCampaignLevel1.getTileArray()[i].m_sTile->getWidth(), mCampaignLevel1.getTileArray()[i].m_sTile->getHeight(), mCampaignLevel1.getTileArray()[i].m_sTile->getVelocity()), v2CoordinatesToEvade4))
+						{
+							tVersusPlayer2.getSprite()->setPosition(Vector2(tVersusPlayer2.getSprite()->getPosition().getfX() + v2CoordinatesToEvade4.getfX(), tVersusPlayer2.getSprite()->getPosition().getfY() + v2CoordinatesToEvade4.getfY()));
+						}
+					}
+
+				}
+
 				tVersusPlayer1.tankLogic(m_fDeltaTime, m_dMousePosX, m_dMousePosY);//Allows for movement of the player1 tank.
 
 				tVersusPlayer2.tankLogic(m_fDeltaTime, m_dMousePosX, m_dMousePosY);//Allows for movement of the player1 tank.

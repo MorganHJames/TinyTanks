@@ -278,3 +278,11 @@ void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePos
 	}
 }
 
+//\===========================================================================================
+//\ Tank Sprite Get 
+//\===========================================================================================
+
+Sprite* Tank::getSprite()//A function to return the sprite.
+{
+	return m_sTank;
+}

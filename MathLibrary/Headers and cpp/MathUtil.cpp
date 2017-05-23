@@ -33,7 +33,7 @@ float reciprocal(const float a_c_fScalar)
 //\ Test Collision Functions
 //\===========================================================================================
 
-// describes an axis-aligned rectangle with a velocity
+
 
 // returns true if the boxes are colliding (velocities are not used)
 bool AABBCheck(Box b1, Box b2)
@@ -43,9 +43,9 @@ bool AABBCheck(Box b1, Box b2)
 
 // returns true if the boxes are colliding (velocities are not used)
 // moveX and moveY will return the movement the b1 must move to avoid the collision
-bool AABB(Box b1, Box b2, float& moveX, float& moveY)
+bool AABB(Box b1, Box b2, Vector2& a_v2Pos)
 {
-	moveX = moveY = 0.0f;
+	a_v2Pos = 0.0f;
 
 	float l = b2.x - (b1.x + b1.w);
 	float r = (b2.x + b2.w) - b1.x;
@@ -57,30 +57,18 @@ bool AABB(Box b1, Box b2, float& moveX, float& moveY)
 		return false;
 
 	// find the offset of both sides
-	moveX = abs(l) < r ? l : r;
-	moveY = abs(t) < b ? t : b;
+	a_v2Pos.setfX(abs(l) < r ? l : r);
+	a_v2Pos.setfY(abs(t) < b ? t : b);
 
 	// only use whichever offset is the smallest
-	if (abs(moveX) < abs(moveY))
-		moveY = 0.0f;
+	if (abs(a_v2Pos.getfX()) < abs(a_v2Pos.getfY()))
+		a_v2Pos.setfY(0.0f);
 	else
-		moveX = 0.0f;
+		a_v2Pos.setfX(0.0f);
 
 	return true;
 }
-/*
-// returns a box the spans both a current box and the destination box
-Box GetSweptBroadphaseBox(Box b)
-{
-	Box broadphasebox(0.0f, 0.0f, 0.0f, 0.0f);
 
-	broadphasebox.x = b.vx > 0 ? b.x : b.x + b.vx;
-	broadphasebox.y = b.vy > 0 ? b.y : b.y + b.vy;
-	broadphasebox.w = b.vx > 0 ? b.vx + b.w : b.w - b.vx;
-	broadphasebox.h = b.vy > 0 ? b.vy + b.h : b.h - b.vy;
-
-	return broadphasebox;
-}
 
 // performs collision detection on moving box b1 and static box b2
 // returns the time that the collision occured (where 0 is the start of the movement and 1 is the destination)
@@ -185,7 +173,7 @@ float SweptAABB(Box b1, Box b2, float& normalx, float& normaly)
 		return entryTime;
 	}
 }
-*/
+
 //\===========================================================================================
 //\ Min Value
 //\===========================================================================================
