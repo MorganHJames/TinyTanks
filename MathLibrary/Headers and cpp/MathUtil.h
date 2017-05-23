@@ -173,7 +173,7 @@ Vector2 getBezierPoint(Vector2* points, int numPoints, float t);
 
 // Code sourced from https https://en.wikipedia.org/wiki/Slerp
 
-Vector3 slerp(float a_fT, Vector3 a_v3V0, Vector3 a_v3V1);
+//Vector3 slerp(float a_fT, Vector3 a_v3V0, Vector3 a_v3V1);
 
 //\===========================================================================================
 //\ Smoothstep

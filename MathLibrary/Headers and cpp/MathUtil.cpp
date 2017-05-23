@@ -209,7 +209,7 @@ float lerp(float v0, float v1, float t)
 //\===========================================================================================
 
 //Sourced from https://stackoverflow.com/questions/785097/how-do-i-implement-a-b%C3%A9zier-curve-in-c
-
+/*
 Vector2 getBezierPoint(Vector2* points, int numPoints, float t)
 {
 	Vector2* tmp = new Vector2[numPoints];
@@ -224,14 +224,14 @@ Vector2 getBezierPoint(Vector2* points, int numPoints, float t)
 	Vector2 answer = tmp[0];
 	delete[] tmp;
 	return answer;
-}
+}*/
 
 //\===========================================================================================
 //\ Slerp 
 //\===========================================================================================
 
 // Code sourced from https https://en.wikipedia.org/wiki/Slerp
-
+/*
 Vector3 slerp(float a_fT, Vector3 a_v3V0, Vector3 a_v3V1)
 {
 	a_v3V0.normalise();
@@ -264,6 +264,7 @@ Vector3 slerp(float a_fT, Vector3 a_v3V0, Vector3 a_v3V1)
 
 	return a_v3V0 * cos(fTheta) + v3V2 * sin(fTheta);
 }
+*/
 
 //\===========================================================================================
 //\ Smoothstep
