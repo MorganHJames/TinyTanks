@@ -33,7 +33,7 @@ private:
 
 	float m_iSpriteDimentions = 0;//A float to represent the height and the width of each tile.
 
-	Tile *m_tTileArray = new Tile[25 * 18];//An array of tiles that will be moved to there correct position.
+	Tile *m_tTileArray;//An array of tiles that will be moved to there correct position.
 
 public:
 	//\===========================================================================================

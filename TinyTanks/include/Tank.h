@@ -24,6 +24,14 @@ private:
 	//\ Member Variables 
 	//\===========================================================================================
 
+	float m_fTankWidth = 64;//this width of the tank.
+
+	float m_fTankHeight = 64;//The height of the tank.
+
+	float m_fTurretWidth = 40;//The turrets width.
+
+	float m_fTurretHeight = 64;//The turrets height.
+
 	float m_fCurrentVelocity = 0.f;//A float that will contain the current velocity of the tank.
 	
 	float m_fMaxVelocity = 200.0f;//The maximum velocity that the tank may travel at.

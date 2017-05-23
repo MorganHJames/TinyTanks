@@ -23,11 +23,11 @@ private:
 	//\ Member Variables 
 	//\===========================================================================================
 
-	int m_iSpriteID;//A integer representing the sprites identification.
+	int m_iSpriteID = -1;//A integer representing the sprites identification.
 
-	int m_iWidth;//An integer that represent how wide the sprite is to be rendered.
+	int m_iWidth = 0;//An integer that represent how wide the sprite is to be rendered.
 
-	int m_iHeight;//An integer that represent how tall the sprite is to be rendered.
+	int m_iHeight = 0;//An integer that represent how tall the sprite is to be rendered.
 	
 	Vector2 m_v2Origin;//A vector2 which contains the position of which the sprite is to be drawn from.
 

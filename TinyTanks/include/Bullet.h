@@ -16,7 +16,6 @@
 
 #include "Vector2.h"
 #include "Vector4.h"
-#include "BasicAmmo.h"
 
 class Bullet
 {
@@ -24,6 +23,21 @@ private:
 	//\===========================================================================================
 	//\ Member Variables 
 	//\===========================================================================================
+
+	struct basic
+	{
+		int iSpriteID = -1;//The ID of the sprite.
+
+		Vector2 v2Pos;//The coordinates to where the bullet is on the screen.
+
+		bool active = false;//Whether or not the bullet is being shot.
+
+		float fVelocity = 250.0f;//A float that will contain the current velocity of the bullet.
+
+		float fLifeTimer = 0.0f;//How much time the bullet has left in it's life.
+
+		Vector2 v2Forward;//Which direction the bullet is facing.
+	};
 
 	float m_fOffSet = 55.0f;//How far away from the turrets center the bullet will appear.
 
@@ -39,7 +53,7 @@ private:
 
 	int m_iMaxBullets = 0;//How many bullets there will be available for the player to shoot.
 
-	BasicAmmo* m_bBasicAmmoArray = new BasicAmmo[m_iMaxBullets];//An array of bullets that will be moved to there correct position.
+	basic m_bBulletArray[4];//An array of tiles that will be moved to there correct position.
 
 public:
 	//\===========================================================================================

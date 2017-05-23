@@ -7,9 +7,9 @@
 
 #include "Map.h"
 #include "UGFW.h"
-#include <iostream>
 #include <fstream>
 #include <sstream>
+#include "Sprite.h"
 
 //\===========================================================================================
 //\ Constructor 
@@ -18,6 +18,8 @@
 Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A constructor for a map that takes in the screen height and width along with the map file location and the tile set location that will be used.
 {
 	m_iSpriteDimentions = (float)a_c_iWidth / (float)m_iTilesWide;//Sets the sprite dimensions equal to the width of the screen divided by how many tiles wide the map will be.
+
+	m_tTileArray = new Tile[m_iTilesWide * m_iTilesHigh];//An array of tiles that will be moved to there correct position.
 
 	std::ifstream levelMap;//Sets the stream directory.
 
@@ -48,12 +50,20 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
 
 				trCurrentTile.bWalkable = true;//Sets the current tile's boolean value of walkable to be equal to true therefore allowing the player to move across it.
+				
+				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
+
+				trCurrentTile.m_sTile->setHeight(m_iSpriteDimentions);//Sets the height of the sprite to be the same as the member variable.
 			}
 			else if (iTileType == 1)//If the tile type is equal to the solid no side tile.
 			{
 				trCurrentTile.m_sTile = new Sprite(a_c_sTileSet, m_iSpriteDimentions, m_iSpriteDimentions, Vector2(0.5f, 0.5f), Vector4(0.25f, 0.0f, 0.5f, 0.25f));//Creates a sprite for the tile and sets the UV coordinates of the sprite to be equal to it's tile type of no rotation.
 
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
+
+				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
+
+				trCurrentTile.m_sTile->setHeight(m_iSpriteDimentions);//Sets the height of the sprite to be the same as the member variable.
 			}
 			else if (iTileType == 2)//If the tile type is equal to the bottom solid tile.
 			{
@@ -62,6 +72,10 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
 			
 				trCurrentTile.m_sTile->rotateZ(180);//Rotates the current tile 180 degrees.
+
+				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
+
+				trCurrentTile.m_sTile->setHeight(m_iSpriteDimentions);//Sets the height of the sprite to be the same as the member variable.
 			}
 			else if (iTileType == 3)//If the tile type is equal to the left solid tile.
 			{
@@ -70,12 +84,20 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
 
 				trCurrentTile.m_sTile->rotateZ(90);//Rotates the current tile 270 degrees.
+
+				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
+
+				trCurrentTile.m_sTile->setHeight(m_iSpriteDimentions);//Sets the height of the sprite to be the same as the member variable.
 			}
 			else if (iTileType == 4)//If the tile type is equal to the top solid tile.
 			{
 				trCurrentTile.m_sTile = new Sprite(a_c_sTileSet, m_iSpriteDimentions, m_iSpriteDimentions, Vector2(0.5f, 0.5f), Vector4(0, 0, 0.25, 0.25));//Creates a sprite for the tile and sets the UV coordinates of the sprite to be equal to it's tile type of no rotation.
 
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
+
+				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
+
+				trCurrentTile.m_sTile->setHeight(m_iSpriteDimentions);//Sets the height of the sprite to be the same as the member variable.
 			}
 			else if (iTileType == 5)//If the tile type is equal to the right solid tile.
 			{
@@ -84,6 +106,10 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
 
 				trCurrentTile.m_sTile->rotateZ(270);//Rotates the current sprite 90 degrees.
+
+				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
+
+				trCurrentTile.m_sTile->setHeight(m_iSpriteDimentions);//Sets the height of the sprite to be the same as the member variable.
 			}
 			else if (iTileType == 6)//If the tile type is equal to the top right solid tile.
 			{
@@ -92,12 +118,20 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
 
 				trCurrentTile.m_sTile->rotateZ(270);//Rotates the current tile 270 degrees.
+
+				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
+
+				trCurrentTile.m_sTile->setHeight(m_iSpriteDimentions);//Sets the height of the sprite to be the same as the member variable.
 			}
 			else if (iTileType == 7)//If the tile type is equal to the bottom right solid tile.
 			{
 				trCurrentTile.m_sTile = new Sprite(a_c_sTileSet, m_iSpriteDimentions, m_iSpriteDimentions, Vector2(0.5f, 0.5f), Vector4(0, 0, 0.125, 0.125));//Creates a sprite for the tile and sets the UV coordinates of the sprite to be equal to it's tile type of no rotation.
 
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
+
+				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
+
+				trCurrentTile.m_sTile->setHeight(m_iSpriteDimentions);//Sets the height of the sprite to be the same as the member variable.
 			}
 			else if (iTileType == 8)//If the tile type is equal to the bottom left solid tile.
 			{
@@ -106,6 +140,10 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
 
 				trCurrentTile.m_sTile->rotateZ(90);//Rotates the current sprite 90 degrees.
+
+				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
+
+				trCurrentTile.m_sTile->setHeight(m_iSpriteDimentions);//Sets the height of the sprite to be the same as the member variable.
 			}
 			else if (iTileType == 9)//If the tile type is equal to the top left solid tile.
 			{
@@ -114,6 +152,10 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
 
 				trCurrentTile.m_sTile->rotateZ(180);//Rotates the current sprite 180 degrees.
+
+				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
+
+				trCurrentTile.m_sTile->setHeight(m_iSpriteDimentions);//Sets the height of the sprite to be the same as the member variable.
 			}
 			else if (iTileType == 10)//If the tile type is equal to the left and right solid tile.
 			{
@@ -122,12 +164,20 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
 
 				trCurrentTile.m_sTile->rotateZ(90);//Rotates the current sprite 90 degrees.
+
+				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
+
+				trCurrentTile.m_sTile->setHeight(m_iSpriteDimentions);//Sets the height of the sprite to be the same as the member variable.
 			}
 			else if (iTileType == 11)//If the tile type is equal to the top and bottom solid tile.
 			{
 				trCurrentTile.m_sTile = new Sprite(a_c_sTileSet, m_iSpriteDimentions, m_iSpriteDimentions, Vector2(0.5f, 0.5f), Vector4(0, 0.25, 0.25, 0.5));//Creates a sprite for the tile and sets the UV coordinates of the sprite to be equal to it's tile type of no rotation.
 
-				trCurrentTile.m_sTile->rotateZ(0);//Sets the current sprite layer to be in the background.
+				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
+
+				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
+
+				trCurrentTile.m_sTile->setHeight(m_iSpriteDimentions);//Sets the height of the sprite to be the same as the member variable.
 			}
 			else if (iTileType == 12)//If the tile type is equal to the left, right and top solid tile.
 			{
@@ -135,13 +185,21 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
 
-				trCurrentTile.m_sTile->rotateZ(270);//Rotates the current tile 270 degrees
+				trCurrentTile.m_sTile->rotateZ(270);//Rotates the current tile 270 degrees.
+
+				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
+
+				trCurrentTile.m_sTile->setHeight(m_iSpriteDimentions);//Sets the height of the sprite to be the same as the member variable.
 			}
 			else if (iTileType == 13)//If the tile type is equal to the bottom, right and top solid tile.
 			{
 				trCurrentTile.m_sTile = new Sprite(a_c_sTileSet, m_iSpriteDimentions, m_iSpriteDimentions, Vector2(0.5f, 0.5f), Vector4(0.5, 0.25, 0.75, 0.5));//Creates a sprite for the tile and sets the UV coordinates of the sprite to be equal to it's tile type of no rotation.
 
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
+
+				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
+
+				trCurrentTile.m_sTile->setHeight(m_iSpriteDimentions);//Sets the height of the sprite to be the same as the member variable.
 			}
 			else if (iTileType == 14)//If the tile type is equal to the left, bottom and right solid tile.
 			{
@@ -150,6 +208,10 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
 
 				trCurrentTile.m_sTile->rotateZ(90);//Rotates the current sprite 90 degrees.
+
+				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
+
+				trCurrentTile.m_sTile->setHeight(m_iSpriteDimentions);//Sets the height of the sprite to be the same as the member variable.
 			}
 			else if (iTileType == 15)//If the tile type is equal to the left, bottom and top solid tile.
 			{
@@ -158,6 +220,10 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
 
 				trCurrentTile.m_sTile->rotateZ(180);//Rotates the current sprite 180 degrees.
+
+				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
+
+				trCurrentTile.m_sTile->setHeight(m_iSpriteDimentions);//Sets the height of the sprite to be the same as the member variable.
 			}
 			else if (iTileType == 16)//If the tile type is equal to the bottom left corner tile.
 			{
@@ -166,6 +232,10 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
 
 				trCurrentTile.m_sTile->rotateZ(90);//Rotates the current sprite 90 degrees.
+
+				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
+
+				trCurrentTile.m_sTile->setHeight(m_iSpriteDimentions);//Sets the height of the sprite to be the same as the member variable.
 			}
 			else if (iTileType == 17)//If the tile type is equal to the top left corner tile.
 			{
@@ -174,6 +244,10 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
 
 				trCurrentTile.m_sTile->rotateZ(0);//Rotates the current sprite 90 degrees.
+
+				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
+
+				trCurrentTile.m_sTile->setHeight(m_iSpriteDimentions);//Sets the height of the sprite to be the same as the member variable.
 			}
 			else if (iTileType == 18)//If the tile type is equal to the top right corner tile.
 			{
@@ -182,6 +256,10 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
 
 				trCurrentTile.m_sTile->rotateZ(270);//Rotates the current sprite 90 degrees.
+
+				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
+
+				trCurrentTile.m_sTile->setHeight(m_iSpriteDimentions);//Sets the height of the sprite to be the same as the member variable.
 			}
 			else if (iTileType == 19)//If the tile type is equal to the bottom right corner tile.
 			{
@@ -190,6 +268,10 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
 
 				trCurrentTile.m_sTile->rotateZ(180);//Rotates the current sprite 90 degrees.
+
+				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
+
+				trCurrentTile.m_sTile->setHeight(m_iSpriteDimentions);//Sets the height of the sprite to be the same as the member variable.
 			}
 		}
 	}

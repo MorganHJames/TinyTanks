@@ -16,17 +16,25 @@
 Tank::Tank(const Vector2 a_c_v2Position, bool a_c_bMouse, unsigned int a_c_uiUp, unsigned int a_c_uiDown, unsigned int a_c_uiLeft, unsigned int a_c_uiRight, unsigned int a_c_uiRotateRight, unsigned int a_c_uiRotateLeft, unsigned int a_c_uiFire, char* a_c_cFilename)//A constructor for the tank that takes in the in position of where you want to the tank to be and the controls for tank.
 	: normalBullets(4, "./images/tanks.png", 1)//Creates the normal bullets.
 {
-	m_sTank = new Sprite(a_c_cFilename, 66, 72, Vector2(0.5f, 0.5f), Vector4(0.058f, 0.536f, 0.442f, 0.964f));//Creates a sprite for the tanks base.
+	m_sTank = new Sprite(a_c_cFilename, m_fTankWidth, m_fTankHeight, Vector2(0.5f, 0.5f), Vector4(0.058f, 0.536f, 0.442f, 0.964f));//Creates a sprite for the tanks base.
 
 	m_sTank->setPosition(a_c_v2Position);//Sets the position of the tanks base to be equal to the argument passed in.
 	
 	m_sTank->setLayer(10);//Sets the layer of the tank so that it is rendered as far back as possible.
 
-	m_sTurret = new Sprite(a_c_cFilename, 38, 64, Vector2(0.5f, 0.25f), Vector4(0.622f, 0.607f, 0.843f, 0.988f));//Creates a sprite for the tanks turret.
+	m_sTank->setWidth(m_fTankWidth);//Sets the width of the sprite to be the same as the member variable.
+
+	m_sTank->setHeight(m_fTankHeight);//Sets the height of the sprite to be the same as the member variable.
+
+	m_sTurret = new Sprite(a_c_cFilename, m_fTurretWidth, m_fTurretHeight, Vector2(0.5f, 0.25f), Vector4(0.622f, 0.607f, 0.843f, 0.988f));//Creates a sprite for the tanks turret.
 	
 	m_sTurret->setPosition(a_c_v2Position);//Sets the position of the tanks base to be equal to the argument passed in.
 	
 	m_sTurret->setLayer(11);//Sets the layer of tank turret so that it is rendered on top of the base.
+
+	m_sTurret->setWidth(m_fTurretWidth);//Sets the width of the sprite to be the same as the member variable.
+
+	m_sTurret->setHeight(m_fTurretHeight);//Sets the height of the sprite to be the same as the member variable.
 
 	m_bPlayer = true;//Sets the player boolean to true as if the controls are defined the tank must be a player.
 
@@ -169,7 +177,7 @@ void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePos
 			
 	        if (UG::GetMouseButtonDown(m_bMousePressed) == true || UG::IsKeyDown(m_uiFire))//If the mouse controls are true and the mouse is being pressed or the fire key is being pressed.
 	        {
-				float fSpriteTurretMat[16];//Creates an array of 16 floats.
+	             float fSpriteTurretMat[16];//Creates an array of 16 floats.
 		        
 			     UG::GetSpriteMatrix(m_sTurret->getSpriteID(), fSpriteTurretMat);//Gets the sprite matrix of the turret and sets it in the array.
 		        
@@ -251,7 +259,9 @@ void Tank::tankLogic(float a_fDeltaTime, double a_dMousePosX, double a_dMousePos
 
 	if (fabsf(m_fCurrentVelocity) > 125.0f)//If the current velocity is higher than 0.25f.
 	{
-		v2Position += (v2Forward * (m_fCurrentVelocity * a_fDeltaTime));//Add forward and velocity to the position.
+		m_sTank->setVelocity(v2Forward * (m_fCurrentVelocity * a_fDeltaTime));
+
+		v2Position += m_sTank->getVelocity();//Add forward and velocity to the position.
 
 		m_sTank->setPosition(v2Position);//Sets the position of the tank to be the new position vector.
 
