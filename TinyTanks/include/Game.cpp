@@ -39,9 +39,9 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 
 		Tank tCampaignPlayer(Vector2(0.5f * m_iScreenWidth, 0.5f * m_iScreenHeight), true, 87, 83, 65, 68, 69, 81, 32, "./images/tanks.png");//Initializes the players tank for campaign.
 
-		Tank tMenuAI1(Vector2(0.75f * m_iScreenWidth, 0.5f * m_iScreenHeight));//Initializes the players tank for campaign.
+		Tank tCampaignAI1(Vector2(0.75f * m_iScreenWidth, 0.5f * m_iScreenHeight));//Initializes the AI tank for campaign.
 
-		Tank tMenuAI2(Vector2(0.25f * m_iScreenWidth, 0.5f * m_iScreenHeight));//Initializes the players tank for campaign.
+		Tank tCampaignAI2(Vector2(0.25f * m_iScreenWidth, 0.5f * m_iScreenHeight));//Initializes the AI tank for campaign.
 
 		Tank tVersusPlayer1(Vector2(0.25f * m_iScreenWidth, 0.5f * m_iScreenHeight), false, 87, 83, 65, 68, 69, 81, 32, "./images/tanks.png");//Initializes the player1 tank for versus.
 		
@@ -96,17 +96,13 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 					
 					currentState = MENU;//Sets the current state of game play to the menu.
 
-					title.setPosition(Vector2(0.5f * m_iScreenWidth, 0.85 * m_iScreenHeight));//Sets the position of the title image.
+					title.setPosition(Vector2(0.5f * m_iScreenWidth, 0.85f * m_iScreenHeight));//Sets the position of the title image.
 
 					title.update();//Updates the title image.
 
 					title.markForDraw();//Sets the title image to be drawn.
 
 					bCampaign.markForDraw();//Sets the campaign button to be drawn.
-
-					tMenuAI2.markForDraw();//Sets the menu AI to be drawn
-
-					tMenuAI1.markForDraw();//Sets the menu AI to be drawn
 
 					bVS.markForDraw();//Sets the versus button to be drawn.
 
@@ -117,11 +113,6 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 
 			case MENU://The Menu state where buttons should be present to navigate the application.
 			{
-
-				tMenuAI1.tankLogic(m_fDeltaTime, m_dMousePosX, m_dMousePosY);//Updates the tank menu AI.
-
-				tMenuAI2.tankLogic(m_fDeltaTime, m_dMousePosX, m_dMousePosY);//Updates the tank menu AI.
-
 				if (bIncrease == true)//If increase is true.
 				{
 					fTitleWidth += 20 * m_fDeltaTime;//Increase the titles' width.
@@ -171,9 +162,9 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 
 					bExit.stopDrawing();//Stops the exit button from being drawn.
 
-					tMenuAI1.stopDrawing();//Stops drawing the menu AI tank.
+					tCampaignAI1.markForDraw();//Sets the campaign AI to be drawn
 
-					tMenuAI2.stopDrawing();//Stops drawing the menu AI tank.
+					tCampaignAI2.markForDraw();//Sets the campaign AI to be drawn
 				}
 				
 				//\===========================================================================================
@@ -200,9 +191,6 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 
 					bExit.stopDrawing();//Stops the exit button from being drawn.
 
-					tMenuAI1.stopDrawing();//Stops drawing the menu AI tank.
-
-					tMenuAI2.stopDrawing();//Stops drawing the menu AI tank.
 				}
 				
 				//\===========================================================================================
@@ -219,6 +207,10 @@ Game::Game(const int a_c_iWidth, int a_c_iHeight)//Creates a game with a switch 
 
 			case CAMPAIGN://The game play state where the game will be played and the user should be the majority of the time.
 			{
+				tCampaignAI1.tankLogic(m_fDeltaTime, m_dMousePosX, m_dMousePosY);//Updates the tank AI.
+
+				tCampaignAI2.tankLogic(m_fDeltaTime, m_dMousePosX, m_dMousePosY);//Updates the tank AI.
+
 				tCampaignPlayer.tankLogic(m_fDeltaTime, m_dMousePosX, m_dMousePosY);//Allows for movement of the player tank.
 				break;
 			}

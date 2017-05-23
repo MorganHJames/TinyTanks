@@ -1,5 +1,4 @@
 ﻿  Game.cpp
-d:\unistuff\ct4019 programming and mathematics for games (sem1-2 - 201617)\semester 2\tiny tanks\tinytanks\include\game.cpp(99): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   UG Basic Framework.lib(stb_image_aug.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
 LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
 Bullet.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification

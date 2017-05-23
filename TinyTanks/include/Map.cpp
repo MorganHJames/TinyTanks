@@ -117,7 +117,7 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
 
-				trCurrentTile.m_sTile->rotateZ(270);//Rotates the current tile 270 degrees.
+				trCurrentTile.m_sTile->rotateZ(0);//Rotates the current tile 270 degrees.
 
 				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
 
@@ -127,7 +127,7 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 			{
 				trCurrentTile.m_sTile = new Sprite(a_c_sTileSet, m_iSpriteDimentions, m_iSpriteDimentions, Vector2(0.5f, 0.5f), Vector4(0, 0, 0.125, 0.125));//Creates a sprite for the tile and sets the UV coordinates of the sprite to be equal to it's tile type of no rotation.
 
-				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
+				trCurrentTile.m_sTile->setLayer(90);//Sets the current sprite layer to be in the background.
 
 				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
 
@@ -139,7 +139,7 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
 
-				trCurrentTile.m_sTile->rotateZ(90);//Rotates the current sprite 90 degrees.
+				trCurrentTile.m_sTile->rotateZ(180);//Rotates the current sprite 90 degrees.
 
 				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
 
@@ -151,7 +151,7 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
 
-				trCurrentTile.m_sTile->rotateZ(180);//Rotates the current sprite 180 degrees.
+				trCurrentTile.m_sTile->rotateZ(270);//Rotates the current sprite 180 degrees.
 
 				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
 
@@ -163,8 +163,6 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
 
-				trCurrentTile.m_sTile->rotateZ(90);//Rotates the current sprite 90 degrees.
-
 				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
 
 				trCurrentTile.m_sTile->setHeight(m_iSpriteDimentions);//Sets the height of the sprite to be the same as the member variable.
@@ -174,6 +172,8 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 				trCurrentTile.m_sTile = new Sprite(a_c_sTileSet, m_iSpriteDimentions, m_iSpriteDimentions, Vector2(0.5f, 0.5f), Vector4(0, 0.25, 0.25, 0.5));//Creates a sprite for the tile and sets the UV coordinates of the sprite to be equal to it's tile type of no rotation.
 
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
+				
+				trCurrentTile.m_sTile->rotateZ(90);//Rotates the current tile 90 degrees.
 
 				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
 
@@ -185,7 +185,7 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
 
-				trCurrentTile.m_sTile->rotateZ(270);//Rotates the current tile 270 degrees.
+				trCurrentTile.m_sTile->rotateZ(180);//Rotates the current tile 180 degrees.
 
 				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
 
@@ -196,6 +196,8 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 				trCurrentTile.m_sTile = new Sprite(a_c_sTileSet, m_iSpriteDimentions, m_iSpriteDimentions, Vector2(0.5f, 0.5f), Vector4(0.5, 0.25, 0.75, 0.5));//Creates a sprite for the tile and sets the UV coordinates of the sprite to be equal to it's tile type of no rotation.
 
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
+				
+				trCurrentTile.m_sTile->rotateZ(90);//Rotates the current tile 90 degrees.
 
 				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
 
@@ -207,8 +209,6 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
 
-				trCurrentTile.m_sTile->rotateZ(90);//Rotates the current sprite 90 degrees.
-
 				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
 
 				trCurrentTile.m_sTile->setHeight(m_iSpriteDimentions);//Sets the height of the sprite to be the same as the member variable.
@@ -219,7 +219,7 @@ Map::Map(const int a_c_iWidth, char* a_c_sFilename, char* a_c_sTileSet)//A const
 
 				trCurrentTile.m_sTile->setLayer(0);//Sets the current sprite layer to be in the background.
 
-				trCurrentTile.m_sTile->rotateZ(180);//Rotates the current sprite 180 degrees.
+				trCurrentTile.m_sTile->rotateZ(270);//Rotates the current sprite 180 degrees.
 
 				trCurrentTile.m_sTile->setWidth(m_iSpriteDimentions);//Sets the width of the sprite to be the same as the member variable.
 
