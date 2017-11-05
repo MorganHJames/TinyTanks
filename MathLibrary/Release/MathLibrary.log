@@ -1,7 +1,1 @@
-﻿  Matrix4x4.cpp
-  MathUtil.cpp
-  Matrix3x3.cpp
-  Vector2.cpp
-  Vector3.cpp
-  Vector4.cpp
-  MathLibrary.vcxproj -> D:\unistuff\CT4019 Programming and Mathematics for Games (Sem1-2 - 201617)\semester 2\Tiny Tanks\TinyTanks\proj\Release\MathLibrary.lib
+﻿  MathLibrary.vcxproj -> D:\Documents\CodingWork\Year 1\CT4019 Programming and Mathematics for Games (Sem1-2 - 201617)\semester 2\TinyTanks\proj\Release\MathLibrary.lib

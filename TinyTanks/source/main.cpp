@@ -7,8 +7,11 @@
 
 #include "Game.h"
 
+#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")//Stops the console from appearing.
+
 int main()
 {
+	
 	Game newGame(1200, 864);
 	return 0;
 }
